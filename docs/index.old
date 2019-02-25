@@ -15,3 +15,16 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         climanual.md       # Other markdown pages, images and other files.
+
+
+        # Morpheus CLI
+
+        For full documentation visit [mkdocs.org](https://mkdocs.org).
+
+
+        ## Project layout
+
+            mkdocs.yml    # The configuration file.
+            docs/
+                index.md  # The documentation homepage.
+                climanual.md       # Other markdown pages, images and other files.
