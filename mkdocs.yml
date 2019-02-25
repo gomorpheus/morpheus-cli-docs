@@ -6,3 +6,4 @@ theme:
         - yaml
 pages:
   - Home: clidocs.md
+extra_css: [extra.css]
