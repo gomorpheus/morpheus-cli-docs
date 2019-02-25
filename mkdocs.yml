@@ -16,3 +16,4 @@ extra_css: [css/extra.css]
 markdown_extensions:
   - toc:
      permalink: True
+     navigation_depth: 4
