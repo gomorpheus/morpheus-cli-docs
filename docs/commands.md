@@ -1,7 +1,3 @@
-## Morpheus CLI
-
-    morpheus - the command line interface for interacting with the Morpheus Data appliance
-
 ## SYNOPSIS
 
     morpheus [command] [<args>]
