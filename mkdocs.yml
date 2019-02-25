@@ -5,5 +5,5 @@ theme:
     hljs_languages:
         - yaml
 pages:
-  - Home: clidocs.md
+  - Home: index.md
 extra_css: [extra.css]
