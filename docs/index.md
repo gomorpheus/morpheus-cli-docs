@@ -1,4 +1,4 @@
-# Morpheus CLI
+## Morpheus CLI
 
 The morpheus-cli provides a command line interface for interacting with the Morpheus Cloud Platform. Easily provision servers, containers, and manage deployments.
 

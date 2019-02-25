@@ -4,10 +4,14 @@ theme:
     highlightjs: true
     hljs_languages:
         - yaml
-nav:
+pages:
   - Home: index.md
   - Setup: setup.md
   - CLI Commands: commands.md
 markdown_extensions:
     - toc:
-        baselevel: 1
+        baselevel: 2
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - CLI Commands: commands.md
