@@ -11,8 +11,4 @@ pages:
 markdown_extensions:
   - toc:
      permalink: True
-     baselevel: 2
-nav:
-  - Home: index.md
-  - Setup: setup.md
-  - CLI Commands: commands.md
+     depth: 4
