@@ -1,1 +1,4 @@
-site_name: morpheus cli manual 
+site_name: morpheus cli manual
+theme: reathedocs
+pages:
+  - Home: clidocs.md
