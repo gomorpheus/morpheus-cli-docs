@@ -1,4 +1,8 @@
 site_name: morpheus cli manual
-theme: reathedocs
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
 pages:
   - Home: clidocs.md
