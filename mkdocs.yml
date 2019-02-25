@@ -11,4 +11,3 @@ pages:
 markdown_extensions:
   - toc:
      permalink: True
-     depth: 4
