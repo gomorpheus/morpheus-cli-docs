@@ -7,3 +7,7 @@ theme:
 pages:
   - Home: index.md
 extra_css: [extra.css]
+markdown_extensions:
+    - toc:
+        permalink: True
+        baselevel: 4
