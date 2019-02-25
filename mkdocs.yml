@@ -9,8 +9,9 @@ pages:
   - Setup: setup.md
   - CLI Commands: commands.md
 markdown_extensions:
-    - toc:
-        baselevel: 2
+  - toc:
+     permalink: True
+     baselevel: 2
 nav:
   - Home: index.md
   - Setup: setup.md
