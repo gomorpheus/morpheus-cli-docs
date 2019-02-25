@@ -1,6 +1,9 @@
 site_name: morpheus cli manual
 theme:
-    name: rtd-dropdown
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
 pages:
   - Home: index.md
   - Setup: setup.md
