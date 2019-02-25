@@ -1,6 +1,6 @@
 site_name: morpheus cli manual
 theme:
-    name: 'rtd-dropdown'
+    name: rtd-dropdown
 pages:
   - Home: index.md
   - Setup: setup.md
