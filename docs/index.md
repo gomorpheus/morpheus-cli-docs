@@ -1,4 +1,4 @@
-# Morpheus CLI
+## Morpheus CLI
 
     morpheus - the command line interface for interacting with the Morpheus Data appliance
 
