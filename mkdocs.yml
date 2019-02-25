@@ -6,8 +6,8 @@ theme:
         - yaml
 pages:
   - Home: index.md
-extra_css: [extra.css]
+  - Setup: setup.md
+  - CLI Commands: commands.md
 markdown_extensions:
     - toc:
-        permalink: True
         baselevel: 4
