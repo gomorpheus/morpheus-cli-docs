@@ -1,3 +1,7 @@
+## NAME
+
+    morpheus - the command line interface for interacting with the Morpheus Data appliance
+
 ## SYNOPSIS
 
     morpheus [command] [<args>]
@@ -36,13 +40,13 @@
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it
     -r, --remote REMOTE              Remote Appliance Name to use for this command. The active appliance is used by default.
-    -I, --insecure                   Allow for insecure HTTPS communication i.e. bad SSL certificate
+    -I, --insecure                   Allow for insecure HTTPS communication i.e. bad SSL certificate       
     -y, --yes                        Auto confirm, skip any 'Are you sure?' confirmations.
     -r, --quiet                      No Output, when successful.
 
 ## MORPHEUS COMMANDS
 
-    We divide morpheus into commands.
+    We divide morpheus into commands.  
     Every morpheus command may have 0-N sub-commands that it supports.
     Commands generally map to the functionality provided in the Morpheus UI.
 
@@ -279,7 +283,7 @@ Usage: morpheus alias list
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Print list of defined aliases.
+Print list of defined aliases.    
 Use the --format option to vary output.
 The `alias list` command can be abbreviated as just `alias`.
 For more information, see https://github.com/gomorpheus/morpheus-cli/wiki/Alias
@@ -502,6 +506,7 @@ List historical processes for a specific app.
 ```
 Usage: morpheus apps list
         --created-by USER            Created By User Username or ID
+        --details                    Display more details: memory and storage usage used / max values.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -3855,6 +3860,7 @@ Usage: morpheus hosts list
         --noagent
                                      Show only Servers with No agent
         --created-by USER            Created By User Username or ID
+        --details                    Display more details: memory and storage usage used / max values.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -5049,7 +5055,7 @@ Get details about an instance.
 Usage: morpheus instances history [instance]
         --events                     Display sub processes (events).
         --output                     Display process output.
-        --details                    Display more details. Shows everything, untruncated.
+        --details                    Display more details: memory and storage usage used / max values.
         --process-id ID              Display details about a specfic process only.
         --event-id ID                Display details about a specfic process event only.
     -m, --max MAX                    Max Results
@@ -5186,6 +5192,7 @@ Usage: morpheus instances list
     -c, --cloud CLOUD                Cloud Name or ID
         --host HOST                  Host Name or ID
         --created-by USER            Created By User Username or ID
+        --details                    Display more details: memory and storage usage used / max values.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -12673,7 +12680,7 @@ Usage: morpheus tenants get [name]
 #### morpheus tenants groups
 
 ```
-Usage: morpheus account groups [command] [options]
+Usage: morpheus tenants groups [command] [options]
 Commands:
 	add
 	add-cloud
@@ -12741,6 +12748,7 @@ Usage: morpheus tenants remove [name]
 
 ```
 Usage: morpheus tenants update [name] [options]
+        --active [on|off]            Can be used to disable a network
         --name VALUE                 Name
         --description VALUE          Description (optional)
         --role VALUE                 Base Role (optional)
