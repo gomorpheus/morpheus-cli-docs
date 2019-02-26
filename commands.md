@@ -1,12 +1,12 @@
-## NAME
+# Usage
 
     morpheus - the command line interface for interacting with the Morpheus Data appliance
 
-## SYNOPSIS
+## Synopsis
 
     morpheus [command] [<args>]
 
-## DESCRIPTION
+## Description
 
     Morpheus CLI
 
@@ -21,7 +21,7 @@
 
     To learn more about the Morpheus API, visit http://bertramdev.github.io/morpheus-apidoc/
 
-## GLOBAL OPTIONS
+## Global Options
 
     Morpheus supports a few global options.
 
@@ -31,7 +31,7 @@
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-## COMMON OPTIONS
+## Common Options
 
     There are some common options that many commands support. They work the same way for each command.
 
@@ -44,7 +44,7 @@
     -y, --yes                        Auto confirm, skip any 'Are you sure?' confirmations.
     -r, --quiet                      No Output, when successful.
 
-## MORPHEUS COMMANDS
+## Morpheus Commands
 
     We divide morpheus into commands.  
     Every morpheus command may have 0-N sub-commands that it supports.
@@ -53,8 +53,6 @@
     You can get help for any morpheus command by using the -h option.
 
     The available commands and their options are also documented below.
-
-## morpheus
 
 ```
 Usage: morpheus [command] [options]
