@@ -2,3 +2,8 @@ site/
 libreadline.7.0.dylib
 libreadline.8.0.dylib
 old/
+_build/
+build/
+.gradle
+.DS_Store
+README.md

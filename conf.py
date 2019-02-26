@@ -48,8 +48,8 @@ source_suffix = ['.rst', '.md']
 # source_suffix = ['.rst', '.md']
 #source_suffix = '.rst'
 
-# The master toctree document.
-#master_doc = 'index'
+The master toctree document.
+master_doc = 'index'
 
 # General information about the project.
 project = u'Morpheus CLI Docs'
