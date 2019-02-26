@@ -1,13 +1,17 @@
-*********
-morpheus>
-*********
+************
+morpheus>cli
+************
 
 Morpheus CLI Documentation
+   
+.. code-block:: bash
 
-Getting Started
-===============
+    morpheus>intro
 
-The morpheus-cli provides a command line interface for interacting with the Morpheus Cloud Platform. Easily provision servers, containers, and manage deployments.
+    The morpheus cli is a ruby based cli that is rapidly growing in coverage to be able to perform every task that can be performed in the morpheus UI.
+
+    It is also a great way to get started in exploring the morpheus api and understanding some of the data model aspects.
+
 
 The Morpheus CLI repo is at https://github.com/gomorpheus/morpheus-cli/
 
