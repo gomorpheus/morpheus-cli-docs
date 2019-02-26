@@ -4,7 +4,7 @@ morpheus>
 morpheus cli documentation
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    intro
    commands
