@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="430px" height="43px" viewBox="0 0 430 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="320px" height="41px" viewBox="0 0 320 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 3</title>
+    <title>morpheus&gt;</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Courier" font-size="48" font-weight="normal" letter-spacing="7.92592621">
-        <g id="Group-3" transform="translate(-3.000000, -12.000000)">
-            <text id="morpheus&gt;cli">
-                <tspan x="3.61631775" y="46" fill="#F46E5D">morpheus&gt;</tspan>
-                <tspan x="334.191841" y="46" fill="#78C5E1">cli</tspan>
+        <g id="Group-3" transform="translate(-34.000000, -17.000000)">
+            <text id="morpheus&gt;">
+                <tspan x="34.7122383" y="46" fill="#F46E5D">morpheus</tspan>
+                <tspan x="328.557148" y="46" fill="#78C5E1">&gt;</tspan>
             </text>
         </g>
     </g>
