@@ -2,8 +2,8 @@
 morpheus>cli
 ************
 
-Morpheus CLI Documentation
-   
+Morpheus CLI Documentation v3.6.14
+
 .. code-block:: bash
 
     morpheus>intro
