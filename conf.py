@@ -48,7 +48,7 @@ source_suffix = ['.rst', '.md']
 # source_suffix = ['.rst', '.md']
 #source_suffix = '.rst'
 
-The master toctree document.
+#The master toctree document.
 master_doc = 'index'
 
 # General information about the project.
