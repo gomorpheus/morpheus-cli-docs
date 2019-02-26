@@ -28,7 +28,6 @@ source_parsers = {
 
 source_suffix = ['.rst', '.md']
 
-
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -186,7 +185,3 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 def setup(app):
     app.add_stylesheet('extra.css')
-
-#rst_epilog = """
-#.. |morpheus| replace:: Morpheus
-#"""
