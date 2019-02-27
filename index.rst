@@ -5,5 +5,8 @@ morpheus>cli
 .. toctree::
    :maxdepth: 3
 
-   intro
+   gettingStarted
+   setupAppliance
+   instances
+   shell
    commands

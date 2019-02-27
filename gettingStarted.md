@@ -44,15 +44,7 @@ morpheus login
 
 Credentials are used to acquire an access token which is then stored in the users home directory in a folder called `.morpheus`. Now all commands provided by the CLI are available for use just as if running in a *nix based environment*.
 
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/morpheus-cli/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Setup
+## Setup Appliance
 
 The first thing that needs to be done after installing the cli is pointing the cli to the appliance. The CLI can be pointed at many appliances and uses the RESTful OAUTH public developer apis to perform tasks. To set this up simply add a remote appliance with the `morpheus remote add` command
 
@@ -65,7 +57,7 @@ morpheus login
 There are several commands available when dealing with configuration of remote appliances. To see what commands are available just type `morpheus remote`.
 
 
-## Getting Started
+## Get Started
 
 To get started with the morpheus cli its helpful to use `morpheus shell`. The [shell](Shell) provides a handy shell with history and some  autocomplete features for learning to use it. All commands mentioned prefixed with `morpheus` can be omitted since we are in shell mode.
 

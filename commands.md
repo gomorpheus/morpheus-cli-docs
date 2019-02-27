@@ -1,25 +1,12 @@
-# Usage
+# Morpheus CLI Commands
 
-    morpheus - the command line interface for interacting with the Morpheus Data appliance
+We divide morpheus into commands.  
+Every morpheus command may have 0-N sub-commands that it supports.
+Commands generally map to the functionality provided in the Morpheus UI.
 
-## Synopsis
+You can get help for any morpheus command by using the -h option.
 
-    morpheus [command] [<args>]
-
-## Description
-
-    Morpheus CLI
-
-    This is a command line interface for managing a Morpheus Appliance.
-    All communication with the remote appliance is done via the Morpheus API.
-
-    To setup a new appliance, see the `remote add` and `remote setup` commands.
-
-    To get started, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started
-
-    To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com/features
-
-    To learn more about the Morpheus API, visit http://bertramdev.github.io/morpheus-apidoc/
+The available commands and their options are also documented below.
 
 ## Global Options
 
@@ -45,14 +32,6 @@
     -r, --quiet                      No Output, when successful.
 
 ## Morpheus Commands
-
-    We divide morpheus into commands.  
-    Every morpheus command may have 0-N sub-commands that it supports.
-    Commands generally map to the functionality provided in the Morpheus UI.
-
-    You can get help for any morpheus command by using the -h option.
-
-    The available commands and their options are also documented below.
 
 ```
 Usage: morpheus [command] [options]
