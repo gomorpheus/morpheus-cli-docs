@@ -1,60 +1,13 @@
-## NAME
-
-    morpheus - the command line interface for interacting with the Morpheus Data appliance
-
-## SYNOPSIS
-
-    morpheus [command] [<args>]
-
-## DESCRIPTION
-
-    Morpheus CLI
-
-    This is a command line interface for managing a Morpheus Appliance.
-    All communication with the remote appliance is done via the Morpheus API.
-
-    To setup a new appliance, see the `remote add` and `remote setup` commands.
-
-    To get started, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started
-
-    To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com/features
-
-    To learn more about the Morpheus API, visit http://bertramdev.github.io/morpheus-apidoc/ 
-
-## GLOBAL OPTIONS
-
-    Morpheus supports a few global options.
-
-    -v, --version                    Print the version.
-        --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
-    -C, --nocolor                    Disable ANSI coloring
-    -V, --debug                      Print extra output for debugging. 
-    -h, --help                       Print this help
-
-## COMMON OPTIONS
-
-    There are some common options that many commands support. They work the same way for each command.
-
-    -O, --option OPTION              Option value in the format -O var="value" (deprecated soon in favor of first class options)
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
-    -j, --json                       JSON Output
-    -d, --dry-run                    Dry Run, print the API request instead of executing it
-    -r, --remote REMOTE              Remote Appliance Name to use for this command. The active appliance is used by default.
-    -I, --insecure                   Allow for insecure HTTPS communication i.e. bad SSL certificate       
-    -y, --yes                        Auto confirm, skip any 'Are you sure?' confirmations.
-    -r, --quiet                      No Output, when successful.
-
 ## MORPHEUS COMMANDS
 
     We divide morpheus into commands.  
-    Every morpheus command may have 0-N sub-commands that it supports. 
+    Every morpheus command may have 0-N sub-commands that it supports.
     Commands generally map to the functionality provided in the Morpheus UI.
-       
+
     You can get help for any morpheus command by using the -h option.
 
     The available commands and their options are also documented below.
 
-## morpheus
 
 ```
 Usage: morpheus [command] [options]
@@ -248,7 +201,7 @@ Define a new alias.
 Aliases can be exported for future use with the -e option.
 The `alias add` command can be invoked with `alias [name]=[command]`
 
-Examples: 
+Examples:
     alias cloud=clouds
     alias ij='instances get -j'
     alias new-hosts='hosts list -S id -D'
@@ -973,7 +926,7 @@ Usage: morpheus archives get [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Display archive bucket details and files. 
+Display archive bucket details and files.
 The [bucket] component of the argument is the name or id of an archive bucket.
 The [:/path] component is optional and can be used to display files under a sub-directory.
 ```
@@ -1018,7 +971,7 @@ Usage: morpheus archives list-files [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in an archive bucket. 
+List files in an archive bucket.
 Include [/path] to show files under a directory.
 ```
 
@@ -1183,11 +1136,11 @@ Usage: morpheus archives upload [local-file] [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to an archive bucket. 
+Upload a local file or folder to an archive bucket.
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [bucket:/path] should contain the bucket name.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root bucket directory '/'. 
+The default destination is the same name as the [local-file], under the root bucket directory '/'.
 This will overwrite any existing remote files that match the destination /path.
 ```
 
@@ -1233,7 +1186,7 @@ Usage: morpheus benchmark off
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Disable global benchmarking. 
+Disable global benchmarking.
 The default state for this setting is off.
 ```
 
@@ -1247,7 +1200,7 @@ Usage: morpheus benchmark off?
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Print the value of the global benchmark setting. 
+Print the value of the global benchmark setting.
 Exit 0 if off.
 ```
 
@@ -1261,7 +1214,7 @@ Usage: morpheus benchmark on
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Enable global benchmarking. 
+Enable global benchmarking.
 This behaves the same as if you were to add the -B switch to every command.
 ```
 
@@ -1275,7 +1228,7 @@ Usage: morpheus benchmark on?
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Print the value of the global benchmark setting. 
+Print the value of the global benchmark setting.
 Exit 0 if on.
 ```
 
@@ -1323,7 +1276,7 @@ Usage: morpheus benchmark stop [name]
     -h, --help                       Print this help
 
 Stop recording a benchmark.
-[name] is optional. This is the name of the benchmark to stop. 
+[name] is optional. This is the name of the benchmark to stop.
 The last benchmark is used by default.
 ```
 
@@ -11344,7 +11297,7 @@ Usage: morpheus remote add [name] [url]
     -h, --help                       Print this help
 
 This will add a new remote appliance to your morpheus client configuration.
-If the new remote is your one and only, --use is automatically applied and 
+If the new remote is your one and only, --use is automatically applied and
 it will be made the current remote appliance.
 This command will prompt you to login and/or setup a fresh appliance.
 Prompting can be skipped with use of the --quiet option.
@@ -11417,7 +11370,7 @@ Usage: morpheus remote list
     -h, --help                       Print this help
 
 This outputs a list of the configured remote appliances. It also indicates
-the current appliance. The current appliance is where morpheus will send 
+the current appliance. The current appliance is where morpheus will send
 its commands by default. That is, in absence of the '--remote' option.
 ```
 
@@ -12340,7 +12293,7 @@ Usage: morpheus storage-buckets list-files [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in a storage bucket. 
+List files in a storage bucket.
 Include [/path] to show files under a directory.
 ```
 
@@ -12508,11 +12461,11 @@ Usage: morpheus storage-buckets upload [local-file] [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to a storage bucket. 
+Upload a local file or folder to a storage bucket.
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [provider:/path] should contain the name or id of the provider.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root directory '/'. 
+The default destination is the same name as the [local-file], under the root directory '/'.
 This will overwrite any existing remote files that match the destination /path.
 ```
 
@@ -14402,7 +14355,7 @@ morpheus remote add myremote https://testmorpheusappliance.mycompany.com --insec
 morpheus instances list
 ```
 
-Morpheus saves the remote appliance information, including api access tokens, 
+Morpheus saves the remote appliance information, including api access tokens,
 to the $MORPHEUS_HOME_DIRECTORY. These files are saved with file permissions **6000**.
 So, only one system user should be allowed to execute morpheus with that home directory.
 See [Configuration](#Configuration) for more information on the files morpheus reads and writes.
@@ -14440,18 +14393,18 @@ The `.morpheus/groups` YAML file contains the active group information for each 
 
 When Morpheus starts, it executes the commands in a couple of dot files.
 
-These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases. 
+These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases.
 
 ### .morpheus_profile file
 
-It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists). 
+It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists).
 
 This may be inhibited by using the `--noprofile` option.
 
 ### .morpheusrc file
 
 When started as an interactive shell with the `morpheus shell` command,
-Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option. 
+Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option.
 
 An example startup script might look like this:
 
@@ -14474,4 +14427,3 @@ whoami
 our-instances
 
 ```
-
