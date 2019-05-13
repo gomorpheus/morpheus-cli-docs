@@ -1,24 +1,37 @@
-# Morpheus CLI Commands
+## NAME
 
-We divide morpheus into commands.  
-Every morpheus command may have 0-N sub-commands that it supports.
-Commands generally map to the functionality provided in the Morpheus UI.
+    morpheus - the command line interface for interacting with the Morpheus Data appliance
 
-You can get help for any morpheus command by using the -h option.
+## SYNOPSIS
 
-The available commands and their options are also documented below.
+    morpheus [command] [<args>]
 
-## Global Options
+## DESCRIPTION
+
+    Morpheus CLI
+
+    This is a command line interface for managing a Morpheus Appliance.
+    All communication with the remote appliance is done via the Morpheus API.
+
+    To setup a new appliance, see the `remote add` and `remote setup` commands.
+
+    To get started, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started
+
+    To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com/features
+
+    To learn more about the Morpheus API, visit http://bertramdev.github.io/morpheus-apidoc/ 
+
+## GLOBAL OPTIONS
 
     Morpheus supports a few global options.
 
     -v, --version                    Print the version.
         --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
-    -V, --debug                      Print extra output for debugging.
+    -V, --debug                      Print extra output for debugging. 
     -h, --help                       Print this help
 
-## Common Options
+## COMMON OPTIONS
 
     There are some common options that many commands support. They work the same way for each command.
 
@@ -31,7 +44,17 @@ The available commands and their options are also documented below.
     -y, --yes                        Auto confirm, skip any 'Are you sure?' confirmations.
     -r, --quiet                      No Output, when successful.
 
-## Morpheus Commands
+## MORPHEUS COMMANDS
+
+    We divide morpheus into commands.  
+    Every morpheus command may have 0-N sub-commands that it supports. 
+    Commands generally map to the functionality provided in the Morpheus UI.
+       
+    You can get help for any morpheus command by using the -h option.
+
+    The available commands and their options are also documented below.
+
+## morpheus
 
 ```
 Usage: morpheus [command] [options]
@@ -105,11 +128,12 @@ Commands:
 	whoami
 	workflows
 Options:
-    -v, --version                    Print the version.
+    -e, --exec EXPRESSION            Execute the command(s) expression. This is an alternative to passing [command] [options]
         --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time after the command is finished.
     -V, --debug                      Print extra output for debugging.
+    -v, --version                    Print the version.
     -h, --help                       Print this help
 
 For more information, see https://github.com/gomorpheus/morpheus-cli/wiki
@@ -224,7 +248,7 @@ Define a new alias.
 Aliases can be exported for future use with the -e option.
 The `alias add` command can be invoked with `alias [name]=[command]`
 
-Examples:
+Examples: 
     alias cloud=clouds
     alias ij='instances get -j'
     alias new-hosts='hosts list -S id -D'
@@ -287,6 +311,7 @@ Commands:
 	add
 	add-instance
 	apply-security-groups
+	count
 	firewall-disable
 	firewall-enable
 	get
@@ -372,6 +397,32 @@ Usage: morpheus apps apply-security-groups [app] [--clear] [-s]
     -B, --benchmark                  Print benchmark time after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+```
+
+#### morpheus apps count
+
+```
+Usage: morpheus apps count [options]
+        --created-by USER            Created By User Username or ID
+    -s, --search PHRASE              Search Phrase
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. The current remote url is used by default.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -H, --header HEADER              Additional HTTP header to include with requests.
+        --timeout SECONDS            Timeout for api requests. Default is typically 30 seconds.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it
+        --curl                       Dry Run to output API request as a curl command.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get the number of apps.
 ```
 
 #### morpheus apps firewall-disable
@@ -922,7 +973,7 @@ Usage: morpheus archives get [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Display archive bucket details and files.
+Display archive bucket details and files. 
 The [bucket] component of the argument is the name or id of an archive bucket.
 The [:/path] component is optional and can be used to display files under a sub-directory.
 ```
@@ -967,7 +1018,7 @@ Usage: morpheus archives list-files [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in an archive bucket.
+List files in an archive bucket. 
 Include [/path] to show files under a directory.
 ```
 
@@ -1132,11 +1183,11 @@ Usage: morpheus archives upload [local-file] [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to an archive bucket.
+Upload a local file or folder to an archive bucket. 
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [bucket:/path] should contain the bucket name.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root bucket directory '/'.
+The default destination is the same name as the [local-file], under the root bucket directory '/'. 
 This will overwrite any existing remote files that match the destination /path.
 ```
 
@@ -1160,6 +1211,7 @@ Commands:
 
 ```
 Usage: morpheus benchmark exec [command...]
+    -n, --iterations NUMBER          Number of iterations to run. The default is 1.
         --name NAME                  Name for the benchmark. Default is the command itself.
     -q, --quiet                      No Output, do not print to stdout
     -C, --nocolor                    Disable ANSI coloring
@@ -1181,7 +1233,7 @@ Usage: morpheus benchmark off
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Disable global benchmarking.
+Disable global benchmarking. 
 The default state for this setting is off.
 ```
 
@@ -1195,7 +1247,7 @@ Usage: morpheus benchmark off?
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Print the value of the global benchmark setting.
+Print the value of the global benchmark setting. 
 Exit 0 if off.
 ```
 
@@ -1209,7 +1261,7 @@ Usage: morpheus benchmark on
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Enable global benchmarking.
+Enable global benchmarking. 
 This behaves the same as if you were to add the -B switch to every command.
 ```
 
@@ -1223,7 +1275,7 @@ Usage: morpheus benchmark on?
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Print the value of the global benchmark setting.
+Print the value of the global benchmark setting. 
 Exit 0 if on.
 ```
 
@@ -1271,7 +1323,7 @@ Usage: morpheus benchmark stop [name]
     -h, --help                       Print this help
 
 Stop recording a benchmark.
-[name] is optional. This is the name of the benchmark to stop.
+[name] is optional. This is the name of the benchmark to stop. 
 The last benchmark is used by default.
 ```
 
@@ -2129,7 +2181,20 @@ Usage: morpheus clouds security-groups [name]
 
 ```
 Usage: morpheus clouds types
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
     -j, --json                       JSON Output
+        --yaml                       YAML Output
+        --csv                        CSV Output
+        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
+        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
+        --csv-quotes                 Wrap CSV values with ". Default: false
+        --csv-no-header              Exclude header for CSV Output.
+    -F, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields.
     -d, --dry-run                    Dry Run, print the API request instead of executing it
         --curl                       Dry Run to output API request as a curl command.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -3651,6 +3716,15 @@ Update an existing group.
 
 ```
 Usage: morpheus groups use [name]
+    -q, --quiet                      No Output, do not print to stdout
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. The current remote url is used by default.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -H, --header HEADER              Additional HTTP header to include with requests.
+        --timeout SECONDS            Timeout for api requests. Default is typically 30 seconds.
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time after the command is finished.
     -V, --debug                      Print extra output for debugging.
@@ -3677,10 +3751,10 @@ Commands:
 	remove
 	resize
 	run-workflow
-	server-types
 	start
 	stats
 	stop
+	types
 	update
 	upgrade-agent
 ```
@@ -3722,6 +3796,31 @@ Usage: morpheus hosts add [cloud] [name]
 
 ```
 Usage: morpheus hosts count [options]
+    -a, --account ACCOUNT            Account Name or ID
+    -g, --group GROUP                Group Name or ID
+    -c, --cloud CLOUD                Cloud Name or ID
+    -M, --managed                    Show only Managed Servers
+        --unmanaged                  Show only Unmanaged Servers
+    -t, --type TYPE                  Show only Certain Server Types
+    -p, --power STATE                Filter by Power Status
+    -i, --ip IPADDRESS               Filter by IP Address
+        --vm
+                                     Show only virtual machines
+        --hypervisor
+                                     Show only VM Hypervisors
+        --container
+                                     Show only Container Hypervisors
+        --baremetal
+                                     Show only Baremetal Servers
+        --status STATUS
+                                     Filter by Status
+        --agent
+                                     Show only Servers with the agent installed
+        --noagent
+                                     Show only Servers with No agent
+        --created-by USER            Created By User Username or ID
+        --details                    Display more details: memory and storage usage used / max values.
+    -s, --search PHRASE              Search Phrase
     -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
     -r, --remote REMOTE              Remote name. The current remote is used by default.
         --remote-url URL             Remote url. The current remote url is used by default.
@@ -4009,25 +4108,6 @@ Usage: morpheus hosts run-workflow [name] [workflow] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts server-types
-
-```
-Usage: morpheus hosts server-types [cloud]
-    -j, --json                       JSON Output
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. The current remote url is used by default.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -H, --header HEADER              Additional HTTP header to include with requests.
-        --timeout SECONDS            Timeout for api requests. Default is typically 30 seconds.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-```
-
 #### morpheus hosts start
 
 ```
@@ -4109,6 +4189,44 @@ Usage: morpheus hosts stop [name]
 
 Stop a host.
 [name] is required. This is the name or id of a host. Supports 1-N [name] arguments.
+```
+
+#### morpheus hosts types
+
+```
+Usage: morpheus hosts types
+    -c, --cloud CLOUD                Cloud Name or ID
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
+    -j, --json                       JSON Output
+        --yaml                       YAML Output
+        --csv                        CSV Output
+        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
+        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
+        --csv-quotes                 Wrap CSV values with ". Default: false
+        --csv-no-header              Exclude header for CSV Output.
+    -F, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it
+        --curl                       Dry Run to output API request as a curl command.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. The current remote url is used by default.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -H, --header HEADER              Additional HTTP header to include with requests.
+        --timeout SECONDS            Timeout for api requests. Default is typically 30 seconds.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List host types.
 ```
 
 #### morpheus hosts update
@@ -4813,6 +4931,11 @@ Usage: morpheus instances containers [name]
 
 ```
 Usage: morpheus instances count [options]
+    -g, --group GROUP                Group Name or ID
+    -c, --cloud CLOUD                Cloud Name or ID
+        --host HOST                  Host Name or ID
+        --created-by USER            Created By User Username or ID
+    -s, --search PHRASE              Search Phrase
     -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
     -r, --remote REMOTE              Remote name. The current remote is used by default.
         --remote-url URL             Remote url. The current remote url is used by default.
@@ -7750,6 +7873,7 @@ Usage: morpheus monitor-apps list
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order
     -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
         --last-updated TIME          Filter by Last Updated (gte)
     -j, --json                       JSON Output
         --yaml                       YAML Output
@@ -8090,6 +8214,7 @@ Usage: morpheus monitor-checks list
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order
     -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
         --last-updated TIME          Filter by Last Updated (gte)
         --yaml                       YAML Output
         --csv                        CSV Output
@@ -8411,6 +8536,7 @@ Usage: morpheus monitor-contacts list
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order
     -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
         --csv                        CSV Output
         --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
         --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
@@ -8604,6 +8730,7 @@ Usage: morpheus monitor-groups list
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order
     -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
         --last-updated TIME          Filter by Last Updated (gte)
     -j, --json                       JSON Output
         --yaml                       YAML Output
@@ -8932,6 +9059,7 @@ Usage: morpheus monitor-incidents list
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order
     -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'phrase=foobar&category=web'
         --last-updated TIME          Filter by Last Updated (gte)
     -j, --json                       JSON Output
         --yaml                       YAML Output
@@ -10215,6 +10343,10 @@ Usage: morpheus networks add -t TYPE
         --pool ID                    Network Pool
         --dhcp-server [on|off]       DHCP Server
         --allow-ip-override [on|off] Allow IP Override
+        --domain VALUE               Network Domain ID
+        --scan [on|off]              Scan Network
+        --proxy-bypass [on|off]      Bypass Proxy for Appliance URL
+        --no-proxy LIST              No Proxy Addresses
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
         --group-defaults LIST        Group Default Selection, comma separated list of group IDs
@@ -10363,6 +10495,10 @@ Usage: morpheus networks update [network] [options]
         --pool ID                    Network Pool
         --dhcp-server [on|off]       DHCP Server
         --allow-ip-override [on|off] Allow IP Override
+        --domain VALUE               Network Domain ID
+        --scan [on|off]              Scan Network
+        --proxy-bypass [on|off]      Bypass Proxy for Appliance URL
+        --no-proxy LIST              No Proxy Addresses
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
         --group-defaults LIST        Group Default Selection, comma separated list of group IDs
@@ -11208,7 +11344,7 @@ Usage: morpheus remote add [name] [url]
     -h, --help                       Print this help
 
 This will add a new remote appliance to your morpheus client configuration.
-If the new remote is your one and only, --use is automatically applied and
+If the new remote is your one and only, --use is automatically applied and 
 it will be made the current remote appliance.
 This command will prompt you to login and/or setup a fresh appliance.
 Prompting can be skipped with use of the --quiet option.
@@ -11281,7 +11417,7 @@ Usage: morpheus remote list
     -h, --help                       Print this help
 
 This outputs a list of the configured remote appliances. It also indicates
-the current appliance. The current appliance is where morpheus will send
+the current appliance. The current appliance is where morpheus will send 
 its commands by default. That is, in absence of the '--remote' option.
 ```
 
@@ -12015,7 +12151,7 @@ Usage: morpheus security-groups use [id] [--none]
 
 ```
 Usage: morpheus shell
-    -e, --exec COMMAND               Execute the provided morpheus commands and exit.
+    -e, --exec EXPRESSION            Execute the command(s) expression and exit.
         --norc                       Do not read and execute the personal initialization script .morpheusrc
     -I, --insecure                   Allow for insecure HTTPS communication i.e. bad SSL certificate
     -Z, --incognito                  Incognito mode. Use a temporary shell. Remotes are loaded without without saved credentials or history logging.
@@ -12204,7 +12340,7 @@ Usage: morpheus storage-buckets list-files [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in a storage bucket.
+List files in a storage bucket. 
 Include [/path] to show files under a directory.
 ```
 
@@ -12372,11 +12508,11 @@ Usage: morpheus storage-buckets upload [local-file] [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to a storage bucket.
+Upload a local file or folder to a storage bucket. 
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [provider:/path] should contain the name or id of the provider.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root directory '/'.
+The default destination is the same name as the [local-file], under the root directory '/'. 
 This will overwrite any existing remote files that match the destination /path.
 ```
 
@@ -14266,7 +14402,7 @@ morpheus remote add myremote https://testmorpheusappliance.mycompany.com --insec
 morpheus instances list
 ```
 
-Morpheus saves the remote appliance information, including api access tokens,
+Morpheus saves the remote appliance information, including api access tokens, 
 to the $MORPHEUS_HOME_DIRECTORY. These files are saved with file permissions **6000**.
 So, only one system user should be allowed to execute morpheus with that home directory.
 See [Configuration](#Configuration) for more information on the files morpheus reads and writes.
@@ -14304,18 +14440,18 @@ The `.morpheus/groups` YAML file contains the active group information for each 
 
 When Morpheus starts, it executes the commands in a couple of dot files.
 
-These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases.
+These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases. 
 
 ### .morpheus_profile file
 
-It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists).
+It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists). 
 
 This may be inhibited by using the `--noprofile` option.
 
 ### .morpheusrc file
 
 When started as an interactive shell with the `morpheus shell` command,
-Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option.
+Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option. 
 
 An example startup script might look like this:
 
@@ -14338,3 +14474,4 @@ whoami
 our-instances
 
 ```
+
