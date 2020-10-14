@@ -10,24 +10,24 @@ Install the CLI using rubygems:
 
     gem install morpheus-cli
 
-Installing on Windows: https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows  
+Installing on Windows: https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows<br/>
 Installing Ruby and Ruby Gems: https://rvm.io/
 
 Update to the latest version:
 
-    gem update morpheus-cli
+<br/><br/>gem update morpheus-cli
 
 To get started, see the command `remote add` command.
 
 ## Guides
 
-Getting Started: https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started  
+Getting Started: https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started<br/>
 Managing Instances: https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances
 
 ## Helpful Resources
 
-To learn more, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started  
-To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com  
+To learn more, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started<br/>
+To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com<br/>
 To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
 
 ## Global Options
