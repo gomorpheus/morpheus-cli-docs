@@ -1,16 +1,28 @@
-morpheus v5.0.0
+Morpheus CLI v5.0.0
 
-## NAME
+## Getting Started
 
-    morpheus - the command line interface for interacting with the Morpheus appliance
+The Morpheus CLI is a command line interface for the Morpheus appliance. It's a ruby gem that provides the `morpheus` executable. It works by making http requests to the Morpheus API.
 
-## SYNOPSIS
+The Morpheus CLI is written in Ruby and requires ruby 2.5 or newer to be installed. Most unix based systems will have this installed already.
 
-    morpheus [command] [<args>] [options]
+Install the CLI using rubygems:
 
-## DESCRIPTION
+    gem install morpheus-cli
 
-    Morpheus CLI
+Installing on Windows: https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows
+Installing Ruby and Ruby Gems: https://rvm.io/
+
+Update to the latest version:
+
+    gem update morpheus-cli
+
+## Guides
+
+Getting Started: https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started
+Managing Instances: https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances
+
+## Morpheus CLI
 
     This is a command line interface for managing a Morpheus Appliance.
     All communication with the remote appliance is done via the Morpheus API.
@@ -23,19 +35,19 @@ morpheus v5.0.0
 
     To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
 
-## GLOBAL OPTIONS
+## Global Options
 
-    Morpheus supports a few global options.
+    Global options supported for all commands.
 
-    -v, --version                    Print the version.
+    -v, --version                    Print the version
         --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
     -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
+    -h, --help                       Print help
 
-## COMMON OPTIONS
+## Common Options
 
-    There are some common options that many commands support. They work the same way for each command.
+    Common options that many commands support. They work the similarly for each command.
 
     -O, --option OPTION              Option value in the format -O var="value" (deprecated soon in favor of first class options)
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -46,7 +58,9 @@ morpheus v5.0.0
     -y, --yes                        Auto confirm, skip any 'Are you sure?' confirmations.
     -r, --quiet                      No Output, when successful.
 
-## MORPHEUS COMMANDS
+## Command Format
+
+    morpheus [command] [<args>] [options]
 
     We divide morpheus into commands.  
     Every morpheus command may have 0-N sub-commands that it supports.
@@ -56,7 +70,7 @@ morpheus v5.0.0
 
     The available commands and their options are also documented below.
 
-## morpheus
+## Command List
 
 ```
 Usage: morpheus [command] [options]
