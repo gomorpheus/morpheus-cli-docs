@@ -30,7 +30,7 @@ morpheus v5.0.0
     -v, --version                    Print the version.
         --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
-    -V, --debug                      Print extra output for debugging. 
+    -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
 ## COMMON OPTIONS
@@ -49,9 +49,9 @@ morpheus v5.0.0
 ## MORPHEUS COMMANDS
 
     We divide morpheus into commands.  
-    Every morpheus command may have 0-N sub-commands that it supports. 
+    Every morpheus command may have 0-N sub-commands that it supports.
     Commands generally map to the functionality provided in the Morpheus UI.
-       
+
     You can get help for any morpheus command by using the -h option.
 
     The available commands and their options are also documented below.
@@ -173,7 +173,7 @@ For more information, see https://github.com/gomorpheus/morpheus-cli/wiki
 ```
 
 
-### morpheus access-token
+### access-token
 
 ```
 Usage: morpheus access-token [command] [options]
@@ -183,7 +183,7 @@ Commands:
 	refresh
 ```
 
-#### morpheus access-token details
+#### access-token details
 
 ```
 Usage: morpheus access-token details
@@ -205,7 +205,7 @@ Print your current authentication credentials.
 This contains tokens that should be kept secret. Be careful.
 ```
 
-#### morpheus access-token get
+#### access-token get
 
 ```
 Usage: morpheus access-token get
@@ -227,7 +227,7 @@ Print your current access token.
 This token should be kept secret. Be careful.
 ```
 
-#### morpheus access-token refresh
+#### access-token refresh
 
 ```
 Usage: morpheus access-token refresh
@@ -255,7 +255,7 @@ All other users or applications with access to your token will need to update to
 ```
 
 
-### morpheus activity
+### activity
 
 ```
 Usage: morpheus activity [command] [options]
@@ -263,7 +263,7 @@ Commands:
 	list
 ```
 
-#### morpheus activity list
+#### activity list
 
 ```
 Usage: morpheus activity list
@@ -312,7 +312,7 @@ The option --timeframe or --start and --end can be used to customized the date p
 ```
 
 
-### morpheus alias
+### alias
 
 ```
 Usage: morpheus alias [command] [options]
@@ -323,7 +323,7 @@ Commands:
 	remove
 ```
 
-#### morpheus alias add
+#### alias add
 
 ```
 Usage: morpheus alias add [name]='[command]'
@@ -336,14 +336,14 @@ Define a new alias.
 Aliases can be exported for future use with the -e option.
 The `alias add` command can be invoked with `alias [name]=[command]`
 
-Examples: 
+Examples:
     alias cloud=clouds
     alias ij='instances get -j'
     alias new-hosts='hosts list -S id -D'
 For more information, see https://github.com/gomorpheus/morpheus-cli/wiki/Alias
 ```
 
-#### morpheus alias export
+#### alias export
 
 ```
 Usage: morpheus alias export [alias] [alias2] [alias3]
@@ -355,7 +355,7 @@ Usage: morpheus alias export [alias] [alias2] [alias3]
 Export an alias, saving it to your .morpheus_profile for future use
 ```
 
-#### morpheus alias list
+#### alias list
 
 ```
 Usage: morpheus alias list
@@ -378,7 +378,7 @@ The `alias list` command can be abbreviated as just `alias`.
 For more information, see https://github.com/gomorpheus/morpheus-cli/wiki/Alias
 ```
 
-#### morpheus alias remove
+#### alias remove
 
 ```
 Usage: morpheus alias remove [alias1] [alias2]
@@ -391,7 +391,7 @@ This is how you remove alias definitions from your .morpheus_profile
 ```
 
 
-### morpheus appliance-settings
+### appliance-settings
 
 ```
 Usage: morpheus appliance-settings [command] [options]
@@ -400,7 +400,7 @@ Commands:
 	update
 ```
 
-#### morpheus appliance-settings get
+#### appliance-settings get
 
 ```
 Usage: morpheus appliance-settings get
@@ -434,7 +434,7 @@ Usage: morpheus appliance-settings get
 Get appliance settings.
 ```
 
-#### morpheus appliance-settings update
+#### appliance-settings update
 
 ```
 Usage: morpheus appliance-settings update
@@ -498,7 +498,7 @@ Usage: morpheus appliance-settings update
 ```
 
 
-### morpheus approvals
+### approvals
 
 ```
 Usage: morpheus approvals [command] [options]
@@ -510,7 +510,7 @@ Commands:
 	list
 ```
 
-#### morpheus approvals approve
+#### approvals approve
 
 ```
 Usage: morpheus approvals [id]
@@ -536,7 +536,7 @@ Approve item.
 [id] is required. Approval item ID
 ```
 
-#### morpheus approvals cancel
+#### approvals cancel
 
 ```
 Usage: morpheus approvals [id]
@@ -562,7 +562,7 @@ Cancel item.
 [id] is required. Approval item ID
 ```
 
-#### morpheus approvals deny
+#### approvals deny
 
 ```
 Usage: morpheus approvals [id]
@@ -588,7 +588,7 @@ Deny item.
 [id] is required. Approval item ID
 ```
 
-#### morpheus approvals get
+#### approvals get
 
 ```
 Usage: morpheus approvals get [approval]
@@ -613,7 +613,7 @@ Get details about a job.
 [approval] is required. Approval ID or name
 ```
 
-#### morpheus approvals list
+#### approvals list
 
 ```
 Usage: morpheus approvals list
@@ -653,7 +653,7 @@ List approvals.
 ```
 
 
-### morpheus apps
+### apps
 
 ```
 Usage: morpheus apps [command] [options]
@@ -682,7 +682,7 @@ Commands:
 	wiki
 ```
 
-#### morpheus apps add
+#### apps add
 
 ```
 Usage: morpheus apps add [name] [options]
@@ -716,7 +716,7 @@ Create a new app.
 [name] is required. This is the name of the new app. It may also be passed as --name or inside your config.
 ```
 
-#### morpheus apps add-instance
+#### apps add-instance
 
 ```
 Usage: morpheus apps add-instance [app] [instance] [tier]
@@ -738,7 +738,7 @@ Add an existing instance to an app.
 [tier] is required. This is the name of the tier.
 ```
 
-#### morpheus apps apply
+#### apps apply
 
 ```
 Usage: morpheus apps apply [app] [options]
@@ -771,13 +771,13 @@ Usage: morpheus apps apply [app] [options]
 Apply an app.
 [app] is required. This is the name or id of an app.
 Template parameter values can be applied with -O templateParameter.foo=bar
-This is a way to apply an app with new configuration parameters to an app. 
+This is a way to apply an app with new configuration parameters to an app.
 This prints the app configuration that would be applied.
 It does not make any updates.
 This is only supported by certain types of apps.
 ```
 
-#### morpheus apps apply-security-groups
+#### apps apply-security-groups
 
 ```
 Usage: morpheus apps apply-security-groups [app] [--clear] [-s]
@@ -793,7 +793,7 @@ Usage: morpheus apps apply-security-groups [app] [--clear] [-s]
     -h, --help                       Print this help
 ```
 
-#### morpheus apps cancel-removal
+#### apps cancel-removal
 
 ```
 Usage: morpheus apps cancel-removal [app]
@@ -816,7 +816,7 @@ Usage: morpheus apps cancel-removal [app]
     -h, --help                       Print this help
 ```
 
-#### morpheus apps count
+#### apps count
 
 ```
 Usage: morpheus apps count [options]
@@ -842,7 +842,7 @@ Usage: morpheus apps count [options]
 Get the number of apps.
 ```
 
-#### morpheus apps get
+#### apps get
 
 ```
 Usage: morpheus apps get [app]
@@ -878,7 +878,7 @@ Get details about an app.
 [app] is required. This is the name or id of an app. Supports 1-N [app] arguments.
 ```
 
-#### morpheus apps history
+#### apps history
 
 ```
 Usage: morpheus apps history [app]
@@ -921,7 +921,7 @@ List historical processes for a specific app.
 [app] is required. This is the name or id of an app.
 ```
 
-#### morpheus apps list
+#### apps list
 
 ```
 Usage: morpheus apps list
@@ -968,7 +968,7 @@ Usage: morpheus apps list
 List apps.
 ```
 
-#### morpheus apps logs
+#### apps logs
 
 ```
 Usage: morpheus apps logs [app]
@@ -1014,7 +1014,7 @@ List logs for an app.
 [app] is required. This is the name or id of an app.
 ```
 
-#### morpheus apps prepare-apply
+#### apps prepare-apply
 
 ```
 Usage: morpheus apps prepare-apply [app] [options]
@@ -1052,7 +1052,7 @@ It does not make any updates.
 This is only supported by certain types of apps.
 ```
 
-#### morpheus apps refresh
+#### apps refresh
 
 ```
 Usage: morpheus apps refresh [app] [options]
@@ -1087,7 +1087,7 @@ Refresh an app.
 This is only supported by certain types of apps.
 ```
 
-#### morpheus apps remove
+#### apps remove
 
 ```
 Usage: morpheus apps remove [app]
@@ -1111,7 +1111,7 @@ Delete an app.
 [app] is required. This is the name or id of an app.
 ```
 
-#### morpheus apps remove-instance
+#### apps remove-instance
 
 ```
 Usage: morpheus apps remove-instance [app] [instance]
@@ -1132,7 +1132,7 @@ Remove an instance from an app.
 [instance] is required. This is the name or id of an instance.
 ```
 
-#### morpheus apps restart
+#### apps restart
 
 ```
 Usage: morpheus apps restart [app]
@@ -1159,7 +1159,7 @@ Restart an app.
 [app] is required. This is the name or id of an app. Supports 1-N [app] arguments.
 ```
 
-#### morpheus apps security-groups
+#### apps security-groups
 
 ```
 Usage: morpheus apps security-groups [app]
@@ -1173,7 +1173,7 @@ Usage: morpheus apps security-groups [app]
     -h, --help                       Print this help
 ```
 
-#### morpheus apps start
+#### apps start
 
 ```
 Usage: morpheus apps start [app]
@@ -1200,7 +1200,7 @@ Start an app.
 [app] is required. This is the name or id of an app. Supports 1-N [app] arguments.
 ```
 
-#### morpheus apps stop
+#### apps stop
 
 ```
 Usage: morpheus apps stop [app]
@@ -1227,7 +1227,7 @@ Stop an app.
 [app] is required. This is the name or id of an app. Supports 1-N [app] arguments.
 ```
 
-#### morpheus apps update
+#### apps update
 
 ```
 Usage: morpheus apps update [app] [options]
@@ -1256,7 +1256,7 @@ Update an app.
 [app] is required. This is the name or id of an app.
 ```
 
-#### morpheus apps update-wiki
+#### apps update-wiki
 
 ```
 Usage: morpheus apps update-wiki [app] [options]
@@ -1289,7 +1289,7 @@ Usage: morpheus apps update-wiki [app] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus apps view
+#### apps view
 
 ```
 Usage: morpheus apps view [app]
@@ -1315,7 +1315,7 @@ View an app in a web browser
 [app] is required. This is the name or id of an app. Supports 1-N [app] arguments.
 ```
 
-#### morpheus apps wiki
+#### apps wiki
 
 ```
 Usage: morpheus apps wiki [app]
@@ -1342,7 +1342,7 @@ View wiki page details for an app.
 ```
 
 
-### morpheus archives
+### archives
 
 ```
 Usage: morpheus archives [command] [options]
@@ -1368,7 +1368,7 @@ Commands:
 	upload
 ```
 
-#### morpheus archives add
+#### archives add
 
 ```
 Usage: morpheus archives add [options]
@@ -1407,7 +1407,7 @@ Usage: morpheus archives add [options]
 Create a new archive bucket.
 ```
 
-#### morpheus archives add-file-link
+#### archives add-file-link
 
 ```
 Usage: morpheus archives add-file-link [bucket:/path]
@@ -1434,7 +1434,7 @@ Create a public link to a file.
 [bucket:/path] is required. This is the name of the bucket and /path the file or folder to be fetched.
 ```
 
-#### morpheus archives download
+#### archives download
 
 ```
 Usage: morpheus archives download [bucket:/path] [local-file]
@@ -1464,7 +1464,7 @@ Download an archive file or directory.
 Directories will be downloaded as a .zip file, so you'll want to specify a [local-file] with a .zip extension.
 ```
 
-#### morpheus archives download-bucket
+#### archives download-bucket
 
 ```
 Usage: morpheus archives download-bucket [bucket] [local-file]
@@ -1493,7 +1493,7 @@ Download an entire archive bucket as a .zip file.
 Buckets are be downloaded as a .zip file, so you'll want to specify a [local-file] with a .zip extension.
 ```
 
-#### morpheus archives download-link
+#### archives download-link
 
 ```
 Usage: morpheus archives download-link [link-key] [local-file]
@@ -1521,7 +1521,7 @@ Download an archive file link.
 [local-file] is required. This is the full local filepath for the downloaded file.
 ```
 
-#### morpheus archives file
+#### archives file
 
 ```
 Usage: morpheus archives file [bucket:/path]
@@ -1549,7 +1549,7 @@ Get details about an archive file.
 [id] can be passed instead of [bucket:/path]. This is the numeric File ID.
 ```
 
-#### morpheus archives file-history
+#### archives file-history
 
 ```
 Usage: morpheus archives file-history [bucket:/path]
@@ -1578,7 +1578,7 @@ Usage: morpheus archives file-history [bucket:/path]
 List history log events for an archive file.
 ```
 
-#### morpheus archives file-links
+#### archives file-links
 
 ```
 Usage: morpheus archives file-links [bucket:/path]
@@ -1607,7 +1607,7 @@ Usage: morpheus archives file-links [bucket:/path]
 List links for an archive file.
 ```
 
-#### morpheus archives get
+#### archives get
 
 ```
 Usage: morpheus archives get [bucket:/path]
@@ -1628,12 +1628,12 @@ Usage: morpheus archives get [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Display archive bucket details and files. 
+Display archive bucket details and files.
 The [bucket] component of the argument is the name or id of an archive bucket.
 The [:/path] component is optional and can be used to display files under a sub-directory.
 ```
 
-#### morpheus archives list
+#### archives list
 
 ```
 Usage: morpheus archives list
@@ -1662,7 +1662,7 @@ Usage: morpheus archives list
 List archive buckets.
 ```
 
-#### morpheus archives list-files
+#### archives list-files
 
 ```
 Usage: morpheus archives list-files [bucket:/path]
@@ -1689,11 +1689,11 @@ Usage: morpheus archives list-files [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in an archive bucket. 
+List files in an archive bucket.
 Include [/path] to show files under a directory.
 ```
 
-#### morpheus archives ls
+#### archives ls
 
 ```
 Usage: morpheus archives ls [bucket/path]
@@ -1727,7 +1727,7 @@ Print filenames for a given archive location.
 Pass archive location in the format bucket/path.
 ```
 
-#### morpheus archives read
+#### archives read
 
 ```
 Usage: morpheus archives read [bucket:/path]
@@ -1754,7 +1754,7 @@ Confirmation is needed if the specified file is more than 1KB.
 This confirmation can be skipped with the -y option.
 ```
 
-#### morpheus archives remove
+#### archives remove
 
 ```
 Usage: morpheus archives remove [bucket]
@@ -1777,7 +1777,7 @@ Usage: morpheus archives remove [bucket]
     -h, --help                       Print this help
 ```
 
-#### morpheus archives remove-file
+#### archives remove-file
 
 ```
 Usage: morpheus archives remove-file [bucket:/path]
@@ -1803,7 +1803,7 @@ Usage: morpheus archives remove-file [bucket:/path]
 Delete an archive file or directory.
 ```
 
-#### morpheus archives remove-file-link
+#### archives remove-file-link
 
 ```
 Usage: morpheus archives remove-file-link [bucket:/path] [token]
@@ -1829,7 +1829,7 @@ Delete a public link to a file.
 [bucket:/path] is required. This is the name of the bucket and /path the file or folder to be fetched.[token] is required. This is the secret access key that identifies the link.
 ```
 
-#### morpheus archives rm
+#### archives rm
 
 ```
 Usage: morpheus archives remove-file [bucket:/path]
@@ -1855,7 +1855,7 @@ Usage: morpheus archives remove-file [bucket:/path]
 Delete an archive file or directory.
 ```
 
-#### morpheus archives update
+#### archives update
 
 ```
 Usage: morpheus archives update [bucket] [options]
@@ -1894,7 +1894,7 @@ Usage: morpheus archives update [bucket] [options]
 Update an existing archive bucket.
 ```
 
-#### morpheus archives upload
+#### archives upload
 
 ```
 Usage: morpheus archives upload [local-file] [bucket:/path]
@@ -1918,16 +1918,16 @@ Usage: morpheus archives upload [local-file] [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to an archive bucket. 
+Upload a local file or folder to an archive bucket.
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [bucket:/path] should contain the bucket name.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root bucket directory '/'. 
+The default destination is the same name as the [local-file], under the root bucket directory '/'.
 This will overwrite any existing remote files that match the destination /path.
 ```
 
 
-### morpheus backup-settings
+### backup-settings
 
 ```
 Usage: morpheus backup-settings [command] [options]
@@ -1936,7 +1936,7 @@ Commands:
 	update
 ```
 
-#### morpheus backup-settings get
+#### backup-settings get
 
 ```
 Usage: morpheus backup-settings get
@@ -1970,7 +1970,7 @@ Usage: morpheus backup-settings get
 Get backup settings.
 ```
 
-#### morpheus backup-settings update
+#### backup-settings update
 
 ```
 Usage: morpheus backup-settings update
@@ -2009,7 +2009,7 @@ Update your backup settings.
 ```
 
 
-### morpheus benchmark
+### benchmark
 
 ```
 Usage: morpheus benchmark [command] [options]
@@ -2024,7 +2024,7 @@ Commands:
 	stop	Stop recording a benchmark.
 ```
 
-#### morpheus benchmark exec
+#### benchmark exec
 
 ```
 Usage: morpheus benchmark exec [command...]
@@ -2040,7 +2040,7 @@ Benchmark a specified command or expression.
 [command] is required. This is the command to execute
 ```
 
-#### morpheus benchmark off
+#### benchmark off
 
 ```
 Usage: morpheus benchmark off
@@ -2054,7 +2054,7 @@ Disable global benchmarking.
 The default state for this setting is off.
 ```
 
-#### morpheus benchmark off?
+#### benchmark off?
 
 ```
 Usage: morpheus benchmark off?
@@ -2068,7 +2068,7 @@ Print the value of the global benchmark setting. Exit 0 if off.
 Exit 0 if off.
 ```
 
-#### morpheus benchmark on
+#### benchmark on
 
 ```
 Usage: morpheus benchmark on
@@ -2082,7 +2082,7 @@ Enable global benchmarking.
 This behaves the same as if you were to add the -B switch to every command.
 ```
 
-#### morpheus benchmark on?
+#### benchmark on?
 
 ```
 Usage: morpheus benchmark on?
@@ -2096,7 +2096,7 @@ Print the value of the global benchmark setting. Exit 0 if on.
 Exit 0 if on.
 ```
 
-#### morpheus benchmark start
+#### benchmark start
 
 ```
 Usage: morpheus benchmark start [name]
@@ -2112,7 +2112,7 @@ This allows you to record how long it takes to run a series of commands.
 Just run `benchmark stop` when you are finished.
 ```
 
-#### morpheus benchmark status
+#### benchmark status
 
 ```
 Usage: morpheus benchmark status [name]
@@ -2127,7 +2127,7 @@ Print status of benchmark.
 The last benchmark is used by default.
 ```
 
-#### morpheus benchmark stop
+#### benchmark stop
 
 ```
 Usage: morpheus benchmark stop [name]
@@ -2140,12 +2140,12 @@ Usage: morpheus benchmark stop [name]
     -h, --help                       Print this help
 
 Stop recording a benchmark.
-[name] is optional. This is the name of the benchmark to stop. 
+[name] is optional. This is the name of the benchmark to stop.
 The last benchmark is used by default.
 ```
 
 
-### morpheus blueprints
+### blueprints
 
 ```
 Usage: morpheus blueprints [command] [options]
@@ -2171,7 +2171,7 @@ Commands:
 	upload-image
 ```
 
-#### morpheus blueprints add
+#### blueprints add
 
 ```
 Usage: morpheus blueprints add [name] [options]
@@ -2208,7 +2208,7 @@ Create a new blueprint.
 [name] is required. This is the name of the new blueprint.
 ```
 
-#### morpheus blueprints add-instance
+#### blueprints add-instance
 
 ```
 Usage: morpheus blueprints add-instance [blueprint] [tier] [instance-type]
@@ -2239,7 +2239,7 @@ Update a blueprint, adding an instance.
 [instance-type] is required and will be prompted for. This is the type of instance.
 ```
 
-#### morpheus blueprints add-instance-config
+#### blueprints add-instance-config
 
 ```
 Usage: morpheus blueprints add-instance-config [blueprint] [tier] [instance]
@@ -2273,7 +2273,7 @@ Update a blueprint, adding an instance config.
 [instance] is required. This is the type of instance.
 ```
 
-#### morpheus blueprints add-tier
+#### blueprints add-tier
 
 ```
 Usage: morpheus blueprints add-tier [blueprint] [tier]
@@ -2302,7 +2302,7 @@ Usage: morpheus blueprints add-tier [blueprint] [tier]
     -h, --help                       Print this help
 ```
 
-#### morpheus blueprints available-tiers
+#### blueprints available-tiers
 
 ```
 Usage: morpheus blueprints available-tiers
@@ -2324,7 +2324,7 @@ Usage: morpheus blueprints available-tiers
     -h, --help                       Print this help
 ```
 
-#### morpheus blueprints connect-tiers
+#### blueprints connect-tiers
 
 ```
 Usage: morpheus blueprints connect-tiers [blueprint] [Tier1] [Tier2]
@@ -2346,7 +2346,7 @@ Usage: morpheus blueprints connect-tiers [blueprint] [Tier1] [Tier2]
     -h, --help                       Print this help
 ```
 
-#### morpheus blueprints disconnect-tiers
+#### blueprints disconnect-tiers
 
 ```
 Usage: morpheus blueprints disconnect-tiers [blueprint] [Tier1] [Tier2]
@@ -2368,7 +2368,7 @@ Usage: morpheus blueprints disconnect-tiers [blueprint] [Tier1] [Tier2]
     -h, --help                       Print this help
 ```
 
-#### morpheus blueprints duplicate
+#### blueprints duplicate
 
 ```
 Usage: morpheus blueprints duplicate [blueprint] [new name]
@@ -2395,7 +2395,7 @@ Duplicate a blueprint.
 [new name] is required. This is the name for the clone.
 ```
 
-#### morpheus blueprints get
+#### blueprints get
 
 ```
 Usage: morpheus blueprints get [blueprint]
@@ -2432,7 +2432,7 @@ Get details about a blueprint.
 [blueprint] is required. This is the name or id of a blueprint. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus blueprints list
+#### blueprints list
 
 ```
 Usage: morpheus blueprints list
@@ -2474,7 +2474,7 @@ Usage: morpheus blueprints list
 List blueprints.
 ```
 
-#### morpheus blueprints remove
+#### blueprints remove
 
 ```
 Usage: morpheus blueprints remove [blueprint]
@@ -2502,7 +2502,7 @@ Delete a blueprint.
 [blueprint] is required. This is the name or id of a blueprint.
 ```
 
-#### morpheus blueprints remove-instance
+#### blueprints remove-instance
 
 ```
 Usage: morpheus blueprints remove-instance [blueprint] [tier] [instance]
@@ -2530,7 +2530,7 @@ Update a blueprint, removing a specified instance.
 [instance] is required. This is the instance identifier, which may be the type, the name, or the index starting with 0.
 ```
 
-#### morpheus blueprints remove-instance-config
+#### blueprints remove-instance-config
 
 ```
 Usage: morpheus blueprints remove-instance-config [blueprint] [tier] [instance] -g GROUP -c CLOUD
@@ -2562,7 +2562,7 @@ Update a blueprint, removing a specified instance config.
 The config scope is specified with the -g GROUP, -c CLOUD and -e ENV. The -g and -c options are required.
 ```
 
-#### morpheus blueprints remove-tier
+#### blueprints remove-tier
 
 ```
 Usage: morpheus blueprints remove-tier [blueprint] [tier]
@@ -2585,7 +2585,7 @@ Usage: morpheus blueprints remove-tier [blueprint] [tier]
     -h, --help                       Print this help
 ```
 
-#### morpheus blueprints types
+#### blueprints types
 
 ```
 Usage: morpheus blueprints types
@@ -2618,7 +2618,7 @@ Usage: morpheus blueprints types
 List blueprint types.
 ```
 
-#### morpheus blueprints update
+#### blueprints update
 
 ```
 Usage: morpheus blueprints update [blueprint] [options]
@@ -2654,7 +2654,7 @@ Update a blueprint.
 [blueprint] is required. This is the name or id of a blueprint.
 ```
 
-#### morpheus blueprints update-permissions
+#### blueprints update-permissions
 
 ```
 Usage: morpheus blueprints update-permissions [blueprint] [options]
@@ -2694,7 +2694,7 @@ Update a blueprint permissions.
 [blueprint] is required. This is the name or id of a blueprint.
 ```
 
-#### morpheus blueprints update-tier
+#### blueprints update-tier
 
 ```
 Usage: morpheus blueprints update-tier [blueprint] [tier]
@@ -2723,7 +2723,7 @@ Usage: morpheus blueprints update-tier [blueprint] [tier]
     -h, --help                       Print this help
 ```
 
-#### morpheus blueprints upload-image
+#### blueprints upload-image
 
 ```
 Usage: morpheus blueprints upload-image [blueprint] [file]
@@ -2751,7 +2751,7 @@ Upload an image file to be used as the icon for a blueprint.
 ```
 
 
-### morpheus budgets
+### budgets
 
 ```
 Usage: morpheus budgets [command] [options]
@@ -2763,7 +2763,7 @@ Commands:
 	update
 ```
 
-#### morpheus budgets add
+#### budgets add
 
 ```
 Usage: morpheus budgets add [name] [options]
@@ -2821,7 +2821,7 @@ Usage: morpheus budgets add [name] [options]
 Create budget.
 ```
 
-#### morpheus budgets get
+#### budgets get
 
 ```
 Usage: morpheus budgets get [budget]
@@ -2856,7 +2856,7 @@ Get details about a budget.
 [budget] is required. Budget ID or name
 ```
 
-#### morpheus budgets list
+#### budgets list
 
 ```
 Usage: morpheus budgets list
@@ -2895,7 +2895,7 @@ Usage: morpheus budgets list
 List budgets.
 ```
 
-#### morpheus budgets remove
+#### budgets remove
 
 ```
 Usage: morpheus budgets remove [name]
@@ -2921,7 +2921,7 @@ Delete budget.
 [budget] is required. Budget ID or name
 ```
 
-#### morpheus budgets update
+#### budgets update
 
 ```
 Usage: morpheus budgets update [budget] [options]
@@ -2981,7 +2981,7 @@ Update budget.
 ```
 
 
-### morpheus clouds
+### clouds
 
 ```
 Usage: morpheus clouds [command] [options]
@@ -3000,7 +3000,7 @@ Commands:
 	wiki
 ```
 
-#### morpheus clouds add
+#### clouds add
 
 ```
 Usage: morpheus clouds add [name] --group GROUP --type TYPE
@@ -3033,7 +3033,7 @@ Usage: morpheus clouds add [name] --group GROUP --type TYPE
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds apply-security-groups
+#### clouds apply-security-groups
 
 ```
 Usage: morpheus clouds apply-security-groups [name] [-s] [--clear]
@@ -3057,7 +3057,7 @@ Usage: morpheus clouds apply-security-groups [name] [-s] [--clear]
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds count
+#### clouds count
 
 ```
 Usage: morpheus clouds count [options]
@@ -3081,7 +3081,7 @@ Usage: morpheus clouds count [options]
 Get the number of clouds.
 ```
 
-#### morpheus clouds get
+#### clouds get
 
 ```
 Usage: morpheus clouds get [name]
@@ -3115,7 +3115,7 @@ Get details about a cloud.
 [name] is required. This is the name or id of a cloud.
 ```
 
-#### morpheus clouds list
+#### clouds list
 
 ```
 Usage: morpheus clouds list
@@ -3157,7 +3157,7 @@ Usage: morpheus clouds list
 List clouds.
 ```
 
-#### morpheus clouds refresh
+#### clouds refresh
 
 ```
 Usage: morpheus clouds refresh [name] [options]
@@ -3190,7 +3190,7 @@ Refresh a cloud.
 [cloud] is required. This is the name or id of a cloud.
 ```
 
-#### morpheus clouds remove
+#### clouds remove
 
 ```
 Usage: morpheus clouds remove [name]
@@ -3215,7 +3215,7 @@ Usage: morpheus clouds remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds security-groups
+#### clouds security-groups
 
 ```
 Usage: morpheus clouds security-groups [name]
@@ -3237,7 +3237,7 @@ Usage: morpheus clouds security-groups [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds types
+#### clouds types
 
 ```
 Usage: morpheus clouds types
@@ -3274,7 +3274,7 @@ Usage: morpheus clouds types
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds update
+#### clouds update
 
 ```
 Usage: morpheus clouds update [name] [options]
@@ -3303,7 +3303,7 @@ Usage: morpheus clouds update [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds update-wiki
+#### clouds update-wiki
 
 ```
 Usage: morpheus clouds update-wiki [cloud] [options]
@@ -3336,7 +3336,7 @@ Usage: morpheus clouds update-wiki [cloud] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus clouds wiki
+#### clouds wiki
 
 ```
 Usage: morpheus clouds wiki [cloud]
@@ -3363,7 +3363,7 @@ View wiki page details for a cloud.
 ```
 
 
-### morpheus clusters
+### clusters
 
 ```
 Usage: morpheus clusters [command] [options]
@@ -3416,7 +3416,7 @@ Commands:
 	wiki
 ```
 
-#### morpheus clusters add
+#### clusters add
 
 ```
 Usage: morpheus clusters add [name]
@@ -3478,7 +3478,7 @@ Create a cluster.
 [name] is required. This is the name of the new cluster.
 ```
 
-#### morpheus clusters add-namespace
+#### clusters add-namespace
 
 ```
 Usage: morpheus clusters add-namespace [cluster] [name] [options]
@@ -3522,7 +3522,7 @@ Create a cluster namespace.
 [name] is required. This is the name of the new namespace.
 ```
 
-#### morpheus clusters add-worker
+#### clusters add-worker
 
 ```
 Usage: morpheus clusters add-worker [cluster] [options]
@@ -3576,7 +3576,7 @@ Add worker to a cluster.
 [name] is required. This is the name of the new worker.
 ```
 
-#### morpheus clusters api-config
+#### clusters api-config
 
 ```
 Usage: morpheus clusters api-config [cluster]
@@ -3610,7 +3610,7 @@ Usage: morpheus clusters api-config [cluster]
 Display API service settings for a cluster.
 ```
 
-#### morpheus clusters count
+#### clusters count
 
 ```
 Usage: morpheus clusters count [options]
@@ -3634,7 +3634,7 @@ Usage: morpheus clusters count [options]
 Get the number of clusters.
 ```
 
-#### morpheus clusters get
+#### clusters get
 
 ```
 Usage: morpheus clusters get [id]
@@ -3664,7 +3664,7 @@ Usage: morpheus clusters get [id]
 Get details about a cluster.
 ```
 
-#### morpheus clusters get-datastore
+#### clusters get-datastore
 
 ```
 Usage: morpheus clusters get-datastore [cluster] [datastore]
@@ -3699,7 +3699,7 @@ Get details about a cluster datastore.
 [datastore] is required. This is the name or id of an existing datastore.
 ```
 
-#### morpheus clusters get-namespace
+#### clusters get-namespace
 
 ```
 Usage: morpheus clusters get-namespace [cluster] [namespace]
@@ -3736,7 +3736,7 @@ Get details about a cluster namespace.
 [namespace] is required. This is the name or id of an existing namespace.
 ```
 
-#### morpheus clusters history
+#### clusters history
 
 ```
 Usage: morpheus clusters history [cluster]
@@ -3781,7 +3781,7 @@ List historical processes for a specific cluster.
 [cluster] is required. This is the name or id of an cluster.
 ```
 
-#### morpheus clusters history-details
+#### clusters history-details
 
 ```
 Usage: morpheus clusters history-details [cluster] [process-id]
@@ -3817,7 +3817,7 @@ Display history details for a specific process.
 [process-id] is required. This is the id of the process.
 ```
 
-#### morpheus clusters history-event
+#### clusters history-event
 
 ```
 Usage: morpheus clusters history-event [cluster] [event-id]
@@ -3853,7 +3853,7 @@ Display history details for a specific process event.
 [event-id] is required. This is the id of the process event.
 ```
 
-#### morpheus clusters list
+#### clusters list
 
 ```
 Usage: morpheus clusters list
@@ -3892,7 +3892,7 @@ Usage: morpheus clusters list
 List clusters.
 ```
 
-#### morpheus clusters list-containers
+#### clusters list-containers
 
 ```
 Usage: morpheus clusters list-containers [cluster]
@@ -3934,7 +3934,7 @@ List containers for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-datastores
+#### clusters list-datastores
 
 ```
 Usage: morpheus clusters list-datastores [cluster]
@@ -3974,7 +3974,7 @@ List datastores for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-deployments
+#### clusters list-deployments
 
 ```
 Usage: morpheus clusters list-deployments [cluster]
@@ -4015,7 +4015,7 @@ List deployments for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-jobs
+#### clusters list-jobs
 
 ```
 Usage: morpheus clusters list-jobs [cluster]
@@ -4055,7 +4055,7 @@ List jobs for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-masters
+#### clusters list-masters
 
 ```
 Usage: morpheus clusters list-masters [cluster]
@@ -4095,7 +4095,7 @@ List masters for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-namespaces
+#### clusters list-namespaces
 
 ```
 Usage: morpheus clusters list-namespaces [cluster]
@@ -4135,7 +4135,7 @@ List namespaces for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-pods
+#### clusters list-pods
 
 ```
 Usage: morpheus clusters list-pods [cluster]
@@ -4176,7 +4176,7 @@ List pods for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-services
+#### clusters list-services
 
 ```
 Usage: morpheus clusters list-services [cluster]
@@ -4216,7 +4216,7 @@ List services for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-stateful-sets
+#### clusters list-stateful-sets
 
 ```
 Usage: morpheus clusters list-stateful-sets [cluster]
@@ -4257,7 +4257,7 @@ List statefulsets for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-volumes
+#### clusters list-volumes
 
 ```
 Usage: morpheus clusters list-volumes [cluster]
@@ -4297,7 +4297,7 @@ List volumes for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters list-workers
+#### clusters list-workers
 
 ```
 Usage: morpheus clusters list-workers [cluster]
@@ -4337,7 +4337,7 @@ List workers for a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters logs
+#### clusters logs
 
 ```
 Usage: morpheus clusters logs [cluster]
@@ -4379,7 +4379,7 @@ Usage: morpheus clusters logs [cluster]
     -h, --help                       Print this help
 ```
 
-#### morpheus clusters remove
+#### clusters remove
 
 ```
 Usage: morpheus clusters remove [cluster]
@@ -4411,7 +4411,7 @@ Delete a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters remove-container
+#### clusters remove-container
 
 ```
 Usage: morpheus clusters remove-container [cluster] [container]
@@ -4440,7 +4440,7 @@ Delete a container within a cluster.
 [container] is required. This is the name or id of an existing container.
 ```
 
-#### morpheus clusters remove-deployment
+#### clusters remove-deployment
 
 ```
 Usage: morpheus clusters remove-deployment [cluster] [deployment]
@@ -4469,7 +4469,7 @@ Delete a deployment within a cluster.
 [deployment] is required. This is the name or id of an existing deployment.
 ```
 
-#### morpheus clusters remove-job
+#### clusters remove-job
 
 ```
 Usage: morpheus clusters remove-job [cluster] [job]
@@ -4497,7 +4497,7 @@ Delete a job within a cluster.
 [job] is required. This is the name or id of an existing job.
 ```
 
-#### morpheus clusters remove-namespace
+#### clusters remove-namespace
 
 ```
 Usage: morpheus clusters remove-namespace [cluster] [namespace]
@@ -4524,7 +4524,7 @@ Usage: morpheus clusters remove-namespace [cluster] [namespace]
 Delete a namespace within a cluster.
 ```
 
-#### morpheus clusters remove-pod
+#### clusters remove-pod
 
 ```
 Usage: morpheus clusters remove-pod [cluster] [pod]
@@ -4553,7 +4553,7 @@ Delete a pod within a cluster.
 [pod] is required. This is the name or id of an existing pod.
 ```
 
-#### morpheus clusters remove-service
+#### clusters remove-service
 
 ```
 Usage: morpheus clusters remove-service [cluster] [service]
@@ -4581,7 +4581,7 @@ Delete a service within a cluster.
 [service] is required. This is the name or id of an existing service.
 ```
 
-#### morpheus clusters remove-stateful-set
+#### clusters remove-stateful-set
 
 ```
 Usage: morpheus clusters remove-stateful-set [cluster] [statefulset]
@@ -4610,7 +4610,7 @@ Delete a statefulset within a cluster.
 [statefulset] is required. This is the name or id of an existing statefulset.
 ```
 
-#### morpheus clusters remove-volume
+#### clusters remove-volume
 
 ```
 Usage: morpheus clusters remove-volume [cluster] [volume]
@@ -4638,7 +4638,7 @@ Delete a volume within a cluster.
 [volume] is required. This is the name or id of an existing volume.
 ```
 
-#### morpheus clusters restart-container
+#### clusters restart-container
 
 ```
 Usage: morpheus clusters restart-container [cluster] [container]
@@ -4666,7 +4666,7 @@ Restart a container within a cluster.
 [container] is required. This is the name or id of an existing container.
 ```
 
-#### morpheus clusters restart-deployment
+#### clusters restart-deployment
 
 ```
 Usage: morpheus clusters restart-deployment [cluster] [deployment]
@@ -4694,7 +4694,7 @@ Restart a deployment within a cluster.
 [deployment] is required. This is the name or id of an existing deployment.
 ```
 
-#### morpheus clusters restart-pod
+#### clusters restart-pod
 
 ```
 Usage: morpheus clusters restart-pod [cluster] [pod]
@@ -4722,7 +4722,7 @@ Restart a pod within a cluster.
 [pod] is required. This is the name or id of an existing pod.
 ```
 
-#### morpheus clusters restart-stateful-set
+#### clusters restart-stateful-set
 
 ```
 Usage: morpheus clusters restart-stateful-set [cluster] [statefulset]
@@ -4750,7 +4750,7 @@ Restart a statefulset within a cluster.
 [statefulset] is required. This is the name or id of an existing statefulset.
 ```
 
-#### morpheus clusters update
+#### clusters update
 
 ```
 Usage: morpheus clusters update [cluster] --name --description --active
@@ -4788,7 +4788,7 @@ Update a cluster.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters update-datastore
+#### clusters update-datastore
 
 ```
 Usage: morpheus clusters update-datastore [cluster] [datastore] [options]
@@ -4826,7 +4826,7 @@ Update a cluster datastore.
 [datastore] is required. This is the name or id of an existing datastore.
 ```
 
-#### morpheus clusters update-namespace
+#### clusters update-namespace
 
 ```
 Usage: morpheus clusters update-namespace [cluster] [namespace] [options]
@@ -4869,7 +4869,7 @@ Update a cluster namespace.
 [namespace] is required. This is the name or id of an existing namespace.
 ```
 
-#### morpheus clusters update-permissions
+#### clusters update-permissions
 
 ```
 Usage: morpheus clusters update-permissions [cluster]
@@ -4909,7 +4909,7 @@ Update a clusters permissions.
 [cluster] is required. This is the name or id of an existing cluster.
 ```
 
-#### morpheus clusters update-wiki
+#### clusters update-wiki
 
 ```
 Usage: morpheus clusters update-wiki [cluster] [options]
@@ -4942,7 +4942,7 @@ Usage: morpheus clusters update-wiki [cluster] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus clusters view
+#### clusters view
 
 ```
 Usage: morpheus clusters view [cluster]
@@ -4968,7 +4968,7 @@ View a cluster in a web browser
 [cluster] is required. This is the name or id of a cluster. Supports 1-N [cluster] arguments.
 ```
 
-#### morpheus clusters view-api-token
+#### clusters view-api-token
 
 ```
 Usage: morpheus clusters view-api-token [cluster]
@@ -4992,7 +4992,7 @@ Usage: morpheus clusters view-api-token [cluster]
 Display api token for a cluster.
 ```
 
-#### morpheus clusters view-kube-config
+#### clusters view-kube-config
 
 ```
 Usage: morpheus clusters view-kube-config [cluster]
@@ -5026,7 +5026,7 @@ Usage: morpheus clusters view-kube-config [cluster]
 Display Kubernetes config for a cluster.
 ```
 
-#### morpheus clusters wiki
+#### clusters wiki
 
 ```
 Usage: morpheus clusters wiki [cluster]
@@ -5053,7 +5053,7 @@ View wiki page details for a cluster.
 ```
 
 
-### morpheus containers
+### containers
 
 ```
 Usage: morpheus containers [command] [options]
@@ -5070,7 +5070,7 @@ Commands:
 	suspend
 ```
 
-#### morpheus containers action
+#### containers action
 
 ```
 Usage: morpheus containers action [id list] -a CODE
@@ -5097,7 +5097,7 @@ Usage: morpheus containers action [id list] -a CODE
 Execute an action for a container or containers
 ```
 
-#### morpheus containers actions
+#### containers actions
 
 ```
 Usage: morpheus containers actions [id list]
@@ -5121,7 +5121,7 @@ Usage: morpheus containers actions [id list]
 List the actions available to specified container(s).
 ```
 
-#### morpheus containers eject
+#### containers eject
 
 ```
 Usage: morpheus containers eject [id list]
@@ -5145,7 +5145,7 @@ Usage: morpheus containers eject [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus containers exec
+#### containers exec
 
 ```
 Usage: morpheus containers exec [id] [options]
@@ -5182,7 +5182,7 @@ Execute an arbitrary command or script on a container.
 [script] is required. This is the script that is to be executed.
 ```
 
-#### morpheus containers get
+#### containers get
 
 ```
 Usage: morpheus containers get [id]
@@ -5217,7 +5217,7 @@ Usage: morpheus containers get [id]
     -h, --help                       Print this help
 ```
 
-#### morpheus containers logs
+#### containers logs
 
 ```
 Usage: morpheus containers logs [id]
@@ -5262,7 +5262,7 @@ List logs for a container.
 [id] is required. This is the id of a container.
 ```
 
-#### morpheus containers restart
+#### containers restart
 
 ```
 Usage: morpheus containers restart [id list]
@@ -5286,7 +5286,7 @@ Usage: morpheus containers restart [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus containers start
+#### containers start
 
 ```
 Usage: morpheus containers start [id list]
@@ -5310,7 +5310,7 @@ Usage: morpheus containers start [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus containers stop
+#### containers stop
 
 ```
 Usage: morpheus containers stop [id list]
@@ -5334,7 +5334,7 @@ Usage: morpheus containers stop [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus containers suspend
+#### containers suspend
 
 ```
 Usage: morpheus containers suspend [id list]
@@ -5359,7 +5359,7 @@ Usage: morpheus containers suspend [id list]
 ```
 
 
-### morpheus cypher
+### cypher
 
 ```
 Usage: morpheus cypher [command] [options]
@@ -5370,7 +5370,7 @@ Commands:
 	remove
 ```
 
-#### morpheus cypher get
+#### cypher get
 
 ```
 Usage: morpheus cypher get [key]
@@ -5409,7 +5409,7 @@ Read a cypher item and display the decrypted value.
 Use --ttl to specify a ttl if expecting cypher engine to automatically create the key.
 ```
 
-#### morpheus cypher list
+#### cypher list
 
 ```
 Usage: morpheus cypher list [key]
@@ -5449,7 +5449,7 @@ List cypher keys.
 [key] is optional. This is the cypher key or path to search for.
 ```
 
-#### morpheus cypher put
+#### cypher put
 
 ```
 Usage: morpheus cypher put [key] [value] [options] to store a string.
@@ -5501,7 +5501,7 @@ The --value option can be used to store a string value.
 The --payload option can be used to store an object.
 ```
 
-#### morpheus cypher remove
+#### cypher remove
 
 ```
 Usage: morpheus cypher remove [key]
@@ -5529,7 +5529,7 @@ Delete a cypher.
 ```
 
 
-### morpheus datastores
+### datastores
 
 ```
 Usage: morpheus datastores [command] [options]
@@ -5539,7 +5539,7 @@ Commands:
 	update
 ```
 
-#### morpheus datastores get
+#### datastores get
 
 ```
 Usage: morpheus datastores get [cloud] [datastore]
@@ -5575,7 +5575,7 @@ Get details about a datastore.
 [datastore] is required. This is the name or id of a datastore.
 ```
 
-#### morpheus datastores list
+#### datastores list
 
 ```
 Usage: morpheus datastores list [cloud]
@@ -5615,7 +5615,7 @@ List datastores for a cloud.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus datastores update
+#### datastores update
 
 ```
 Usage: morpheus datastores update [cloud] [datastore] [options]
@@ -5656,7 +5656,7 @@ Update a datastore.
 ```
 
 
-### morpheus deployments
+### deployments
 
 ```
 Usage: morpheus deployments [command] [options]
@@ -5673,7 +5673,7 @@ Commands:
 	update-version
 ```
 
-#### morpheus deployments add
+#### deployments add
 
 ```
 Usage: morpheus deployments add [name] [options]
@@ -5707,7 +5707,7 @@ Usage: morpheus deployments add [name] [options]
 Create a new deployment.
 ```
 
-#### morpheus deployments add-version
+#### deployments add-version
 
 ```
 Usage: morpheus deployments add-version [deployment] [version] [options]
@@ -5746,7 +5746,7 @@ Create a new deployment version.
 [version] is required. This is the deployment version identifier
 ```
 
-#### morpheus deployments get
+#### deployments get
 
 ```
 Usage: morpheus deployments get [deployment]
@@ -5782,7 +5782,7 @@ Get details about a specific deployment.
 [deployment] is required. This is the name or id of a deployment.
 ```
 
-#### morpheus deployments get-version
+#### deployments get-version
 
 ```
 Usage: morpheus deployments get-version [deployment] [version] [options]
@@ -5821,7 +5821,7 @@ Create a new deployment version.
 [version] is required. This is the deployment version identifier
 ```
 
-#### morpheus deployments list
+#### deployments list
 
 ```
 Usage: morpheus deployments list [search]
@@ -5861,7 +5861,7 @@ Usage: morpheus deployments list [search]
 List deployments.
 ```
 
-#### morpheus deployments list-versions
+#### deployments list-versions
 
 ```
 Usage: morpheus deployments list-versions [deployment] [search]
@@ -5902,7 +5902,7 @@ List versions of a specific deployment.
 [deployment] is required. This is the name or id of a deployment.
 ```
 
-#### morpheus deployments remove
+#### deployments remove
 
 ```
 Usage: morpheus deployments remove [deployment] [options]
@@ -5930,7 +5930,7 @@ Delete a deployment.
 [deployment] is required. This is the name or id of a deployment.
 ```
 
-#### morpheus deployments remove-version
+#### deployments remove-version
 
 ```
 Usage: morpheus deployments remove-version [deployment] [version] [options]
@@ -5959,7 +5959,7 @@ Delete a deployment version.
 [version] is required. This is the version identifier of a deployment version.
 ```
 
-#### morpheus deployments update
+#### deployments update
 
 ```
 Usage: morpheus deployments update [deployment] [options]
@@ -5994,7 +5994,7 @@ Update a deployment.
 [deployment] is required. This is the name or id of a deployment.
 ```
 
-#### morpheus deployments update-version
+#### deployments update-version
 
 ```
 Usage: morpheus deployments update-version [deployment] [version] [options]
@@ -6034,7 +6034,7 @@ Update a deployment version.
 ```
 
 
-### morpheus edit-profile
+### edit-profile
 
 ```
 Usage: morpheus edit-profile
@@ -6048,7 +6048,7 @@ Edit your interactive shell script at /Users/jdickson/.morpheus/.morpheus_profil
 ```
 
 
-### morpheus edit-rc
+### edit-rc
 
 ```
 Usage: morpheus edit-rc
@@ -6062,7 +6062,7 @@ Edit your morpheus initialization script at /Users/jdickson/.morpheus/.morpheusr
 ```
 
 
-### morpheus environments
+### environments
 
 ```
 Usage: morpheus environments [command] [options]
@@ -6075,7 +6075,7 @@ Commands:
 	update
 ```
 
-#### morpheus environments add
+#### environments add
 
 ```
 Usage: morpheus environments add [name] [options]
@@ -6109,7 +6109,7 @@ Usage: morpheus environments add [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus environments get
+#### environments get
 
 ```
 Usage: morpheus environments get [name]
@@ -6141,7 +6141,7 @@ Usage: morpheus environments get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus environments list
+#### environments list
 
 ```
 Usage: morpheus environments list
@@ -6178,7 +6178,7 @@ Usage: morpheus environments list
     -h, --help                       Print this help
 ```
 
-#### morpheus environments remove
+#### environments remove
 
 ```
 Usage: morpheus environments remove [name]
@@ -6201,7 +6201,7 @@ Usage: morpheus environments remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus environments toggle-active
+#### environments toggle-active
 
 ```
 Usage: morpheus environments toggle-active [name] [on|off]
@@ -6223,7 +6223,7 @@ Usage: morpheus environments toggle-active [name] [on|off]
     -h, --help                       Print this help
 ```
 
-#### morpheus environments update
+#### environments update
 
 ```
 Usage: morpheus environments update [name] [options]
@@ -6257,7 +6257,7 @@ Usage: morpheus environments update [name] [options]
 ```
 
 
-### morpheus execute-schedules
+### execute-schedules
 
 ```
 Usage: morpheus execute-schedules [command] [options]
@@ -6273,7 +6273,7 @@ Commands:
 	update
 ```
 
-#### morpheus execute-schedules add
+#### execute-schedules add
 
 ```
 Usage: morpheus execute-schedules add [name]
@@ -6312,7 +6312,7 @@ Create a new execute schedule.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus execute-schedules add-hosts
+#### execute-schedules add-hosts
 
 ```
 Usage: morpheus execute-schedules add-hosts [name] [host]
@@ -6343,7 +6343,7 @@ Assign hosts to a execute schedule.
 [host] is required. This is the name or id of a host. More than one can be passed.
 ```
 
-#### morpheus execute-schedules add-instances
+#### execute-schedules add-instances
 
 ```
 Usage: morpheus execute-schedules add-instances [name] [instance]
@@ -6374,7 +6374,7 @@ Assign instances to a execute schedule.
 [instance] is required. This is the name or id of an instance. More than one can be passed.
 ```
 
-#### morpheus execute-schedules get
+#### execute-schedules get
 
 ```
 Usage: morpheus execute-schedules get [name]
@@ -6407,7 +6407,7 @@ Usage: morpheus execute-schedules get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus execute-schedules list
+#### execute-schedules list
 
 ```
 Usage: morpheus execute-schedules list
@@ -6443,7 +6443,7 @@ Usage: morpheus execute-schedules list
     -h, --help                       Print this help
 ```
 
-#### morpheus execute-schedules remove
+#### execute-schedules remove
 
 ```
 Usage: morpheus execute-schedules remove [name]
@@ -6459,7 +6459,7 @@ Usage: morpheus execute-schedules remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus execute-schedules remove-hosts
+#### execute-schedules remove-hosts
 
 ```
 Usage: morpheus execute-schedules remove-hosts [name] [host]
@@ -6490,7 +6490,7 @@ Remove hosts from a execute schedule.
 [host] is required. This is the name or id of a host. More than one can be passed.
 ```
 
-#### morpheus execute-schedules remove-instances
+#### execute-schedules remove-instances
 
 ```
 Usage: morpheus execute-schedules remove-instances [name] [instance]
@@ -6521,7 +6521,7 @@ Remove instances from a execute schedule.
 [instance] is required. This is the name or id of an instance. More than one can be passed.
 ```
 
-#### morpheus execute-schedules update
+#### execute-schedules update
 
 ```
 Usage: morpheus execute-schedules update [name]
@@ -6561,7 +6561,7 @@ Update a execute schedule.
 ```
 
 
-### morpheus execution-request
+### execution-request
 
 ```
 Usage: morpheus execution-request [command] [options]
@@ -6570,7 +6570,7 @@ Commands:
 	get
 ```
 
-#### morpheus execution-request execute
+#### execution-request execute
 
 ```
 Usage: morpheus execution-request execute [options]
@@ -6611,7 +6611,7 @@ Execute an arbitrary script.
 [script] is required. This is the script that is to be executed.
 ```
 
-#### morpheus execution-request get
+#### execution-request get
 
 ```
 Usage: morpheus execution-request get [uid]
@@ -6648,7 +6648,7 @@ Get details about an execution request.
 ```
 
 
-### morpheus file-copy-request
+### file-copy-request
 
 ```
 Usage: morpheus file-copy-request [command] [options]
@@ -6658,7 +6658,7 @@ Commands:
 	get
 ```
 
-#### morpheus file-copy-request download
+#### file-copy-request download
 
 ```
 Usage: morpheus file-copy-request download [uid] [file]
@@ -6691,7 +6691,7 @@ Download a file associated with a file copy request.
 [file] is required. This is the full local filepath for the downloaded file.
 ```
 
-#### morpheus file-copy-request execute
+#### file-copy-request execute
 
 ```
 Usage: morpheus file-copy-request execute [options]
@@ -6729,7 +6729,7 @@ Copy a file to a remote host(s).
 [target-path] is required. This is the target path for the file on the destination host.
 ```
 
-#### morpheus file-copy-request get
+#### file-copy-request get
 
 ```
 Usage: morpheus file-copy-request get [uid]
@@ -6766,7 +6766,7 @@ Get details about a file copy request.
 ```
 
 
-### morpheus groups
+### groups
 
 ```
 Usage: morpheus groups [command] [options]
@@ -6785,7 +6785,7 @@ Commands:
 	wiki
 ```
 
-#### morpheus groups add
+#### groups add
 
 ```
 Usage: morpheus groups add [name]
@@ -6821,7 +6821,7 @@ Usage: morpheus groups add [name]
 Create a new group.
 ```
 
-#### morpheus groups add-cloud
+#### groups add-cloud
 
 ```
 Usage: morpheus groups add-cloud [name] CLOUD
@@ -6853,7 +6853,7 @@ Usage: morpheus groups add-cloud [name] CLOUD
 Add a cloud to a group.
 ```
 
-#### morpheus groups current
+#### groups current
 
 ```
 Usage: morpheus groups current
@@ -6873,7 +6873,7 @@ Usage: morpheus groups current
 Print the name of the current active group
 ```
 
-#### morpheus groups get
+#### groups get
 
 ```
 Usage: morpheus groups get [name]
@@ -6909,7 +6909,7 @@ Get details about a group.
 [name] is required. This is the name or id of a group. Supports 1-N arguments.
 ```
 
-#### morpheus groups list
+#### groups list
 
 ```
 Usage: morpheus groups list
@@ -6949,7 +6949,7 @@ Usage: morpheus groups list
 List groups.
 ```
 
-#### morpheus groups remove
+#### groups remove
 
 ```
 Usage: morpheus groups remove [name]
@@ -6976,7 +6976,7 @@ Usage: morpheus groups remove [name]
 Delete a group.
 ```
 
-#### morpheus groups remove-cloud
+#### groups remove-cloud
 
 ```
 Usage: morpheus groups remove-cloud [name] [cloud]
@@ -7008,7 +7008,7 @@ Usage: morpheus groups remove-cloud [name] [cloud]
 Remove a cloud from a group.
 ```
 
-#### morpheus groups unuse
+#### groups unuse
 
 ```
 Usage: morpheus groups unuse
@@ -7030,7 +7030,7 @@ This will clear the current active group.
 You will be prompted for a Group during provisioning.
 ```
 
-#### morpheus groups update
+#### groups update
 
 ```
 Usage: morpheus groups update [name] [options]
@@ -7065,7 +7065,7 @@ Usage: morpheus groups update [name] [options]
 Update a group.
 ```
 
-#### morpheus groups update-wiki
+#### groups update-wiki
 
 ```
 Usage: morpheus groups update-wiki [group] [options]
@@ -7098,7 +7098,7 @@ Usage: morpheus groups update-wiki [group] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus groups use
+#### groups use
 
 ```
 Usage: morpheus groups use [name]
@@ -7121,7 +7121,7 @@ The active group will be auto-selected for use during provisioning.
 [name] is required. This is the name or id of a group.
 ```
 
-#### morpheus groups wiki
+#### groups wiki
 
 ```
 Usage: morpheus groups wiki [group]
@@ -7148,7 +7148,7 @@ View wiki page details for an group.
 ```
 
 
-### morpheus guidance
+### guidance
 
 ```
 Usage: morpheus guidance [command] [options]
@@ -7161,7 +7161,7 @@ Commands:
 	types
 ```
 
-#### morpheus guidance execute
+#### guidance execute
 
 ```
 Usage: morpheus guidance execute [id]
@@ -7188,7 +7188,7 @@ Usage: morpheus guidance execute [id]
 Get details about a specific discovery.
 ```
 
-#### morpheus guidance get
+#### guidance get
 
 ```
 Usage: morpheus guidance get [id]
@@ -7223,7 +7223,7 @@ Usage: morpheus guidance get [id]
 Get details about a specific discovery.
 ```
 
-#### morpheus guidance ignore
+#### guidance ignore
 
 ```
 Usage: morpheus guidance ignore [id]
@@ -7250,7 +7250,7 @@ Usage: morpheus guidance ignore [id]
 Ignore discovery.
 ```
 
-#### morpheus guidance list
+#### guidance list
 
 ```
 Usage: morpheus guidance list
@@ -7295,7 +7295,7 @@ Usage: morpheus guidance list
 List discoveries
 ```
 
-#### morpheus guidance stats
+#### guidance stats
 
 ```
 Usage: morpheus guidance stats
@@ -7330,7 +7330,7 @@ Usage: morpheus guidance stats
 Get guidance stats.
 ```
 
-#### morpheus guidance types
+#### guidance types
 
 ```
 Usage: morpheus guidance types
@@ -7366,7 +7366,7 @@ List discovery types.
 ```
 
 
-### morpheus health
+### health
 
 ```
 Usage: morpheus health [command] [options]
@@ -7379,7 +7379,7 @@ Commands:
 	unacknowledge-alarms
 ```
 
-#### morpheus health acknowledge-alarms
+#### health acknowledge-alarms
 
 ```
 Usage: morpheus health acknowledge-alarms [alarm] [options]
@@ -7412,7 +7412,7 @@ Acknowledge health alarm(s).
 [alarm] is required. Alarm ID, supports multiple arguments.
 ```
 
-#### morpheus health alarms
+#### health alarms
 
 ```
 Usage: morpheus health alarms
@@ -7456,7 +7456,7 @@ Usage: morpheus health alarms
 List health alarms.
 ```
 
-#### morpheus health get
+#### health get
 
 ```
 Usage: morpheus health get [-a] [options]
@@ -7500,7 +7500,7 @@ Display more details with the options --cpu, --database, --memory, etc.
 Display all details with the -a option.
 ```
 
-#### morpheus health get-alarm
+#### health get-alarm
 
 ```
 Usage: morpheus health get-alarm [id]
@@ -7535,7 +7535,7 @@ Get details about a health alarm.
 [id] is required. Health Alarm ID
 ```
 
-#### morpheus health logs
+#### health logs
 
 ```
 Usage: morpheus health logs
@@ -7579,7 +7579,7 @@ Usage: morpheus health logs
 List health logs. These are the logs of the morpheus appliance itself.
 ```
 
-#### morpheus health unacknowledge-alarms
+#### health unacknowledge-alarms
 
 ```
 Usage: morpheus health unacknowledge-alarms [alarm] [options]
@@ -7612,7 +7612,7 @@ Unacknowledge health alarm(s).
 ```
 
 
-### morpheus hosts
+### hosts
 
 ```
 Usage: morpheus hosts [command] [options]
@@ -7638,7 +7638,7 @@ Commands:
 	wiki
 ```
 
-#### morpheus hosts add
+#### hosts add
 
 ```
 Usage: morpheus hosts add [cloud] [name]
@@ -7673,7 +7673,7 @@ Usage: morpheus hosts add [cloud] [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts count
+#### hosts count
 
 ```
 Usage: morpheus hosts count [options]
@@ -7722,7 +7722,7 @@ Usage: morpheus hosts count [options]
 Get the number of hosts.
 ```
 
-#### morpheus hosts exec
+#### hosts exec
 
 ```
 Usage: morpheus hosts exec [id] [options]
@@ -7759,7 +7759,7 @@ Execute an arbitrary command or script on a host.
 [script] is required. This is the script that is to be executed.
 ```
 
-#### morpheus hosts get
+#### hosts get
 
 ```
 Usage: morpheus hosts get [name]
@@ -7793,7 +7793,7 @@ Usage: morpheus hosts get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts list
+#### hosts list
 
 ```
 Usage: morpheus hosts list
@@ -7859,7 +7859,7 @@ Usage: morpheus hosts list
 List hosts.
 ```
 
-#### morpheus hosts logs
+#### hosts logs
 
 ```
 Usage: morpheus hosts logs [name]
@@ -7901,7 +7901,7 @@ Usage: morpheus hosts logs [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts make-managed
+#### hosts make-managed
 
 ```
 Usage: morpheus hosts make-managed [name]
@@ -7932,7 +7932,7 @@ Usage: morpheus hosts make-managed [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts remove
+#### hosts remove
 
 ```
 Usage: morpheus hosts remove [name]
@@ -7961,7 +7961,7 @@ Usage: morpheus hosts remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts resize
+#### hosts resize
 
 ```
 Usage: morpheus hosts resize [name]
@@ -7987,7 +7987,7 @@ Usage: morpheus hosts resize [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts run-workflow
+#### hosts run-workflow
 
 ```
 Usage: morpheus hosts run-workflow [name] [workflow] [options]
@@ -8017,7 +8017,7 @@ Usage: morpheus hosts run-workflow [name] [workflow] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts start
+#### hosts start
 
 ```
 Usage: morpheus hosts start [name]
@@ -8044,7 +8044,7 @@ Start a host.
 [name] is required. This is the name or id of a host. Supports 1-N [name] arguments.
 ```
 
-#### morpheus hosts stats
+#### hosts stats
 
 ```
 Usage: morpheus hosts stats [name]
@@ -8075,7 +8075,7 @@ Usage: morpheus hosts stats [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts stop
+#### hosts stop
 
 ```
 Usage: morpheus hosts stop [name]
@@ -8102,7 +8102,7 @@ Stop a host.
 [name] is required. This is the name or id of a host. Supports 1-N [name] arguments.
 ```
 
-#### morpheus hosts types
+#### hosts types
 
 ```
 Usage: morpheus hosts types
@@ -8142,7 +8142,7 @@ Usage: morpheus hosts types
 List host types.
 ```
 
-#### morpheus hosts update
+#### hosts update
 
 ```
 Usage: morpheus hosts update [name]
@@ -8176,7 +8176,7 @@ Usage: morpheus hosts update [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts update-wiki
+#### hosts update-wiki
 
 ```
 Usage: morpheus hosts update-wiki [host] [options]
@@ -8209,7 +8209,7 @@ Usage: morpheus hosts update-wiki [host] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts upgrade-agent
+#### hosts upgrade-agent
 
 ```
 Usage: morpheus hosts upgrade-agent [name]
@@ -8232,7 +8232,7 @@ Usage: morpheus hosts upgrade-agent [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus hosts view
+#### hosts view
 
 ```
 Usage: morpheus hosts view [host]
@@ -8258,7 +8258,7 @@ View a host in a web browser
 [host] is required. This is the name or id of a host. Supports 1-N [host] arguments.
 ```
 
-#### morpheus hosts wiki
+#### hosts wiki
 
 ```
 Usage: morpheus hosts wiki [host]
@@ -8285,7 +8285,7 @@ View wiki page details for a host.
 ```
 
 
-### morpheus image-builder
+### image-builder
 
 ```
 Usage: morpheus image-builder [command] [options]
@@ -8301,7 +8301,7 @@ Commands:
 	update
 ```
 
-#### morpheus image-builder add
+#### image-builder add
 
 ```
 Usage: morpheus image-builder add [options]
@@ -8350,7 +8350,7 @@ Usage: morpheus image-builder add [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus image-builder boot-scripts
+#### image-builder boot-scripts
 
 ```
 Usage: morpheus image-builder boot-scripts [command] [options]
@@ -8362,7 +8362,7 @@ Commands:
 	update
 ```
 
-#### morpheus image-builder get
+#### image-builder get
 
 ```
 Usage: morpheus image-builder get [image-build]
@@ -8384,7 +8384,7 @@ Usage: morpheus image-builder get [image-build]
     -h, --help                       Print this help
 ```
 
-#### morpheus image-builder list
+#### image-builder list
 
 ```
 Usage: morpheus image-builder list
@@ -8411,7 +8411,7 @@ Usage: morpheus image-builder list
     -h, --help                       Print this help
 ```
 
-#### morpheus image-builder list-runs
+#### image-builder list-runs
 
 ```
 Usage: morpheus image-builder list-runs [image-build]
@@ -8440,7 +8440,7 @@ Usage: morpheus image-builder list-runs [image-build]
 Display a list of executions for an image build.
 ```
 
-#### morpheus image-builder preseed-scripts
+#### image-builder preseed-scripts
 
 ```
 Usage: morpheus image-builder preseed-scripts [command] [options]
@@ -8452,7 +8452,7 @@ Commands:
 	update
 ```
 
-#### morpheus image-builder remove
+#### image-builder remove
 
 ```
 Usage: morpheus image-builder remove [image-build]
@@ -8476,7 +8476,7 @@ Usage: morpheus image-builder remove [image-build]
     -h, --help                       Print this help
 ```
 
-#### morpheus image-builder run
+#### image-builder run
 
 ```
 Usage: morpheus image-builder run [image-build]
@@ -8499,7 +8499,7 @@ Usage: morpheus image-builder run [image-build]
     -h, --help                       Print this help
 ```
 
-#### morpheus image-builder update
+#### image-builder update
 
 ```
 Usage: morpheus image-builder update [image-build] [options]
@@ -8549,7 +8549,7 @@ Usage: morpheus image-builder update [image-build] [options]
 ```
 
 
-### morpheus instance-types
+### instance-types
 
 ```
 Usage: morpheus instance-types [command] [options]
@@ -8558,7 +8558,7 @@ Commands:
 	list
 ```
 
-#### morpheus instance-types get
+#### instance-types get
 
 ```
 Usage: morpheus instance-types get [name]
@@ -8592,7 +8592,7 @@ Get instance type details.
 [name] is required. This is the name or id of an instance type.
 ```
 
-#### morpheus instance-types list
+#### instance-types list
 
 ```
 Usage: morpheus instance-types list
@@ -8635,7 +8635,7 @@ List instance types.
 ```
 
 
-### morpheus instances
+### instances
 
 ```
 Usage: morpheus instances [command] [options]
@@ -8685,7 +8685,7 @@ Commands:
 	wiki
 ```
 
-#### morpheus instances action
+#### instances action
 
 ```
 Usage: morpheus instances action [id list] -a CODE
@@ -8712,7 +8712,7 @@ Usage: morpheus instances action [id list] -a CODE
 Execute an action for one or many instances.
 ```
 
-#### morpheus instances actions
+#### instances actions
 
 ```
 Usage: morpheus instances actions [id or name list]
@@ -8736,7 +8736,7 @@ Usage: morpheus instances actions [id or name list]
 List the actions available to specified instance(s).
 ```
 
-#### morpheus instances add
+#### instances add
 
 ```
 Usage: morpheus instances add [name] -c CLOUD -t TYPE
@@ -8792,7 +8792,7 @@ Create a new instance.
 The available options vary by --type.
 ```
 
-#### morpheus instances apply-security-groups
+#### instances apply-security-groups
 
 ```
 Usage: morpheus instances apply-security-groups [instance] [-S] [-c]
@@ -8817,7 +8817,7 @@ Usage: morpheus instances apply-security-groups [instance] [-S] [-c]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances backup
+#### instances backup
 
 ```
 Usage: morpheus instances backup [instance]
@@ -8840,7 +8840,7 @@ Usage: morpheus instances backup [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances backups
+#### instances backups
 
 ```
 Usage: morpheus instances backups [instance]
@@ -8862,7 +8862,7 @@ Usage: morpheus instances backups [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances cancel-removal
+#### instances cancel-removal
 
 ```
 Usage: morpheus instances cancel-removal [instance]
@@ -8885,7 +8885,7 @@ Usage: morpheus instances cancel-removal [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances clone
+#### instances clone
 
 ```
 Usage: morpheus instances clone [instance] -g GROUP
@@ -8919,7 +8919,7 @@ Usage: morpheus instances clone [instance] -g GROUP
     -h, --help                       Print this help
 ```
 
-#### morpheus instances console
+#### instances console
 
 ```
 Usage: morpheus instances console [instance]
@@ -8941,7 +8941,7 @@ Usage: morpheus instances console [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances containers
+#### instances containers
 
 ```
 Usage: morpheus instances containers [instance]
@@ -8972,7 +8972,7 @@ Usage: morpheus instances containers [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances count
+#### instances count
 
 ```
 Usage: morpheus instances count [options]
@@ -9001,7 +9001,7 @@ Usage: morpheus instances count [options]
 Get the number of instances.
 ```
 
-#### morpheus instances delenv
+#### instances delenv
 
 ```
 Usage: morpheus instances delenv [instance] VAR
@@ -9023,7 +9023,7 @@ Usage: morpheus instances delenv [instance] VAR
     -h, --help                       Print this help
 ```
 
-#### morpheus instances deploys
+#### instances deploys
 
 ```
 Usage: morpheus instances deploys [instance] [search]
@@ -9065,7 +9065,7 @@ List deployments for an instance.
 [search] is optional. Filters on deployment version identifier
 ```
 
-#### morpheus instances eject
+#### instances eject
 
 ```
 Usage: morpheus instances eject [instance]
@@ -9092,7 +9092,7 @@ Eject an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances envs
+#### instances envs
 
 ```
 Usage: morpheus instances envs [instance]
@@ -9114,7 +9114,7 @@ Usage: morpheus instances envs [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances exec
+#### instances exec
 
 ```
 Usage: morpheus instances exec [id] [options]
@@ -9151,7 +9151,7 @@ Execute an arbitrary script or command on an instance.
 [script] is required. This is the script that is to be executed.
 ```
 
-#### morpheus instances get
+#### instances get
 
 ```
 Usage: morpheus instances get [instance]
@@ -9194,7 +9194,7 @@ Get details about an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances history
+#### instances history
 
 ```
 Usage: morpheus instances history [instance]
@@ -9239,7 +9239,7 @@ List historical processes for a specific instance.
 [instance] is required. This is the name or id of an instance.
 ```
 
-#### morpheus instances history-details
+#### instances history-details
 
 ```
 Usage: morpheus instances history-details [instance] [process-id]
@@ -9275,7 +9275,7 @@ Display history details for a specific process.
 [process-id] is required. This is the id of the process.
 ```
 
-#### morpheus instances history-event
+#### instances history-event
 
 ```
 Usage: morpheus instances history-event [instance] [event-id]
@@ -9311,7 +9311,7 @@ Display history details for a specific process event.
 [event-id] is required. This is the id of the process event.
 ```
 
-#### morpheus instances import-snapshot
+#### instances import-snapshot
 
 ```
 Usage: morpheus instances import-snapshot [instance]
@@ -9335,7 +9335,7 @@ Usage: morpheus instances import-snapshot [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances list
+#### instances list
 
 ```
 Usage: morpheus instances list
@@ -9382,7 +9382,7 @@ Usage: morpheus instances list
 List instances.
 ```
 
-#### morpheus instances logs
+#### instances logs
 
 ```
 Usage: morpheus instances logs [instance]
@@ -9425,7 +9425,7 @@ Usage: morpheus instances logs [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances remove
+#### instances remove
 
 ```
 Usage: morpheus instances remove [instance]
@@ -9453,7 +9453,7 @@ Usage: morpheus instances remove [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances resize
+#### instances resize
 
 ```
 Usage: morpheus instances resize [instance]
@@ -9478,7 +9478,7 @@ Usage: morpheus instances resize [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances restart
+#### instances restart
 
 ```
 Usage: morpheus instances restart [instance]
@@ -9506,7 +9506,7 @@ Restart an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances restart-service
+#### instances restart-service
 
 ```
 Usage: morpheus instances restart-service [instance]
@@ -9534,7 +9534,7 @@ Restart service on an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances run-workflow
+#### instances run-workflow
 
 ```
 Usage: morpheus instances run-workflow [instance] [workflow] [options]
@@ -9559,7 +9559,7 @@ Usage: morpheus instances run-workflow [instance] [workflow] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances scaling
+#### instances scaling
 
 ```
 Usage: morpheus instances scaling [instance]
@@ -9593,7 +9593,7 @@ Usage: morpheus instances scaling [instance]
 Show scaling threshold information for an instance.
 ```
 
-#### morpheus instances scaling-update
+#### instances scaling-update
 
 ```
 Usage: morpheus instances scaling-update [instance]
@@ -9634,7 +9634,7 @@ Usage: morpheus instances scaling-update [instance]
 Update scaling threshold information for an instance.
 ```
 
-#### morpheus instances security-groups
+#### instances security-groups
 
 ```
 Usage: morpheus instances security-groups [instance]
@@ -9656,7 +9656,7 @@ Usage: morpheus instances security-groups [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances setenv
+#### instances setenv
 
 ```
 Usage: morpheus instances setenv [instance] VAR VALUE [-e]
@@ -9681,7 +9681,7 @@ Usage: morpheus instances setenv [instance] VAR VALUE [-e]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances start
+#### instances start
 
 ```
 Usage: morpheus instances start [instance]
@@ -9708,7 +9708,7 @@ Start an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances start-service
+#### instances start-service
 
 ```
 Usage: morpheus instances start-service [instance]
@@ -9735,7 +9735,7 @@ Start service on an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances stats
+#### instances stats
 
 ```
 Usage: morpheus instances stats [instance]
@@ -9766,7 +9766,7 @@ Usage: morpheus instances stats [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances status-check
+#### instances status-check
 
 ```
 Usage: morpheus instances status-check [instance]
@@ -9786,7 +9786,7 @@ Usage: morpheus instances status-check [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances stop
+#### instances stop
 
 ```
 Usage: morpheus instances stop [instance]
@@ -9814,7 +9814,7 @@ Stop an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances stop-service
+#### instances stop-service
 
 ```
 Usage: morpheus instances stop-service [instance]
@@ -9842,7 +9842,7 @@ Stop service on an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances suspend
+#### instances suspend
 
 ```
 Usage: morpheus instances suspend [instance]
@@ -9871,7 +9871,7 @@ Suspend an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances update
+#### instances update
 
 ```
 Usage: morpheus instances update [instance]
@@ -9908,7 +9908,7 @@ Usage: morpheus instances update [instance]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances update-wiki
+#### instances update-wiki
 
 ```
 Usage: morpheus instances update-wiki [instance] [options]
@@ -9941,7 +9941,7 @@ Usage: morpheus instances update-wiki [instance] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus instances view
+#### instances view
 
 ```
 Usage: morpheus instances view [instance]
@@ -9967,7 +9967,7 @@ View an instance in a web browser
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
-#### morpheus instances wiki
+#### instances wiki
 
 ```
 Usage: morpheus instances wiki [instance]
@@ -9994,7 +9994,7 @@ View wiki page details for an instance.
 ```
 
 
-### morpheus integrations
+### integrations
 
 ```
 Usage: morpheus integrations [command] [options]
@@ -10002,7 +10002,7 @@ Commands:
 	list
 ```
 
-#### morpheus integrations list
+#### integrations list
 
 ```
 Usage: morpheus integrations list
@@ -10042,7 +10042,7 @@ List integrations.
 ```
 
 
-### morpheus invoices
+### invoices
 
 ```
 Usage: morpheus invoices [command] [options]
@@ -10054,7 +10054,7 @@ Commands:
 	refresh
 ```
 
-#### morpheus invoices get
+#### invoices get
 
 ```
 Usage: morpheus invoices get [id]
@@ -10097,7 +10097,7 @@ Get details about a specific invoice.
 [id] is required. This is the id of an invoice.
 ```
 
-#### morpheus invoices get-line-item
+#### invoices get-line-item
 
 ```
 Usage: morpheus invoices get-line-item [id]
@@ -10136,7 +10136,7 @@ Get details about a specific invoice line item.
 [id] is required. This is the id of an invoice line item.
 ```
 
-#### morpheus invoices list
+#### invoices list
 
 ```
 Usage: morpheus invoices list
@@ -10199,7 +10199,7 @@ Usage: morpheus invoices list
 List invoices.
 ```
 
-#### morpheus invoices list-line-items
+#### invoices list-line-items
 
 ```
 Usage: morpheus invoices list-line-items
@@ -10262,7 +10262,7 @@ Usage: morpheus invoices list-line-items
 List invoice line items.
 ```
 
-#### morpheus invoices refresh
+#### invoices refresh
 
 ```
 Usage: morpheus invoices refresh [--daily] [--costing] [--current] [-c CLOUD]
@@ -10304,11 +10304,11 @@ By default, nothing is changed.
 Include --daily to regenerate invoice records.
 Include --costing to refresh actual costing data.
 Include --current to refresh costing data for the actual current time.
-To get the latest invoice costing data, include --daily --costing --current --all 
+To get the latest invoice costing data, include --daily --costing --current --all
 ```
 
 
-### morpheus jobs
+### jobs
 
 ```
 Usage: morpheus jobs [command] [options]
@@ -10324,7 +10324,7 @@ Commands:
 	update
 ```
 
-#### morpheus jobs add
+#### jobs add
 
 ```
 Usage: morpheus jobs add [name]
@@ -10367,7 +10367,7 @@ Usage: morpheus jobs add [name]
 Create job.
 ```
 
-#### morpheus jobs execute
+#### jobs execute
 
 ```
 Usage: morpheus jobs execute [job]
@@ -10393,7 +10393,7 @@ Run job.
 [job] is required. Job ID or name
 ```
 
-#### morpheus jobs get
+#### jobs get
 
 ```
 Usage: morpheus jobs get [job] [max-exec-count]
@@ -10419,7 +10419,7 @@ Get details about a job.
 [max-exec-count] is optional. Specified max # of most recent executions. Defaults is 3
 ```
 
-#### morpheus jobs get-execution
+#### jobs get-execution
 
 ```
 Usage: morpheus jobs get-execution [id]
@@ -10445,7 +10445,7 @@ Get details about a job.
 [id] is required. Job execution ID.
 ```
 
-#### morpheus jobs get-execution-event
+#### jobs get-execution-event
 
 ```
 Usage: morpheus jobs get-execution-event [id] [event]
@@ -10471,7 +10471,7 @@ Get details about a job.
 [event] is required. Process event ID.
 ```
 
-#### morpheus jobs list
+#### jobs list
 
 ```
 Usage: morpheus jobs list
@@ -10513,7 +10513,7 @@ Usage: morpheus jobs list
 List jobs.
 ```
 
-#### morpheus jobs list-executions
+#### jobs list-executions
 
 ```
 Usage: morpheus jobs list-executions [job]
@@ -10553,7 +10553,7 @@ List job executions.
 [job] is optional. Job ID or name to filter executions.
 ```
 
-#### morpheus jobs remove
+#### jobs remove
 
 ```
 Usage: morpheus jobs remove [job]
@@ -10578,7 +10578,7 @@ Remove job.
 [job] is required. Job ID or name
 ```
 
-#### morpheus jobs update
+#### jobs update
 
 ```
 Usage: morpheus jobs update [job]
@@ -10637,7 +10637,7 @@ Update job.
 ```
 
 
-### morpheus key-pairs
+### key-pairs
 
 ```
 Usage: morpheus key-pairs [command] [options]
@@ -10649,7 +10649,7 @@ Commands:
 	update
 ```
 
-#### morpheus key-pairs add
+#### key-pairs add
 
 ```
 Usage: morpheus key-pairs add [name] [options]
@@ -10683,7 +10683,7 @@ Usage: morpheus key-pairs add [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus key-pairs get
+#### key-pairs get
 
 ```
 Usage: morpheus key-pairs get [name]
@@ -10716,7 +10716,7 @@ Usage: morpheus key-pairs get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus key-pairs list
+#### key-pairs list
 
 ```
 Usage: morpheus key-pairs list
@@ -10754,7 +10754,7 @@ Usage: morpheus key-pairs list
     -h, --help                       Print this help
 ```
 
-#### morpheus key-pairs remove
+#### key-pairs remove
 
 ```
 Usage: morpheus key-pairs remove [name]
@@ -10778,7 +10778,7 @@ Usage: morpheus key-pairs remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus key-pairs update
+#### key-pairs update
 
 ```
 Usage: morpheus key-pairs update [name] [options]
@@ -10806,7 +10806,7 @@ Usage: morpheus key-pairs update [name] [options]
 ```
 
 
-### morpheus library-cluster-layouts
+### library-cluster-layouts
 
 ```
 Usage: morpheus library-cluster-layouts [command] [options]
@@ -10819,7 +10819,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-cluster-layouts add
+#### library-cluster-layouts add
 
 ```
 Usage: morpheus library-cluster-layouts add [name] [options]
@@ -10864,7 +10864,7 @@ Usage: morpheus library-cluster-layouts add [name] [options]
 Create a cluster layout.
 ```
 
-#### morpheus library-cluster-layouts clone
+#### library-cluster-layouts clone
 
 ```
 Usage: morpheus library-cluster-layouts clone [layout]
@@ -10899,7 +10899,7 @@ Clone a cluster layout.
 [layout] is required. This is the name or id of a cluster layout being cloned.
 ```
 
-#### morpheus library-cluster-layouts get
+#### library-cluster-layouts get
 
 ```
 Usage: morpheus library-cluster-layouts get [layout]
@@ -10933,7 +10933,7 @@ Display cluster layout details.
 [layout] is required. This is the name or id of a cluster layout.
 ```
 
-#### morpheus library-cluster-layouts list
+#### library-cluster-layouts list
 
 ```
 Usage: morpheus library-cluster-layouts list
@@ -10973,7 +10973,7 @@ Usage: morpheus library-cluster-layouts list
 List cluster layouts.
 ```
 
-#### morpheus library-cluster-layouts remove
+#### library-cluster-layouts remove
 
 ```
 Usage: morpheus library-cluster-layouts remove [layout]
@@ -10999,7 +10999,7 @@ Delete a cluster layout.
 [layout] is required. This is the name or id of a cluster layout.
 ```
 
-#### morpheus library-cluster-layouts update
+#### library-cluster-layouts update
 
 ```
 Usage: morpheus library-cluster-layouts update [name] [options]
@@ -11051,7 +11051,7 @@ Update a cluster layout.
 ```
 
 
-### morpheus library-file-templates
+### library-file-templates
 
 ```
 Usage: morpheus library-file-templates [command] [options]
@@ -11063,7 +11063,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-file-templates add
+#### library-file-templates add
 
 ```
 Usage: morpheus library-file-templates add [name]
@@ -11104,7 +11104,7 @@ Create a new file template.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus library-file-templates get
+#### library-file-templates get
 
 ```
 Usage: morpheus library-file-templates get [name]
@@ -11135,7 +11135,7 @@ Usage: morpheus library-file-templates get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-file-templates list
+#### library-file-templates list
 
 ```
 Usage: morpheus library-file-templates list
@@ -11171,7 +11171,7 @@ Usage: morpheus library-file-templates list
     -h, --help                       Print this help
 ```
 
-#### morpheus library-file-templates remove
+#### library-file-templates remove
 
 ```
 Usage: morpheus library-file-templates remove [name]
@@ -11187,7 +11187,7 @@ Usage: morpheus library-file-templates remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-file-templates update
+#### library-file-templates update
 
 ```
 Usage: morpheus library-file-templates update [name]
@@ -11227,7 +11227,7 @@ Update a file template.
 ```
 
 
-### morpheus library-instance-types
+### library-instance-types
 
 ```
 Usage: morpheus library-instance-types [command] [options]
@@ -11241,7 +11241,7 @@ Commands:
 	update-logo
 ```
 
-#### morpheus library-instance-types add
+#### library-instance-types add
 
 ```
 Usage: morpheus library-instance-types add [name]
@@ -11283,7 +11283,7 @@ Usage: morpheus library-instance-types add [name]
 Create a new instance type.
 ```
 
-#### morpheus library-instance-types get
+#### library-instance-types get
 
 ```
 Usage: morpheus library-instance-types get [name]
@@ -11314,7 +11314,7 @@ Usage: morpheus library-instance-types get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-instance-types list
+#### library-instance-types list
 
 ```
 Usage: morpheus library-instance-types list
@@ -11356,7 +11356,7 @@ Usage: morpheus library-instance-types list
 List instance types.
 ```
 
-#### morpheus library-instance-types remove
+#### library-instance-types remove
 
 ```
 Usage: morpheus library-instance-types remove [name]
@@ -11381,7 +11381,7 @@ Usage: morpheus library-instance-types remove [name]
 Delete an instance type.
 ```
 
-#### morpheus library-instance-types toggle-featured
+#### library-instance-types toggle-featured
 
 ```
 Usage: morpheus library-instance-types toggle-featured [name] [options]
@@ -11413,7 +11413,7 @@ Toggle featured flag for an instance type.
 [name] is required. This is the name or id of a instance type.
 ```
 
-#### morpheus library-instance-types update
+#### library-instance-types update
 
 ```
 Usage: morpheus library-instance-types update [name] [options]
@@ -11451,7 +11451,7 @@ Update an instance type.
 [name] is required. This is the name or id of a instance type.
 ```
 
-#### morpheus library-instance-types update-logo
+#### library-instance-types update-logo
 
 ```
 Usage: morpheus library-instance-types update-logo [name] [file]
@@ -11478,7 +11478,7 @@ Update the logo for an instance type.
 ```
 
 
-### morpheus library-layouts
+### library-layouts
 
 ```
 Usage: morpheus library-layouts [command] [options]
@@ -11491,7 +11491,7 @@ Commands:
 	update-permissions
 ```
 
-#### morpheus library-layouts add
+#### library-layouts add
 
 ```
 Usage: morpheus library-layouts add [instance-type]
@@ -11540,7 +11540,7 @@ Create a new layout.
 [instance-type] is required and can be passed as --instance-type instead.
 ```
 
-#### morpheus library-layouts get
+#### library-layouts get
 
 ```
 Usage: morpheus library-layouts get [layout]
@@ -11576,7 +11576,7 @@ Get details about a layout.
 [layout] is required. This is the name or id of a layout.
 ```
 
-#### morpheus library-layouts list
+#### library-layouts list
 
 ```
 Usage: morpheus library-layouts list
@@ -11619,7 +11619,7 @@ Usage: morpheus library-layouts list
 List layouts.
 ```
 
-#### morpheus library-layouts remove
+#### library-layouts remove
 
 ```
 Usage: morpheus library-layouts remove [name]
@@ -11644,7 +11644,7 @@ Usage: morpheus library-layouts remove [name]
 Delete a layout.
 ```
 
-#### morpheus library-layouts update
+#### library-layouts update
 
 ```
 Usage: morpheus library-layouts update [layout] [options]
@@ -11692,7 +11692,7 @@ Update a layout.
 [layout] is required. This is the name or id of a layout.
 ```
 
-#### morpheus library-layouts update-permissions
+#### library-layouts update-permissions
 
 ```
 Usage: morpheus library-layouts update-permissions [layout]
@@ -11728,7 +11728,7 @@ Update layout permissions.
 ```
 
 
-### morpheus library-node-types
+### library-node-types
 
 ```
 Usage: morpheus library-node-types [command] [options]
@@ -11740,7 +11740,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-node-types add
+#### library-node-types add
 
 ```
 Usage: morpheus library-node-types add
@@ -11778,7 +11778,7 @@ Create a node type.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus library-node-types get
+#### library-node-types get
 
 ```
 Usage: morpheus library-node-types get [name]
@@ -11812,7 +11812,7 @@ Display node type details.
 [name] is required. This is the name or id of a node type.
 ```
 
-#### morpheus library-node-types list
+#### library-node-types list
 
 ```
 Usage: morpheus library-node-types list
@@ -11854,7 +11854,7 @@ Usage: morpheus library-node-types list
 List node types.
 ```
 
-#### morpheus library-node-types remove
+#### library-node-types remove
 
 ```
 Usage: morpheus library-node-types remove [name]
@@ -11879,7 +11879,7 @@ Usage: morpheus library-node-types remove [name]
 Delete a node type.
 ```
 
-#### morpheus library-node-types update
+#### library-node-types update
 
 ```
 Usage: morpheus library-node-types update [name] [options]
@@ -11912,7 +11912,7 @@ Update a node type.
 ```
 
 
-### morpheus library-option-lists
+### library-option-lists
 
 ```
 Usage: morpheus library-option-lists [command] [options]
@@ -11924,7 +11924,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-option-lists add
+#### library-option-lists add
 
 ```
 Usage: morpheus library-option-lists add [name] [options]
@@ -11971,7 +11971,7 @@ Usage: morpheus library-option-lists add [name] [options]
 Create a new option list.
 ```
 
-#### morpheus library-option-lists get
+#### library-option-lists get
 
 ```
 Usage: morpheus library-option-lists get [name]
@@ -12008,7 +12008,7 @@ Get details about an option list.
 [name] is required. This is the name or id of an option list. Supports 1-N [name] arguments.
 ```
 
-#### morpheus library-option-lists list
+#### library-option-lists list
 
 ```
 Usage: morpheus library-option-lists list
@@ -12048,7 +12048,7 @@ Usage: morpheus library-option-lists list
 List option lists.
 ```
 
-#### morpheus library-option-lists remove
+#### library-option-lists remove
 
 ```
 Usage: morpheus library-option-lists remove [name]
@@ -12076,7 +12076,7 @@ Delete an option list.
 [name] is required. This is the name or id of an option list.
 ```
 
-#### morpheus library-option-lists update
+#### library-option-lists update
 
 ```
 Usage: morpheus library-option-lists update [name] [options]
@@ -12125,7 +12125,7 @@ Update an option list.
 ```
 
 
-### morpheus library-option-types
+### library-option-types
 
 ```
 Usage: morpheus library-option-types [command] [options]
@@ -12137,7 +12137,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-option-types add
+#### library-option-types add
 
 ```
 Usage: morpheus library-option-types add [options]
@@ -12179,7 +12179,7 @@ Usage: morpheus library-option-types add [options]
 Create a new option type.
 ```
 
-#### morpheus library-option-types get
+#### library-option-types get
 
 ```
 Usage: morpheus library-option-types get [name]
@@ -12215,7 +12215,7 @@ Get details about an option type.
 [name] is required. This is the name or id of an option type. Supports 1-N [name] arguments.
 ```
 
-#### morpheus library-option-types list
+#### library-option-types list
 
 ```
 Usage: morpheus library-option-types list
@@ -12255,7 +12255,7 @@ Usage: morpheus library-option-types list
 List option types.
 ```
 
-#### morpheus library-option-types remove
+#### library-option-types remove
 
 ```
 Usage: morpheus library-option-types remove [name]
@@ -12283,7 +12283,7 @@ Delete an option type.
 [name] is required. This is the name or id of an option type.
 ```
 
-#### morpheus library-option-types update
+#### library-option-types update
 
 ```
 Usage: morpheus library-option-types update [name] [options]
@@ -12327,7 +12327,7 @@ Update an option type.
 ```
 
 
-### morpheus library-scripts
+### library-scripts
 
 ```
 Usage: morpheus library-scripts [command] [options]
@@ -12339,7 +12339,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-scripts add
+#### library-scripts add
 
 ```
 Usage: morpheus library-scripts add [name]
@@ -12379,7 +12379,7 @@ Create a new container script.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus library-scripts get
+#### library-scripts get
 
 ```
 Usage: morpheus library-scripts get [name]
@@ -12410,7 +12410,7 @@ Usage: morpheus library-scripts get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-scripts list
+#### library-scripts list
 
 ```
 Usage: morpheus library-scripts list
@@ -12449,7 +12449,7 @@ Usage: morpheus library-scripts list
 List container scripts.
 ```
 
-#### morpheus library-scripts remove
+#### library-scripts remove
 
 ```
 Usage: morpheus library-scripts remove [name]
@@ -12465,7 +12465,7 @@ Usage: morpheus library-scripts remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-scripts update
+#### library-scripts update
 
 ```
 Usage: morpheus library-scripts update [name]
@@ -12506,7 +12506,7 @@ Update a container script.
 ```
 
 
-### morpheus library-spec-templates
+### library-spec-templates
 
 ```
 Usage: morpheus library-spec-templates [command] [options]
@@ -12519,7 +12519,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-spec-templates add
+#### library-spec-templates add
 
 ```
 Usage: morpheus library-spec-templates add [name]
@@ -12559,7 +12559,7 @@ Usage: morpheus library-spec-templates add [name]
 Create a new spec template.
 ```
 
-#### morpheus library-spec-templates get
+#### library-spec-templates get
 
 ```
 Usage: morpheus library-spec-templates get [name]
@@ -12591,7 +12591,7 @@ Usage: morpheus library-spec-templates get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-spec-templates list
+#### library-spec-templates list
 
 ```
 Usage: morpheus library-spec-templates list
@@ -12630,7 +12630,7 @@ Usage: morpheus library-spec-templates list
 List spec templates.
 ```
 
-#### morpheus library-spec-templates list-types
+#### library-spec-templates list-types
 
 ```
 Usage: morpheus library-spec-templates list-types
@@ -12669,7 +12669,7 @@ Usage: morpheus library-spec-templates list-types
 List spec template types.
 ```
 
-#### morpheus library-spec-templates remove
+#### library-spec-templates remove
 
 ```
 Usage: morpheus library-spec-templates remove [name]
@@ -12685,7 +12685,7 @@ Usage: morpheus library-spec-templates remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus library-spec-templates update
+#### library-spec-templates update
 
 ```
 Usage: morpheus library-spec-templates update [name]
@@ -12727,7 +12727,7 @@ Update a spec template.
 ```
 
 
-### morpheus library-upgrades
+### library-upgrades
 
 ```
 Usage: morpheus library-upgrades [command] [options]
@@ -12739,7 +12739,7 @@ Commands:
 	update
 ```
 
-#### morpheus library-upgrades add
+#### library-upgrades add
 
 ```
 Usage: morpheus library-upgrades add [instance-type] [name]
@@ -12778,7 +12778,7 @@ Create a new upgrade.
 [instance-type] is required.
 ```
 
-#### morpheus library-upgrades get
+#### library-upgrades get
 
 ```
 Usage: morpheus library-upgrades get [name]
@@ -12813,7 +12813,7 @@ Get details about an upgrade.
 [name] is required. This is the name or id of an upgrade.
 ```
 
-#### morpheus library-upgrades list
+#### library-upgrades list
 
 ```
 Usage: morpheus library-upgrades list [instance-type]
@@ -12854,7 +12854,7 @@ List upgrades.
 [instance-type] is required.
 ```
 
-#### morpheus library-upgrades remove
+#### library-upgrades remove
 
 ```
 Usage: morpheus library-upgrades remove [name]
@@ -12879,7 +12879,7 @@ Usage: morpheus library-upgrades remove [name]
 Delete a upgrade.
 ```
 
-#### morpheus library-upgrades update
+#### library-upgrades update
 
 ```
 Usage: morpheus library-upgrades update [name] [options]
@@ -12914,7 +12914,7 @@ Update a upgrade.
 ```
 
 
-### morpheus license
+### license
 
 ```
 Usage: morpheus license [command] [options]
@@ -12927,7 +12927,7 @@ Commands:
 	uninstall
 ```
 
-#### morpheus license get
+#### license get
 
 ```
 Usage: morpheus license get
@@ -12957,7 +12957,7 @@ This information includes license features and limits.
 The actual secret license key value will never be returned.
 ```
 
-#### morpheus license install
+#### license install
 
 ```
 Usage: morpheus license install [key]
@@ -12979,7 +12979,7 @@ Usage: morpheus license install [key]
     -h, --help                       Print this help
 ```
 
-#### morpheus license test
+#### license test
 
 ```
 Usage: morpheus license test [key]
@@ -13013,7 +13013,7 @@ Test a license key.
 This is a way to decode and view a license key before installing it.
 ```
 
-#### morpheus license uninstall
+#### license uninstall
 
 ```
 Usage: morpheus license uninstall [key]
@@ -13043,7 +13043,7 @@ Be careful using this.
 ```
 
 
-### morpheus load-balancers
+### load-balancers
 
 ```
 Usage: morpheus load-balancers [command] [options]
@@ -13056,7 +13056,7 @@ Commands:
 	update
 ```
 
-#### morpheus load-balancers add
+#### load-balancers add
 
 ```
 Usage: morpheus load-balancers add [name] -t LB_TYPE
@@ -13082,7 +13082,7 @@ Usage: morpheus load-balancers add [name] -t LB_TYPE
     -h, --help                       Print this help
 ```
 
-#### morpheus load-balancers get
+#### load-balancers get
 
 ```
 Usage: morpheus load-balancers get [name]
@@ -13113,7 +13113,7 @@ Usage: morpheus load-balancers get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus load-balancers list
+#### load-balancers list
 
 ```
 Usage: morpheus load-balancers list
@@ -13149,7 +13149,7 @@ Usage: morpheus load-balancers list
     -h, --help                       Print this help
 ```
 
-#### morpheus load-balancers remove
+#### load-balancers remove
 
 ```
 Usage: morpheus load-balancers remove [name]
@@ -13172,7 +13172,7 @@ Usage: morpheus load-balancers remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus load-balancers types
+#### load-balancers types
 
 ```
 Usage: morpheus load-balancers types
@@ -13194,7 +13194,7 @@ Usage: morpheus load-balancers types
     -h, --help                       Print this help
 ```
 
-#### morpheus load-balancers update
+#### load-balancers update
 
 ```
 Usage: morpheus load-balancers update [name] [options]
@@ -13220,7 +13220,7 @@ Usage: morpheus load-balancers update [name] [options]
 ```
 
 
-### morpheus log-settings
+### log-settings
 
 ```
 Usage: morpheus log-settings [command] [options]
@@ -13234,7 +13234,7 @@ Commands:
 	update
 ```
 
-#### morpheus log-settings add-syslog-rule
+#### log-settings add-syslog-rule
 
 ```
 Usage: morpheus log-settings add-syslog-rule [name] [rule]
@@ -13265,7 +13265,7 @@ Add syslog rule.
 [rule] is required
 ```
 
-#### morpheus log-settings disable-integration
+#### log-settings disable-integration
 
 ```
 Usage: morpheus log-settings disable-integration [name]
@@ -13291,7 +13291,7 @@ Disabled specifed integration.
 [name] is required. Currently supports splunk and logrhythm integrations.
 ```
 
-#### morpheus log-settings enable-integration
+#### log-settings enable-integration
 
 ```
 Usage: morpheus log-settings enable-integration [name] [host] [port]
@@ -13323,7 +13323,7 @@ Enables specifed integration.
 [port] is required. Port of the integration.
 ```
 
-#### morpheus log-settings get
+#### log-settings get
 
 ```
 Usage: morpheus log-settings get
@@ -13357,7 +13357,7 @@ Usage: morpheus log-settings get
 Get log settings.
 ```
 
-#### morpheus log-settings remove-integration
+#### log-settings remove-integration
 
 ```
 Usage: morpheus log-settings remove-integration [name]
@@ -13383,7 +13383,7 @@ Deletes specifed integration.
 [name] is required. Currently supports splunk and logrhythm integrations.
 ```
 
-#### morpheus log-settings remove-syslog-rule
+#### log-settings remove-syslog-rule
 
 ```
 Usage: morpheus log-settings remove-syslog-rule [syslog-rule]
@@ -13409,7 +13409,7 @@ Delete a syslog rule.
 [syslog-rule] is required. This is the name or id of an syslog rule.
 ```
 
-#### morpheus log-settings update
+#### log-settings update
 
 ```
 Usage: morpheus log-settings update
@@ -13444,7 +13444,7 @@ Update your log settings.
 ```
 
 
-### morpheus login
+### login
 
 ```
 Usage: morpheus login [username] [password]
@@ -13482,7 +13482,7 @@ The --test option can be used to test credentials without updating the stored cr
 ```
 
 
-### morpheus logout
+### logout
 
 ```
 Usage: morpheus logout
@@ -13505,7 +13505,7 @@ This clears your credentials so that you will need to login again.
 ```
 
 
-### morpheus logs
+### logs
 
 ```
 Usage: morpheus logs
@@ -13513,7 +13513,7 @@ Commands:
 	list
 ```
 
-#### morpheus logs list
+#### logs list
 
 ```
 Usage: morpheus logs list [id]
@@ -13564,7 +13564,7 @@ List logs for a container.
 ```
 
 
-### morpheus monitor-alerts
+### monitor-alerts
 
 ```
 Usage: morpheus monitor-alerts [command] [options]
@@ -13576,7 +13576,7 @@ Commands:
 	update
 ```
 
-#### morpheus monitor-alerts add
+#### monitor-alerts add
 
 ```
 Usage: morpheus monitor-alerts add [name]
@@ -13619,7 +13619,7 @@ Create a monitoring alert rule.
 [name] is required. This is the name of the new alert rule.
 ```
 
-#### morpheus monitor-alerts get
+#### monitor-alerts get
 
 ```
 Usage: morpheus monitor-alerts get [alert]
@@ -13652,7 +13652,7 @@ Get details about a monitoring alert rule.
 [alert] is required. This is the name or ID of the alert rule. Supports 1-N [alert] arguments.
 ```
 
-#### morpheus monitor-alerts list
+#### monitor-alerts list
 
 ```
 Usage: morpheus monitor-alerts list
@@ -13692,7 +13692,7 @@ Usage: morpheus monitor-alerts list
 List monitoring alert rules.
 ```
 
-#### morpheus monitor-alerts remove
+#### monitor-alerts remove
 
 ```
 Usage: morpheus monitor-alerts remove [alert]
@@ -13719,7 +13719,7 @@ Delete a monitoring alert rule.
 [alert] is required. This is the name or ID of the alert rule. Supports 1-N [alert] arguments.
 ```
 
-#### morpheus monitor-alerts update
+#### monitor-alerts update
 
 ```
 Usage: morpheus monitor-alerts update [alert]
@@ -13763,7 +13763,7 @@ Update a monitoring alert rule.
 ```
 
 
-### morpheus monitor-apps
+### monitor-apps
 
 ```
 Usage: morpheus monitor-apps [command] [options]
@@ -13779,7 +13779,7 @@ Commands:
 	update
 ```
 
-#### morpheus monitor-apps add
+#### monitor-apps add
 
 ```
 Usage: morpheus monitor-apps add [name]
@@ -13820,7 +13820,7 @@ Create a new app of monitoring checks.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus monitor-apps get
+#### monitor-apps get
 
 ```
 Usage: morpheus monitor-apps get [id list]
@@ -13853,7 +13853,7 @@ Usage: morpheus monitor-apps get [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-apps list
+#### monitor-apps list
 
 ```
 Usage: morpheus monitor-apps list
@@ -13892,7 +13892,7 @@ Usage: morpheus monitor-apps list
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-apps mute
+#### monitor-apps mute
 
 ```
 Usage: morpheus monitor-apps mute [name]
@@ -13926,7 +13926,7 @@ Mute a monitoring app. This prevents it from creating new incidents.
 [name] is required. This is the name or id of a monitoring app.
 ```
 
-#### morpheus monitor-apps mute-all
+#### monitor-apps mute-all
 
 ```
 Usage: morpheus monitor-apps mute-all
@@ -13959,7 +13959,7 @@ Usage: morpheus monitor-apps mute-all
 Mute all monitoring apps. This prevents the creation of new incidents.
 ```
 
-#### morpheus monitor-apps remove
+#### monitor-apps remove
 
 ```
 Usage: morpheus monitor-apps remove [name]
@@ -13983,7 +13983,7 @@ Usage: morpheus monitor-apps remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-apps unmute
+#### monitor-apps unmute
 
 ```
 Usage: morpheus monitor-apps unmute [name]
@@ -14013,7 +14013,7 @@ Unmute a monitoring app.
 [name] is required. This is the name or id of a monitoring app.
 ```
 
-#### morpheus monitor-apps unmute-all
+#### monitor-apps unmute-all
 
 ```
 Usage: morpheus monitor-apps unmute-all
@@ -14042,7 +14042,7 @@ Usage: morpheus monitor-apps unmute-all
 Unmute all monitoring apps.
 ```
 
-#### morpheus monitor-apps update
+#### monitor-apps update
 
 ```
 Usage: morpheus monitor-apps update [name]
@@ -14084,7 +14084,7 @@ Update a monitoring app.
 ```
 
 
-### morpheus monitor-checks
+### monitor-checks
 
 ```
 Usage: morpheus monitor-checks [command] [options]
@@ -14102,7 +14102,7 @@ Commands:
 	update
 ```
 
-#### morpheus monitor-checks add
+#### monitor-checks add
 
 ```
 Usage: morpheus monitor-checks add [name] -t CODE
@@ -14141,7 +14141,7 @@ Usage: morpheus monitor-checks add [name] -t CODE
 List monitoring checks.
 ```
 
-#### morpheus monitor-checks get
+#### monitor-checks get
 
 ```
 Usage: morpheus monitor-checks get [id list]
@@ -14173,7 +14173,7 @@ Usage: morpheus monitor-checks get [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-checks history
+#### monitor-checks history
 
 ```
 Usage: morpheus monitor-checks history [name] [options]
@@ -14211,7 +14211,7 @@ Usage: morpheus monitor-checks history [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-checks list
+#### monitor-checks list
 
 ```
 Usage: morpheus monitor-checks list
@@ -14251,7 +14251,7 @@ Usage: morpheus monitor-checks list
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-checks list-types
+#### monitor-checks list-types
 
 ```
 Usage: morpheus monitor-checks list-types
@@ -14289,7 +14289,7 @@ Usage: morpheus monitor-checks list-types
 List monitoring check types.
 ```
 
-#### morpheus monitor-checks mute
+#### monitor-checks mute
 
 ```
 Usage: morpheus monitor-checks mute [name]
@@ -14323,7 +14323,7 @@ Mute a check. This prevents it from creating new incidents.
 [name] is required. This is the name or id of a check.
 ```
 
-#### morpheus monitor-checks mute-all
+#### monitor-checks mute-all
 
 ```
 Usage: morpheus monitor-checks mute-all
@@ -14356,7 +14356,7 @@ Usage: morpheus monitor-checks mute-all
 Mute all checks. This prevents the creation new incidents.
 ```
 
-#### morpheus monitor-checks remove
+#### monitor-checks remove
 
 ```
 Usage: morpheus monitor-checks remove [name]
@@ -14380,7 +14380,7 @@ Usage: morpheus monitor-checks remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-checks unmute
+#### monitor-checks unmute
 
 ```
 Usage: morpheus monitor-checks unmute [name]
@@ -14410,7 +14410,7 @@ Unmute a check.
 [name] is required. This is the name or id of a check.
 ```
 
-#### morpheus monitor-checks unmute-all
+#### monitor-checks unmute-all
 
 ```
 Usage: morpheus monitor-checks unmute-all
@@ -14439,7 +14439,7 @@ Usage: morpheus monitor-checks unmute-all
 Unmute all checks.
 ```
 
-#### morpheus monitor-checks update
+#### monitor-checks update
 
 ```
 Usage: morpheus monitor-checks update [name]
@@ -14479,7 +14479,7 @@ The available options vary by type.
 ```
 
 
-### morpheus monitor-contacts
+### monitor-contacts
 
 ```
 Usage: morpheus monitor-contacts [command] [options]
@@ -14491,7 +14491,7 @@ Commands:
 	update
 ```
 
-#### morpheus monitor-contacts add
+#### monitor-contacts add
 
 ```
 Usage: morpheus monitor-contacts add [id]
@@ -14528,7 +14528,7 @@ Create a monitoring contact.
 [name] is required. This is the name of the new contact.
 ```
 
-#### morpheus monitor-contacts get
+#### monitor-contacts get
 
 ```
 Usage: morpheus monitor-contacts get [contact]
@@ -14563,7 +14563,7 @@ Get details about a monitoring contact.
 [contact] is required. This is the name or ID of the contact. Supports 1-N [contact] arguments.
 ```
 
-#### morpheus monitor-contacts list
+#### monitor-contacts list
 
 ```
 Usage: morpheus monitor-contacts list
@@ -14602,7 +14602,7 @@ Usage: morpheus monitor-contacts list
 List monitoring contacts.
 ```
 
-#### morpheus monitor-contacts remove
+#### monitor-contacts remove
 
 ```
 Usage: morpheus monitor-contacts remove [contact]
@@ -14629,7 +14629,7 @@ Delete a monitoring contact.
 [contact] is required. This is the name or ID of the contact. Supports 1-N [contact] arguments.
 ```
 
-#### morpheus monitor-contacts update
+#### monitor-contacts update
 
 ```
 Usage: morpheus monitor-contacts update [contact]
@@ -14667,7 +14667,7 @@ Update a monitoring contact.
 ```
 
 
-### morpheus monitor-groups
+### monitor-groups
 
 ```
 Usage: morpheus monitor-groups [command] [options]
@@ -14684,7 +14684,7 @@ Commands:
 	update
 ```
 
-#### morpheus monitor-groups add
+#### monitor-groups add
 
 ```
 Usage: morpheus monitor-groups add [name]
@@ -14723,7 +14723,7 @@ Create a new group of monitoring checks.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus monitor-groups get
+#### monitor-groups get
 
 ```
 Usage: morpheus monitor-groups get [id list]
@@ -14756,7 +14756,7 @@ Usage: morpheus monitor-groups get [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-groups history
+#### monitor-groups history
 
 ```
 Usage: morpheus monitor-groups history [name] [options]
@@ -14794,7 +14794,7 @@ Usage: morpheus monitor-groups history [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-groups list
+#### monitor-groups list
 
 ```
 Usage: morpheus monitor-groups list
@@ -14833,7 +14833,7 @@ Usage: morpheus monitor-groups list
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-groups mute
+#### monitor-groups mute
 
 ```
 Usage: morpheus monitor-groups mute [name]
@@ -14867,7 +14867,7 @@ Mute a check group. This prevents it from creating new incidents.
 [name] is required. This is the name or id of a check group.
 ```
 
-#### morpheus monitor-groups mute-all
+#### monitor-groups mute-all
 
 ```
 Usage: morpheus monitor-groups mute-all
@@ -14900,7 +14900,7 @@ Usage: morpheus monitor-groups mute-all
 Mute all check groups. This prevents the creation of new incidents.
 ```
 
-#### morpheus monitor-groups remove
+#### monitor-groups remove
 
 ```
 Usage: morpheus monitor-groups remove [name]
@@ -14924,7 +14924,7 @@ Usage: morpheus monitor-groups remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-groups unmute
+#### monitor-groups unmute
 
 ```
 Usage: morpheus monitor-groups unmute [name]
@@ -14954,7 +14954,7 @@ Unmute a check group.
 [name] is required. This is the name or id of a check.
 ```
 
-#### morpheus monitor-groups unmute-all
+#### monitor-groups unmute-all
 
 ```
 Usage: morpheus monitor-groups unmute-all
@@ -14983,7 +14983,7 @@ Usage: morpheus monitor-groups unmute-all
 Unmute all check groups.
 ```
 
-#### morpheus monitor-groups update
+#### monitor-groups update
 
 ```
 Usage: morpheus monitor-groups update [name]
@@ -15023,7 +15023,7 @@ Update a check group.
 ```
 
 
-### morpheus monitor-incidents
+### monitor-incidents
 
 ```
 Usage: morpheus monitor-incidents [command] [options]
@@ -15043,7 +15043,7 @@ Commands:
 	update
 ```
 
-#### morpheus monitor-incidents add
+#### monitor-incidents add
 
 ```
 Usage: morpheus monitor-incidents add [id]
@@ -15074,7 +15074,7 @@ Usage: morpheus monitor-incidents add [id]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents close
+#### monitor-incidents close
 
 ```
 Usage: morpheus monitor-incidents close [id list]
@@ -15098,7 +15098,7 @@ Usage: morpheus monitor-incidents close [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents get
+#### monitor-incidents get
 
 ```
 Usage: morpheus monitor-incidents get [id list]
@@ -15133,7 +15133,7 @@ Usage: morpheus monitor-incidents get [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents history
+#### monitor-incidents history
 
 ```
 Usage: morpheus monitor-incidents history [id] [options]
@@ -15171,7 +15171,7 @@ Usage: morpheus monitor-incidents history [id] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents list
+#### monitor-incidents list
 
 ```
 Usage: morpheus monitor-incidents list
@@ -15211,7 +15211,7 @@ Usage: morpheus monitor-incidents list
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents mute
+#### monitor-incidents mute
 
 ```
 Usage: morpheus monitor-incidents mute [id]
@@ -15245,7 +15245,7 @@ Mute an incident.
 [id] is required. This is the id of an incident.
 ```
 
-#### morpheus monitor-incidents mute-all
+#### monitor-incidents mute-all
 
 ```
 Usage: morpheus monitor-incidents mute-all
@@ -15278,7 +15278,7 @@ Usage: morpheus monitor-incidents mute-all
 Mute all open incidents.
 ```
 
-#### morpheus monitor-incidents notifications
+#### monitor-incidents notifications
 
 ```
 Usage: morpheus monitor-incidents notifications [id] [options]
@@ -15314,7 +15314,7 @@ Usage: morpheus monitor-incidents notifications [id] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents reopen
+#### monitor-incidents reopen
 
 ```
 Usage: morpheus monitor-incidents reopen [id list]
@@ -15338,7 +15338,7 @@ Usage: morpheus monitor-incidents reopen [id list]
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents stats
+#### monitor-incidents stats
 
 ```
 Usage: morpheus monitor-incidents stats
@@ -15374,7 +15374,7 @@ Usage: morpheus monitor-incidents stats
     -h, --help                       Print this help
 ```
 
-#### morpheus monitor-incidents unmute
+#### monitor-incidents unmute
 
 ```
 Usage: morpheus monitor-incidents unmute [id]
@@ -15404,7 +15404,7 @@ Unmute an incident.
 [id] is required. This is the id of an incident.
 ```
 
-#### morpheus monitor-incidents unmute-all
+#### monitor-incidents unmute-all
 
 ```
 Usage: morpheus monitor-incidents unmute-all
@@ -15433,7 +15433,7 @@ Usage: morpheus monitor-incidents unmute-all
 Unmute all open incidents.
 ```
 
-#### morpheus monitor-incidents update
+#### monitor-incidents update
 
 ```
 Usage: morpheus monitor-incidents update [id]
@@ -15465,7 +15465,7 @@ Usage: morpheus monitor-incidents update [id]
 ```
 
 
-### morpheus network-domains
+### network-domains
 
 ```
 Usage: morpheus network-domains [command] [options]
@@ -15481,7 +15481,7 @@ Commands:
 	update
 ```
 
-#### morpheus network-domains add
+#### network-domains add
 
 ```
 Usage: morpheus network-domains add
@@ -15525,7 +15525,7 @@ Create a new network domain.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus network-domains add-record
+#### network-domains add-record
 
 ```
 Usage: morpheus network-domains add-record [network-domain] [record]
@@ -15564,7 +15564,7 @@ Create a new network domain record.
 [record] is required. This is the name of the domain record and can be passed as --name instead.
 ```
 
-#### morpheus network-domains get
+#### network-domains get
 
 ```
 Usage: morpheus network-domains get [network-domain]
@@ -15598,7 +15598,7 @@ Get details about a network domain.
 [network-domain] is required. This is the name or id of a network domain.
 ```
 
-#### morpheus network-domains get-record
+#### network-domains get-record
 
 ```
 Usage: morpheus network-domains get-record [network-domain] [record]
@@ -15634,7 +15634,7 @@ Get details about a network domain record.
 [record] is required. This is the name or id of a network domain record.
 ```
 
-#### morpheus network-domains list
+#### network-domains list
 
 ```
 Usage: morpheus network-domains list
@@ -15672,7 +15672,7 @@ Usage: morpheus network-domains list
 List network domains.
 ```
 
-#### morpheus network-domains list-records
+#### network-domains list-records
 
 ```
 Usage: morpheus network-domains list-records [network-domain]
@@ -15711,7 +15711,7 @@ List network domain records.
 [network-domain] is required. This is the name or id of a network domain.
 ```
 
-#### morpheus network-domains remove
+#### network-domains remove
 
 ```
 Usage: morpheus network-domains remove [network-domain]
@@ -15738,7 +15738,7 @@ Delete a network domain.
 [network-domain] is required. This is the name or id of a network domain.
 ```
 
-#### morpheus network-domains remove-record
+#### network-domains remove-record
 
 ```
 Usage: morpheus network-domains remove-record [network-domain] [record]
@@ -15766,7 +15766,7 @@ Delete a network domain record.
 [record] is required. This is the name or id of a network domain record.
 ```
 
-#### morpheus network-domains update
+#### network-domains update
 
 ```
 Usage: morpheus network-domains update [network-domain] [options]
@@ -15802,7 +15802,7 @@ Update a network domain.
 ```
 
 
-### morpheus network-groups
+### network-groups
 
 ```
 Usage: morpheus network-groups [command] [options]
@@ -15814,7 +15814,7 @@ Commands:
 	update
 ```
 
-#### morpheus network-groups add
+#### network-groups add
 
 ```
 Usage: morpheus network-groups add --networks [id,id,id]
@@ -15859,7 +15859,7 @@ Create a new network group.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus network-groups get
+#### network-groups get
 
 ```
 Usage: morpheus network-groups get [network-group]
@@ -15893,7 +15893,7 @@ Get details about a network group.
 [network-group] is required. This is the name or id of a network group.
 ```
 
-#### morpheus network-groups list
+#### network-groups list
 
 ```
 Usage: morpheus network-groups list
@@ -15931,7 +15931,7 @@ Usage: morpheus network-groups list
 List network groups.
 ```
 
-#### morpheus network-groups remove
+#### network-groups remove
 
 ```
 Usage: morpheus network-groups remove [network-group]
@@ -15958,7 +15958,7 @@ Delete a network group.
 [network-group] is required. This is the name or id of a network group.
 ```
 
-#### morpheus network-groups update
+#### network-groups update
 
 ```
 Usage: morpheus network-groups update [network-group] [options]
@@ -16003,7 +16003,7 @@ Update a network group.
 ```
 
 
-### morpheus network-pool-servers
+### network-pool-servers
 
 ```
 Usage: morpheus network-pool-servers [command] [options]
@@ -16015,7 +16015,7 @@ Commands:
 	update
 ```
 
-#### morpheus network-pool-servers add
+#### network-pool-servers add
 
 ```
 Usage: morpheus network-pool-servers add
@@ -16050,7 +16050,7 @@ Create a new network pool server.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus network-pool-servers get
+#### network-pool-servers get
 
 ```
 Usage: morpheus network-pool-servers get [network-pool-server]
@@ -16084,7 +16084,7 @@ Get details about a network pool server.
 [network-pool-server] is required. This is the name or id of a network pool server.
 ```
 
-#### morpheus network-pool-servers list
+#### network-pool-servers list
 
 ```
 Usage: morpheus network-pool-servers list
@@ -16122,7 +16122,7 @@ Usage: morpheus network-pool-servers list
 List network pool servers.
 ```
 
-#### morpheus network-pool-servers remove
+#### network-pool-servers remove
 
 ```
 Usage: morpheus network-pool-servers remove [network-pool-server]
@@ -16149,7 +16149,7 @@ Delete a network pool server.
 [network-pool-server] is required. This is the name or id of a network pool server.
 ```
 
-#### morpheus network-pool-servers update
+#### network-pool-servers update
 
 ```
 Usage: morpheus network-pool-servers update [network-pool-server] [options]
@@ -16184,7 +16184,7 @@ Update a network pool server.
 ```
 
 
-### morpheus network-pools
+### network-pools
 
 ```
 Usage: morpheus network-pools [command] [options]
@@ -16201,7 +16201,7 @@ Commands:
 	update-ip
 ```
 
-#### morpheus network-pools add
+#### network-pools add
 
 ```
 Usage: morpheus network-pools add
@@ -16237,7 +16237,7 @@ Create a new network pool.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus network-pools add-ip
+#### network-pools add-ip
 
 ```
 Usage: morpheus network-pools add-ip [network-pool] [ip] [--next]
@@ -16274,7 +16274,7 @@ Create a new network pool IP.
 [ip] is required or --next-free-ip to use the next available address instead.
 ```
 
-#### morpheus network-pools get
+#### network-pools get
 
 ```
 Usage: morpheus network-pools get [network-pool]
@@ -16308,7 +16308,7 @@ Get details about a network pool.
 [network-pool] is required. This is the name or id of a network pool.
 ```
 
-#### morpheus network-pools get-ip
+#### network-pools get-ip
 
 ```
 Usage: morpheus network-pools get-ip [network-pool] [ip]
@@ -16344,7 +16344,7 @@ Get details about a network pool IP address.
 [ip] is required. This is the ip address or id of a network pool IP.
 ```
 
-#### morpheus network-pools list
+#### network-pools list
 
 ```
 Usage: morpheus network-pools list
@@ -16382,7 +16382,7 @@ Usage: morpheus network-pools list
 List network pools.
 ```
 
-#### morpheus network-pools list-ips
+#### network-pools list-ips
 
 ```
 Usage: morpheus network-pools list-ips [network-pool]
@@ -16421,7 +16421,7 @@ List network pool IP addresses.
 [network-pool] is required. This is the name or id of a network pool.
 ```
 
-#### morpheus network-pools remove
+#### network-pools remove
 
 ```
 Usage: morpheus network-pools remove [network-pool]
@@ -16448,7 +16448,7 @@ Delete a network pool.
 [network-pool] is required. This is the name or id of a network pool.
 ```
 
-#### morpheus network-pools remove-ip
+#### network-pools remove-ip
 
 ```
 Usage: morpheus network-pools remove-ip [network-pool] [ip]
@@ -16476,7 +16476,7 @@ Delete a network pool IP.
 [ip] is required. This is the ip address or id of a network pool IP.
 ```
 
-#### morpheus network-pools update
+#### network-pools update
 
 ```
 Usage: morpheus network-pools update [network-pool] [options]
@@ -16512,7 +16512,7 @@ Update a network pool.
 [network-pool] is required. This is the id of a network pool.
 ```
 
-#### morpheus network-pools update-ip
+#### network-pools update-ip
 
 ```
 Usage: morpheus network-pools update-ip [network-pool] [ip] [options]
@@ -16548,7 +16548,7 @@ Update a network pool IP.
 ```
 
 
-### morpheus network-proxies
+### network-proxies
 
 ```
 Usage: morpheus network-proxies [command] [options]
@@ -16560,7 +16560,7 @@ Commands:
 	update
 ```
 
-#### morpheus network-proxies add
+#### network-proxies add
 
 ```
 Usage: morpheus network-proxies add
@@ -16603,7 +16603,7 @@ Create a new network proxy.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus network-proxies get
+#### network-proxies get
 
 ```
 Usage: morpheus network-proxies get [network-proxy]
@@ -16637,7 +16637,7 @@ Get details about a network proxy.
 [network-proxy] is required. This is the name or id of a network proxy.
 ```
 
-#### morpheus network-proxies list
+#### network-proxies list
 
 ```
 Usage: morpheus network-proxies list
@@ -16675,7 +16675,7 @@ Usage: morpheus network-proxies list
 List network proxies.
 ```
 
-#### morpheus network-proxies remove
+#### network-proxies remove
 
 ```
 Usage: morpheus network-proxies remove [network-proxy]
@@ -16702,7 +16702,7 @@ Delete a network proxy.
 [network-proxy] is required. This is the name or id of a network proxy.
 ```
 
-#### morpheus network-proxies update
+#### network-proxies update
 
 ```
 Usage: morpheus network-proxies update [network-proxy] [options]
@@ -16745,7 +16745,7 @@ Update a network proxy.
 ```
 
 
-### morpheus network-routers
+### network-routers
 
 ```
 Usage: morpheus network-routers [command] [options]
@@ -16767,7 +16767,7 @@ Commands:
 	update-permissions
 ```
 
-#### morpheus network-routers add
+#### network-routers add
 
 ```
 Usage: morpheus network-routers add [type] [name] [options]
@@ -16805,7 +16805,7 @@ Usage: morpheus network-routers add [type] [name] [options]
 Create a network router.
 ```
 
-#### morpheus network-routers add-firewall-rule
+#### network-routers add-firewall-rule
 
 ```
 Usage: morpheus network-routers add-firewall-rule [router] [name]
@@ -16837,7 +16837,7 @@ Usage: morpheus network-routers add-firewall-rule [router] [name]
 Create a network router firewall rule.
 ```
 
-#### morpheus network-routers add-route
+#### network-routers add-route
 
 ```
 Usage: morpheus network-routers add-route [router] [name]
@@ -16875,7 +16875,7 @@ Usage: morpheus network-routers add-route [router] [name]
 Create a network router route.
 ```
 
-#### morpheus network-routers dhcp
+#### network-routers dhcp
 
 ```
 Usage: morpheus network-routers dhcp [router]
@@ -16909,7 +16909,7 @@ Display network router DHCP details.
 [router] is required. This is the name or id of a network router.
 ```
 
-#### morpheus network-routers firewall
+#### network-routers firewall
 
 ```
 Usage: morpheus network-routers firewall [router]
@@ -16943,7 +16943,7 @@ Display network router firewall details.
 [router] is required. This is the name or id of a network router.
 ```
 
-#### morpheus network-routers get
+#### network-routers get
 
 ```
 Usage: morpheus network-routers get [router]
@@ -16978,7 +16978,7 @@ Display network router details.
 [router] is required. This is the name or id of a network router.
 ```
 
-#### morpheus network-routers list
+#### network-routers list
 
 ```
 Usage: morpheus network-routers list
@@ -17017,7 +17017,7 @@ Usage: morpheus network-routers list
 List network routers.
 ```
 
-#### morpheus network-routers remove
+#### network-routers remove
 
 ```
 Usage: morpheus network-routers remove [router]
@@ -17044,7 +17044,7 @@ Delete a network router.
 [router] is required. This is the name or id of an existing network router.
 ```
 
-#### morpheus network-routers remove-firewall-rule
+#### network-routers remove-firewall-rule
 
 ```
 Usage: morpheus network-routers remove-firewall-rule [router] [rule]
@@ -17071,7 +17071,7 @@ Delete a network router firewall rule.
 [router] is required. This is the name or id of an existing network router.
 ```
 
-#### morpheus network-routers remove-route
+#### network-routers remove-route
 
 ```
 Usage: morpheus network-routers remove-route [router] [rule]
@@ -17098,7 +17098,7 @@ Delete a network router route.
 [router] is required. This is the name or id of an existing network router.
 ```
 
-#### morpheus network-routers routes
+#### network-routers routes
 
 ```
 Usage: morpheus network-routers routes [router]
@@ -17132,7 +17132,7 @@ List network router routes.
 [router] is required. This is the name or id of a network router.
 ```
 
-#### morpheus network-routers type
+#### network-routers type
 
 ```
 Usage: morpheus network-routers type [type]
@@ -17162,7 +17162,7 @@ Usage: morpheus network-routers type [type]
 Display network router type details.
 ```
 
-#### morpheus network-routers types
+#### network-routers types
 
 ```
 Usage: morpheus network-routers types
@@ -17186,7 +17186,7 @@ Usage: morpheus network-routers types
 List network router types.
 ```
 
-#### morpheus network-routers update
+#### network-routers update
 
 ```
 Usage: morpheus network-routers update [router]
@@ -17218,7 +17218,7 @@ Usage: morpheus network-routers update [router]
 Update a network router.
 ```
 
-#### morpheus network-routers update-permissions
+#### network-routers update-permissions
 
 ```
 Usage: morpheus network-routers update-permissions [router]
@@ -17253,7 +17253,7 @@ Update a network router permissions.
 ```
 
 
-### morpheus network-services
+### network-services
 
 ```
 Usage: morpheus network-services [command] [options]
@@ -17261,7 +17261,7 @@ Commands:
 	list
 ```
 
-#### morpheus network-services list
+#### network-services list
 
 ```
 Usage: morpheus network-services list
@@ -17301,7 +17301,7 @@ List network services (Integrations).
 ```
 
 
-### morpheus networks
+### networks
 
 ```
 Usage: morpheus networks [command] [options]
@@ -17315,7 +17315,7 @@ Commands:
 	update
 ```
 
-#### morpheus networks add
+#### networks add
 
 ```
 Usage: morpheus networks add -t TYPE
@@ -17373,7 +17373,7 @@ Create a new network.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus networks get
+#### networks get
 
 ```
 Usage: morpheus networks get [network]
@@ -17407,7 +17407,7 @@ Get details about a network.
 [network] is required. This is the name or id of a network.
 ```
 
-#### morpheus networks get-type
+#### networks get-type
 
 ```
 Usage: morpheus networks get-type [type]
@@ -17447,7 +17447,7 @@ Get details about a network type.
 [type] is required. This is the id or name of a network type.
 ```
 
-#### morpheus networks list
+#### networks list
 
 ```
 Usage: morpheus networks list
@@ -17489,7 +17489,7 @@ Usage: morpheus networks list
 List networks.
 ```
 
-#### morpheus networks remove
+#### networks remove
 
 ```
 Usage: morpheus networks remove [network]
@@ -17517,7 +17517,7 @@ Delete a network.
 [network] is required. This is the name or id of a network.
 ```
 
-#### morpheus networks types
+#### networks types
 
 ```
 Usage: morpheus networks types
@@ -17557,7 +17557,7 @@ Usage: morpheus networks types
 List network types.
 ```
 
-#### morpheus networks update
+#### networks update
 
 ```
 Usage: morpheus networks update [network] [options]
@@ -17612,7 +17612,7 @@ Update a network.
 ```
 
 
-### morpheus passwd
+### passwd
 
 ```
 Usage: morpheus passwd [username] [options]
@@ -17645,7 +17645,7 @@ Be careful with this command, the default behavior is to update your own passwor
 ```
 
 
-### morpheus ping
+### ping
 
 ```
 Usage: morpheus ping [options]
@@ -17686,7 +17686,7 @@ Prints the remote version and status and the time it took to get a response.
 ```
 
 
-### morpheus policies
+### policies
 
 ```
 Usage: morpheus policies [command] [options]
@@ -17700,7 +17700,7 @@ Commands:
 	update
 ```
 
-#### morpheus policies add
+#### policies add
 
 ```
 Usage: morpheus policies add -t TYPE
@@ -17746,7 +17746,7 @@ Create a new policy.
 [name] is optional and can be passed as --name instead.
 ```
 
-#### morpheus policies get
+#### policies get
 
 ```
 Usage: morpheus policies get [policy]
@@ -17782,7 +17782,7 @@ Get details about a policy.
 [policy] is required. This is the id of a policy.
 ```
 
-#### morpheus policies get-type
+#### policies get-type
 
 ```
 Usage: morpheus policies get-type [policy-type]
@@ -17807,7 +17807,7 @@ Get details about a policy type.
 [policy-type] is required. This is ID of a policy type.
 ```
 
-#### morpheus policies list
+#### policies list
 
 ```
 Usage: morpheus policies list
@@ -17851,7 +17851,7 @@ Usage: morpheus policies list
 List policies.
 ```
 
-#### morpheus policies list-types
+#### policies list-types
 
 ```
 Usage: morpheus policies list-types
@@ -17884,7 +17884,7 @@ Usage: morpheus policies list-types
 List policy types.
 ```
 
-#### morpheus policies remove
+#### policies remove
 
 ```
 Usage: morpheus policies remove [policy]
@@ -17911,7 +17911,7 @@ Delete a policy.
 [policy] is required. This is the id of a policy.
 ```
 
-#### morpheus policies update
+#### policies update
 
 ```
 Usage: morpheus policies update [policy] [options]
@@ -17948,7 +17948,7 @@ Update a policy.
 ```
 
 
-### morpheus power-schedules
+### power-schedules
 
 ```
 Usage: morpheus power-schedules [command] [options]
@@ -17964,7 +17964,7 @@ Commands:
 	update
 ```
 
-#### morpheus power-schedules add
+#### power-schedules add
 
 ```
 Usage: morpheus power-schedules add [name]
@@ -18016,7 +18016,7 @@ Create a new power schedule.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus power-schedules add-hosts
+#### power-schedules add-hosts
 
 ```
 Usage: morpheus power-schedules add-hosts [name] [host]
@@ -18047,7 +18047,7 @@ Assign hosts to a power schedule.
 [host] is required. This is the name or id of a host. More than one can be passed.
 ```
 
-#### morpheus power-schedules add-instances
+#### power-schedules add-instances
 
 ```
 Usage: morpheus power-schedules add-instances [name] [instance]
@@ -18078,7 +18078,7 @@ Assign instances to a power schedule.
 [instance] is required. This is the name or id of an instance. More than one can be passed.
 ```
 
-#### morpheus power-schedules get
+#### power-schedules get
 
 ```
 Usage: morpheus power-schedules get [name]
@@ -18111,7 +18111,7 @@ Usage: morpheus power-schedules get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus power-schedules list
+#### power-schedules list
 
 ```
 Usage: morpheus power-schedules list
@@ -18147,7 +18147,7 @@ Usage: morpheus power-schedules list
     -h, --help                       Print this help
 ```
 
-#### morpheus power-schedules remove
+#### power-schedules remove
 
 ```
 Usage: morpheus power-schedules remove [name]
@@ -18163,7 +18163,7 @@ Usage: morpheus power-schedules remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus power-schedules remove-hosts
+#### power-schedules remove-hosts
 
 ```
 Usage: morpheus power-schedules remove-hosts [name] [host]
@@ -18194,7 +18194,7 @@ Remove hosts from a power schedule.
 [host] is required. This is the name or id of a host. More than one can be passed.
 ```
 
-#### morpheus power-schedules remove-instances
+#### power-schedules remove-instances
 
 ```
 Usage: morpheus power-schedules remove-instances [name] [instance]
@@ -18225,7 +18225,7 @@ Remove instances from a power schedule.
 [instance] is required. This is the name or id of an instance. More than one can be passed.
 ```
 
-#### morpheus power-schedules update
+#### power-schedules update
 
 ```
 Usage: morpheus power-schedules update [name]
@@ -18278,7 +18278,7 @@ Update a power schedule.
 ```
 
 
-### morpheus price-sets
+### price-sets
 
 ```
 Usage: morpheus price-sets [command] [options]
@@ -18290,7 +18290,7 @@ Commands:
 	update
 ```
 
-#### morpheus price-sets add
+#### price-sets add
 
 ```
 Usage: morpheus price-sets add
@@ -18331,7 +18331,7 @@ Create price set.
 Name, code, type and price unit are required.
 ```
 
-#### morpheus price-sets deactivate
+#### price-sets deactivate
 
 ```
 Usage: morpheus price-sets deactivate [price-set]
@@ -18356,7 +18356,7 @@ Deactivate price set.
 [price-set] is required. Price set ID, name or code
 ```
 
-#### morpheus price-sets get
+#### price-sets get
 
 ```
 Usage: morpheus price-sets get [price-set]
@@ -18381,7 +18381,7 @@ Get details about a price set.
 [price-set] is required. Price set ID, name or code
 ```
 
-#### morpheus price-sets list
+#### price-sets list
 
 ```
 Usage: morpheus price-sets list
@@ -18421,7 +18421,7 @@ Usage: morpheus price-sets list
 List price sets.
 ```
 
-#### morpheus price-sets update
+#### price-sets update
 
 ```
 Usage: morpheus price-sets update [price-set]
@@ -18458,7 +18458,7 @@ Update price set.
 ```
 
 
-### morpheus prices
+### prices
 
 ```
 Usage: morpheus prices [command] [options]
@@ -18470,7 +18470,7 @@ Commands:
 	update
 ```
 
-#### morpheus prices add
+#### prices add
 
 ```
 Usage: morpheus prices add [name] [code]
@@ -18518,7 +18518,7 @@ Usage: morpheus prices add [name] [code]
 Create price
 ```
 
-#### morpheus prices deactivate
+#### prices deactivate
 
 ```
 Usage: morpheus prices deactivate [price]
@@ -18543,7 +18543,7 @@ Deactivate price.
 [price] is required. Price ID, name or code
 ```
 
-#### morpheus prices get
+#### prices get
 
 ```
 Usage: morpheus prices get [price]
@@ -18568,7 +18568,7 @@ Get details about a price.
 [price] is required. Price ID, name or code
 ```
 
-#### morpheus prices list
+#### prices list
 
 ```
 Usage: morpheus prices list
@@ -18612,7 +18612,7 @@ Usage: morpheus prices list
 List prices.
 ```
 
-#### morpheus prices update
+#### prices update
 
 ```
 Usage: morpheus prices update [price]
@@ -18661,7 +18661,7 @@ Update price
 ```
 
 
-### morpheus process
+### process
 
 ```
 Usage: morpheus process [command] [options]
@@ -18671,7 +18671,7 @@ Commands:
 	list
 ```
 
-#### morpheus process get
+#### process get
 
 ```
 Usage: morpheus process get [id]
@@ -18706,7 +18706,7 @@ Usage: morpheus process get [id]
 Display details for a specific process.
 ```
 
-#### morpheus process get-event
+#### process get-event
 
 ```
 Usage: morpheus process get-event [event-id]
@@ -18741,7 +18741,7 @@ Display details for a specific process event.
 [event-id] is required. This is the id of the process event.
 ```
 
-#### morpheus process list
+#### process list
 
 ```
 Usage: morpheus process list
@@ -18790,7 +18790,7 @@ List historical processes.
 ```
 
 
-### morpheus projects
+### projects
 
 ```
 Usage: morpheus projects [command] [options]
@@ -18802,7 +18802,7 @@ Commands:
 	update
 ```
 
-#### morpheus projects add
+#### projects add
 
 ```
 Usage: morpheus projects add [name]
@@ -18842,7 +18842,7 @@ Create a project.
 [name] is required. This is the name of the new project.
 ```
 
-#### morpheus projects get
+#### projects get
 
 ```
 Usage: morpheus projects get [project]
@@ -18879,7 +18879,7 @@ Get details about a project.
 [project] is required. This is the name or id of a project.
 ```
 
-#### morpheus projects list
+#### projects list
 
 ```
 Usage: morpheus projects list
@@ -18919,7 +18919,7 @@ Usage: morpheus projects list
 List projects.
 ```
 
-#### morpheus projects remove
+#### projects remove
 
 ```
 Usage: morpheus projects remove [project]
@@ -18948,7 +18948,7 @@ Delete a project.
 [project] is required. This is the name or id of a project.
 ```
 
-#### morpheus projects update
+#### projects update
 
 ```
 Usage: morpheus projects update [project] [options]
@@ -19000,7 +19000,7 @@ Update a project.
 ```
 
 
-### morpheus provisioning-licenses
+### provisioning-licenses
 
 ```
 Usage: morpheus provisioning-licenses [command] [options]
@@ -19014,7 +19014,7 @@ Commands:
 	update
 ```
 
-#### morpheus provisioning-licenses add
+#### provisioning-licenses add
 
 ```
 Usage: morpheus provisioning-licenses add [name] [options]
@@ -19056,7 +19056,7 @@ Usage: morpheus provisioning-licenses add [name] [options]
 Create license.
 ```
 
-#### morpheus provisioning-licenses get
+#### provisioning-licenses get
 
 ```
 Usage: morpheus provisioning-licenses get [license]
@@ -19092,7 +19092,7 @@ Get details about a license.
 [license] is required. License ID or name
 ```
 
-#### morpheus provisioning-licenses list
+#### provisioning-licenses list
 
 ```
 Usage: morpheus provisioning-licenses list
@@ -19132,7 +19132,7 @@ Usage: morpheus provisioning-licenses list
 List licenses.
 ```
 
-#### morpheus provisioning-licenses list-types
+#### provisioning-licenses list-types
 
 ```
 Usage: morpheus provisioning-licenses list-types
@@ -19172,7 +19172,7 @@ Usage: morpheus provisioning-licenses list-types
 List license types.
 ```
 
-#### morpheus provisioning-licenses remove
+#### provisioning-licenses remove
 
 ```
 Usage: morpheus provisioning-licenses remove [name]
@@ -19200,7 +19200,7 @@ Delete license.
 [license] is required. License ID or name
 ```
 
-#### morpheus provisioning-licenses reservations
+#### provisioning-licenses reservations
 
 ```
 Usage: morpheus provisioning-licenses reservations [name]
@@ -19241,7 +19241,7 @@ List reservations for a license.
 [license] is required. License ID or name
 ```
 
-#### morpheus provisioning-licenses update
+#### provisioning-licenses update
 
 ```
 Usage: morpheus provisioning-licenses update [license] [options]
@@ -19281,7 +19281,7 @@ Update license.
 ```
 
 
-### morpheus provisioning-settings
+### provisioning-settings
 
 ```
 Usage: morpheus provisioning-settings [command] [options]
@@ -19290,7 +19290,7 @@ Commands:
 	update
 ```
 
-#### morpheus provisioning-settings get
+#### provisioning-settings get
 
 ```
 Usage: morpheus provisioning-settings get
@@ -19324,7 +19324,7 @@ Usage: morpheus provisioning-settings get
 Get provisioning settings.
 ```
 
-#### morpheus provisioning-settings update
+#### provisioning-settings update
 
 ```
 Usage: morpheus provisioning-settings update
@@ -19366,7 +19366,7 @@ Usage: morpheus provisioning-settings update
 ```
 
 
-### morpheus remote
+### remote
 
 ```
 Usage: morpheus remote [command] [options]
@@ -19388,7 +19388,7 @@ Commands:
 	view
 ```
 
-#### morpheus remote add
+#### remote add
 
 ```
 Usage: morpheus remote add [name] [url]
@@ -19416,7 +19416,7 @@ The --quiet option can be used to to skip prompting.
 
 ```
 
-#### morpheus remote check
+#### remote check
 
 ```
 Usage: morpheus remote check [name]
@@ -19443,7 +19443,7 @@ Check the status of a remote appliance.
 This makes a request to the configured appliance url and updates the status and version.
 ```
 
-#### morpheus remote check-all
+#### remote check-all
 
 ```
 Usage: morpheus remote check-all
@@ -19457,7 +19457,7 @@ Refresh all remote appliances.
 This makes a request to each of the configured appliance urls and updates the status and version.
 ```
 
-#### morpheus remote clone
+#### remote clone
 
 ```
 Usage: morpheus remote clone [remote] [name]
@@ -19473,7 +19473,7 @@ Clone remote appliance configuratio, including any existing credentials.
 [name] is optional. This is the name of the new remote that will be created.
 ```
 
-#### morpheus remote current
+#### remote current
 
 ```
 Usage: morpheus remote current
@@ -19501,7 +19501,7 @@ Print details about the current remote appliance.
 This behaves the same as `remote get current`.
 ```
 
-#### morpheus remote get
+#### remote get
 
 ```
 Usage: morpheus remote get [name]
@@ -19524,12 +19524,12 @@ Usage: morpheus remote get [name]
     -h, --help                       Print this help
 
 Print details about the a remote appliance.
-[name] is optional. This is the name of a remote. 
+[name] is optional. This is the name of a remote.
 By default, the current appliance is used.
 Returns an error if the specified remote is not found, or there is no current remote.
 ```
 
-#### morpheus remote list
+#### remote list
 
 ```
 Usage: morpheus remote list [search]
@@ -19559,7 +19559,7 @@ Usage: morpheus remote list [search]
 List the configured remote appliances.
 ```
 
-#### morpheus remote remove
+#### remote remove
 
 ```
 Usage: morpheus remote remove [name]
@@ -19574,7 +19574,7 @@ This will delete the specified remote appliance(s) from your local configuration
 [name] is required. This is the name of a remote. More than one can be passed.
 ```
 
-#### morpheus remote rename
+#### remote rename
 
 ```
 Usage: morpheus remote rename [name] [new name]
@@ -19592,7 +19592,7 @@ This changes your client configuration remote name, not the appliance itself.
 [new name] is required. This is the new name for the remote. This must not already be in use.
 ```
 
-#### morpheus remote unuse
+#### remote unuse
 
 ```
 Usage: morpheus remote unuse
@@ -19604,7 +19604,7 @@ Usage: morpheus remote unuse
 Stop using the current remote appliance.
 ```
 
-#### morpheus remote update
+#### remote update
 
 ```
 Usage: morpheus remote update [name]
@@ -19622,7 +19622,7 @@ Usage: morpheus remote update [name]
 This can be used to update remote appliance settings.
 ```
 
-#### morpheus remote use
+#### remote use
 
 ```
 Usage: morpheus remote use [name]
@@ -19648,7 +19648,7 @@ For example, add the following to your .morpheusrc file:
 
 ```
 
-#### morpheus remote version
+#### remote version
 
 ```
 Usage: morpheus remote version [remote]
@@ -19674,7 +19674,7 @@ Print version of remote appliance.
 This makes a request to the configured appliance url and updates the status and version.
 ```
 
-#### morpheus remote view
+#### remote view
 
 ```
 Usage: morpheus remote view [name]
@@ -19694,7 +19694,7 @@ This will automatically login with the current access token.
 ```
 
 
-### morpheus reports
+### reports
 
 ```
 Usage: morpheus reports [command] [options]
@@ -19708,7 +19708,7 @@ Commands:
 	view
 ```
 
-#### morpheus reports export
+#### reports export
 
 ```
 Usage: morpheus reports export [id] [file]
@@ -19736,7 +19736,7 @@ Export a report result as json or csv.
 [file] is required. This is local destination for the downloaded file.
 ```
 
-#### morpheus reports get
+#### reports get
 
 ```
 Usage: morpheus reports get [id]
@@ -19773,7 +19773,7 @@ Usage: morpheus reports get [id]
 Get details about a report result.
 ```
 
-#### morpheus reports list
+#### reports list
 
 ```
 Usage: morpheus reports list
@@ -19804,7 +19804,7 @@ Usage: morpheus reports list
 List report history.
 ```
 
-#### morpheus reports remove
+#### reports remove
 
 ```
 Usage: morpheus reports remove [id]
@@ -19830,7 +19830,7 @@ Delete a report result.
 [id] is required. This is id of the report result.
 ```
 
-#### morpheus reports run
+#### reports run
 
 ```
 Usage: morpheus reports run [type] [options]
@@ -19866,7 +19866,7 @@ Run a report to generate a new result.
 [type] is required. This is code of the report type.
 ```
 
-#### morpheus reports types
+#### reports types
 
 ```
 Usage: morpheus reports types
@@ -19895,7 +19895,7 @@ Usage: morpheus reports types
 List report types.
 ```
 
-#### morpheus reports view
+#### reports view
 
 ```
 Usage: morpheus reports view [id]
@@ -19920,7 +19920,7 @@ View a report result in a web browser
 ```
 
 
-### morpheus resource-folders
+### resource-folders
 
 ```
 Usage: morpheus resource-folders [command] [options]
@@ -19930,7 +19930,7 @@ Commands:
 	update
 ```
 
-#### morpheus resource-folders get
+#### resource-folders get
 
 ```
 Usage: morpheus resource-folders get [cloud] [folder]
@@ -19965,7 +19965,7 @@ Get details about a resource folder.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus resource-folders list
+#### resource-folders list
 
 ```
 Usage: morpheus resource-folders list [cloud]
@@ -20005,7 +20005,7 @@ List resource folders for a cloud.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus resource-folders update
+#### resource-folders update
 
 ```
 Usage: morpheus resource-folders update [cloud] [folder] [options]
@@ -20049,7 +20049,7 @@ Update a resource folder.
 ```
 
 
-### morpheus resource-pools
+### resource-pools
 
 ```
 Usage: morpheus resource-pools [command] [options]
@@ -20061,7 +20061,7 @@ Commands:
 	update
 ```
 
-#### morpheus resource-pools add
+#### resource-pools add
 
 ```
 Usage: morpheus resource-pools add [cloud] [pool] [options]
@@ -20106,7 +20106,7 @@ Update a resource pool.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus resource-pools get
+#### resource-pools get
 
 ```
 Usage: morpheus resource-pools get [cloud] [pool]
@@ -20141,7 +20141,7 @@ Get details about a resource pool.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus resource-pools list
+#### resource-pools list
 
 ```
 Usage: morpheus resource-pools list [cloud]
@@ -20181,7 +20181,7 @@ List resource pools for a cloud.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus resource-pools remove
+#### resource-pools remove
 
 ```
 Usage: morpheus resource-pools remove [cloud] [pool]
@@ -20207,7 +20207,7 @@ Delete a resource pool.
 [cloud] is required. This is the name or id of the cloud.
 ```
 
-#### morpheus resource-pools update
+#### resource-pools update
 
 ```
 Usage: morpheus resource-pools update [cloud] [pool] [options]
@@ -20252,7 +20252,7 @@ Update a resource pool.
 ```
 
 
-### morpheus roles
+### roles
 
 ```
 Usage: morpheus roles [command] [options]
@@ -20277,7 +20277,7 @@ Commands:
 	update-persona-access
 ```
 
-#### morpheus roles add
+#### roles add
 
 ```
 Usage: morpheus roles add [name] [options]
@@ -20312,7 +20312,7 @@ Usage: morpheus roles add [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus roles get
+#### roles get
 
 ```
 Usage: morpheus roles get [role]
@@ -20356,7 +20356,7 @@ Get details about a role.
 [role] is required. This is the name (authority) or id of a role.
 ```
 
-#### morpheus roles list
+#### roles list
 
 ```
 Usage: morpheus roles list [search phrase]
@@ -20396,7 +20396,7 @@ Usage: morpheus roles list [search phrase]
 List roles.
 ```
 
-#### morpheus roles list-permissions
+#### roles list-permissions
 
 ```
 Usage: morpheus roles list-permissions [role]
@@ -20435,7 +20435,7 @@ List the permissions for a role.
 [role] is required. This is the name or id of a role.
 ```
 
-#### morpheus roles remove
+#### roles remove
 
 ```
 Usage: morpheus roles remove [name]
@@ -20458,7 +20458,7 @@ Usage: morpheus roles remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update
+#### roles update
 
 ```
 Usage: morpheus roles update [name] [options]
@@ -20491,7 +20491,7 @@ Usage: morpheus roles update [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-blueprint-access
+#### roles update-blueprint-access
 
 ```
 Usage: morpheus roles update-blueprint-access [name]
@@ -20521,7 +20521,7 @@ Update role access for an blueprint or all blueprints.
 --access is required. This is the new access value.
 ```
 
-#### morpheus roles update-catalog-item-type-access
+#### roles update-catalog-item-type-access
 
 ```
 Usage: morpheus roles update-catalog-item-type-access [name]
@@ -20551,7 +20551,7 @@ Update role access for an catalog item type or all types.
 --access is required. This is the new access value.
 ```
 
-#### morpheus roles update-cloud-access
+#### roles update-cloud-access
 
 ```
 Usage: morpheus roles update-cloud-access [name]
@@ -20582,7 +20582,7 @@ Update role access for a cloud or all clouds.
 --access is required. This is the new access value.
 ```
 
-#### morpheus roles update-feature-access
+#### roles update-feature-access
 
 ```
 Usage: morpheus roles update-feature-access [name] [code] [full|read|user|yes|no|none]
@@ -20604,7 +20604,7 @@ Usage: morpheus roles update-feature-access [name] [code] [full|read|user|yes|no
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-global-blueprint-access
+#### roles update-global-blueprint-access
 
 ```
 Usage: morpheus roles update-global-blueprint-access [name] [full|custom|none]
@@ -20626,7 +20626,7 @@ Usage: morpheus roles update-global-blueprint-access [name] [full|custom|none]
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-global-catalog-item-type-access
+#### roles update-global-catalog-item-type-access
 
 ```
 Usage: morpheus roles update-global-catalog-item-type-access [name] [full|custom|none]
@@ -20648,7 +20648,7 @@ Usage: morpheus roles update-global-catalog-item-type-access [name] [full|custom
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-global-cloud-access
+#### roles update-global-cloud-access
 
 ```
 Usage: morpheus roles update-global-cloud-access [name] [full|custom|none]
@@ -20670,7 +20670,7 @@ Usage: morpheus roles update-global-cloud-access [name] [full|custom|none]
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-global-group-access
+#### roles update-global-group-access
 
 ```
 Usage: morpheus roles update-global-group-access [name] [full|read|custom|none]
@@ -20692,7 +20692,7 @@ Usage: morpheus roles update-global-group-access [name] [full|read|custom|none]
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-global-instance-type-access
+#### roles update-global-instance-type-access
 
 ```
 Usage: morpheus roles update-global-instance-type-access [name] [full|custom|none]
@@ -20714,7 +20714,7 @@ Usage: morpheus roles update-global-instance-type-access [name] [full|custom|non
     -h, --help                       Print this help
 ```
 
-#### morpheus roles update-group-access
+#### roles update-group-access
 
 ```
 Usage: morpheus roles update-group-access [name]
@@ -20744,7 +20744,7 @@ Update role access for a group or all groups.
 --access is required. This is the new access value.
 ```
 
-#### morpheus roles update-instance-type-access
+#### roles update-instance-type-access
 
 ```
 Usage: morpheus roles update-instance-type-access [name]
@@ -20775,7 +20775,7 @@ Update role access for an instance type or all instance types.
 --access is required. This is the new access value.
 ```
 
-#### morpheus roles update-persona-access
+#### roles update-persona-access
 
 ```
 Usage: morpheus roles update-persona-access [name] [serviceCatalog|standard]
@@ -20806,7 +20806,7 @@ Update role access for an persona or personas.
 ```
 
 
-### morpheus security-groups
+### security-groups
 
 ```
 Usage: morpheus security-groups [command] [options]
@@ -20823,7 +20823,7 @@ Commands:
 	update-rule
 ```
 
-#### morpheus security-groups add
+#### security-groups add
 
 ```
 Usage: morpheus security-groups add [name] [options]
@@ -20866,7 +20866,7 @@ Create a security group.
 [name] is required. This is the name of the security group.
 ```
 
-#### morpheus security-groups add-location
+#### security-groups add-location
 
 ```
 Usage: morpheus security-groups add-location [security-group] [options]
@@ -20900,7 +20900,7 @@ Add security group to a location (cloud).
 [security-group] is required. This is the name or id of the security group.
 ```
 
-#### morpheus security-groups add-rule
+#### security-groups add-rule
 
 ```
 Usage: morpheus security-groups add-rule [security-group] [options]
@@ -20945,7 +20945,7 @@ Create a security group rule.
 [security-group] is required. This is the name or id of the security group.
 ```
 
-#### morpheus security-groups get
+#### security-groups get
 
 ```
 Usage: morpheus security-groups get [id]
@@ -20978,7 +20978,7 @@ Usage: morpheus security-groups get [id]
 Get details about a security group.
 ```
 
-#### morpheus security-groups list
+#### security-groups list
 
 ```
 Usage: morpheus security-groups list
@@ -21017,7 +21017,7 @@ Usage: morpheus security-groups list
 List security groups.
 ```
 
-#### morpheus security-groups remove
+#### security-groups remove
 
 ```
 Usage: morpheus security-groups remove [id]
@@ -21043,7 +21043,7 @@ Delete a security group.
 [security-group] is required. This is the name or id of the security group.
 ```
 
-#### morpheus security-groups remove-location
+#### security-groups remove-location
 
 ```
 Usage: morpheus security-groups remove-location [security-group] [options]
@@ -21070,7 +21070,7 @@ Remove security group from a location (cloud).
 [security-group] is required. This is the name or id of the security group.
 ```
 
-#### morpheus security-groups remove-rule
+#### security-groups remove-rule
 
 ```
 Usage: morpheus security-groups remove-rule [security-group] [id]
@@ -21096,7 +21096,7 @@ Delete a security group rule.
 [security-group] is required. This is the name or id of the security group.
 ```
 
-#### morpheus security-groups update
+#### security-groups update
 
 ```
 Usage: morpheus security-groups update [security-group] [options]
@@ -21138,7 +21138,7 @@ Update a security group.
 [security-group] is required. This is the name or id of the security group.
 ```
 
-#### morpheus security-groups update-rule
+#### security-groups update-rule
 
 ```
 Usage: morpheus security-groups update-rule [security-group] [rule]
@@ -21184,7 +21184,7 @@ Update a security group rule.
 ```
 
 
-### morpheus service-plans
+### service-plans
 
 ```
 Usage: morpheus service-plans [command] [options]
@@ -21197,7 +21197,7 @@ Commands:
 	update
 ```
 
-#### morpheus service-plans activate
+#### service-plans activate
 
 ```
 Usage: morpheus service-plans activate [plan]
@@ -21223,7 +21223,7 @@ Activate service plan.
 [plan] is required. Service plan ID, name or code
 ```
 
-#### morpheus service-plans add
+#### service-plans add
 
 ```
 Usage: morpheus service-plans add
@@ -21282,7 +21282,7 @@ Usage: morpheus service-plans add
 Create service plan
 ```
 
-#### morpheus service-plans deactivate
+#### service-plans deactivate
 
 ```
 Usage: morpheus service-plans deactivate [plan]
@@ -21308,7 +21308,7 @@ Deactivate service plan.
 [plan] is required. Service plan ID, name or code
 ```
 
-#### morpheus service-plans get
+#### service-plans get
 
 ```
 Usage: morpheus service-plans get [plan]
@@ -21333,7 +21333,7 @@ Get details about a service plan.
 [plan] is required. Service plan ID, name or code
 ```
 
-#### morpheus service-plans list
+#### service-plans list
 
 ```
 Usage: morpheus service-plans list
@@ -21375,7 +21375,7 @@ Usage: morpheus service-plans list
 List service plans.
 ```
 
-#### morpheus service-plans update
+#### service-plans update
 
 ```
 Usage: morpheus service-plans update [plan]
@@ -21435,7 +21435,7 @@ Update service plan.
 ```
 
 
-### morpheus setup
+### setup
 
 ```
 Usage: morpheus setup [command] [options]
@@ -21476,7 +21476,7 @@ This is only available on a new, freshly installed remote appliance,
 and it may only be executed successfully one time.
 ```
 
-#### morpheus setup init
+#### setup init
 
 ```
 Usage: morpheus setup [command] [options]
@@ -21518,7 +21518,7 @@ and it may only be executed successfully one time.
 ```
 
 
-### morpheus shell
+### shell
 
 ```
 Usage: morpheus shell
@@ -21534,7 +21534,7 @@ Usage: morpheus shell
 ```
 
 
-### morpheus storage-buckets
+### storage-buckets
 
 ```
 Usage: morpheus storage-buckets [command] [options]
@@ -21553,7 +21553,7 @@ Commands:
 	upload
 ```
 
-#### morpheus storage-buckets add
+#### storage-buckets add
 
 ```
 Usage: morpheus storage-buckets add
@@ -21596,7 +21596,7 @@ Create a new storage bucket.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus storage-buckets download
+#### storage-buckets download
 
 ```
 Usage: morpheus storage-buckets download [provider:/path] [local-file]
@@ -21617,7 +21617,7 @@ Download a file or directory.
 Directories will be downloaded as a .zip file, so you'll want to specify a [local-file] with a .zip extension.
 ```
 
-#### morpheus storage-buckets get
+#### storage-buckets get
 
 ```
 Usage: morpheus storage-buckets get [storage-bucket]
@@ -21651,7 +21651,7 @@ Get details about a storage bucket.
 [storage-bucket] is required. This is the name or id of a storage bucket.
 ```
 
-#### morpheus storage-buckets list
+#### storage-buckets list
 
 ```
 Usage: morpheus storage-buckets list [search]
@@ -21691,7 +21691,7 @@ Usage: morpheus storage-buckets list [search]
 List storage buckets.
 ```
 
-#### morpheus storage-buckets list-files
+#### storage-buckets list-files
 
 ```
 Usage: morpheus storage-buckets list-files [provider:/path]
@@ -21720,11 +21720,11 @@ Usage: morpheus storage-buckets list-files [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in a storage bucket. 
+List files in a storage bucket.
 Include [/path] to show files under a directory.
 ```
 
-#### morpheus storage-buckets ls
+#### storage-buckets ls
 
 ```
 Usage: morpheus storage-buckets ls [bucket/path]
@@ -21753,7 +21753,7 @@ Print filenames for a given location.
 Pass storage location in the format bucket/path.
 ```
 
-#### morpheus storage-buckets read
+#### storage-buckets read
 
 ```
 Usage: morpheus storage-buckets read [provider:/path]
@@ -21770,7 +21770,7 @@ Print the contents of a storage file.
 This confirmation can be skipped with the -y option.
 ```
 
-#### morpheus storage-buckets remove
+#### storage-buckets remove
 
 ```
 Usage: morpheus storage-buckets remove [storage-bucket]
@@ -21796,7 +21796,7 @@ Delete a storage bucket.
 [storage-bucket] is required. This is the name or id of a storage bucket.
 ```
 
-#### morpheus storage-buckets remove-file
+#### storage-buckets remove-file
 
 ```
 Usage: morpheus storage-buckets remove-file [provider:/path]
@@ -21814,7 +21814,7 @@ Usage: morpheus storage-buckets remove-file [provider:/path]
 Delete a storage file or directory.
 ```
 
-#### morpheus storage-buckets rm
+#### storage-buckets rm
 
 ```
 Usage: morpheus storage-buckets remove-file [provider:/path]
@@ -21832,7 +21832,7 @@ Usage: morpheus storage-buckets remove-file [provider:/path]
 Delete a storage file or directory.
 ```
 
-#### morpheus storage-buckets update
+#### storage-buckets update
 
 ```
 Usage: morpheus storage-buckets update [storage-bucket] [options]
@@ -21874,7 +21874,7 @@ Update a storage bucket.
 [storage-bucket] is required. This is the id of a storage bucket.
 ```
 
-#### morpheus storage-buckets upload
+#### storage-buckets upload
 
 ```
 Usage: morpheus storage-buckets upload [local-file] [provider:/path]
@@ -21890,16 +21890,16 @@ Usage: morpheus storage-buckets upload [local-file] [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to a storage bucket. 
+Upload a local file or folder to a storage bucket.
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [provider:/path] should contain the name or id of the provider.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root directory '/'. 
+The default destination is the same name as the [local-file], under the root directory '/'.
 This will overwrite any existing remote files that match the destination /path.
 ```
 
 
-### morpheus subnets
+### subnets
 
 ```
 Usage: morpheus subnets [command] [options]
@@ -21913,7 +21913,7 @@ Commands:
 	update
 ```
 
-#### morpheus subnets add
+#### subnets add
 
 ```
 Usage: morpheus subnets add [name] --network NETWORK
@@ -21960,7 +21960,7 @@ Create a new subnet.
 --network is required. This is the name or id of a network.
 ```
 
-#### morpheus subnets get
+#### subnets get
 
 ```
 Usage: morpheus subnets get [subnet]
@@ -21994,7 +21994,7 @@ Get details about a subnet.
 [subnet] is required. This is the name or id of a subnet.
 ```
 
-#### morpheus subnets get-type
+#### subnets get-type
 
 ```
 Usage: morpheus subnets get-type [type]
@@ -22034,7 +22034,7 @@ Get details about a subnet type.
 [type] is required. This is the id or name of a subnet type.
 ```
 
-#### morpheus subnets list
+#### subnets list
 
 ```
 Usage: morpheus subnets list
@@ -22075,7 +22075,7 @@ Usage: morpheus subnets list
 List subnets.
 ```
 
-#### morpheus subnets remove
+#### subnets remove
 
 ```
 Usage: morpheus subnets remove [subnet]
@@ -22101,7 +22101,7 @@ Delete a subnet.
 [subnet] is required. This is the name or id of a subnet.
 ```
 
-#### morpheus subnets types
+#### subnets types
 
 ```
 Usage: morpheus subnets types
@@ -22141,7 +22141,7 @@ Usage: morpheus subnets types
 List subnet types.
 ```
 
-#### morpheus subnets update
+#### subnets update
 
 ```
 Usage: morpheus subnets update [subnet]
@@ -22185,7 +22185,7 @@ Update a subnet.
 ```
 
 
-### morpheus tasks
+### tasks
 
 ```
 Usage: morpheus tasks [command] [options]
@@ -22200,7 +22200,7 @@ Commands:
 	update
 ```
 
-#### morpheus tasks add
+#### tasks add
 
 ```
 Usage: morpheus tasks add [name] -t TASK_TYPE
@@ -22252,7 +22252,7 @@ Usage: morpheus tasks add [name] -t TASK_TYPE
     -h, --help                       Print this help
 ```
 
-#### morpheus tasks execute
+#### tasks execute
 
 ```
 Usage: morpheus tasks execute [task] --instance [instance] [options]
@@ -22283,7 +22283,7 @@ Usage: morpheus tasks execute [task] --instance [instance] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus tasks get
+#### tasks get
 
 ```
 Usage: morpheus tasks get [workflow]
@@ -22315,7 +22315,7 @@ Usage: morpheus tasks get [workflow]
     -h, --help                       Print this help
 ```
 
-#### morpheus tasks get-type
+#### tasks get-type
 
 ```
 Usage: morpheus tasks get-type [type]
@@ -22350,7 +22350,7 @@ Get details about a task type.
 [type] is required. This is the id or code or name of a task type.
 ```
 
-#### morpheus tasks list
+#### tasks list
 
 ```
 Usage: morpheus tasks list
@@ -22388,7 +22388,7 @@ Usage: morpheus tasks list
     -h, --help                       Print this help
 ```
 
-#### morpheus tasks list-types
+#### tasks list-types
 
 ```
 Usage: morpheus tasks list-types
@@ -22427,7 +22427,7 @@ Usage: morpheus tasks list-types
 List task types.
 ```
 
-#### morpheus tasks remove
+#### tasks remove
 
 ```
 Usage: morpheus tasks remove [task]
@@ -22452,7 +22452,7 @@ Usage: morpheus tasks remove [task]
     -f, --force                      Force Delete
 ```
 
-#### morpheus tasks update
+#### tasks update
 
 ```
 Usage: morpheus tasks update [task] [options]
@@ -22504,7 +22504,7 @@ Usage: morpheus tasks update [task] [options]
 ```
 
 
-### morpheus tenants
+### tenants
 
 ```
 Usage: morpheus tenants [command] [options]
@@ -22518,7 +22518,7 @@ Commands:
 	update
 ```
 
-#### morpheus tenants add
+#### tenants add
 
 ```
 Usage: morpheus tenants add [name]
@@ -22556,7 +22556,7 @@ Create a new tenant.
 [role] is required. Base Role name or ID
 ```
 
-#### morpheus tenants count
+#### tenants count
 
 ```
 Usage: morpheus tenants count [options]
@@ -22580,7 +22580,7 @@ Usage: morpheus tenants count [options]
 Get the number of tenants.
 ```
 
-#### morpheus tenants get
+#### tenants get
 
 ```
 Usage: morpheus tenants get [tenant]
@@ -22616,7 +22616,7 @@ Get details about a tenant (account).
 [tenant] is required. This is the name or id of a tenant. Supports 1-N arguments.
 ```
 
-#### morpheus tenants groups
+#### tenants groups
 
 ```
 Usage: morpheus tenants groups [command] [options]
@@ -22630,7 +22630,7 @@ Commands:
 	update
 ```
 
-#### morpheus tenants list
+#### tenants list
 
 ```
 Usage: morpheus tenants list [search phrase]
@@ -22670,7 +22670,7 @@ Usage: morpheus tenants list [search phrase]
 List tenants.
 ```
 
-#### morpheus tenants remove
+#### tenants remove
 
 ```
 Usage: morpheus tenants remove [name]
@@ -22693,7 +22693,7 @@ Usage: morpheus tenants remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus tenants update
+#### tenants update
 
 ```
 Usage: morpheus tenants update [tenant]
@@ -22732,7 +22732,7 @@ Update an existing tenant.
 ```
 
 
-### morpheus update
+### update
 
 ```
 Usage: morpheus update
@@ -22751,7 +22751,7 @@ This is done by executing the system command: `gem update morpheus-cli`
 ```
 
 
-### morpheus usage
+### usage
 
 ```
 Usage: morpheus usage [command] [options]
@@ -22760,7 +22760,7 @@ Commands:
 	list
 ```
 
-#### morpheus usage get
+#### usage get
 
 ```
 Usage: morpheus usage get [usage]
@@ -22796,7 +22796,7 @@ Get details about a specific usage.
 [usage] is required. This is the id of a usage record.
 ```
 
-#### morpheus usage list
+#### usage list
 
 ```
 Usage: morpheus usage list [search]
@@ -22842,7 +22842,7 @@ List usages.
 ```
 
 
-### morpheus user-groups
+### user-groups
 
 ```
 Usage: morpheus user-groups [command] [options]
@@ -22856,7 +22856,7 @@ Commands:
 	update
 ```
 
-#### morpheus user-groups add
+#### user-groups add
 
 ```
 Usage: morpheus user-groups add [name]
@@ -22894,7 +22894,7 @@ Create a new user group.
 [name] is required and can be passed as --name instead.
 ```
 
-#### morpheus user-groups add-user
+#### user-groups add-user
 
 ```
 Usage: morpheus user-groups add-user [name] [user]
@@ -22921,7 +22921,7 @@ Add a user to a user group.
 [user] is required. This is the username or id of a user. More than one can be passed.
 ```
 
-#### morpheus user-groups get
+#### user-groups get
 
 ```
 Usage: morpheus user-groups get [name]
@@ -22952,7 +22952,7 @@ Usage: morpheus user-groups get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus user-groups list
+#### user-groups list
 
 ```
 Usage: morpheus user-groups list [search phrase]
@@ -22992,7 +22992,7 @@ Usage: morpheus user-groups list [search phrase]
 List user groups.
 ```
 
-#### morpheus user-groups remove
+#### user-groups remove
 
 ```
 Usage: morpheus user-groups remove [name]
@@ -23008,7 +23008,7 @@ Usage: morpheus user-groups remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus user-groups remove-user
+#### user-groups remove-user
 
 ```
 Usage: morpheus user-groups remove-user [name] [user]
@@ -23035,7 +23035,7 @@ Remove a user from a user group.
 [user] is required. This is the username or id of a user. More than one can be passed.
 ```
 
-#### morpheus user-groups update
+#### user-groups update
 
 ```
 Usage: morpheus user-groups update [name]
@@ -23073,7 +23073,7 @@ Update a user group.
 ```
 
 
-### morpheus user-settings
+### user-settings
 
 ```
 Usage: morpheus user-settings [command] [options]
@@ -23087,7 +23087,7 @@ Commands:
 	view-avatar
 ```
 
-#### morpheus user-settings clear-access-token
+#### user-settings clear-access-token
 
 ```
 Usage: morpheus user-settings clear-access-token [client-id]
@@ -23124,7 +23124,7 @@ Clear API access token for a specific client.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
-#### morpheus user-settings get
+#### user-settings get
 
 ```
 Usage: morpheus user-settings get
@@ -23157,11 +23157,11 @@ Usage: morpheus user-settings get
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Get user settings. 
+Get user settings.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
-#### morpheus user-settings list-clients
+#### user-settings list-clients
 
 ```
 Usage: morpheus user-settings list-clients
@@ -23195,7 +23195,7 @@ Usage: morpheus user-settings list-clients
 List available api clients.
 ```
 
-#### morpheus user-settings regenerate-access-token
+#### user-settings regenerate-access-token
 
 ```
 Usage: morpheus user-settings regenerate-access-token [client-id]
@@ -23231,7 +23231,7 @@ Regenerate API access token for a specific client.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
-#### morpheus user-settings update
+#### user-settings update
 
 ```
 Usage: morpheus user-settings update [options]
@@ -23266,7 +23266,7 @@ Update user settings.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
-#### morpheus user-settings update-avatar
+#### user-settings update-avatar
 
 ```
 Usage: morpheus user-settings update-avatar [file]
@@ -23295,7 +23295,7 @@ Update avatar profile image.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
-#### morpheus user-settings view-avatar
+#### user-settings view-avatar
 
 ```
 Usage: morpheus user-settings view-avatar
@@ -23320,7 +23320,7 @@ Done for the current user by default, unless a user is specified with the --user
 ```
 
 
-### morpheus user-sources
+### user-sources
 
 ```
 Usage: morpheus user-sources [command] [options]
@@ -23337,7 +23337,7 @@ Commands:
 	update-subdomain
 ```
 
-#### morpheus user-sources activate
+#### user-sources activate
 
 ```
 Usage: morpheus user-sources activate [name]
@@ -23365,7 +23365,7 @@ Activate a user source.
 [name] is required. This is the name or id of a user source.
 ```
 
-#### morpheus user-sources add
+#### user-sources add
 
 ```
 Usage: morpheus user-sources add [account] [name]
@@ -23409,7 +23409,7 @@ Create a new user source.
 [account] is required. This is the name or id of an account.
 ```
 
-#### morpheus user-sources deactivate
+#### user-sources deactivate
 
 ```
 Usage: morpheus user-sources deactivate [name]
@@ -23437,7 +23437,7 @@ Deactivate a user source.
 [name] is required. This is the name or id of a user source.
 ```
 
-#### morpheus user-sources get
+#### user-sources get
 
 ```
 Usage: morpheus user-sources get [name]
@@ -23471,7 +23471,7 @@ Get details about an user source.
 [name] is required. This is the name or id of an user source.
 ```
 
-#### morpheus user-sources get-type
+#### user-sources get-type
 
 ```
 Usage: morpheus user-sources get-type [type]
@@ -23505,7 +23505,7 @@ Get details about a user source type.
 [type] is required. This is the type identifier.
 ```
 
-#### morpheus user-sources list
+#### user-sources list
 
 ```
 Usage: morpheus user-sources list
@@ -23545,7 +23545,7 @@ Usage: morpheus user-sources list
 List user sources.
 ```
 
-#### morpheus user-sources list-types
+#### user-sources list-types
 
 ```
 Usage: morpheus user-sources list-types
@@ -23583,7 +23583,7 @@ Usage: morpheus user-sources list-types
 List user source types.
 ```
 
-#### morpheus user-sources remove
+#### user-sources remove
 
 ```
 Usage: morpheus user-sources remove [name]
@@ -23608,7 +23608,7 @@ Usage: morpheus user-sources remove [name]
 Delete a user_source.
 ```
 
-#### morpheus user-sources update
+#### user-sources update
 
 ```
 Usage: morpheus user-sources update [name] [options]
@@ -23649,7 +23649,7 @@ Update a user source.
 [name] is required. This is the name or id of a user source.
 ```
 
-#### morpheus user-sources update-subdomain
+#### user-sources update-subdomain
 
 ```
 Usage: morpheus user-sources update-subdomain [name]
@@ -23679,7 +23679,7 @@ Update subdomain for a user source.
 ```
 
 
-### morpheus users
+### users
 
 ```
 Usage: morpheus users [command] [options]
@@ -23694,7 +23694,7 @@ Commands:
 	update
 ```
 
-#### morpheus users add
+#### users add
 
 ```
 Usage: morpheus users add [username] [email] [first] [last] [options]
@@ -23736,7 +23736,7 @@ Create a new user.
 [last] is optional. Last Name
 ```
 
-#### morpheus users count
+#### users count
 
 ```
 Usage: morpheus users count [options]
@@ -23762,7 +23762,7 @@ Usage: morpheus users count [options]
 Get the number of users.
 ```
 
-#### morpheus users get
+#### users get
 
 ```
 Usage: morpheus users get [user]
@@ -23809,7 +23809,7 @@ Get details about a user.
 [user] is required. This is the username or id of a user. Supports 1-N arguments.
 ```
 
-#### morpheus users list
+#### users list
 
 ```
 Usage: morpheus users list
@@ -23853,7 +23853,7 @@ Usage: morpheus users list
 List users.
 ```
 
-#### morpheus users passwd
+#### users passwd
 
 ```
 Usage: morpheus users passwd [user] [password] [options]
@@ -23885,7 +23885,7 @@ Usage: morpheus users passwd [user] [password] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus users permissions
+#### users permissions
 
 ```
 Usage: morpheus users permissions [user]
@@ -23922,7 +23922,7 @@ Display Access for a user.
 [user] is required. This is the username or id of a user.
 ```
 
-#### morpheus users remove
+#### users remove
 
 ```
 Usage: morpheus users remove [user]
@@ -23949,7 +23949,7 @@ Usage: morpheus users remove [user]
     -h, --help                       Print this help
 ```
 
-#### morpheus users update
+#### users update
 
 ```
 Usage: morpheus users update [user] [options]
@@ -23987,7 +23987,7 @@ Usage: morpheus users update [user] [options]
 ```
 
 
-### morpheus version
+### version
 
 ```
 morpheus version
@@ -23999,7 +23999,7 @@ morpheus version
 ```
 
 
-### morpheus virtual-images
+### virtual-images
 
 ```
 Usage: morpheus virtual-images [command] [options]
@@ -24014,7 +24014,7 @@ Commands:
 	update
 ```
 
-#### morpheus virtual-images add
+#### virtual-images add
 
 ```
 Usage: morpheus virtual-images add [name] -t TYPE
@@ -24045,7 +24045,7 @@ Usage: morpheus virtual-images add [name] -t TYPE
 Create a virtual image.
 ```
 
-#### morpheus virtual-images add-file
+#### virtual-images add-file
 
 ```
 Usage: morpheus virtual-images add-file [name] [filepath]
@@ -24075,7 +24075,7 @@ Upload a virtual image file.
 [filepath] or --url is required. This is location of the virtual image file.
 ```
 
-#### morpheus virtual-images get
+#### virtual-images get
 
 ```
 Usage: morpheus virtual-images get [name]
@@ -24110,7 +24110,7 @@ Get details about a virtual image.
 [name] is required. This is the name or id of a virtual image.
 ```
 
-#### morpheus virtual-images list
+#### virtual-images list
 
 ```
 Usage: morpheus virtual-images list
@@ -24153,7 +24153,7 @@ Usage: morpheus virtual-images list
 List virtual images.
 ```
 
-#### morpheus virtual-images remove
+#### virtual-images remove
 
 ```
 Usage: morpheus virtual-images remove [name]
@@ -24176,7 +24176,7 @@ Usage: morpheus virtual-images remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus virtual-images remove-file
+#### virtual-images remove-file
 
 ```
 Usage: morpheus virtual-images remove-file [name] [filename]
@@ -24199,7 +24199,7 @@ Usage: morpheus virtual-images remove-file [name] [filename]
     -h, --help                       Print this help
 ```
 
-#### morpheus virtual-images types
+#### virtual-images types
 
 ```
 Usage: morpheus virtual-images types
@@ -24221,7 +24221,7 @@ Usage: morpheus virtual-images types
     -h, --help                       Print this help
 ```
 
-#### morpheus virtual-images update
+#### virtual-images update
 
 ```
 Usage: morpheus virtual-images update [name] [options]
@@ -24255,7 +24255,7 @@ Update a virtual image.
 ```
 
 
-### morpheus whitelabel-settings
+### whitelabel-settings
 
 ```
 Usage: morpheus whitelabel-settings [command] [options]
@@ -24268,7 +24268,7 @@ Commands:
 	view-image
 ```
 
-#### morpheus whitelabel-settings download-image
+#### whitelabel-settings download-image
 
 ```
 Usage: morpheus whitelabel-settings download-image [image-type] [local-file]
@@ -24297,7 +24297,7 @@ Download an image file.
 [local-file] is required. This is the full local filepath for the downloaded file.
 ```
 
-#### morpheus whitelabel-settings get
+#### whitelabel-settings get
 
 ```
 Usage: morpheus whitelabel-settings get
@@ -24333,7 +24333,7 @@ Usage: morpheus whitelabel-settings get
 Get whitelabel settings.
 ```
 
-#### morpheus whitelabel-settings reset-image
+#### whitelabel-settings reset-image
 
 ```
 Usage: morpheus whitelabel-settings reset-image [image-type]
@@ -24360,7 +24360,7 @@ Reset your whitelabel image.
 [image-type] is required. This is the whitelabel image type (header-logo|footer-logo|login-logo|favicon)
 ```
 
-#### morpheus whitelabel-settings update
+#### whitelabel-settings update
 
 ```
 Usage: morpheus whitelabel-settings update
@@ -24422,7 +24422,7 @@ Usage: morpheus whitelabel-settings update
     -h, --help                       Print this help
 ```
 
-#### morpheus whitelabel-settings update-images
+#### whitelabel-settings update-images
 
 ```
 Usage: morpheus whitelabel-settings update-images
@@ -24460,7 +24460,7 @@ Usage: morpheus whitelabel-settings update-images
 Update your whitelabel images.
 ```
 
-#### morpheus whitelabel-settings view-image
+#### whitelabel-settings view-image
 
 ```
 Usage: morpheus whitelabel-settings view-image [image-type]
@@ -24489,7 +24489,7 @@ This opens the image url with a web browser.
 ```
 
 
-### morpheus whoami
+### whoami
 
 ```
 Usage: morpheus whoami [options]
@@ -24530,7 +24530,7 @@ View information about the current user.
 ```
 
 
-### morpheus wiki
+### wiki
 
 ```
 Usage: morpheus wiki [command] [options]
@@ -24544,7 +24544,7 @@ Commands:
 	view
 ```
 
-#### morpheus wiki add
+#### wiki add
 
 ```
 Usage: morpheus wiki add [name] [options]
@@ -24576,7 +24576,7 @@ Usage: morpheus wiki add [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus wiki categories
+#### wiki categories
 
 ```
 Usage: morpheus wiki categories
@@ -24613,7 +24613,7 @@ Usage: morpheus wiki categories
     -h, --help                       Print this help
 ```
 
-#### morpheus wiki get
+#### wiki get
 
 ```
 Usage: morpheus wiki get [name]
@@ -24646,7 +24646,7 @@ Usage: morpheus wiki get [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus wiki list
+#### wiki list
 
 ```
 Usage: morpheus wiki list
@@ -24684,7 +24684,7 @@ Usage: morpheus wiki list
     -h, --help                       Print this help
 ```
 
-#### morpheus wiki remove
+#### wiki remove
 
 ```
 Usage: morpheus wiki remove [name]
@@ -24707,7 +24707,7 @@ Usage: morpheus wiki remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus wiki update
+#### wiki update
 
 ```
 Usage: morpheus wiki update [name] [options]
@@ -24739,7 +24739,7 @@ Usage: morpheus wiki update [name] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus wiki view
+#### wiki view
 
 ```
 Usage: morpheus wiki view [id]
@@ -24764,7 +24764,7 @@ View a wiki page in a web browser
 ```
 
 
-### morpheus workflows
+### workflows
 
 ```
 Usage: morpheus workflows [command] [options]
@@ -24777,7 +24777,7 @@ Commands:
 	update
 ```
 
-#### morpheus workflows add
+#### workflows add
 
 ```
 Usage: morpheus workflows add [name] --tasks taskId:phase,taskId2:phase,taskId3:phase
@@ -24817,7 +24817,7 @@ Usage: morpheus workflows add [name] --tasks taskId:phase,taskId2:phase,taskId3:
     -h, --help                       Print this help
 ```
 
-#### morpheus workflows execute
+#### workflows execute
 
 ```
 Usage: morpheus workflows execute [workflow] --instance [instance] [options]
@@ -24852,7 +24852,7 @@ Usage: morpheus workflows execute [workflow] --instance [instance] [options]
     -h, --help                       Print this help
 ```
 
-#### morpheus workflows get
+#### workflows get
 
 ```
 Usage: morpheus workflows get [workflow]
@@ -24883,7 +24883,7 @@ Usage: morpheus workflows get [workflow]
     -h, --help                       Print this help
 ```
 
-#### morpheus workflows list
+#### workflows list
 
 ```
 Usage: morpheus workflows list
@@ -24921,7 +24921,7 @@ Usage: morpheus workflows list
     -h, --help                       Print this help
 ```
 
-#### morpheus workflows remove
+#### workflows remove
 
 ```
 Usage: morpheus workflows remove [name]
@@ -24945,7 +24945,7 @@ Usage: morpheus workflows remove [name]
     -h, --help                       Print this help
 ```
 
-#### morpheus workflows update
+#### workflows update
 
 ```
 Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskId3:phase
@@ -25023,7 +25023,7 @@ morpheus remote add demo https://demo.mymorpheus.com --insecure
 morpheus instances list
 ```
 
-Morpheus saves the remote appliance information, including api access tokens, 
+Morpheus saves the remote appliance information, including api access tokens,
 to the $MORPHEUS_HOME_DIRECTORY. These files are saved with file permissions **6000**.
 So, only one system user should be allowed to execute morpheus with that home directory.
 See [Configuration](#Configuration) for more information on the files morpheus reads and writes.
@@ -25061,18 +25061,18 @@ The `.morpheus/groups` YAML file contains the active group information for each 
 
 When Morpheus starts, it executes the commands in a couple of dot files.
 
-These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases. 
+These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases.
 
 ### .morpheus_profile file
 
-It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists). 
+It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists).
 
 This may be inhibited by using the `--noprofile` option.
 
 ### .morpheusrc file
 
 When started as an interactive shell with the `morpheus shell` command,
-Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option. 
+Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option.
 
 An example startup script might look like this:
 
@@ -25086,4 +25086,3 @@ echo "Welcome back %username"
 echo
 
 ```
-
