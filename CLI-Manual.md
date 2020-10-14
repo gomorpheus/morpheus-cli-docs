@@ -2,38 +2,33 @@ Morpheus CLI v5.0.0
 
 ## Getting Started
 
-The Morpheus CLI is a command line interface for the Morpheus appliance. It's a ruby gem that provides the `morpheus` executable. It works by making http requests to the Morpheus API.
+The Morpheus CLI is a command line interface for the Morpheus appliance. It's a ruby gem that provides the `morpheus` executable. It works by making HTTP requests to the Morpheus API.
 
-The Morpheus CLI is written in Ruby and requires ruby 2.5 or newer to be installed. Most unix based systems will have this installed already.
+The Morpheus CLI is written in Ruby and requires ruby 2.5 or newer to be installed. Most UNIX-based systems will have this installed already.
 
 Install the CLI using rubygems:
 
     gem install morpheus-cli
 
-Installing on Windows: https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows
+Installing on Windows: https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows  
 Installing Ruby and Ruby Gems: https://rvm.io/
 
 Update to the latest version:
 
     gem update morpheus-cli
 
+To get started, see the command `remote add` command.
+
 ## Guides
 
-Getting Started: https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started
+Getting Started: https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started  
 Managing Instances: https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances
 
-## Morpheus CLI
+## Helpful Resources
 
-    This is a command line interface for managing a Morpheus Appliance.
-    All communication with the remote appliance is done via the Morpheus API.
-
-    To get started, see the command `remote add` command.
-
-    To learn more, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started
-
-    To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com
-
-    To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
+To learn more, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started  
+To learn more about the Morpheus Appliance, visit https://www.morpheusdata.com  
+To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
 
 ## Global Options
 
@@ -24998,14 +24993,14 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
 ```
 
 
-## ENVIRONMENT VARIABLES
+## Environment Variables
 
-Morpheus has only one environment variable that it uses.
+Morpheus currently has only one environment variable that it uses, which is described in the next section.
 
 ### MORPHEUS_CLI_HOME
 
 The **MORPHEUS_CLI_HOME** variable is where morpheus CLI stores its configuration files.
-This can be set to allow a single system user to maintain many different configurations
+This can be set to allow a single system user to maintain many different configurations.
 If the directory does not exist, morpheus will attempt to create it.
 
 The default home directory is **$HOME/.morpheus**
@@ -25042,13 +25037,13 @@ to the $MORPHEUS_HOME_DIRECTORY. These files are saved with file permissions **6
 So, only one system user should be allowed to execute morpheus with that home directory.
 See [Configuration](#Configuration) for more information on the files morpheus reads and writes.
 
-## CONFIGURATION
+## Configuration
 
 Morpheus reads and writes several configuration files within the $MORPHEUS_CLI_HOME directory.
 
 **Note:** These files are maintained by the program. It is not recommended for you to manipulate them.
 
-### appliances file
+### appliances File
 
 The `appliances` YAML file contains a list of known appliances, keyed by name.
 
@@ -25062,16 +25057,16 @@ Example:
   :active: false
 ```
 
-### credentials file
+### credentials File
 
 The `.morpheus/credentials` YAML file contains access tokens for each known appliance.
 
-### groups file
+### groups File
 
 The `.morpheus/groups` YAML file contains the active group information for each known appliance.
 
 
-## Startup scripts
+## Startup Scripts
 
 When Morpheus starts, it executes the commands in a couple of dot files.
 
