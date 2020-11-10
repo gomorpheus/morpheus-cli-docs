@@ -55,7 +55,9 @@ To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
 
 ## Command Format
 
+```
 morpheus [command] [<args>] [options]
+```
 
 We divide morpheus into commands.  
 Every morpheus command may have 0-N sub-commands that it supports.
