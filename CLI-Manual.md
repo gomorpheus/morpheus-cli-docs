@@ -13300,62 +13300,22 @@ Usage: morpheus library-upgrades remove [name]
 Delete a upgrade.
 ```
 
-    #### library-upgrades update
+#### library-upgrades update
 
-    ```
-    Usage: morpheus library-upgrades update [name] [options]
-            --name VALUE                 Name for this upgrade
-            --version VALUE              Version
-            --description VALUE          Description
-            --min-memory VALUE           Minimum Memory (MB)
-            --workflow ID                Workflow
-            --option-types x,y,z         List of Option Type IDs
-            --node-types x,y,z           List of Node Type IDs
-        -O, --option OPTION              Option in the format -O field="value"
-            --prompt                     Always prompts. Use passed options as the default value.
-        -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
-        -j, --json                       JSON Output
-        -d, --dry-run                    Dry Run, print the API request instead of executing it.
-            --curl                       Curl, print the API request as a curl command instead of executing it.
-            --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-        -r, --remote REMOTE              Remote name. The current remote is used by default.
-            --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-        -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-        -U, --username USERNAME          Username for authentication.
-        -P, --password PASSWORD          Password for authentication.
-        -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-        -C, --nocolor                    Disable ANSI coloring
-        -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-        -V, --debug                      Print extra output for debugging.
-        -h, --help                       Print this help
-
-    Update a upgrade.
-    ```
-
-
-    ### license
-
-    ```
-    Usage: morpheus license [command] [options]
-    Commands:
-    	apply
-    	decode
-    	get
-    	install
-    	test
-    	uninstall
-    ```
-
-    #### license get
-
-    ```
-    Usage: morpheus license get
-        -j, --json                       JSON Output
-        -y, --yaml                       YAML Output
-        -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
-            --all-fields                 Show all fields present in the data.
-            --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
-        -d, --dry-run                    Dry Run, print the API request instead of executing it.
+```
+Usage: morpheus library-upgrades update [name] [options]
+        --name VALUE                 Name for this upgrade
+        --version VALUE              Version
+        --description VALUE          Description
+        --min-memory VALUE           Minimum Memory (MB)
+        --workflow ID                Workflow
+        --option-types x,y,z         List of Option Type IDs
+        --node-types x,y,z           List of Node Type IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
     -r, --remote REMOTE              Remote name. The current remote is used by default.
@@ -13368,6 +13328,46 @@ Delete a upgrade.
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Update a upgrade.
+```
+
+
+### license
+
+```
+Usage: morpheus license [command] [options]
+Commands:
+	apply
+	decode
+	get
+	install
+	test
+	uninstall
+```
+
+#### license get
+
+```
+Usage: morpheus license get
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+    --curl                       Curl, print the API request as a curl command instead of executing it.
+    --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+-r, --remote REMOTE              Remote name. The current remote is used by default.
+    --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+-T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+-U, --username USERNAME          Username for authentication.
+-P, --password PASSWORD          Password for authentication.
+-I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+-C, --nocolor                    Disable ANSI coloring
+-B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+-V, --debug                      Print extra output for debugging.
+-h, --help                       Print this help
 
 Get details about the currently installed license.
 This information includes license features and limits.
