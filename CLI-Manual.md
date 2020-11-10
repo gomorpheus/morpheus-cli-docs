@@ -10,8 +10,8 @@ Install the CLI using rubygems:
 
     gem install morpheus-cli
 
-**Installing on Windows:** https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows<br/>
-**Installing Ruby and Ruby Gems:** https://rvm.io/
+**Installing on Windows:** [https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows](https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows)<br/>
+**Installing Ruby and Ruby Gems:** [https://rvm.io/](https://rvm.io/)
 
 Update to the latest version:
 
@@ -21,14 +21,14 @@ To get started, see the command `remote add` command.
 
 ## Guides
 
-**Getting Started:** https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started<br/>
-**Managing Instances:** https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances
+**Getting Started:** [https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started](https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started)<br/>
+**Managing Instances:** [https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances](https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances)
 
 ## Helpful Resources
 
-To learn more, visit https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started<br/>
-To learn more about the Morpheus appliance, visit https://www.morpheusdata.com<br/>
-To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
+To learn more about Morpheus Data, visit [https://www.morpheusdata.com](https://www.morpheusdata.com)<br/>
+For additional tips on using Morpheus CLI, visit [https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started](https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started)<br/>
+To learn more about the Morpheus API, visit [https://apidocs.morpheusdata.com](https://apidocs.morpheusdata.com)
 
 ## Global Options
 ```
@@ -71,11 +71,9 @@ There are many common options that are supported by a most commands.
 morpheus [command] [<args>] [options]
 ```
 
-We divide morpheus into commands.  
-Every morpheus command may have 0-N sub-commands that it supports.
-Commands generally map to the functionality provided in the Morpheus UI.
+We divide morpheus into commands. Every morpheus command may have 0-N subcommands that it supports. Commands generally map to the functionality provided in the Morpheus UI.<br/>
 
-You can get help for any morpheus command by using the -h option.
+You can get help for any morpheus command by using the -h option.<br/>
 
 The available commands and their options are also documented below.
 
