@@ -32,17 +32,17 @@ To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
 
 ## Global Options
 ```
-    There are several global options available.
+There are several global options available.
 
-    -v, --version                    Print the version.
-        --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
+  -v, --version                    Print the version.
+    --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
 ## Common Options
 ```
-    There are many common options that are supported by a most commands.
+There are many common options that are supported by a most commands.
 
     -O, --option OPTION              Option value in the format -O var="value" (deprecated soon in favor of first class options)
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
