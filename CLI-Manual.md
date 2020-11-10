@@ -31,28 +31,40 @@ To learn more about the Morpheus appliance, visit https://www.morpheusdata.com<b
 To learn more about the Morpheus API, visit https://apidocs.morpheusdata.com
 
 ## Global Options
+```
+    There are several global options available.
 
-    Global options supported for all commands.
-
-    -v, --version                    Print the version
+    -v, --version                    Print the version.
         --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
     -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print help
-
+    -h, --help                       Print this help
+```
 ## Common Options
-
-    Common options that many commands support. They work the similarly for each command.
+```
+    There are many common options that are supported by a most commands.
 
     -O, --option OPTION              Option value in the format -O var="value" (deprecated soon in favor of first class options)
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it
-    -r, --remote REMOTE              Remote Appliance Name to use for this command. The active appliance is used by default.
-    -I, --insecure                   Allow for insecure HTTPS communication i.e. bad SSL certificate       
-    -y, --yes                        Auto confirm, skip any 'Are you sure?' confirmations.
-    -r, --quiet                      No Output, when successful.
-
+        --curl                       Dry Run to output API request as a curl command.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -H, --header HEADER              Additional HTTP header to include with requests.
+        --timeout SECONDS            Timeout for api requests. Default is typically 30 seconds.
+    -y, --yes                        Auto Confirm
+    -q, --quiet                      No Output, do not print to stdout
+```
 ## Command Format
 
 ```
