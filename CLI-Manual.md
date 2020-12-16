@@ -1,4 +1,4 @@
-Morpheus CLI v5.2.0
+Morpheus CLI v5.2.1
 
 ## Getting Started
 
@@ -34,8 +34,8 @@ To learn more about the Morpheus API, visit [https://apidocs.morpheusdata.com](h
 ```
 There are several global options available.
 
-  -v, --version                    Print the version.
-    --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
+    -v, --version                    Print the version.
+        --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
     -C, --nocolor                    Disable ANSI coloring
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
@@ -98,6 +98,7 @@ Commands:
 	clusters
 	containers
 	cypher
+	dashboard
 	datastores
 	deploy
 	deployments
@@ -201,6 +202,176 @@ For more information, see https://github.com/gomorpheus/morpheus-cli/wiki
 
 
 ### access-token
+
+```
+Usage: morpheus access-token [command] [options]
+Commands:
+	details
+	get
+	refresh
+```
+
+#### access-token details
+
+```
+Usage: morpheus access-token details
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -q, --quiet                      No Output, do not print to stdout
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Print your current authentication credentials.
+This contains tokens that should be kept secret. Be careful.
+```
+
+#### access-token get
+
+```
+Usage: morpheus access-token get
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -q, --quiet                      No Output, do not print to stdout
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Print your current access token.
+This token should be kept secret. Be careful.
+```
+
+#### access-token refresh
+
+```
+Usage: morpheus access-token refresh
+    -T, --token TOKEN                Refresh Token to use. The saved credentials are used by default.
+    -y, --yes                        Auto Confirm
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Use the refresh token in your saved credentials, or a provided token.
+This will replace your current access and refresh tokens with a new values.
+Your current access token will be invalidated
+All other users or applications with access to your token will need to update to the new token.
+```
+
+
+### activity
+
+```
+Usage: morpheus activity [command] [options]
+Commands:
+	list
+```
+
+#### activity list
+
+```
+Usage: morpheus activity list
+    -t, --type TYPE                  Activity Type eg. Provisioning, Admin
+        --timeframe TIMEFRAME        Timeframe, eg. hour,day,today,yesterday,week,month,3months. Default is month
+        --start TIMESTAMP            Start date to search for activity, can be used instead of --timeframe. Default is a month ago.
+        --end TIMESTAMP              Start date to search for activity. Default is the current time.
+    -u, --user USER                  User Name or ID
+        --tenant TENANT              Tenant Name or ID
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
+        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
+        --csv-quotes                 Wrap CSV values with ". Default: false
+        --csv-no-header              Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List activity.
+The default timeframe a month ago up until now, with the most recent activity seen first.
+The option --timeframe or --start and --end can be used to customized the date period
+```
+
+
+### alias
+
+```
+Usage: morpheus alias [command] [options]
+Commands:
+	add
+	export
+	list
+	remove
+
+Aliases for commands
+```
+
+#### alias add
+
+```
+Usage: morpheus alias add [name]='[command]'
+    -e, --export                     Export this alias to your .morpheus_profile for future use
+    -h, --help                       Print this help
+
+Define a new alias.
+[name] is required. This is the alias name. It should be one word.
+[command] is required. This is the full command wrapped in quotes.
+Aliases can be exported for future use with the -e option.
+The `alias add` command can be invoked with `alias [name]=[command]`
+
+Examples:
+    alias cloud=clouds
+    alias ij='instances get -j'
+    alias new-hosts='hosts list -S id -D'
+For more information, see https://github.com/gomorpheus/morpheus-cli/wiki/Alias
+```
+
+#### alias export
+
+```
+Usage: morpheus alias export [alias] [alias2] [alias3]
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.### access-token
 
 ```
 Usage: morpheus access-token [command] [options]
@@ -584,16 +755,16 @@ Usage: morpheus approvals [id]
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
     -r, --remote REMOTE              Remote name. The current remote is used by default.
-    --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
--T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
--U, --username USERNAME          Username for authentication.
--P, --password PASSWORD          Password for authentication.
--I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
--q, --quiet                      No Output, do not print to stdout
--C, --nocolor                    Disable ANSI coloring
--B, --benchmark                  Print benchmark time and exit/error after the command is finished.
--V, --debug                      Print extra output for debugging.
--h, --help                       Print this help
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -q, --quiet                      No Output, do not print to stdout
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
 
 Deny item.
 [id] is required. Approval item ID
@@ -2673,34 +2844,21 @@ Usage: morpheus budgets add [name] [options]
         --user VALUE                 User
         --group VALUE                Group
         --cloud VALUE                Cloud
-        --year VALUE                 Period - The period (year) the budget applies to. Default is the current year.. Default: 2020
-        --interval VALUE             Interval. Default: year
-        --cost [amount]              Budget cost amount, for use with default year interval.
-        --q1 [amount]                Q1 cost amount, use with quarter interval.
-        --q2 [amount]                Q2 cost amount, use with quarter interval.
-        --q3 [amount]                Q3 cost amount, use with quarter interval.
-        --q4 [amount]                Q4 cost amount, use with quarter interval.
-        --january [amount]           January cost amount, use with month interval.
-        --february [amount]          February cost amount, use with month interval.
-        --march [amount]             March cost amount, use with month interval.
-        --april [amount]             April cost amount, use with month interval.
-        --may [amount]               May cost amount, use with month interval.
-        --june [amount]              June cost amount, use with month interval.
-        --july [amount]              July cost amount, use with month interval.
-        --august [amount]            August cost amount, use with month interval.
-        --september [amount]         September cost amount, use with month interval.
-        --october [amount]           October cost amount, use with month interval.
-        --november [amount]          November cost amount, use with month interval.
-        --december [amount]          December cost amount, use with month interval.
+        --year VALUE                 Period - The period (year) the budget applies, YYYY or 'custom' to enter Start Date and End Date manually. Default: 2020
+        --startDate VALUE            Start Date - The Start Date for custom period budget eg. 2021-01-01
+        --endDate VALUE              End Date - The End Date for custom period budget eg. 2023-12-31 (must be 1, 2 or 3 years from Start Date)
+        --interval VALUE             Interval - The budget interval, determines cost amounts: "year", "quarter" or "month". Default: year
+        --costs LIST                 Budget cost amounts, one for each interval in the budget. eg "350" for one year, "25,25,25,100" for quarters, and "10,10,10,10,10,10,10,10,10,10,10,50" for each month
         --enabled [on|off]           Can be used to disable a policy
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompts. Use passed options as the default value.
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -2715,7 +2873,17 @@ Usage: morpheus budgets add [name] [options]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Create budget.
+Create a budget.
+The default period is the current year, eg. "2020"
+and the default interval is "year".
+Costs can be passed as an array of values, one for each interval. eg. --costs "[999]"
+
+Examples:
+budgets add example-budget --interval "year" --costs "[2500]"
+budgets add example-qtr-budget --interval "quarter" --costs "[500,500,500,1000]"
+budgets add example-monthly-budget --interval "month" --costs "[400,100,100,100,100,100,100,100,100,100,400,800]"
+budgets add example-future-budget --year "2022" --interval "year" --costs "[5000]"
+budgets add example-custom-budget --year "custom" --interval "year" --start "2021-01-01" --end "2023-12-31" --costs "[2500,5000,10000]"
 ```
 
 #### budgets get
@@ -2733,6 +2901,7 @@ Usage: morpheus budgets get [budget]
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -2771,6 +2940,7 @@ Usage: morpheus budgets list
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -2823,34 +2993,21 @@ Usage: morpheus budgets update [budget] [options]
         --user VALUE                 User (optional)
         --group VALUE                Group (optional)
         --cloud VALUE                Cloud (optional)
-        --year VALUE                 Period (optional) - The period (year) the budget applies to. Default is the current year.
-        --interval VALUE             Interval (optional)
-        --cost [amount]              Budget cost amount, for use with default year interval.
-        --q1 [amount]                Q1 cost amount, use with quarter interval.
-        --q2 [amount]                Q2 cost amount, use with quarter interval.
-        --q3 [amount]                Q3 cost amount, use with quarter interval.
-        --q4 [amount]                Q4 cost amount, use with quarter interval.
-        --january [amount]           January cost amount, use with month interval.
-        --february [amount]          February cost amount, use with month interval.
-        --march [amount]             March cost amount, use with month interval.
-        --april [amount]             April cost amount, use with month interval.
-        --may [amount]               May cost amount, use with month interval.
-        --june [amount]              June cost amount, use with month interval.
-        --july [amount]              July cost amount, use with month interval.
-        --august [amount]            August cost amount, use with month interval.
-        --september [amount]         September cost amount, use with month interval.
-        --october [amount]           October cost amount, use with month interval.
-        --november [amount]          November cost amount, use with month interval.
-        --december [amount]          December cost amount, use with month interval.
+        --year VALUE                 Period (optional) - The period (year) the budget applies, YYYY or 'custom' to enter Start Date and End Date manually
+        --startDate VALUE            Start Date (optional) - The Start Date for custom period budget eg. 2021-01-01
+        --endDate VALUE              End Date (optional) - The End Date for custom period budget eg. 2023-12-31 (must be 1, 2 or 3 years from Start Date)
+        --interval VALUE             Interval (optional) - The budget interval, determines cost amounts: "year", "quarter" or "month"
+        --costs COSTS                Budget cost amounts, one for each interval in the budget. eg. [999]
         --enabled [on|off]           Can be used to disable a policy
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompts. Use passed options as the default value.
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -2865,7 +3022,7 @@ Usage: morpheus budgets update [budget] [options]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Update budget.
+Update a budget.
 [budget] is required. Budget ID or name
 ```
 
@@ -5744,6 +5901,47 @@ Usage: morpheus cypher remove [key]
 
 Delete a cypher.
 [key] is required. This is the cypher key to be deleted.
+```
+
+
+### dashboard
+
+```
+Usage: morpheus dashboard
+    -a, --details                    Display all details: more instance usage stats, etc
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
+        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
+        --csv-quotes                 Wrap CSV values with ". Default: false
+        --csv-no-header              Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+View Morpheus Dashboard.
+This includes instance and backup counts, favorite instances, monitoring and recent activity.
 ```
 
 
@@ -8760,6 +8958,9 @@ Usage: morpheus hosts update [name]
         --ssh-username VALUE         SSH Username
         --ssh-password VALUE         SSH Password
         --power-schedule-type ID     Power Schedule Type ID
+        --tags LIST                  Tags in the format 'name:value, name:value'. This will add and remove tags.
+        --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update tags.
+        --remove-tags TAGS           Remove Tags in the format 'name, name:value'. This removes tags, the :value component is optional and must match if passed.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -10460,8 +10661,10 @@ Usage: morpheus instances update [instance]
         --description VALUE          Description
         --environment VALUE          Environment
         --group GROUP                Group Name or ID
-        --tags LIST                  Metadata tags in the format 'ping=pong,flash=bang'
         --labels LIST                Labels (keywords) in the format 'foo, bar'
+        --tags LIST                  Tags in the format 'name:value, name:value'. This will add and remove tags.
+        --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update tags.
+        --remove-tags TAGS           Remove Tags in the format 'name, name:value'. This removes tags, the :value component is optional and must match if passed.
         --power-schedule-type ID     Power Schedule Type ID
         --owner USER                 Owner Username or ID
     -O, --option OPTION              Option in the format -O field="value"
@@ -10623,6 +10826,7 @@ Commands:
 	list
 	list-line-items
 	refresh
+	update
 ```
 
 #### invoices get
@@ -10870,6 +11074,40 @@ Include --current to refresh costing data for the actual current time.
 To get the latest invoice costing data, include --daily --costing --current --all
 ```
 
+#### invoices update
+
+```
+Usage: morpheus invoices update [invoice] [options]
+        --tags LIST                  Tags in the format 'name:value, name:value'. This will add and remove tags.
+        --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update tags.
+        --remove-tags TAGS           Remove Tags in the format 'name, name:value'. This removes tags, the :value component is optional and must match if passed.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an invoice.
+[invoice] is required. This is the id of an invoice.
+```
+
 
 ### jobs
 
@@ -11031,6 +11269,7 @@ Usage: morpheus jobs list
         --source [all|user|discovered]
                                      Filters job based upon specified source. Default is all
         --internal [true|false]      Filters job based on internal flag. Internal jobs are excluded by default.
+        --stats [true|false]         Hide Execution Stats. Job statistics are displayed by default.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -11047,6 +11286,7 @@ Usage: morpheus jobs list
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -11068,6 +11308,8 @@ List jobs.
 
 ```
 Usage: morpheus jobs list-executions [job]
+        --job JOB                    Filter by Job ID or name.
+        --internal [true|false]      Filters executions based on internal flag. Internal executions are excluded by default.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -11084,6 +11326,7 @@ Usage: morpheus jobs list-executions [job]
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12617,6 +12860,7 @@ Usage: morpheus library-option-types add [options]
         --optionList VALUE           Option List - The Option List to be the source of options when type is 'select'.
         --fieldLabel VALUE           Field Label - This is the input label that shows typically to the left of a custom option.
         --placeHolder VALUE          Placeholder (optional)
+        --helpBlock VALUE            Help Block (optional) - This is the explaination of the input that shows typically underneath the option.
         --defaultValue VALUE         Default Value (optional)
         --required [on|off]          Required (optional)
         --exportMeta [on|off]        Export As Tag (optional) - Export as Tag.
@@ -12755,6 +12999,7 @@ Usage: morpheus library-option-types update [name] [options]
         --optionList VALUE           Option List (optional) - The Option List to be the source of options when type is 'select'.
         --fieldLabel VALUE           Field Label (optional) - This is the input label that shows typically to the left of a custom option.
         --placeHolder VALUE          Placeholder (optional)
+        --helpBlock VALUE            Help Block (optional) - This is the explaination of the input that shows typically underneath the option.
         --defaultValue VALUE         Default Value (optional)
         --required [on|off]          Required (optional)
         --exportMeta [on|off]        Export As Tag (optional) - Export as Tag.
@@ -13368,18 +13613,18 @@ Usage: morpheus license get
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
-    --curl                       Curl, print the API request as a curl command instead of executing it.
-    --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
--r, --remote REMOTE              Remote name. The current remote is used by default.
-    --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
--T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
--U, --username USERNAME          Username for authentication.
--P, --password PASSWORD          Password for authentication.
--I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
--C, --nocolor                    Disable ANSI coloring
--B, --benchmark                  Print benchmark time and exit/error after the command is finished.
--V, --debug                      Print extra output for debugging.
--h, --help                       Print this help
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
 
 Get details about the currently installed license.
 This information includes license features and limits.
@@ -24359,7 +24604,7 @@ Usage: morpheus virtual-images types
 Usage: morpheus virtual-images update [name] [options]
         --tenants LIST               Tenant Access, comma separated list of account IDs
         --tags LIST                  Tags in the format 'name:value, name:value'. This will add and remove tags.
-        --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update project tags.
+        --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update tags.
         --remove-tags TAGS           Remove Tags in the format 'name, name:value'. This removes tags, the :value component is optional and must match if passed.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
