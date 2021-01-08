@@ -6,18 +6,48 @@ The Morpheus CLI is a command line interface for the Morpheus appliance. It's a 
 
 The Morpheus CLI is written in Ruby and requires ruby 2.5 or newer to be installed. Most UNIX-based systems will have this installed already.
 
-Install the CLI using rubygems:
+## Installation
 
-    gem install morpheus-cli
+### Installing on Linux
 
-**Installing on Windows:** [https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows](https://github.com/gomorpheus/morpheus-cli/wiki/installing-on-windows)<br/>
-**Installing Ruby and Ruby Gems:** [https://rvm.io/](https://rvm.io/)
+A Prerequisite to running the Morpheus CLI is to have ruby 2.5 or newer installed. Use rubygems [https://rvm.io/](https://rvm.io/) to install the cli. 
 
-Update to the latest version:
+```
+gem install morpheus-cli
+```
+
+Once the gem is installed, all the cli commands can be run on the shell via the `morpheus` executable. 
+
+### Installing on Windows
+
+The morpheus cli is capable of running on many platforms due to its ruby runtime. This includes windows based platforms. To get started, we must first ensure ruby is installed. To do this please visit [http://rubyinstaller.org/downloads](http://rubyinstaller.org/downloads) and download at least Ruby version 2.5.1 of the Ruby+Devkit (2.7.x recommended).
+
+**NOTE:** When installing ruby on windows, make sure the options are selected for adding the ruby binaries to your `PATH`.
+
+Now that ruby is installed, simply open a `PowerShell` window and run 
+
+```
+gem install morpheus-cli --no-document
+```
+
+The *--no-document* option is relatively new and can be achieved in previous versions of rubygems by using *--no-rdoc --no-ri* instead.
+
+A list of installed dependencies should start sliding by the screen. Once this has completed the CLI setup is complete. Now all that must be done is configuring the cli to point to an appliance for use.
+
+```
+morpheus remote add dev https://10.0.2.2 --insecure
+```
+
+The *--insecure* option tells the cli to ignore SSL errors for this remote appliance.
+
+Credentials are used to acquire an access token which is then stored in the users home directory in a folder called `.morpheus`. Now all commands provided by the CLI are available for use just as if running in a *nix based environment.
+
+
+## Upgrading
+
+To udate to the latest morpheus-cli version:
 
     gem update morpheus-cli
-
-To get started, see the command `remote add` command.
 
 ## Guides
 
