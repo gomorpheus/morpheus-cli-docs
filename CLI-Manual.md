@@ -6677,7 +6677,7 @@ Usage: morpheus edit-profile
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Edit your interactive shell script at /Users/jwheeler/.morpheus/.morpheus_profile
+Edit your interactive shell script at ~/.morpheus/.morpheus_profile
 ```
 
 
@@ -6691,7 +6691,7 @@ Usage: morpheus edit-rc
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Edit your morpheus initialization script at /Users/jwheeler/.morpheus/.morpheusrc
+Edit your morpheus initialization script at ~/.morpheus/.morpheus/.morpheusrc
 ```
 
 
