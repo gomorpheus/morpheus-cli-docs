@@ -96,15 +96,16 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 html_theme_options = {
-'logo_only': True
+'logo_only': True,
+'sticky_navigation': True
 }
-
 html_logo = "_static/logo.svg"
+html_static_path = ['_static']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -185,4 +186,4 @@ html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 def setup(app):
-    app.add_stylesheet('morpheusCliTheme.css')
+    app.add_stylesheet('extra.css')
