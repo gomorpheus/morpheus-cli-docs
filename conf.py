@@ -131,17 +131,18 @@ def setup(app):
 # Disable the GitHub link display
     app.config.html_context['display_github'] = False
 
-# html_context = {
-#    "display_github": False, # Integrate GitHub
-#}
+html_context = {
+    "display_github": False, # Integrate GitHub
+}
 
-#html_display_github = False
+html_display_github = False
 
-#display_github = False
+display_github = False
 
 context = {
     'display_github': False,
 }
+
 html_favicon = "_static/morpheus_fav_64.ico"
 
 # -- Options for HTMLHelp output ------------------------------------------
