@@ -5,6 +5,22 @@
 .fa-book:before, .icon-book:before {
     font-family: inherit;
     font-weight: bold;
-    content: "morpheus-cli version:" !important;
+    content: "morpheus-cli" !important;
     visibility: visible;
+}
+
+.wy-nav-side {
+    background: #f0f2f3;
+}
+
+.wy-side-nav-search>div.version {
+    color: #ffffff;
+}
+
+.wy-side-nav-search>a:hover {
+  background: none;
+}
+
+.rst-versions .rst-current-version {
+    color: ##ffffff !important;
 }
