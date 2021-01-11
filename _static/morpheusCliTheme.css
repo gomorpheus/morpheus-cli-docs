@@ -1,0 +1,10 @@
+.fa-book {
+    visibility: hidden !important;
+}
+
+.fa-book:before, .icon-book:before {
+    font-family: inherit;
+    font-weight: bold;
+    content: "morpheus-cli version:" !important;
+    visibility: visible;
+}
