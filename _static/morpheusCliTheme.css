@@ -10,15 +10,23 @@
 }
 
 .wy-nav-side {
-    background: #f0f2f3;
+    background: #ececec;
 }
 
 .wy-side-nav-search>div.version {
     color: #ffffff;
 }
 
+.wy-side-nav-search input[type=text] {
+    border-color: #ffffff;
+}
+
 .wy-side-nav-search>a:hover {
   background: none;
+}
+
+.wy-breadcrumbs li.wy-breadcrumbs-aside {
+    visibility: hidden !important;
 }
 
 .rst-versions .rst-current-version {
@@ -147,7 +155,7 @@ padding: 2em 6em;
 
 /* https://morpheusdata1.d.pr/4pUIW5 */
 .wy-side-nav-search {
-  background-color: #253746 !important;
+  background-color: #3c3c3c !important;
 }
 .wy-alert.wy-alert-success .wy-alert-title, .rst-content .wy-alert-success.note .wy-alert-title,
 .rst-content .wy-alert-success.attention .wy-alert-title, .rst-content .wy-alert-success.caution .wy-alert-title,
