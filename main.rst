@@ -1,1672 +1,1672 @@
 .. include:: intro.md
 
-.. include:: morpheus.md
+.. include:: /command_docs/morpheus.md
 
-.. include:: morpheusaccess-token.md
+.. include:: /command_docs/morpheusaccess-token.md
 
-.. include:: morpheusaccess-tokendetails.md
+.. include:: /command_docs/morpheusaccess-tokendetails.md
 
-.. include:: morpheusaccess-tokenget.md
+.. include:: /command_docs/morpheusaccess-tokenget.md
 
-.. include:: morpheusaccess-tokenrefresh.md
+.. include:: /command_docs/morpheusaccess-tokenrefresh.md
 
-.. include:: morpheusactivity.md
+.. include:: /command_docs/morpheusactivity.md
 
-.. include:: morpheusactivitylist.md
+.. include:: /command_docs/morpheusactivitylist.md
 
-.. include:: morpheusalias.md
+.. include:: /command_docs/morpheusalias.md
 
-.. include:: morpheusaliasadd.md
+.. include:: /command_docs/morpheusaliasadd.md
 
-.. include:: morpheusaliasexport.md
+.. include:: /command_docs/morpheusaliasexport.md
 
-.. include:: morpheusaliaslist.md
+.. include:: /command_docs/morpheusaliaslist.md
 
-.. include:: morpheusaliasremove.md
+.. include:: /command_docs/morpheusaliasremove.md
 
-.. include:: morpheusappliance-settings.md
+.. include:: /command_docs/morpheusappliance-settings.md
 
-.. include:: morpheusappliance-settingsget.md
+.. include:: /command_docs/morpheusappliance-settingsget.md
 
-.. include:: morpheusappliance-settingsupdate.md
+.. include:: /command_docs/morpheusappliance-settingsupdate.md
 
-.. include:: morpheusapprovals.md
+.. include:: /command_docs/morpheusapprovals.md
 
-.. include:: morpheusapprovalsapprove.md
+.. include:: /command_docs/morpheusapprovalsapprove.md
 
-.. include:: morpheusapprovalscancel.md
+.. include:: /command_docs/morpheusapprovalscancel.md
 
-.. include:: morpheusapprovalsdeny.md
+.. include:: /command_docs/morpheusapprovalsdeny.md
 
-.. include:: morpheusapprovalsget.md
+.. include:: /command_docs/morpheusapprovalsget.md
 
-.. include:: morpheusapprovalslist.md
+.. include:: /command_docs/morpheusapprovalslist.md
 
-.. include:: morpheusapps.md
+.. include:: /command_docs/morpheusapps.md
 
-.. include:: morpheusappsadd-instance.md
+.. include:: /command_docs/morpheusappsadd-instance.md
 
-.. include:: morpheusappsadd.md
+.. include:: /command_docs/morpheusappsadd.md
 
-.. include:: morpheusappsapply-security-groups.md
+.. include:: /command_docs/morpheusappsapply-security-groups.md
 
-.. include:: morpheusappsapply.md
+.. include:: /command_docs/morpheusappsapply.md
 
-.. include:: morpheusappscancel-removal.md
+.. include:: /command_docs/morpheusappscancel-removal.md
 
-.. include:: morpheusappscount.md
+.. include:: /command_docs/morpheusappscount.md
 
-.. include:: morpheusappsget.md
+.. include:: /command_docs/morpheusappsget.md
 
-.. include:: morpheusappshistory.md
+.. include:: /command_docs/morpheusappshistory.md
 
-.. include:: morpheusappslist.md
+.. include:: /command_docs/morpheusappslist.md
 
-.. include:: morpheusappslogs.md
+.. include:: /command_docs/morpheusappslogs.md
 
-.. include:: morpheusappsprepare-apply.md
+.. include:: /command_docs/morpheusappsprepare-apply.md
 
-.. include:: morpheusappsrefresh.md
+.. include:: /command_docs/morpheusappsrefresh.md
 
-.. include:: morpheusappsremove-instance.md
+.. include:: /command_docs/morpheusappsremove-instance.md
 
-.. include:: morpheusappsremove.md
+.. include:: /command_docs/morpheusappsremove.md
 
-.. include:: morpheusappsrestart.md
+.. include:: /command_docs/morpheusappsrestart.md
 
-.. include:: morpheusappssecurity-groups.md
+.. include:: /command_docs/morpheusappssecurity-groups.md
 
-.. include:: morpheusappsstart.md
+.. include:: /command_docs/morpheusappsstart.md
 
-.. include:: morpheusappsstop.md
+.. include:: /command_docs/morpheusappsstop.md
 
-.. include:: morpheusappsupdate-wiki.md
+.. include:: /command_docs/morpheusappsupdate-wiki.md
 
-.. include:: morpheusappsupdate.md
+.. include:: /command_docs/morpheusappsupdate.md
 
-.. include:: morpheusappsview.md
+.. include:: /command_docs/morpheusappsview.md
 
-.. include:: morpheusappswiki.md
+.. include:: /command_docs/morpheusappswiki.md
 
-.. include:: morpheusarchives.md
+.. include:: /command_docs/morpheusarchives.md
 
-.. include:: morpheusarchivesadd-file-link.md
+.. include:: /command_docs/morpheusarchivesadd-file-link.md
 
-.. include:: morpheusarchivesadd.md
+.. include:: /command_docs/morpheusarchivesadd.md
 
-.. include:: morpheusarchivesdownload-bucket.md
+.. include:: /command_docs/morpheusarchivesdownload-bucket.md
 
-.. include:: morpheusarchivesdownload-link.md
+.. include:: /command_docs/morpheusarchivesdownload-link.md
 
-.. include:: morpheusarchivesdownload.md
+.. include:: /command_docs/morpheusarchivesdownload.md
 
-.. include:: morpheusarchivesfile-history.md
+.. include:: /command_docs/morpheusarchivesfile-history.md
 
-.. include:: morpheusarchivesfile-links.md
+.. include:: /command_docs/morpheusarchivesfile-links.md
 
-.. include:: morpheusarchivesfile.md
+.. include:: /command_docs/morpheusarchivesfile.md
 
-.. include:: morpheusarchivesget.md
+.. include:: /command_docs/morpheusarchivesget.md
 
-.. include:: morpheusarchiveslist-files.md
+.. include:: /command_docs/morpheusarchiveslist-files.md
 
-.. include:: morpheusarchiveslist.md
+.. include:: /command_docs/morpheusarchiveslist.md
 
-.. include:: morpheusarchivesls.md
+.. include:: /command_docs/morpheusarchivesls.md
 
-.. include:: morpheusarchivesread.md
+.. include:: /command_docs/morpheusarchivesread.md
 
-.. include:: morpheusarchivesremove-file-link.md
+.. include:: /command_docs/morpheusarchivesremove-file-link.md
 
-.. include:: morpheusarchivesremove-file.md
+.. include:: /command_docs/morpheusarchivesremove-file.md
 
-.. include:: morpheusarchivesremove.md
+.. include:: /command_docs/morpheusarchivesremove.md
 
-.. include:: morpheusarchivesrm.md
+.. include:: /command_docs/morpheusarchivesrm.md
 
-.. include:: morpheusarchivesupdate.md
+.. include:: /command_docs/morpheusarchivesupdate.md
 
-.. include:: morpheusarchivesupload.md
+.. include:: /command_docs/morpheusarchivesupload.md
 
-.. include:: morpheusbackup-settings.md
+.. include:: /command_docs/morpheusbackup-settings.md
 
-.. include:: morpheusbackup-settingsget.md
+.. include:: /command_docs/morpheusbackup-settingsget.md
 
-.. include:: morpheusbackup-settingsupdate.md
+.. include:: /command_docs/morpheusbackup-settingsupdate.md
 
-.. include:: morpheusbenchmark.md
+.. include:: /command_docs/morpheusbenchmark.md
 
-.. include:: morpheusbenchmarkexec.md
+.. include:: /command_docs/morpheusbenchmarkexec.md
 
-.. include:: morpheusbenchmarkoff.md
+.. include:: /command_docs/morpheusbenchmarkoff.md
 
-.. include:: morpheusbenchmarkoff?.md
+.. include:: /command_docs/morpheusbenchmarkoff?.md
 
-.. include:: morpheusbenchmarkon.md
+.. include:: /command_docs/morpheusbenchmarkon.md
 
-.. include:: morpheusbenchmarkon?.md
+.. include:: /command_docs/morpheusbenchmarkon?.md
 
-.. include:: morpheusbenchmarkstart.md
+.. include:: /command_docs/morpheusbenchmarkstart.md
 
-.. include:: morpheusbenchmarkstatus.md
+.. include:: /command_docs/morpheusbenchmarkstatus.md
 
-.. include:: morpheusbenchmarkstop.md
+.. include:: /command_docs/morpheusbenchmarkstop.md
 
-.. include:: morpheusblueprints.md
+.. include:: /command_docs/morpheusblueprints.md
 
-.. include:: morpheusblueprintsadd-instance-config.md
+.. include:: /command_docs/morpheusblueprintsadd-instance-config.md
 
-.. include:: morpheusblueprintsadd-instance.md
+.. include:: /command_docs/morpheusblueprintsadd-instance.md
 
-.. include:: morpheusblueprintsadd-tier.md
+.. include:: /command_docs/morpheusblueprintsadd-tier.md
 
-.. include:: morpheusblueprintsadd.md
+.. include:: /command_docs/morpheusblueprintsadd.md
 
-.. include:: morpheusblueprintsavailable-tiers.md
+.. include:: /command_docs/morpheusblueprintsavailable-tiers.md
 
-.. include:: morpheusblueprintsconnect-tiers.md
+.. include:: /command_docs/morpheusblueprintsconnect-tiers.md
 
-.. include:: morpheusblueprintsdisconnect-tiers.md
+.. include:: /command_docs/morpheusblueprintsdisconnect-tiers.md
 
-.. include:: morpheusblueprintsduplicate.md
+.. include:: /command_docs/morpheusblueprintsduplicate.md
 
-.. include:: morpheusblueprintsget.md
+.. include:: /command_docs/morpheusblueprintsget.md
 
-.. include:: morpheusblueprintslist.md
+.. include:: /command_docs/morpheusblueprintslist.md
 
-.. include:: morpheusblueprintsremove-instance-config.md
+.. include:: /command_docs/morpheusblueprintsremove-instance-config.md
 
-.. include:: morpheusblueprintsremove-instance.md
+.. include:: /command_docs/morpheusblueprintsremove-instance.md
 
-.. include:: morpheusblueprintsremove-tier.md
+.. include:: /command_docs/morpheusblueprintsremove-tier.md
 
-.. include:: morpheusblueprintsremove.md
+.. include:: /command_docs/morpheusblueprintsremove.md
 
-.. include:: morpheusblueprintstypes.md
+.. include:: /command_docs/morpheusblueprintstypes.md
 
-.. include:: morpheusblueprintsupdate-permissions.md
+.. include:: /command_docs/morpheusblueprintsupdate-permissions.md
 
-.. include:: morpheusblueprintsupdate-tier.md
+.. include:: /command_docs/morpheusblueprintsupdate-tier.md
 
-.. include:: morpheusblueprintsupdate.md
+.. include:: /command_docs/morpheusblueprintsupdate.md
 
-.. include:: morpheusblueprintsupload-image.md
+.. include:: /command_docs/morpheusblueprintsupload-image.md
 
-.. include:: morpheusbudgets.md
+.. include:: /command_docs/morpheusbudgets.md
 
-.. include:: morpheusbudgetsadd.md
+.. include:: /command_docs/morpheusbudgetsadd.md
 
-.. include:: morpheusbudgetsget.md
+.. include:: /command_docs/morpheusbudgetsget.md
 
-.. include:: morpheusbudgetslist.md
+.. include:: /command_docs/morpheusbudgetslist.md
 
-.. include:: morpheusbudgetsremove.md
+.. include:: /command_docs/morpheusbudgetsremove.md
 
-.. include:: morpheusbudgetsupdate.md
+.. include:: /command_docs/morpheusbudgetsupdate.md
 
-.. include:: morpheuscatalog.md
+.. include:: /command_docs/morpheuscatalog.md
 
-.. include:: morpheuscatalogadd-order.md
+.. include:: /command_docs/morpheuscatalogadd-order.md
 
-.. include:: morpheuscatalogadd.md
+.. include:: /command_docs/morpheuscatalogadd.md
 
-.. include:: morpheuscatalogcart.md
+.. include:: /command_docs/morpheuscatalogcart.md
 
-.. include:: morpheuscatalogcheckout.md
+.. include:: /command_docs/morpheuscatalogcheckout.md
 
-.. include:: morpheuscatalogclear-cart.md
+.. include:: /command_docs/morpheuscatalogclear-cart.md
 
-.. include:: morpheuscatalogdashboard.md
+.. include:: /command_docs/morpheuscatalogdashboard.md
 
-.. include:: morpheuscatalogget-type.md
+.. include:: /command_docs/morpheuscatalogget-type.md
 
-.. include:: morpheuscatalogget.md
+.. include:: /command_docs/morpheuscatalogget.md
 
-.. include:: morpheuscataloglist-types.md
+.. include:: /command_docs/morpheuscataloglist-types.md
 
-.. include:: morpheuscataloglist.md
+.. include:: /command_docs/morpheuscataloglist.md
 
-.. include:: morpheuscatalogremove-cart-item.md
+.. include:: /command_docs/morpheuscatalogremove-cart-item.md
 
-.. include:: morpheuscatalogremove.md
+.. include:: /command_docs/morpheuscatalogremove.md
 
-.. include:: morpheuscatalogupdate-cart.md
+.. include:: /command_docs/morpheuscatalogupdate-cart.md
 
-.. include:: morpheusclouds.md
+.. include:: /command_docs/morpheusclouds.md
 
-.. include:: morpheuscloudsadd.md
+.. include:: /command_docs/morpheuscloudsadd.md
 
-.. include:: morpheuscloudsapply-security-groups.md
+.. include:: /command_docs/morpheuscloudsapply-security-groups.md
 
-.. include:: morpheuscloudscount.md
+.. include:: /command_docs/morpheuscloudscount.md
 
-.. include:: morpheuscloudsget.md
+.. include:: /command_docs/morpheuscloudsget.md
 
-.. include:: morpheuscloudslist.md
+.. include:: /command_docs/morpheuscloudslist.md
 
-.. include:: morpheuscloudsrefresh.md
+.. include:: /command_docs/morpheuscloudsrefresh.md
 
-.. include:: morpheuscloudsremove.md
+.. include:: /command_docs/morpheuscloudsremove.md
 
-.. include:: morpheuscloudssecurity-groups.md
+.. include:: /command_docs/morpheuscloudssecurity-groups.md
 
-.. include:: morpheuscloudstypes.md
+.. include:: /command_docs/morpheuscloudstypes.md
 
-.. include:: morpheuscloudsupdate-wiki.md
+.. include:: /command_docs/morpheuscloudsupdate-wiki.md
 
-.. include:: morpheuscloudsupdate.md
+.. include:: /command_docs/morpheuscloudsupdate.md
 
-.. include:: morpheuscloudswiki.md
+.. include:: /command_docs/morpheuscloudswiki.md
 
-.. include:: morpheusclusters.md
+.. include:: /command_docs/morpheusclusters.md
 
-.. include:: morpheusclustersadd-namespace.md
+.. include:: /command_docs/morpheusclustersadd-namespace.md
 
-.. include:: morpheusclustersadd-worker.md
+.. include:: /command_docs/morpheusclustersadd-worker.md
 
-.. include:: morpheusclustersadd.md
+.. include:: /command_docs/morpheusclustersadd.md
 
-.. include:: morpheusclustersapi-config.md
+.. include:: /command_docs/morpheusclustersapi-config.md
 
-.. include:: morpheusclusterscount.md
+.. include:: /command_docs/morpheusclusterscount.md
 
-.. include:: morpheusclustersget-datastore.md
+.. include:: /command_docs/morpheusclustersget-datastore.md
 
-.. include:: morpheusclustersget-namespace.md
+.. include:: /command_docs/morpheusclustersget-namespace.md
 
-.. include:: morpheusclustersget.md
+.. include:: /command_docs/morpheusclustersget.md
 
-.. include:: morpheusclustershistory-details.md
+.. include:: /command_docs/morpheusclustershistory-details.md
 
-.. include:: morpheusclustershistory-event.md
+.. include:: /command_docs/morpheusclustershistory-event.md
 
-.. include:: morpheusclustershistory.md
+.. include:: /command_docs/morpheusclustershistory.md
 
-.. include:: morpheusclusterslist-containers.md
+.. include:: /command_docs/morpheusclusterslist-containers.md
 
-.. include:: morpheusclusterslist-datastores.md
+.. include:: /command_docs/morpheusclusterslist-datastores.md
 
-.. include:: morpheusclusterslist-deployments.md
+.. include:: /command_docs/morpheusclusterslist-deployments.md
 
-.. include:: morpheusclusterslist-jobs.md
+.. include:: /command_docs/morpheusclusterslist-jobs.md
 
-.. include:: morpheusclusterslist-masters.md
+.. include:: /command_docs/morpheusclusterslist-masters.md
 
-.. include:: morpheusclusterslist-namespaces.md
+.. include:: /command_docs/morpheusclusterslist-namespaces.md
 
-.. include:: morpheusclusterslist-pods.md
+.. include:: /command_docs/morpheusclusterslist-pods.md
 
-.. include:: morpheusclusterslist-services.md
+.. include:: /command_docs/morpheusclusterslist-services.md
 
-.. include:: morpheusclusterslist-stateful-sets.md
+.. include:: /command_docs/morpheusclusterslist-stateful-sets.md
 
-.. include:: morpheusclusterslist-volumes.md
+.. include:: /command_docs/morpheusclusterslist-volumes.md
 
-.. include:: morpheusclusterslist-workers.md
+.. include:: /command_docs/morpheusclusterslist-workers.md
 
-.. include:: morpheusclusterslist.md
+.. include:: /command_docs/morpheusclusterslist.md
 
-.. include:: morpheusclusterslogs.md
+.. include:: /command_docs/morpheusclusterslogs.md
 
-.. include:: morpheusclustersremove-container.md
+.. include:: /command_docs/morpheusclustersremove-container.md
 
-.. include:: morpheusclustersremove-deployment.md
+.. include:: /command_docs/morpheusclustersremove-deployment.md
 
-.. include:: morpheusclustersremove-job.md
+.. include:: /command_docs/morpheusclustersremove-job.md
 
-.. include:: morpheusclustersremove-namespace.md
+.. include:: /command_docs/morpheusclustersremove-namespace.md
 
-.. include:: morpheusclustersremove-pod.md
+.. include:: /command_docs/morpheusclustersremove-pod.md
 
-.. include:: morpheusclustersremove-service.md
+.. include:: /command_docs/morpheusclustersremove-service.md
 
-.. include:: morpheusclustersremove-stateful-set.md
+.. include:: /command_docs/morpheusclustersremove-stateful-set.md
 
-.. include:: morpheusclustersremove-volume.md
+.. include:: /command_docs/morpheusclustersremove-volume.md
 
-.. include:: morpheusclustersremove.md
+.. include:: /command_docs/morpheusclustersremove.md
 
-.. include:: morpheusclustersrestart-container.md
+.. include:: /command_docs/morpheusclustersrestart-container.md
 
-.. include:: morpheusclustersrestart-deployment.md
+.. include:: /command_docs/morpheusclustersrestart-deployment.md
 
-.. include:: morpheusclustersrestart-pod.md
+.. include:: /command_docs/morpheusclustersrestart-pod.md
 
-.. include:: morpheusclustersrestart-stateful-set.md
+.. include:: /command_docs/morpheusclustersrestart-stateful-set.md
 
-.. include:: morpheusclustersupdate-datastore.md
+.. include:: /command_docs/morpheusclustersupdate-datastore.md
 
-.. include:: morpheusclustersupdate-namespace.md
+.. include:: /command_docs/morpheusclustersupdate-namespace.md
 
-.. include:: morpheusclustersupdate-permissions.md
+.. include:: /command_docs/morpheusclustersupdate-permissions.md
 
-.. include:: morpheusclustersupdate-wiki.md
+.. include:: /command_docs/morpheusclustersupdate-wiki.md
 
-.. include:: morpheusclustersupdate.md
+.. include:: /command_docs/morpheusclustersupdate.md
 
-.. include:: morpheusclustersview-api-token.md
+.. include:: /command_docs/morpheusclustersview-api-token.md
 
-.. include:: morpheusclustersview-kube-config.md
+.. include:: /command_docs/morpheusclustersview-kube-config.md
 
-.. include:: morpheusclustersview.md
+.. include:: /command_docs/morpheusclustersview.md
 
-.. include:: morpheusclusterswiki.md
+.. include:: /command_docs/morpheusclusterswiki.md
 
-.. include:: morpheuscontainers.md
+.. include:: /command_docs/morpheuscontainers.md
 
-.. include:: morpheuscontainersaction.md
+.. include:: /command_docs/morpheuscontainersaction.md
 
-.. include:: morpheuscontainersactions.md
+.. include:: /command_docs/morpheuscontainersactions.md
 
-.. include:: morpheuscontainerseject.md
+.. include:: /command_docs/morpheuscontainerseject.md
 
-.. include:: morpheuscontainersexec.md
+.. include:: /command_docs/morpheuscontainersexec.md
 
-.. include:: morpheuscontainersget.md
+.. include:: /command_docs/morpheuscontainersget.md
 
-.. include:: morpheuscontainerslogs.md
+.. include:: /command_docs/morpheuscontainerslogs.md
 
-.. include:: morpheuscontainersrestart.md
+.. include:: /command_docs/morpheuscontainersrestart.md
 
-.. include:: morpheuscontainersstart.md
+.. include:: /command_docs/morpheuscontainersstart.md
 
-.. include:: morpheuscontainersstop.md
+.. include:: /command_docs/morpheuscontainersstop.md
 
-.. include:: morpheuscontainerssuspend.md
+.. include:: /command_docs/morpheuscontainerssuspend.md
 
-.. include:: morpheuscypher.md
+.. include:: /command_docs/morpheuscypher.md
 
-.. include:: morpheuscypherget.md
+.. include:: /command_docs/morpheuscypherget.md
 
-.. include:: morpheuscypherlist.md
+.. include:: /command_docs/morpheuscypherlist.md
 
-.. include:: morpheuscypherput.md
+.. include:: /command_docs/morpheuscypherput.md
 
-.. include:: morpheuscypherremove.md
+.. include:: /command_docs/morpheuscypherremove.md
 
-.. include:: morpheusdatastores.md
+.. include:: /command_docs/morpheusdatastores.md
 
-.. include:: morpheusdatastoresget.md
+.. include:: /command_docs/morpheusdatastoresget.md
 
-.. include:: morpheusdatastoreslist.md
+.. include:: /command_docs/morpheusdatastoreslist.md
 
-.. include:: morpheusdatastoresupdate.md
+.. include:: /command_docs/morpheusdatastoresupdate.md
 
-.. include:: morpheusdeploy.md
+.. include:: /command_docs/morpheusdeploy.md
 
-.. include:: morpheusdeployments.md
+.. include:: /command_docs/morpheusdeployments.md
 
-.. include:: morpheusdeploymentsadd-version.md
+.. include:: /command_docs/morpheusdeploymentsadd-version.md
 
-.. include:: morpheusdeploymentsadd.md
+.. include:: /command_docs/morpheusdeploymentsadd.md
 
-.. include:: morpheusdeploymentsget-version.md
+.. include:: /command_docs/morpheusdeploymentsget-version.md
 
-.. include:: morpheusdeploymentsget.md
+.. include:: /command_docs/morpheusdeploymentsget.md
 
-.. include:: morpheusdeploymentslist-files.md
+.. include:: /command_docs/morpheusdeploymentslist-files.md
 
-.. include:: morpheusdeploymentslist-versions.md
+.. include:: /command_docs/morpheusdeploymentslist-versions.md
 
-.. include:: morpheusdeploymentslist.md
+.. include:: /command_docs/morpheusdeploymentslist.md
 
-.. include:: morpheusdeploymentsremove-file.md
+.. include:: /command_docs/morpheusdeploymentsremove-file.md
 
-.. include:: morpheusdeploymentsremove-version.md
+.. include:: /command_docs/morpheusdeploymentsremove-version.md
 
-.. include:: morpheusdeploymentsremove.md
+.. include:: /command_docs/morpheusdeploymentsremove.md
 
-.. include:: morpheusdeploymentsupdate-version.md
+.. include:: /command_docs/morpheusdeploymentsupdate-version.md
 
-.. include:: morpheusdeploymentsupdate.md
+.. include:: /command_docs/morpheusdeploymentsupdate.md
 
-.. include:: morpheusdeploymentsupload.md
+.. include:: /command_docs/morpheusdeploymentsupload.md
 
-.. include:: morpheusdeploys.md
+.. include:: /command_docs/morpheusdeploys.md
 
-.. include:: morpheusdeploysadd.md
+.. include:: /command_docs/morpheusdeploysadd.md
 
-.. include:: morpheusdeploysdeploy.md
+.. include:: /command_docs/morpheusdeploysdeploy.md
 
-.. include:: morpheusdeploysget.md
+.. include:: /command_docs/morpheusdeploysget.md
 
-.. include:: morpheusdeployslist.md
+.. include:: /command_docs/morpheusdeployslist.md
 
-.. include:: morpheusdeploysremove.md
+.. include:: /command_docs/morpheusdeploysremove.md
 
-.. include:: morpheusdeploysupdate.md
+.. include:: /command_docs/morpheusdeploysupdate.md
 
-.. include:: morpheusedit-profile.md
+.. include:: /command_docs/morpheusedit-profile.md
 
-.. include:: morpheusedit-rc.md
+.. include:: /command_docs/morpheusedit-rc.md
 
-.. include:: morpheusenvironments.md
+.. include:: /command_docs/morpheusenvironments.md
 
-.. include:: morpheusenvironmentsadd.md
+.. include:: /command_docs/morpheusenvironmentsadd.md
 
-.. include:: morpheusenvironmentsget.md
+.. include:: /command_docs/morpheusenvironmentsget.md
 
-.. include:: morpheusenvironmentslist.md
+.. include:: /command_docs/morpheusenvironmentslist.md
 
-.. include:: morpheusenvironmentsremove.md
+.. include:: /command_docs/morpheusenvironmentsremove.md
 
-.. include:: morpheusenvironmentstoggle-active.md
+.. include:: /command_docs/morpheusenvironmentstoggle-active.md
 
-.. include:: morpheusenvironmentsupdate.md
+.. include:: /command_docs/morpheusenvironmentsupdate.md
 
-.. include:: morpheusexecute-schedules.md
+.. include:: /command_docs/morpheusexecute-schedules.md
 
-.. include:: morpheusexecute-schedulesadd-hosts.md
+.. include:: /command_docs/morpheusexecute-schedulesadd-hosts.md
 
-.. include:: morpheusexecute-schedulesadd-instances.md
+.. include:: /command_docs/morpheusexecute-schedulesadd-instances.md
 
-.. include:: morpheusexecute-schedulesadd.md
+.. include:: /command_docs/morpheusexecute-schedulesadd.md
 
-.. include:: morpheusexecute-schedulesget.md
+.. include:: /command_docs/morpheusexecute-schedulesget.md
 
-.. include:: morpheusexecute-scheduleslist.md
+.. include:: /command_docs/morpheusexecute-scheduleslist.md
 
-.. include:: morpheusexecute-schedulesremove-hosts.md
+.. include:: /command_docs/morpheusexecute-schedulesremove-hosts.md
 
-.. include:: morpheusexecute-schedulesremove-instances.md
+.. include:: /command_docs/morpheusexecute-schedulesremove-instances.md
 
-.. include:: morpheusexecute-schedulesremove.md
+.. include:: /command_docs/morpheusexecute-schedulesremove.md
 
-.. include:: morpheusexecute-schedulesupdate.md
+.. include:: /command_docs/morpheusexecute-schedulesupdate.md
 
-.. include:: morpheusexecution-request.md
+.. include:: /command_docs/morpheusexecution-request.md
 
-.. include:: morpheusexecution-requestexecute.md
+.. include:: /command_docs/morpheusexecution-requestexecute.md
 
-.. include:: morpheusexecution-requestget.md
+.. include:: /command_docs/morpheusexecution-requestget.md
 
-.. include:: morpheusfile-copy-request.md
+.. include:: /command_docs/morpheusfile-copy-request.md
 
-.. include:: morpheusfile-copy-requestdownload.md
+.. include:: /command_docs/morpheusfile-copy-requestdownload.md
 
-.. include:: morpheusfile-copy-requestexecute.md
+.. include:: /command_docs/morpheusfile-copy-requestexecute.md
 
-.. include:: morpheusfile-copy-requestget.md
+.. include:: /command_docs/morpheusfile-copy-requestget.md
 
-.. include:: morpheusforgot.md
+.. include:: /command_docs/morpheusforgot.md
 
-.. include:: morpheusgroups.md
+.. include:: /command_docs/morpheusgroups.md
 
-.. include:: morpheusgroupsadd-cloud.md
+.. include:: /command_docs/morpheusgroupsadd-cloud.md
 
-.. include:: morpheusgroupsadd.md
+.. include:: /command_docs/morpheusgroupsadd.md
 
-.. include:: morpheusgroupscurrent.md
+.. include:: /command_docs/morpheusgroupscurrent.md
 
-.. include:: morpheusgroupsget.md
+.. include:: /command_docs/morpheusgroupsget.md
 
-.. include:: morpheusgroupslist.md
+.. include:: /command_docs/morpheusgroupslist.md
 
-.. include:: morpheusgroupsremove-cloud.md
+.. include:: /command_docs/morpheusgroupsremove-cloud.md
 
-.. include:: morpheusgroupsremove.md
+.. include:: /command_docs/morpheusgroupsremove.md
 
-.. include:: morpheusgroupsunuse.md
+.. include:: /command_docs/morpheusgroupsunuse.md
 
-.. include:: morpheusgroupsupdate-wiki.md
+.. include:: /command_docs/morpheusgroupsupdate-wiki.md
 
-.. include:: morpheusgroupsupdate.md
+.. include:: /command_docs/morpheusgroupsupdate.md
 
-.. include:: morpheusgroupsuse.md
+.. include:: /command_docs/morpheusgroupsuse.md
 
-.. include:: morpheusgroupswiki.md
+.. include:: /command_docs/morpheusgroupswiki.md
 
-.. include:: morpheusguidance.md
+.. include:: /command_docs/morpheusguidance.md
 
-.. include:: morpheusguidanceexecute.md
+.. include:: /command_docs/morpheusguidanceexecute.md
 
-.. include:: morpheusguidanceget.md
+.. include:: /command_docs/morpheusguidanceget.md
 
-.. include:: morpheusguidanceignore.md
+.. include:: /command_docs/morpheusguidanceignore.md
 
-.. include:: morpheusguidancelist.md
+.. include:: /command_docs/morpheusguidancelist.md
 
-.. include:: morpheusguidancestats.md
+.. include:: /command_docs/morpheusguidancestats.md
 
-.. include:: morpheusguidancetypes.md
+.. include:: /command_docs/morpheusguidancetypes.md
 
-.. include:: morpheushealth.md
+.. include:: /command_docs/morpheushealth.md
 
-.. include:: morpheushealthacknowledge-alarms.md
+.. include:: /command_docs/morpheushealthacknowledge-alarms.md
 
-.. include:: morpheushealthalarms.md
+.. include:: /command_docs/morpheushealthalarms.md
 
-.. include:: morpheushealthget-alarm.md
+.. include:: /command_docs/morpheushealthget-alarm.md
 
-.. include:: morpheushealthget.md
+.. include:: /command_docs/morpheushealthget.md
 
-.. include:: morpheushealthlogs.md
+.. include:: /command_docs/morpheushealthlogs.md
 
-.. include:: morpheushealthunacknowledge-alarms.md
+.. include:: /command_docs/morpheushealthunacknowledge-alarms.md
 
-.. include:: morpheushosts.md
+.. include:: /command_docs/morpheushosts.md
 
-.. include:: morpheushostsadd.md
+.. include:: /command_docs/morpheushostsadd.md
 
-.. include:: morpheushostscount.md
+.. include:: /command_docs/morpheushostscount.md
 
-.. include:: morpheushostsexec.md
+.. include:: /command_docs/morpheushostsexec.md
 
-.. include:: morpheushostsget.md
+.. include:: /command_docs/morpheushostsget.md
 
-.. include:: morpheushostslist.md
+.. include:: /command_docs/morpheushostslist.md
 
-.. include:: morpheushostslogs.md
+.. include:: /command_docs/morpheushostslogs.md
 
-.. include:: morpheushostsmake-managed.md
+.. include:: /command_docs/morpheushostsmake-managed.md
 
-.. include:: morpheushostsremove.md
+.. include:: /command_docs/morpheushostsremove.md
 
-.. include:: morpheushostsresize.md
+.. include:: /command_docs/morpheushostsresize.md
 
-.. include:: morpheushostsrun-workflow.md
+.. include:: /command_docs/morpheushostsrun-workflow.md
 
-.. include:: morpheushostssnapshots.md
+.. include:: /command_docs/morpheushostssnapshots.md
 
-.. include:: morpheushostssoftware.md
+.. include:: /command_docs/morpheushostssoftware.md
 
-.. include:: morpheushostsstart.md
+.. include:: /command_docs/morpheushostsstart.md
 
-.. include:: morpheushostsstats.md
+.. include:: /command_docs/morpheushostsstats.md
 
-.. include:: morpheushostsstop.md
+.. include:: /command_docs/morpheushostsstop.md
 
-.. include:: morpheushoststypes.md
+.. include:: /command_docs/morpheushoststypes.md
 
-.. include:: morpheushostsupdate-wiki.md
+.. include:: /command_docs/morpheushostsupdate-wiki.md
 
-.. include:: morpheushostsupdate.md
+.. include:: /command_docs/morpheushostsupdate.md
 
-.. include:: morpheushostsupgrade-agent.md
+.. include:: /command_docs/morpheushostsupgrade-agent.md
 
-.. include:: morpheushostsview.md
+.. include:: /command_docs/morpheushostsview.md
 
-.. include:: morpheushostswiki.md
+.. include:: /command_docs/morpheushostswiki.md
 
-.. include:: morpheusimage-builder.md
+.. include:: /command_docs/morpheusimage-builder.md
 
-.. include:: morpheusimage-builderadd.md
+.. include:: /command_docs/morpheusimage-builderadd.md
 
-.. include:: morpheusimage-builderboot-scripts.md
+.. include:: /command_docs/morpheusimage-builderboot-scripts.md
 
-.. include:: morpheusimage-builderget.md
+.. include:: /command_docs/morpheusimage-builderget.md
 
-.. include:: morpheusimage-builderlist-runs.md
+.. include:: /command_docs/morpheusimage-builderlist-runs.md
 
-.. include:: morpheusimage-builderlist.md
+.. include:: /command_docs/morpheusimage-builderlist.md
 
-.. include:: morpheusimage-builderpreseed-scripts.md
+.. include:: /command_docs/morpheusimage-builderpreseed-scripts.md
 
-.. include:: morpheusimage-builderremove.md
+.. include:: /command_docs/morpheusimage-builderremove.md
 
-.. include:: morpheusimage-builderrun.md
+.. include:: /command_docs/morpheusimage-builderrun.md
 
-.. include:: morpheusimage-builderupdate.md
+.. include:: /command_docs/morpheusimage-builderupdate.md
 
-.. include:: morpheusinstance-types.md
+.. include:: /command_docs/morpheusinstance-types.md
 
-.. include:: morpheusinstance-typesget.md
+.. include:: /command_docs/morpheusinstance-typesget.md
 
-.. include:: morpheusinstance-typeslist.md
+.. include:: /command_docs/morpheusinstance-typeslist.md
 
-.. include:: morpheusinstances.md
+.. include:: /command_docs/morpheusinstances.md
 
-.. include:: morpheusinstancesaction.md
+.. include:: /command_docs/morpheusinstancesaction.md
 
-.. include:: morpheusinstancesactions.md
+.. include:: /command_docs/morpheusinstancesactions.md
 
-.. include:: morpheusinstancesadd.md
+.. include:: /command_docs/morpheusinstancesadd.md
 
-.. include:: morpheusinstancesapply-security-groups.md
+.. include:: /command_docs/morpheusinstancesapply-security-groups.md
 
-.. include:: morpheusinstancesbackup.md
+.. include:: /command_docs/morpheusinstancesbackup.md
 
-.. include:: morpheusinstancesbackups.md
+.. include:: /command_docs/morpheusinstancesbackups.md
 
-.. include:: morpheusinstancescancel-removal.md
+.. include:: /command_docs/morpheusinstancescancel-removal.md
 
-.. include:: morpheusinstancesclone.md
+.. include:: /command_docs/morpheusinstancesclone.md
 
-.. include:: morpheusinstancesconsole.md
+.. include:: /command_docs/morpheusinstancesconsole.md
 
-.. include:: morpheusinstancescontainers.md
+.. include:: /command_docs/morpheusinstancescontainers.md
 
-.. include:: morpheusinstancescount.md
+.. include:: /command_docs/morpheusinstancescount.md
 
-.. include:: morpheusinstancesdelenv.md
+.. include:: /command_docs/morpheusinstancesdelenv.md
 
-.. include:: morpheusinstancesdeploys.md
+.. include:: /command_docs/morpheusinstancesdeploys.md
 
-.. include:: morpheusinstanceseject.md
+.. include:: /command_docs/morpheusinstanceseject.md
 
-.. include:: morpheusinstancesenvs.md
+.. include:: /command_docs/morpheusinstancesenvs.md
 
-.. include:: morpheusinstancesexec.md
+.. include:: /command_docs/morpheusinstancesexec.md
 
-.. include:: morpheusinstancesget.md
+.. include:: /command_docs/morpheusinstancesget.md
 
-.. include:: morpheusinstanceshistory-details.md
+.. include:: /command_docs/morpheusinstanceshistory-details.md
 
-.. include:: morpheusinstanceshistory-event.md
+.. include:: /command_docs/morpheusinstanceshistory-event.md
 
-.. include:: morpheusinstanceshistory.md
+.. include:: /command_docs/morpheusinstanceshistory.md
 
-.. include:: morpheusinstancesimport-snapshot.md
+.. include:: /command_docs/morpheusinstancesimport-snapshot.md
 
-.. include:: morpheusinstanceslist.md
+.. include:: /command_docs/morpheusinstanceslist.md
 
-.. include:: morpheusinstanceslogs.md
+.. include:: /command_docs/morpheusinstanceslogs.md
 
-.. include:: morpheusinstancesremove.md
+.. include:: /command_docs/morpheusinstancesremove.md
 
-.. include:: morpheusinstancesresize.md
+.. include:: /command_docs/morpheusinstancesresize.md
 
-.. include:: morpheusinstancesrestart-service.md
+.. include:: /command_docs/morpheusinstancesrestart-service.md
 
-.. include:: morpheusinstancesrestart.md
+.. include:: /command_docs/morpheusinstancesrestart.md
 
-.. include:: morpheusinstancesrun-workflow.md
+.. include:: /command_docs/morpheusinstancesrun-workflow.md
 
-.. include:: morpheusinstancesscaling-update.md
+.. include:: /command_docs/morpheusinstancesscaling-update.md
 
-.. include:: morpheusinstancesscaling.md
+.. include:: /command_docs/morpheusinstancesscaling.md
 
-.. include:: morpheusinstancessecurity-groups.md
+.. include:: /command_docs/morpheusinstancessecurity-groups.md
 
-.. include:: morpheusinstancessetenv.md
+.. include:: /command_docs/morpheusinstancessetenv.md
 
-.. include:: morpheusinstancessnapshot.md
+.. include:: /command_docs/morpheusinstancessnapshot.md
 
-.. include:: morpheusinstancessnapshots.md
+.. include:: /command_docs/morpheusinstancessnapshots.md
 
-.. include:: morpheusinstancesstart-service.md
+.. include:: /command_docs/morpheusinstancesstart-service.md
 
-.. include:: morpheusinstancesstart.md
+.. include:: /command_docs/morpheusinstancesstart.md
 
-.. include:: morpheusinstancesstats.md
+.. include:: /command_docs/morpheusinstancesstats.md
 
-.. include:: morpheusinstancesstatus-check.md
+.. include:: /command_docs/morpheusinstancesstatus-check.md
 
-.. include:: morpheusinstancesstop-service.md
+.. include:: /command_docs/morpheusinstancesstop-service.md
 
-.. include:: morpheusinstancesstop.md
+.. include:: /command_docs/morpheusinstancesstop.md
 
-.. include:: morpheusinstancessuspend.md
+.. include:: /command_docs/morpheusinstancessuspend.md
 
-.. include:: morpheusinstancesupdate-wiki.md
+.. include:: /command_docs/morpheusinstancesupdate-wiki.md
 
-.. include:: morpheusinstancesupdate.md
+.. include:: /command_docs/morpheusinstancesupdate.md
 
-.. include:: morpheusinstancesview.md
+.. include:: /command_docs/morpheusinstancesview.md
 
-.. include:: morpheusinstanceswiki.md
+.. include:: /command_docs/morpheusinstanceswiki.md
 
-.. include:: morpheusintegrations.md
+.. include:: /command_docs/morpheusintegrations.md
 
-.. include:: morpheusintegrationslist.md
+.. include:: /command_docs/morpheusintegrationslist.md
 
-.. include:: morpheusinvoices.md
+.. include:: /command_docs/morpheusinvoices.md
 
-.. include:: morpheusinvoicesget-line-item.md
+.. include:: /command_docs/morpheusinvoicesget-line-item.md
 
-.. include:: morpheusinvoicesget.md
+.. include:: /command_docs/morpheusinvoicesget.md
 
-.. include:: morpheusinvoiceslist-line-items.md
+.. include:: /command_docs/morpheusinvoiceslist-line-items.md
 
-.. include:: morpheusinvoiceslist.md
+.. include:: /command_docs/morpheusinvoiceslist.md
 
-.. include:: morpheusinvoicesrefresh.md
+.. include:: /command_docs/morpheusinvoicesrefresh.md
 
-.. include:: morpheusjobs.md
+.. include:: /command_docs/morpheusjobs.md
 
-.. include:: morpheusjobsadd.md
+.. include:: /command_docs/morpheusjobsadd.md
 
-.. include:: morpheusjobsexecute.md
+.. include:: /command_docs/morpheusjobsexecute.md
 
-.. include:: morpheusjobsget-execution-event.md
+.. include:: /command_docs/morpheusjobsget-execution-event.md
 
-.. include:: morpheusjobsget-execution.md
+.. include:: /command_docs/morpheusjobsget-execution.md
 
-.. include:: morpheusjobsget.md
+.. include:: /command_docs/morpheusjobsget.md
 
-.. include:: morpheusjobslist-executions.md
+.. include:: /command_docs/morpheusjobslist-executions.md
 
-.. include:: morpheusjobslist.md
+.. include:: /command_docs/morpheusjobslist.md
 
-.. include:: morpheusjobsremove.md
+.. include:: /command_docs/morpheusjobsremove.md
 
-.. include:: morpheusjobsupdate.md
+.. include:: /command_docs/morpheusjobsupdate.md
 
-.. include:: morpheuskey-pairs.md
+.. include:: /command_docs/morpheuskey-pairs.md
 
-.. include:: morpheuskey-pairsadd.md
+.. include:: /command_docs/morpheuskey-pairsadd.md
 
-.. include:: morpheuskey-pairsget.md
+.. include:: /command_docs/morpheuskey-pairsget.md
 
-.. include:: morpheuskey-pairslist.md
+.. include:: /command_docs/morpheuskey-pairslist.md
 
-.. include:: morpheuskey-pairsremove.md
+.. include:: /command_docs/morpheuskey-pairsremove.md
 
-.. include:: morpheuskey-pairsupdate.md
+.. include:: /command_docs/morpheuskey-pairsupdate.md
 
-.. include:: morpheuslibrary-cluster-layouts.md
+.. include:: /command_docs/morpheuslibrary-cluster-layouts.md
 
-.. include:: morpheuslibrary-cluster-layoutsadd.md
+.. include:: /command_docs/morpheuslibrary-cluster-layoutsadd.md
 
-.. include:: morpheuslibrary-cluster-layoutsclone.md
+.. include:: /command_docs/morpheuslibrary-cluster-layoutsclone.md
 
-.. include:: morpheuslibrary-cluster-layoutsget.md
+.. include:: /command_docs/morpheuslibrary-cluster-layoutsget.md
 
-.. include:: morpheuslibrary-cluster-layoutslist.md
+.. include:: /command_docs/morpheuslibrary-cluster-layoutslist.md
 
-.. include:: morpheuslibrary-cluster-layoutsremove.md
+.. include:: /command_docs/morpheuslibrary-cluster-layoutsremove.md
 
-.. include:: morpheuslibrary-cluster-layoutsupdate.md
+.. include:: /command_docs/morpheuslibrary-cluster-layoutsupdate.md
 
-.. include:: morpheuslibrary-file-templates.md
+.. include:: /command_docs/morpheuslibrary-file-templates.md
 
-.. include:: morpheuslibrary-file-templatesadd.md
+.. include:: /command_docs/morpheuslibrary-file-templatesadd.md
 
-.. include:: morpheuslibrary-file-templatesget.md
+.. include:: /command_docs/morpheuslibrary-file-templatesget.md
 
-.. include:: morpheuslibrary-file-templateslist.md
+.. include:: /command_docs/morpheuslibrary-file-templateslist.md
 
-.. include:: morpheuslibrary-file-templatesremove.md
+.. include:: /command_docs/morpheuslibrary-file-templatesremove.md
 
-.. include:: morpheuslibrary-file-templatesupdate.md
+.. include:: /command_docs/morpheuslibrary-file-templatesupdate.md
 
-.. include:: morpheuslibrary-instance-types.md
+.. include:: /command_docs/morpheuslibrary-instance-types.md
 
-.. include:: morpheuslibrary-instance-typesadd.md
+.. include:: /command_docs/morpheuslibrary-instance-typesadd.md
 
-.. include:: morpheuslibrary-instance-typesget.md
+.. include:: /command_docs/morpheuslibrary-instance-typesget.md
 
-.. include:: morpheuslibrary-instance-typeslist.md
+.. include:: /command_docs/morpheuslibrary-instance-typeslist.md
 
-.. include:: morpheuslibrary-instance-typesremove.md
+.. include:: /command_docs/morpheuslibrary-instance-typesremove.md
 
-.. include:: morpheuslibrary-instance-typestoggle-featured.md
+.. include:: /command_docs/morpheuslibrary-instance-typestoggle-featured.md
 
-.. include:: morpheuslibrary-instance-typesupdate-logo.md
+.. include:: /command_docs/morpheuslibrary-instance-typesupdate-logo.md
 
-.. include:: morpheuslibrary-instance-typesupdate.md
+.. include:: /command_docs/morpheuslibrary-instance-typesupdate.md
 
-.. include:: morpheuslibrary-layouts.md
+.. include:: /command_docs/morpheuslibrary-layouts.md
 
-.. include:: morpheuslibrary-layoutsadd.md
+.. include:: /command_docs/morpheuslibrary-layoutsadd.md
 
-.. include:: morpheuslibrary-layoutsget.md
+.. include:: /command_docs/morpheuslibrary-layoutsget.md
 
-.. include:: morpheuslibrary-layoutslist.md
+.. include:: /command_docs/morpheuslibrary-layoutslist.md
 
-.. include:: morpheuslibrary-layoutsremove.md
+.. include:: /command_docs/morpheuslibrary-layoutsremove.md
 
-.. include:: morpheuslibrary-layoutsupdate-permissions.md
+.. include:: /command_docs/morpheuslibrary-layoutsupdate-permissions.md
 
-.. include:: morpheuslibrary-layoutsupdate.md
+.. include:: /command_docs/morpheuslibrary-layoutsupdate.md
 
-.. include:: morpheuslibrary-node-types.md
+.. include:: /command_docs/morpheuslibrary-node-types.md
 
-.. include:: morpheuslibrary-node-typesadd.md
+.. include:: /command_docs/morpheuslibrary-node-typesadd.md
 
-.. include:: morpheuslibrary-node-typesget.md
+.. include:: /command_docs/morpheuslibrary-node-typesget.md
 
-.. include:: morpheuslibrary-node-typeslist.md
+.. include:: /command_docs/morpheuslibrary-node-typeslist.md
 
-.. include:: morpheuslibrary-node-typesremove.md
+.. include:: /command_docs/morpheuslibrary-node-typesremove.md
 
-.. include:: morpheuslibrary-node-typesupdate.md
+.. include:: /command_docs/morpheuslibrary-node-typesupdate.md
 
-.. include:: morpheuslibrary-option-lists.md
+.. include:: /command_docs/morpheuslibrary-option-lists.md
 
-.. include:: morpheuslibrary-option-listsadd.md
+.. include:: /command_docs/morpheuslibrary-option-listsadd.md
 
-.. include:: morpheuslibrary-option-listsget.md
+.. include:: /command_docs/morpheuslibrary-option-listsget.md
 
-.. include:: morpheuslibrary-option-listslist.md
+.. include:: /command_docs/morpheuslibrary-option-listslist.md
 
-.. include:: morpheuslibrary-option-listsremove.md
+.. include:: /command_docs/morpheuslibrary-option-listsremove.md
 
-.. include:: morpheuslibrary-option-listsupdate.md
+.. include:: /command_docs/morpheuslibrary-option-listsupdate.md
 
-.. include:: morpheuslibrary-option-types.md
+.. include:: /command_docs/morpheuslibrary-option-types.md
 
-.. include:: morpheuslibrary-option-typesadd.md
+.. include:: /command_docs/morpheuslibrary-option-typesadd.md
 
-.. include:: morpheuslibrary-option-typesget.md
+.. include:: /command_docs/morpheuslibrary-option-typesget.md
 
-.. include:: morpheuslibrary-option-typeslist.md
+.. include:: /command_docs/morpheuslibrary-option-typeslist.md
 
-.. include:: morpheuslibrary-option-typesremove.md
+.. include:: /command_docs/morpheuslibrary-option-typesremove.md
 
-.. include:: morpheuslibrary-option-typesupdate.md
+.. include:: /command_docs/morpheuslibrary-option-typesupdate.md
 
-.. include:: morpheuslibrary-scripts.md
+.. include:: /command_docs/morpheuslibrary-scripts.md
 
-.. include:: morpheuslibrary-scriptsadd.md
+.. include:: /command_docs/morpheuslibrary-scriptsadd.md
 
-.. include:: morpheuslibrary-scriptsget.md
+.. include:: /command_docs/morpheuslibrary-scriptsget.md
 
-.. include:: morpheuslibrary-scriptslist.md
+.. include:: /command_docs/morpheuslibrary-scriptslist.md
 
-.. include:: morpheuslibrary-scriptsremove.md
+.. include:: /command_docs/morpheuslibrary-scriptsremove.md
 
-.. include:: morpheuslibrary-scriptsupdate.md
+.. include:: /command_docs/morpheuslibrary-scriptsupdate.md
 
-.. include:: morpheuslibrary-spec-templates.md
+.. include:: /command_docs/morpheuslibrary-spec-templates.md
 
-.. include:: morpheuslibrary-spec-templatesadd.md
+.. include:: /command_docs/morpheuslibrary-spec-templatesadd.md
 
-.. include:: morpheuslibrary-spec-templatesget.md
+.. include:: /command_docs/morpheuslibrary-spec-templatesget.md
 
-.. include:: morpheuslibrary-spec-templateslist-types.md
+.. include:: /command_docs/morpheuslibrary-spec-templateslist-types.md
 
-.. include:: morpheuslibrary-spec-templateslist.md
+.. include:: /command_docs/morpheuslibrary-spec-templateslist.md
 
-.. include:: morpheuslibrary-spec-templatesremove.md
+.. include:: /command_docs/morpheuslibrary-spec-templatesremove.md
 
-.. include:: morpheuslibrary-spec-templatesupdate.md
+.. include:: /command_docs/morpheuslibrary-spec-templatesupdate.md
 
-.. include:: morpheuslibrary-upgrades.md
+.. include:: /command_docs/morpheuslibrary-upgrades.md
 
-.. include:: morpheuslibrary-upgradesadd.md
+.. include:: /command_docs/morpheuslibrary-upgradesadd.md
 
-.. include:: morpheuslibrary-upgradesget.md
+.. include:: /command_docs/morpheuslibrary-upgradesget.md
 
-.. include:: morpheuslibrary-upgradeslist.md
+.. include:: /command_docs/morpheuslibrary-upgradeslist.md
 
-.. include:: morpheuslibrary-upgradesremove.md
+.. include:: /command_docs/morpheuslibrary-upgradesremove.md
 
-.. include:: morpheuslibrary-upgradesupdate.md
+.. include:: /command_docs/morpheuslibrary-upgradesupdate.md
 
-.. include:: morpheuslicense.md
+.. include:: /command_docs/morpheuslicense.md
 
-.. include:: morpheuslicenseget.md
+.. include:: /command_docs/morpheuslicenseget.md
 
-.. include:: morpheuslicenseinstall.md
+.. include:: /command_docs/morpheuslicenseinstall.md
 
-.. include:: morpheuslicensetest.md
+.. include:: /command_docs/morpheuslicensetest.md
 
-.. include:: morpheuslicenseuninstall.md
+.. include:: /command_docs/morpheuslicenseuninstall.md
 
-.. include:: morpheusload-balancers.md
+.. include:: /command_docs/morpheusload-balancers.md
 
-.. include:: morpheusload-balancersadd.md
+.. include:: /command_docs/morpheusload-balancersadd.md
 
-.. include:: morpheusload-balancersget.md
+.. include:: /command_docs/morpheusload-balancersget.md
 
-.. include:: morpheusload-balancerslist.md
+.. include:: /command_docs/morpheusload-balancerslist.md
 
-.. include:: morpheusload-balancersremove.md
+.. include:: /command_docs/morpheusload-balancersremove.md
 
-.. include:: morpheusload-balancerstypes.md
+.. include:: /command_docs/morpheusload-balancerstypes.md
 
-.. include:: morpheusload-balancersupdate.md
+.. include:: /command_docs/morpheusload-balancersupdate.md
 
-.. include:: morpheuslog-settings.md
+.. include:: /command_docs/morpheuslog-settings.md
 
-.. include:: morpheuslog-settingsadd-syslog-rule.md
+.. include:: /command_docs/morpheuslog-settingsadd-syslog-rule.md
 
-.. include:: morpheuslog-settingsdisable-integration.md
+.. include:: /command_docs/morpheuslog-settingsdisable-integration.md
 
-.. include:: morpheuslog-settingsenable-integration.md
+.. include:: /command_docs/morpheuslog-settingsenable-integration.md
 
-.. include:: morpheuslog-settingsget.md
+.. include:: /command_docs/morpheuslog-settingsget.md
 
-.. include:: morpheuslog-settingsremove-integration.md
+.. include:: /command_docs/morpheuslog-settingsremove-integration.md
 
-.. include:: morpheuslog-settingsremove-syslog-rule.md
+.. include:: /command_docs/morpheuslog-settingsremove-syslog-rule.md
 
-.. include:: morpheuslog-settingsupdate.md
+.. include:: /command_docs/morpheuslog-settingsupdate.md
 
-.. include:: morpheuslogin.md
+.. include:: /command_docs/morpheuslogin.md
 
-.. include:: morpheuslogout.md
+.. include:: /command_docs/morpheuslogout.md
 
-.. include:: morpheuslogs.md
+.. include:: /command_docs/morpheuslogs.md
 
-.. include:: morpheuslogslist.md
+.. include:: /command_docs/morpheuslogslist.md
 
-.. include:: morpheusmonitor-alerts.md
+.. include:: /command_docs/morpheusmonitor-alerts.md
 
-.. include:: morpheusmonitor-alertsadd.md
+.. include:: /command_docs/morpheusmonitor-alertsadd.md
 
-.. include:: morpheusmonitor-alertsget.md
+.. include:: /command_docs/morpheusmonitor-alertsget.md
 
-.. include:: morpheusmonitor-alertslist.md
+.. include:: /command_docs/morpheusmonitor-alertslist.md
 
-.. include:: morpheusmonitor-alertsremove.md
+.. include:: /command_docs/morpheusmonitor-alertsremove.md
 
-.. include:: morpheusmonitor-alertsupdate.md
+.. include:: /command_docs/morpheusmonitor-alertsupdate.md
 
-.. include:: morpheusmonitor-apps.md
+.. include:: /command_docs/morpheusmonitor-apps.md
 
-.. include:: morpheusmonitor-appsadd.md
+.. include:: /command_docs/morpheusmonitor-appsadd.md
 
-.. include:: morpheusmonitor-appsget.md
+.. include:: /command_docs/morpheusmonitor-appsget.md
 
-.. include:: morpheusmonitor-appslist.md
+.. include:: /command_docs/morpheusmonitor-appslist.md
 
-.. include:: morpheusmonitor-appsmute-all.md
+.. include:: /command_docs/morpheusmonitor-appsmute-all.md
 
-.. include:: morpheusmonitor-appsmute.md
+.. include:: /command_docs/morpheusmonitor-appsmute.md
 
-.. include:: morpheusmonitor-appsremove.md
+.. include:: /command_docs/morpheusmonitor-appsremove.md
 
-.. include:: morpheusmonitor-appsunmute-all.md
+.. include:: /command_docs/morpheusmonitor-appsunmute-all.md
 
-.. include:: morpheusmonitor-appsunmute.md
+.. include:: /command_docs/morpheusmonitor-appsunmute.md
 
-.. include:: morpheusmonitor-appsupdate.md
+.. include:: /command_docs/morpheusmonitor-appsupdate.md
 
-.. include:: morpheusmonitor-checks.md
+.. include:: /command_docs/morpheusmonitor-checks.md
 
-.. include:: morpheusmonitor-checksadd.md
+.. include:: /command_docs/morpheusmonitor-checksadd.md
 
-.. include:: morpheusmonitor-checksget.md
+.. include:: /command_docs/morpheusmonitor-checksget.md
 
-.. include:: morpheusmonitor-checkshistory.md
+.. include:: /command_docs/morpheusmonitor-checkshistory.md
 
-.. include:: morpheusmonitor-checkslist-types.md
+.. include:: /command_docs/morpheusmonitor-checkslist-types.md
 
-.. include:: morpheusmonitor-checkslist.md
+.. include:: /command_docs/morpheusmonitor-checkslist.md
 
-.. include:: morpheusmonitor-checksmute-all.md
+.. include:: /command_docs/morpheusmonitor-checksmute-all.md
 
-.. include:: morpheusmonitor-checksmute.md
+.. include:: /command_docs/morpheusmonitor-checksmute.md
 
-.. include:: morpheusmonitor-checksremove.md
+.. include:: /command_docs/morpheusmonitor-checksremove.md
 
-.. include:: morpheusmonitor-checksunmute-all.md
+.. include:: /command_docs/morpheusmonitor-checksunmute-all.md
 
-.. include:: morpheusmonitor-checksunmute.md
+.. include:: /command_docs/morpheusmonitor-checksunmute.md
 
-.. include:: morpheusmonitor-checksupdate.md
+.. include:: /command_docs/morpheusmonitor-checksupdate.md
 
-.. include:: morpheusmonitor-contacts.md
+.. include:: /command_docs/morpheusmonitor-contacts.md
 
-.. include:: morpheusmonitor-contactsadd.md
+.. include:: /command_docs/morpheusmonitor-contactsadd.md
 
-.. include:: morpheusmonitor-contactsget.md
+.. include:: /command_docs/morpheusmonitor-contactsget.md
 
-.. include:: morpheusmonitor-contactslist.md
+.. include:: /command_docs/morpheusmonitor-contactslist.md
 
-.. include:: morpheusmonitor-contactsremove.md
+.. include:: /command_docs/morpheusmonitor-contactsremove.md
 
-.. include:: morpheusmonitor-contactsupdate.md
+.. include:: /command_docs/morpheusmonitor-contactsupdate.md
 
-.. include:: morpheusmonitor-groups.md
+.. include:: /command_docs/morpheusmonitor-groups.md
 
-.. include:: morpheusmonitor-groupsadd.md
+.. include:: /command_docs/morpheusmonitor-groupsadd.md
 
-.. include:: morpheusmonitor-groupsget.md
+.. include:: /command_docs/morpheusmonitor-groupsget.md
 
-.. include:: morpheusmonitor-groupshistory.md
+.. include:: /command_docs/morpheusmonitor-groupshistory.md
 
-.. include:: morpheusmonitor-groupslist.md
+.. include:: /command_docs/morpheusmonitor-groupslist.md
 
-.. include:: morpheusmonitor-groupsmute-all.md
+.. include:: /command_docs/morpheusmonitor-groupsmute-all.md
 
-.. include:: morpheusmonitor-groupsmute.md
+.. include:: /command_docs/morpheusmonitor-groupsmute.md
 
-.. include:: morpheusmonitor-groupsremove.md
+.. include:: /command_docs/morpheusmonitor-groupsremove.md
 
-.. include:: morpheusmonitor-groupsunmute-all.md
+.. include:: /command_docs/morpheusmonitor-groupsunmute-all.md
 
-.. include:: morpheusmonitor-groupsunmute.md
+.. include:: /command_docs/morpheusmonitor-groupsunmute.md
 
-.. include:: morpheusmonitor-groupsupdate.md
+.. include:: /command_docs/morpheusmonitor-groupsupdate.md
 
-.. include:: morpheusmonitor-incidents.md
+.. include:: /command_docs/morpheusmonitor-incidents.md
 
-.. include:: morpheusmonitor-incidentsadd.md
+.. include:: /command_docs/morpheusmonitor-incidentsadd.md
 
-.. include:: morpheusmonitor-incidentsclose.md
+.. include:: /command_docs/morpheusmonitor-incidentsclose.md
 
-.. include:: morpheusmonitor-incidentsget.md
+.. include:: /command_docs/morpheusmonitor-incidentsget.md
 
-.. include:: morpheusmonitor-incidentshistory.md
+.. include:: /command_docs/morpheusmonitor-incidentshistory.md
 
-.. include:: morpheusmonitor-incidentslist.md
+.. include:: /command_docs/morpheusmonitor-incidentslist.md
 
-.. include:: morpheusmonitor-incidentsmute-all.md
+.. include:: /command_docs/morpheusmonitor-incidentsmute-all.md
 
-.. include:: morpheusmonitor-incidentsmute.md
+.. include:: /command_docs/morpheusmonitor-incidentsmute.md
 
-.. include:: morpheusmonitor-incidentsnotifications.md
+.. include:: /command_docs/morpheusmonitor-incidentsnotifications.md
 
-.. include:: morpheusmonitor-incidentsreopen.md
+.. include:: /command_docs/morpheusmonitor-incidentsreopen.md
 
-.. include:: morpheusmonitor-incidentsstats.md
+.. include:: /command_docs/morpheusmonitor-incidentsstats.md
 
-.. include:: morpheusmonitor-incidentsunmute-all.md
+.. include:: /command_docs/morpheusmonitor-incidentsunmute-all.md
 
-.. include:: morpheusmonitor-incidentsunmute.md
+.. include:: /command_docs/morpheusmonitor-incidentsunmute.md
 
-.. include:: morpheusmonitor-incidentsupdate.md
+.. include:: /command_docs/morpheusmonitor-incidentsupdate.md
 
-.. include:: morpheusnetwork-domains.md
+.. include:: /command_docs/morpheusnetwork-domains.md
 
-.. include:: morpheusnetwork-domainsadd-record.md
+.. include:: /command_docs/morpheusnetwork-domainsadd-record.md
 
-.. include:: morpheusnetwork-domainsadd.md
+.. include:: /command_docs/morpheusnetwork-domainsadd.md
 
-.. include:: morpheusnetwork-domainsget-record.md
+.. include:: /command_docs/morpheusnetwork-domainsget-record.md
 
-.. include:: morpheusnetwork-domainsget.md
+.. include:: /command_docs/morpheusnetwork-domainsget.md
 
-.. include:: morpheusnetwork-domainslist-records.md
+.. include:: /command_docs/morpheusnetwork-domainslist-records.md
 
-.. include:: morpheusnetwork-domainslist.md
+.. include:: /command_docs/morpheusnetwork-domainslist.md
 
-.. include:: morpheusnetwork-domainsremove-record.md
+.. include:: /command_docs/morpheusnetwork-domainsremove-record.md
 
-.. include:: morpheusnetwork-domainsremove.md
+.. include:: /command_docs/morpheusnetwork-domainsremove.md
 
-.. include:: morpheusnetwork-domainsupdate.md
+.. include:: /command_docs/morpheusnetwork-domainsupdate.md
 
-.. include:: morpheusnetwork-groups.md
+.. include:: /command_docs/morpheusnetwork-groups.md
 
-.. include:: morpheusnetwork-groupsadd.md
+.. include:: /command_docs/morpheusnetwork-groupsadd.md
 
-.. include:: morpheusnetwork-groupsget.md
+.. include:: /command_docs/morpheusnetwork-groupsget.md
 
-.. include:: morpheusnetwork-groupslist.md
+.. include:: /command_docs/morpheusnetwork-groupslist.md
 
-.. include:: morpheusnetwork-groupsremove.md
+.. include:: /command_docs/morpheusnetwork-groupsremove.md
 
-.. include:: morpheusnetwork-groupsupdate.md
+.. include:: /command_docs/morpheusnetwork-groupsupdate.md
 
-.. include:: morpheusnetwork-pool-servers.md
+.. include:: /command_docs/morpheusnetwork-pool-servers.md
 
-.. include:: morpheusnetwork-pool-serversadd.md
+.. include:: /command_docs/morpheusnetwork-pool-serversadd.md
 
-.. include:: morpheusnetwork-pool-serversget.md
+.. include:: /command_docs/morpheusnetwork-pool-serversget.md
 
-.. include:: morpheusnetwork-pool-serverslist.md
+.. include:: /command_docs/morpheusnetwork-pool-serverslist.md
 
-.. include:: morpheusnetwork-pool-serversremove.md
+.. include:: /command_docs/morpheusnetwork-pool-serversremove.md
 
-.. include:: morpheusnetwork-pool-serversupdate.md
+.. include:: /command_docs/morpheusnetwork-pool-serversupdate.md
 
-.. include:: morpheusnetwork-pools.md
+.. include:: /command_docs/morpheusnetwork-pools.md
 
-.. include:: morpheusnetwork-poolsadd-ip.md
+.. include:: /command_docs/morpheusnetwork-poolsadd-ip.md
 
-.. include:: morpheusnetwork-poolsadd.md
+.. include:: /command_docs/morpheusnetwork-poolsadd.md
 
-.. include:: morpheusnetwork-poolsget-ip.md
+.. include:: /command_docs/morpheusnetwork-poolsget-ip.md
 
-.. include:: morpheusnetwork-poolsget.md
+.. include:: /command_docs/morpheusnetwork-poolsget.md
 
-.. include:: morpheusnetwork-poolslist-ips.md
+.. include:: /command_docs/morpheusnetwork-poolslist-ips.md
 
-.. include:: morpheusnetwork-poolslist.md
+.. include:: /command_docs/morpheusnetwork-poolslist.md
 
-.. include:: morpheusnetwork-poolsremove-ip.md
+.. include:: /command_docs/morpheusnetwork-poolsremove-ip.md
 
-.. include:: morpheusnetwork-poolsremove.md
+.. include:: /command_docs/morpheusnetwork-poolsremove.md
 
-.. include:: morpheusnetwork-poolsupdate-ip.md
+.. include:: /command_docs/morpheusnetwork-poolsupdate-ip.md
 
-.. include:: morpheusnetwork-poolsupdate.md
+.. include:: /command_docs/morpheusnetwork-poolsupdate.md
 
-.. include:: morpheusnetwork-proxies.md
+.. include:: /command_docs/morpheusnetwork-proxies.md
 
-.. include:: morpheusnetwork-proxiesadd.md
+.. include:: /command_docs/morpheusnetwork-proxiesadd.md
 
-.. include:: morpheusnetwork-proxiesget.md
+.. include:: /command_docs/morpheusnetwork-proxiesget.md
 
-.. include:: morpheusnetwork-proxieslist.md
+.. include:: /command_docs/morpheusnetwork-proxieslist.md
 
-.. include:: morpheusnetwork-proxiesremove.md
+.. include:: /command_docs/morpheusnetwork-proxiesremove.md
 
-.. include:: morpheusnetwork-proxiesupdate.md
+.. include:: /command_docs/morpheusnetwork-proxiesupdate.md
 
-.. include:: morpheusnetwork-routers.md
+.. include:: /command_docs/morpheusnetwork-routers.md
 
-.. include:: morpheusnetwork-routersadd-firewall-rule.md
+.. include:: /command_docs/morpheusnetwork-routersadd-firewall-rule.md
 
-.. include:: morpheusnetwork-routersadd-route.md
+.. include:: /command_docs/morpheusnetwork-routersadd-route.md
 
-.. include:: morpheusnetwork-routersadd.md
+.. include:: /command_docs/morpheusnetwork-routersadd.md
 
-.. include:: morpheusnetwork-routersdhcp.md
+.. include:: /command_docs/morpheusnetwork-routersdhcp.md
 
-.. include:: morpheusnetwork-routersfirewall.md
+.. include:: /command_docs/morpheusnetwork-routersfirewall.md
 
-.. include:: morpheusnetwork-routersget.md
+.. include:: /command_docs/morpheusnetwork-routersget.md
 
-.. include:: morpheusnetwork-routerslist.md
+.. include:: /command_docs/morpheusnetwork-routerslist.md
 
-.. include:: morpheusnetwork-routersremove-firewall-rule.md
+.. include:: /command_docs/morpheusnetwork-routersremove-firewall-rule.md
 
-.. include:: morpheusnetwork-routersremove-route.md
+.. include:: /command_docs/morpheusnetwork-routersremove-route.md
 
-.. include:: morpheusnetwork-routersremove.md
+.. include:: /command_docs/morpheusnetwork-routersremove.md
 
-.. include:: morpheusnetwork-routersroutes.md
+.. include:: /command_docs/morpheusnetwork-routersroutes.md
 
-.. include:: morpheusnetwork-routerstype.md
+.. include:: /command_docs/morpheusnetwork-routerstype.md
 
-.. include:: morpheusnetwork-routerstypes.md
+.. include:: /command_docs/morpheusnetwork-routerstypes.md
 
-.. include:: morpheusnetwork-routersupdate-permissions.md
+.. include:: /command_docs/morpheusnetwork-routersupdate-permissions.md
 
-.. include:: morpheusnetwork-routersupdate.md
+.. include:: /command_docs/morpheusnetwork-routersupdate.md
 
-.. include:: morpheusnetwork-services.md
+.. include:: /command_docs/morpheusnetwork-services.md
 
-.. include:: morpheusnetwork-serviceslist.md
+.. include:: /command_docs/morpheusnetwork-serviceslist.md
 
-.. include:: morpheusnetworks.md
+.. include:: /command_docs/morpheusnetworks.md
 
-.. include:: morpheusnetworksadd.md
+.. include:: /command_docs/morpheusnetworksadd.md
 
-.. include:: morpheusnetworksget-type.md
+.. include:: /command_docs/morpheusnetworksget-type.md
 
-.. include:: morpheusnetworksget.md
+.. include:: /command_docs/morpheusnetworksget.md
 
-.. include:: morpheusnetworkslist.md
+.. include:: /command_docs/morpheusnetworkslist.md
 
-.. include:: morpheusnetworksremove.md
+.. include:: /command_docs/morpheusnetworksremove.md
 
-.. include:: morpheusnetworkstypes.md
+.. include:: /command_docs/morpheusnetworkstypes.md
 
-.. include:: morpheusnetworksupdate.md
+.. include:: /command_docs/morpheusnetworksupdate.md
 
-.. include:: morpheuspasswd.md
+.. include:: /command_docs/morpheuspasswd.md
 
-.. include:: morpheusping.md
+.. include:: /command_docs/morpheusping.md
 
-.. include:: morpheuspolicies.md
+.. include:: /command_docs/morpheuspolicies.md
 
-.. include:: morpheuspoliciesadd.md
+.. include:: /command_docs/morpheuspoliciesadd.md
 
-.. include:: morpheuspoliciesget-type.md
+.. include:: /command_docs/morpheuspoliciesget-type.md
 
-.. include:: morpheuspoliciesget.md
+.. include:: /command_docs/morpheuspoliciesget.md
 
-.. include:: morpheuspolicieslist-types.md
+.. include:: /command_docs/morpheuspolicieslist-types.md
 
-.. include:: morpheuspolicieslist.md
+.. include:: /command_docs/morpheuspolicieslist.md
 
-.. include:: morpheuspoliciesremove.md
+.. include:: /command_docs/morpheuspoliciesremove.md
 
-.. include:: morpheuspoliciesupdate.md
+.. include:: /command_docs/morpheuspoliciesupdate.md
 
-.. include:: morpheuspower-schedules.md
+.. include:: /command_docs/morpheuspower-schedules.md
 
-.. include:: morpheuspower-schedulesadd-hosts.md
+.. include:: /command_docs/morpheuspower-schedulesadd-hosts.md
 
-.. include:: morpheuspower-schedulesadd-instances.md
+.. include:: /command_docs/morpheuspower-schedulesadd-instances.md
 
-.. include:: morpheuspower-schedulesadd.md
+.. include:: /command_docs/morpheuspower-schedulesadd.md
 
-.. include:: morpheuspower-schedulesget.md
+.. include:: /command_docs/morpheuspower-schedulesget.md
 
-.. include:: morpheuspower-scheduleslist.md
+.. include:: /command_docs/morpheuspower-scheduleslist.md
 
-.. include:: morpheuspower-schedulesremove-hosts.md
+.. include:: /command_docs/morpheuspower-schedulesremove-hosts.md
 
-.. include:: morpheuspower-schedulesremove-instances.md
+.. include:: /command_docs/morpheuspower-schedulesremove-instances.md
 
-.. include:: morpheuspower-schedulesremove.md
+.. include:: /command_docs/morpheuspower-schedulesremove.md
 
-.. include:: morpheuspower-schedulesupdate.md
+.. include:: /command_docs/morpheuspower-schedulesupdate.md
 
-.. include:: morpheusprice-sets.md
+.. include:: /command_docs/morpheusprice-sets.md
 
-.. include:: morpheusprice-setsadd.md
+.. include:: /command_docs/morpheusprice-setsadd.md
 
-.. include:: morpheusprice-setsdeactivate.md
+.. include:: /command_docs/morpheusprice-setsdeactivate.md
 
-.. include:: morpheusprice-setsget.md
+.. include:: /command_docs/morpheusprice-setsget.md
 
-.. include:: morpheusprice-setslist.md
+.. include:: /command_docs/morpheusprice-setslist.md
 
-.. include:: morpheusprice-setsupdate.md
+.. include:: /command_docs/morpheusprice-setsupdate.md
 
-.. include:: morpheusprices.md
+.. include:: /command_docs/morpheusprices.md
 
-.. include:: morpheuspricesadd.md
+.. include:: /command_docs/morpheuspricesadd.md
 
-.. include:: morpheuspricesdeactivate.md
+.. include:: /command_docs/morpheuspricesdeactivate.md
 
-.. include:: morpheuspricesget.md
+.. include:: /command_docs/morpheuspricesget.md
 
-.. include:: morpheuspriceslist.md
+.. include:: /command_docs/morpheuspriceslist.md
 
-.. include:: morpheuspricesupdate.md
+.. include:: /command_docs/morpheuspricesupdate.md
 
-.. include:: morpheusprocess.md
+.. include:: /command_docs/morpheusprocess.md
 
-.. include:: morpheusprocessget-event.md
+.. include:: /command_docs/morpheusprocessget-event.md
 
-.. include:: morpheusprocessget.md
+.. include:: /command_docs/morpheusprocessget.md
 
-.. include:: morpheusprocesslist.md
+.. include:: /command_docs/morpheusprocesslist.md
 
-.. include:: morpheusprojects.md
+.. include:: /command_docs/morpheusprojects.md
 
-.. include:: morpheusprojectsadd.md
+.. include:: /command_docs/morpheusprojectsadd.md
 
-.. include:: morpheusprojectsget.md
+.. include:: /command_docs/morpheusprojectsget.md
 
-.. include:: morpheusprojectslist.md
+.. include:: /command_docs/morpheusprojectslist.md
 
-.. include:: morpheusprojectsremove.md
+.. include:: /command_docs/morpheusprojectsremove.md
 
-.. include:: morpheusprojectsupdate.md
+.. include:: /command_docs/morpheusprojectsupdate.md
 
-.. include:: morpheusprovisioning-licenses.md
+.. include:: /command_docs/morpheusprovisioning-licenses.md
 
-.. include:: morpheusprovisioning-licensesadd.md
+.. include:: /command_docs/morpheusprovisioning-licensesadd.md
 
-.. include:: morpheusprovisioning-licensesget.md
+.. include:: /command_docs/morpheusprovisioning-licensesget.md
 
-.. include:: morpheusprovisioning-licenseslist-types.md
+.. include:: /command_docs/morpheusprovisioning-licenseslist-types.md
 
-.. include:: morpheusprovisioning-licenseslist.md
+.. include:: /command_docs/morpheusprovisioning-licenseslist.md
 
-.. include:: morpheusprovisioning-licensesremove.md
+.. include:: /command_docs/morpheusprovisioning-licensesremove.md
 
-.. include:: morpheusprovisioning-licensesreservations.md
+.. include:: /command_docs/morpheusprovisioning-licensesreservations.md
 
-.. include:: morpheusprovisioning-licensesupdate.md
+.. include:: /command_docs/morpheusprovisioning-licensesupdate.md
 
-.. include:: morpheusprovisioning-settings.md
+.. include:: /command_docs/morpheusprovisioning-settings.md
 
-.. include:: morpheusprovisioning-settingsget.md
+.. include:: /command_docs/morpheusprovisioning-settingsget.md
 
-.. include:: morpheusprovisioning-settingsupdate.md
+.. include:: /command_docs/morpheusprovisioning-settingsupdate.md
 
-.. include:: morpheusremote.md
+.. include:: /command_docs/morpheusremote.md
 
-.. include:: morpheusremoteadd.md
+.. include:: /command_docs/morpheusremoteadd.md
 
-.. include:: morpheusremotecheck-all.md
+.. include:: /command_docs/morpheusremotecheck-all.md
 
-.. include:: morpheusremotecheck.md
+.. include:: /command_docs/morpheusremotecheck.md
 
-.. include:: morpheusremoteclone.md
+.. include:: /command_docs/morpheusremoteclone.md
 
-.. include:: morpheusremotecurrent.md
+.. include:: /command_docs/morpheusremotecurrent.md
 
-.. include:: morpheusremoteget.md
+.. include:: /command_docs/morpheusremoteget.md
 
-.. include:: morpheusremotelist.md
+.. include:: /command_docs/morpheusremotelist.md
 
-.. include:: morpheusremoteremove.md
+.. include:: /command_docs/morpheusremoteremove.md
 
-.. include:: morpheusremoterename.md
+.. include:: /command_docs/morpheusremoterename.md
 
-.. include:: morpheusremoteunuse.md
+.. include:: /command_docs/morpheusremoteunuse.md
 
-.. include:: morpheusremoteupdate.md
+.. include:: /command_docs/morpheusremoteupdate.md
 
-.. include:: morpheusremoteuse.md
+.. include:: /command_docs/morpheusremoteuse.md
 
-.. include:: morpheusremoteversion.md
+.. include:: /command_docs/morpheusremoteversion.md
 
-.. include:: morpheusremoteview.md
+.. include:: /command_docs/morpheusremoteview.md
 
-.. include:: morpheusreports.md
+.. include:: /command_docs/morpheusreports.md
 
-.. include:: morpheusreportsexport.md
+.. include:: /command_docs/morpheusreportsexport.md
 
-.. include:: morpheusreportsget-type.md
+.. include:: /command_docs/morpheusreportsget-type.md
 
-.. include:: morpheusreportsget.md
+.. include:: /command_docs/morpheusreportsget.md
 
-.. include:: morpheusreportslist-types.md
+.. include:: /command_docs/morpheusreportslist-types.md
 
-.. include:: morpheusreportslist.md
+.. include:: /command_docs/morpheusreportslist.md
 
-.. include:: morpheusreportsremove.md
+.. include:: /command_docs/morpheusreportsremove.md
 
-.. include:: morpheusreportsrun.md
+.. include:: /command_docs/morpheusreportsrun.md
 
-.. include:: morpheusreportsview.md
+.. include:: /command_docs/morpheusreportsview.md
 
-.. include:: morpheusresource-folders.md
+.. include:: /command_docs/morpheusresource-folders.md
 
-.. include:: morpheusresource-foldersget.md
+.. include:: /command_docs/morpheusresource-foldersget.md
 
-.. include:: morpheusresource-folderslist.md
+.. include:: /command_docs/morpheusresource-folderslist.md
 
-.. include:: morpheusresource-foldersupdate.md
+.. include:: /command_docs/morpheusresource-foldersupdate.md
 
-.. include:: morpheusresource-pools.md
+.. include:: /command_docs/morpheusresource-pools.md
 
-.. include:: morpheusresource-poolsadd.md
+.. include:: /command_docs/morpheusresource-poolsadd.md
 
-.. include:: morpheusresource-poolsget.md
+.. include:: /command_docs/morpheusresource-poolsget.md
 
-.. include:: morpheusresource-poolslist.md
+.. include:: /command_docs/morpheusresource-poolslist.md
 
-.. include:: morpheusresource-poolsremove.md
+.. include:: /command_docs/morpheusresource-poolsremove.md
 
-.. include:: morpheusresource-poolsupdate.md
+.. include:: /command_docs/morpheusresource-poolsupdate.md
 
-.. include:: morpheusroles.md
+.. include:: /command_docs/morpheusroles.md
 
-.. include:: morpheusrolesadd.md
+.. include:: /command_docs/morpheusrolesadd.md
 
-.. include:: morpheusrolesget.md
+.. include:: /command_docs/morpheusrolesget.md
 
-.. include:: morpheusroleslist-permissions.md
+.. include:: /command_docs/morpheusroleslist-permissions.md
 
-.. include:: morpheusroleslist.md
+.. include:: /command_docs/morpheusroleslist.md
 
-.. include:: morpheusrolesremove.md
+.. include:: /command_docs/morpheusrolesremove.md
 
-.. include:: morpheusrolesupdate-blueprint-access.md
+.. include:: /command_docs/morpheusrolesupdate-blueprint-access.md
 
-.. include:: morpheusrolesupdate-catalog-item-type-access.md
+.. include:: /command_docs/morpheusrolesupdate-catalog-item-type-access.md
 
-.. include:: morpheusrolesupdate-cloud-access.md
+.. include:: /command_docs/morpheusrolesupdate-cloud-access.md
 
-.. include:: morpheusrolesupdate-feature-access.md
+.. include:: /command_docs/morpheusrolesupdate-feature-access.md
 
-.. include:: morpheusrolesupdate-global-blueprint-access.md
+.. include:: /command_docs/morpheusrolesupdate-global-blueprint-access.md
 
-.. include:: morpheusrolesupdate-global-catalog-item-type-access.md
+.. include:: /command_docs/morpheusrolesupdate-global-catalog-item-type-access.md
 
-.. include:: morpheusrolesupdate-global-cloud-access.md
+.. include:: /command_docs/morpheusrolesupdate-global-cloud-access.md
 
-.. include:: morpheusrolesupdate-global-group-access.md
+.. include:: /command_docs/morpheusrolesupdate-global-group-access.md
 
-.. include:: morpheusrolesupdate-global-instance-type-access.md
+.. include:: /command_docs/morpheusrolesupdate-global-instance-type-access.md
 
-.. include:: morpheusrolesupdate-group-access.md
+.. include:: /command_docs/morpheusrolesupdate-group-access.md
 
-.. include:: morpheusrolesupdate-instance-type-access.md
+.. include:: /command_docs/morpheusrolesupdate-instance-type-access.md
 
-.. include:: morpheusrolesupdate-persona-access.md
+.. include:: /command_docs/morpheusrolesupdate-persona-access.md
 
-.. include:: morpheusrolesupdate.md
+.. include:: /command_docs/morpheusrolesupdate.md
 
-.. include:: morpheussearch.md
+.. include:: /command_docs/morpheussearch.md
 
-.. include:: morpheussecurity-groups.md
+.. include:: /command_docs/morpheussecurity-groups.md
 
-.. include:: morpheussecurity-groupsadd-location.md
+.. include:: /command_docs/morpheussecurity-groupsadd-location.md
 
-.. include:: morpheussecurity-groupsadd-rule.md
+.. include:: /command_docs/morpheussecurity-groupsadd-rule.md
 
-.. include:: morpheussecurity-groupsadd.md
+.. include:: /command_docs/morpheussecurity-groupsadd.md
 
-.. include:: morpheussecurity-groupsget.md
+.. include:: /command_docs/morpheussecurity-groupsget.md
 
-.. include:: morpheussecurity-groupslist.md
+.. include:: /command_docs/morpheussecurity-groupslist.md
 
-.. include:: morpheussecurity-groupsremove-location.md
+.. include:: /command_docs/morpheussecurity-groupsremove-location.md
 
-.. include:: morpheussecurity-groupsremove-rule.md
+.. include:: /command_docs/morpheussecurity-groupsremove-rule.md
 
-.. include:: morpheussecurity-groupsremove.md
+.. include:: /command_docs/morpheussecurity-groupsremove.md
 
-.. include:: morpheussecurity-groupsupdate-rule.md
+.. include:: /command_docs/morpheussecurity-groupsupdate-rule.md
 
-.. include:: morpheussecurity-groupsupdate.md
+.. include:: /command_docs/morpheussecurity-groupsupdate.md
 
-.. include:: morpheusself-service.md
+.. include:: /command_docs/morpheusself-service.md
 
-.. include:: morpheusself-serviceadd.md
+.. include:: /command_docs/morpheusself-serviceadd.md
 
-.. include:: morpheusself-serviceget.md
+.. include:: /command_docs/morpheusself-serviceget.md
 
-.. include:: morpheusself-servicelist.md
+.. include:: /command_docs/morpheusself-servicelist.md
 
-.. include:: morpheusself-serviceremove.md
+.. include:: /command_docs/morpheusself-serviceremove.md
 
-.. include:: morpheusself-serviceupdate.md
+.. include:: /command_docs/morpheusself-serviceupdate.md
 
-.. include:: morpheusservice-plans.md
+.. include:: /command_docs/morpheusservice-plans.md
 
-.. include:: morpheusservice-plansactivate.md
+.. include:: /command_docs/morpheusservice-plansactivate.md
 
-.. include:: morpheusservice-plansadd.md
+.. include:: /command_docs/morpheusservice-plansadd.md
 
-.. include:: morpheusservice-plansdeactivate.md
+.. include:: /command_docs/morpheusservice-plansdeactivate.md
 
-.. include:: morpheusservice-plansget.md
+.. include:: /command_docs/morpheusservice-plansget.md
 
-.. include:: morpheusservice-planslist.md
+.. include:: /command_docs/morpheusservice-planslist.md
 
-.. include:: morpheusservice-plansupdate.md
+.. include:: /command_docs/morpheusservice-plansupdate.md
 
-.. include:: morpheussetup.md
+.. include:: /command_docs/morpheussetup.md
 
-.. include:: morpheusshell.md
+.. include:: /command_docs/morpheusshell.md
 
-.. include:: morpheusstorage-buckets.md
+.. include:: /command_docs/morpheusstorage-buckets.md
 
-.. include:: morpheusstorage-bucketsadd.md
+.. include:: /command_docs/morpheusstorage-bucketsadd.md
 
-.. include:: morpheusstorage-bucketsdownload.md
+.. include:: /command_docs/morpheusstorage-bucketsdownload.md
 
-.. include:: morpheusstorage-bucketsget.md
+.. include:: /command_docs/morpheusstorage-bucketsget.md
 
-.. include:: morpheusstorage-bucketslist-files.md
+.. include:: /command_docs/morpheusstorage-bucketslist-files.md
 
-.. include:: morpheusstorage-bucketslist.md
+.. include:: /command_docs/morpheusstorage-bucketslist.md
 
-.. include:: morpheusstorage-bucketsls.md
+.. include:: /command_docs/morpheusstorage-bucketsls.md
 
-.. include:: morpheusstorage-bucketsread.md
+.. include:: /command_docs/morpheusstorage-bucketsread.md
 
-.. include:: morpheusstorage-bucketsremove-file.md
+.. include:: /command_docs/morpheusstorage-bucketsremove-file.md
 
-.. include:: morpheusstorage-bucketsremove.md
+.. include:: /command_docs/morpheusstorage-bucketsremove.md
 
-.. include:: morpheusstorage-bucketsrm.md
+.. include:: /command_docs/morpheusstorage-bucketsrm.md
 
-.. include:: morpheusstorage-bucketsupdate.md
+.. include:: /command_docs/morpheusstorage-bucketsupdate.md
 
-.. include:: morpheusstorage-bucketsupload.md
+.. include:: /command_docs/morpheusstorage-bucketsupload.md
 
-.. include:: morpheussubnets.md
+.. include:: /command_docs/morpheussubnets.md
 
-.. include:: morpheussubnetsadd.md
+.. include:: /command_docs/morpheussubnetsadd.md
 
-.. include:: morpheussubnetsget-type.md
+.. include:: /command_docs/morpheussubnetsget-type.md
 
-.. include:: morpheussubnetsget.md
+.. include:: /command_docs/morpheussubnetsget.md
 
-.. include:: morpheussubnetslist.md
+.. include:: /command_docs/morpheussubnetslist.md
 
-.. include:: morpheussubnetsremove.md
+.. include:: /command_docs/morpheussubnetsremove.md
 
-.. include:: morpheussubnetstypes.md
+.. include:: /command_docs/morpheussubnetstypes.md
 
-.. include:: morpheussubnetsupdate.md
+.. include:: /command_docs/morpheussubnetsupdate.md
 
-.. include:: morpheustasks.md
+.. include:: /command_docs/morpheustasks.md
 
-.. include:: morpheustasksadd.md
+.. include:: /command_docs/morpheustasksadd.md
 
-.. include:: morpheustasksexecute.md
+.. include:: /command_docs/morpheustasksexecute.md
 
-.. include:: morpheustasksget-type.md
+.. include:: /command_docs/morpheustasksget-type.md
 
-.. include:: morpheustasksget.md
+.. include:: /command_docs/morpheustasksget.md
 
-.. include:: morpheustaskslist-types.md
+.. include:: /command_docs/morpheustaskslist-types.md
 
-.. include:: morpheustaskslist.md
+.. include:: /command_docs/morpheustaskslist.md
 
-.. include:: morpheustasksremove.md
+.. include:: /command_docs/morpheustasksremove.md
 
-.. include:: morpheustasksupdate.md
+.. include:: /command_docs/morpheustasksupdate.md
 
-.. include:: morpheustenants.md
+.. include:: /command_docs/morpheustenants.md
 
-.. include:: morpheustenantsadd.md
+.. include:: /command_docs/morpheustenantsadd.md
 
-.. include:: morpheustenantscount.md
+.. include:: /command_docs/morpheustenantscount.md
 
-.. include:: morpheustenantsget.md
+.. include:: /command_docs/morpheustenantsget.md
 
-.. include:: morpheustenantsgroups.md
+.. include:: /command_docs/morpheustenantsgroups.md
 
-.. include:: morpheustenantslist.md
+.. include:: /command_docs/morpheustenantslist.md
 
-.. include:: morpheustenantsremove.md
+.. include:: /command_docs/morpheustenantsremove.md
 
-.. include:: morpheustenantsupdate.md
+.. include:: /command_docs/morpheustenantsupdate.md
 
-.. include:: morpheusupdate.md
+.. include:: /command_docs/morpheusupdate.md
 
-.. include:: morpheususage.md
+.. include:: /command_docs/morpheususage.md
 
-.. include:: morpheususageget.md
+.. include:: /command_docs/morpheususageget.md
 
-.. include:: morpheususagelist.md
+.. include:: /command_docs/morpheususagelist.md
 
-.. include:: morpheususer-groups.md
+.. include:: /command_docs/morpheususer-groups.md
 
-.. include:: morpheususer-groupsadd-user.md
+.. include:: /command_docs/morpheususer-groupsadd-user.md
 
-.. include:: morpheususer-groupsadd.md
+.. include:: /command_docs/morpheususer-groupsadd.md
 
-.. include:: morpheususer-groupsget.md
+.. include:: /command_docs/morpheususer-groupsget.md
 
-.. include:: morpheususer-groupslist.md
+.. include:: /command_docs/morpheususer-groupslist.md
 
-.. include:: morpheususer-groupsremove-user.md
+.. include:: /command_docs/morpheususer-groupsremove-user.md
 
-.. include:: morpheususer-groupsremove.md
+.. include:: /command_docs/morpheususer-groupsremove.md
 
-.. include:: morpheususer-groupsupdate.md
+.. include:: /command_docs/morpheususer-groupsupdate.md
 
-.. include:: morpheususer-settings.md
+.. include:: /command_docs/morpheususer-settings.md
 
-.. include:: morpheususer-settingsclear-access-token.md
+.. include:: /command_docs/morpheususer-settingsclear-access-token.md
 
-.. include:: morpheususer-settingsget.md
+.. include:: /command_docs/morpheususer-settingsget.md
 
-.. include:: morpheususer-settingslist-clients.md
+.. include:: /command_docs/morpheususer-settingslist-clients.md
 
-.. include:: morpheususer-settingsregenerate-access-token.md
+.. include:: /command_docs/morpheususer-settingsregenerate-access-token.md
 
-.. include:: morpheususer-settingsupdate-avatar.md
+.. include:: /command_docs/morpheususer-settingsupdate-avatar.md
 
-.. include:: morpheususer-settingsupdate.md
+.. include:: /command_docs/morpheususer-settingsupdate.md
 
-.. include:: morpheususer-settingsview-avatar.md
+.. include:: /command_docs/morpheususer-settingsview-avatar.md
 
-.. include:: morpheususer-sources.md
+.. include:: /command_docs/morpheususer-sources.md
 
-.. include:: morpheususer-sourcesactivate.md
+.. include:: /command_docs/morpheususer-sourcesactivate.md
 
-.. include:: morpheususer-sourcesadd.md
+.. include:: /command_docs/morpheususer-sourcesadd.md
 
-.. include:: morpheususer-sourcesdeactivate.md
+.. include:: /command_docs/morpheususer-sourcesdeactivate.md
 
-.. include:: morpheususer-sourcesget-type.md
+.. include:: /command_docs/morpheususer-sourcesget-type.md
 
-.. include:: morpheususer-sourcesget.md
+.. include:: /command_docs/morpheususer-sourcesget.md
 
-.. include:: morpheususer-sourceslist-types.md
+.. include:: /command_docs/morpheususer-sourceslist-types.md
 
-.. include:: morpheususer-sourceslist.md
+.. include:: /command_docs/morpheususer-sourceslist.md
 
-.. include:: morpheususer-sourcesremove.md
+.. include:: /command_docs/morpheususer-sourcesremove.md
 
-.. include:: morpheususer-sourcesupdate-subdomain.md
+.. include:: /command_docs/morpheususer-sourcesupdate-subdomain.md
 
-.. include:: morpheususer-sourcesupdate.md
+.. include:: /command_docs/morpheususer-sourcesupdate.md
 
-.. include:: morpheususers.md
+.. include:: /command_docs/morpheususers.md
 
-.. include:: morpheususersadd.md
+.. include:: /command_docs/morpheususersadd.md
 
-.. include:: morpheususerscount.md
+.. include:: /command_docs/morpheususerscount.md
 
-.. include:: morpheususersget.md
+.. include:: /command_docs/morpheususersget.md
 
-.. include:: morpheususerslist.md
+.. include:: /command_docs/morpheususerslist.md
 
-.. include:: morpheususerspasswd.md
+.. include:: /command_docs/morpheususerspasswd.md
 
-.. include:: morpheususerspermissions.md
+.. include:: /command_docs/morpheususerspermissions.md
 
-.. include:: morpheususersremove.md
+.. include:: /command_docs/morpheususersremove.md
 
-.. include:: morpheususersupdate.md
+.. include:: /command_docs/morpheususersupdate.md
 
-.. include:: morpheusversion.md
+.. include:: /command_docs/morpheusversion.md
 
-.. include:: morpheusvirtual-images.md
+.. include:: /command_docs/morpheusvirtual-images.md
 
-.. include:: morpheusvirtual-imagesadd-file.md
+.. include:: /command_docs/morpheusvirtual-imagesadd-file.md
 
-.. include:: morpheusvirtual-imagesadd.md
+.. include:: /command_docs/morpheusvirtual-imagesadd.md
 
-.. include:: morpheusvirtual-imagesget.md
+.. include:: /command_docs/morpheusvirtual-imagesget.md
 
-.. include:: morpheusvirtual-imageslist.md
+.. include:: /command_docs/morpheusvirtual-imageslist.md
 
-.. include:: morpheusvirtual-imagesremove-file.md
+.. include:: /command_docs/morpheusvirtual-imagesremove-file.md
 
-.. include:: morpheusvirtual-imagesremove.md
+.. include:: /command_docs/morpheusvirtual-imagesremove.md
 
-.. include:: morpheusvirtual-imagestypes.md
+.. include:: /command_docs/morpheusvirtual-imagestypes.md
 
-.. include:: morpheusvirtual-imagesupdate.md
+.. include:: /command_docs/morpheusvirtual-imagesupdate.md
 
-.. include:: morpheuswhitelabel-settings.md
+.. include:: /command_docs/morpheuswhitelabel-settings.md
 
-.. include:: morpheuswhitelabel-settingsdownload-image.md
+.. include:: /command_docs/morpheuswhitelabel-settingsdownload-image.md
 
-.. include:: morpheuswhitelabel-settingsget.md
+.. include:: /command_docs/morpheuswhitelabel-settingsget.md
 
-.. include:: morpheuswhitelabel-settingsreset-image.md
+.. include:: /command_docs/morpheuswhitelabel-settingsreset-image.md
 
-.. include:: morpheuswhitelabel-settingsupdate-images.md
+.. include:: /command_docs/morpheuswhitelabel-settingsupdate-images.md
 
-.. include:: morpheuswhitelabel-settingsupdate.md
+.. include:: /command_docs/morpheuswhitelabel-settingsupdate.md
 
-.. include:: morpheuswhitelabel-settingsview-image.md
+.. include:: /command_docs/morpheuswhitelabel-settingsview-image.md
 
-.. include:: morpheuswhoami.md
+.. include:: /command_docs/morpheuswhoami.md
 
-.. include:: morpheuswiki.md
+.. include:: /command_docs/morpheuswiki.md
 
-.. include:: morpheuswikiadd.md
+.. include:: /command_docs/morpheuswikiadd.md
 
-.. include:: morpheuswikicategories.md
+.. include:: /command_docs/morpheuswikicategories.md
 
-.. include:: morpheuswikiget.md
+.. include:: /command_docs/morpheuswikiget.md
 
-.. include:: morpheuswikilist.md
+.. include:: /command_docs/morpheuswikilist.md
 
-.. include:: morpheuswikiremove.md
+.. include:: /command_docs/morpheuswikiremove.md
 
-.. include:: morpheuswikiupdate.md
+.. include:: /command_docs/morpheuswikiupdate.md
 
-.. include:: morpheuswikiview.md
+.. include:: /command_docs/morpheuswikiview.md
 
-.. include:: morpheusworkflows.md
+.. include:: /command_docs/morpheusworkflows.md
 
-.. include:: morpheusworkflowsadd.md
+.. include:: /command_docs/morpheusworkflowsadd.md
 
-.. include:: morpheusworkflowsexecute.md
+.. include:: /command_docs/morpheusworkflowsexecute.md
 
-.. include:: morpheusworkflowsget.md
+.. include:: /command_docs/morpheusworkflowsget.md
 
-.. include:: morpheusworkflowslist.md
+.. include:: /command_docs/morpheusworkflowslist.md
 
-.. include:: morpheusworkflowsremove.md
+.. include:: /command_docs/morpheusworkflowsremove.md
 
-.. include:: morpheusworkflowsupdate.md
+.. include:: /command_docs/morpheusworkflowsupdate.md
 
 .. include:: additional.md
 
