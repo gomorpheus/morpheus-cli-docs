@@ -3,7 +3,7 @@ morpheus>cli
 ************
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    intro.md
 
@@ -1676,4 +1676,3 @@ morpheus>cli
    /command_docs/morpheusworkflowsupdate.md
 
    additional.md
-
