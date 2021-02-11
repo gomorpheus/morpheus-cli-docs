@@ -25291,7 +25291,7 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
 
 Morpheus has only one environment variable that it uses.
 
-###_CLI_HOME
+### MORPHEUS_CLI_HOME
 
 The **MORPHEUS_CLI_HOME** variable is where morpheus CLI stores its configuration files.
 This can be set to allow a single system user to maintain many different configurations
