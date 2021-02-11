@@ -4,6 +4,22 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.2.4.1
+
+This marks a shift in CLI version scheme. The CLI version is changing to match the semantic version of Morpheus appliance, so that the first 3 numbers will correspond to the appliance version release, and a fourth number will be used for CLI fixes that do not correspond to a release of the appliance.
+
+### Enhancements
+* Update `invoices` command to parse `lineItemCount` because `lineItems` is no longer returned with `invoices list`
+
+### Fixes
+* Fix option `--max -1`, since the server supports this, CLI also now supports `-m all` which pass `max=-1` in the request.
+* Fix option `--sort x,y,z` to allow multiple fields since some endpoints now support this.
+
+## 5.2.4
+
+### Enhancements
+* New subcommands `instances clone-image|lock|unlock`.
+
 ## 5.2.3
 
 ### Fixes
