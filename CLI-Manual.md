@@ -1,4 +1,4 @@
-Morpheus CLI v5.2.3
+Morpheus CLI v5.2.4.1
 
 ## Getting Started
 
@@ -10,13 +10,13 @@ The Morpheus CLI is written in Ruby and requires ruby 2.5 or newer to be install
 
 ### Installing on Linux
 
-A Prerequisite to running the Morpheus CLI is to have ruby 2.5 or newer installed. Use rubygems [https://rvm.io/](https://rvm.io/) to install the cli. 
+A Prerequisite to running the Morpheus CLI is to have ruby 2.5 or newer installed. Use rubygems [https://rvm.io/](https://rvm.io/) to install the cli.
 
 ```
 gem install morpheus-cli
 ```
 
-Once the gem is installed, all the cli commands can be run on the shell via the `morpheus` executable. 
+Once the gem is installed, all the cli commands can be run on the shell via the `morpheus` executable.
 
 ### Installing on Windows
 
@@ -24,7 +24,7 @@ The morpheus cli is capable of running on many platforms due to its ruby runtime
 
 **NOTE:** When installing ruby on windows, make sure the options are selected for adding the ruby binaries to your `PATH`.
 
-Now that ruby is installed, simply open a `PowerShell` window and run 
+Now that ruby is installed, simply open a `PowerShell` window and run
 
 ```
 gem install morpheus-cli --no-document
@@ -388,7 +388,7 @@ Define a new alias.
 Aliases can be exported for future use with the -e option.
 The `alias add` command can be invoked with `alias [name]=[command]`
 
-Examples: 
+Examples:
     alias cloud=clouds
     alias ij='instances get -j'
     alias new-hosts='hosts list -S id -D'
@@ -809,7 +809,7 @@ Usage: morpheus apps apply [app] [options]
 Apply an app.
 [app] is required. This is the name or id of an app.
 Template parameter values can be applied with -O templateParameter.foo=bar
-This is a way to apply an app with new configuration parameters to an app. 
+This is a way to apply an app with new configuration parameters to an app.
 This prints the app configuration that would be applied.
 It does not make any updates.
 This is only supported by certain types of apps.
@@ -1620,7 +1620,7 @@ Usage: morpheus archives get [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Display archive bucket details and files. 
+Display archive bucket details and files.
 The [bucket] component of the argument is the name or id of an archive bucket.
 The [:/path] component is optional and can be used to display files under a sub-directory.
 ```
@@ -1677,7 +1677,7 @@ Usage: morpheus archives list-files [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in an archive bucket. 
+List files in an archive bucket.
 Include [/path] to show files under a directory.
 ```
 
@@ -1890,11 +1890,11 @@ Usage: morpheus archives upload [local-file] [bucket:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to an archive bucket. 
+Upload a local file or folder to an archive bucket.
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [bucket:/path] should contain the bucket name.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root bucket directory '/'. 
+The default destination is the same name as the [local-file], under the root bucket directory '/'.
 This will overwrite any existing remote files that match the destination /path.
 ```
 
@@ -2108,7 +2108,7 @@ Usage: morpheus benchmark stop [name]
     -h, --help                       Print this help
 
 Stop recording a benchmark.
-[name] is optional. This is the name of the benchmark to stop. 
+[name] is optional. This is the name of the benchmark to stop.
 The last benchmark is used by default.
 ```
 
@@ -5966,7 +5966,7 @@ File Settings
 * deployment - The name of the deployment being created, name is used by default
 * type - The type of deployment, file, 'git' or 'fetch', default is 'file'.
 * script - The initial script to run, happens before finding the files to be uploaded.
-* files - (required) List of file patterns to use for uploading files and their target destination. 
+* files - (required) List of file patterns to use for uploading files and their target destination.
           Each item should contain path and pattern, path may be relative to the working directory, default pattern is: '**/*'
           only applies to type 'file'
 * url - (required) The url to fetch files from, only applies to types 'git' and 'fetch'.
@@ -5985,7 +5985,7 @@ Example
 name: mysite
 version: 5.0
 script: "rake build"
-files: 
+files:
 - path: build
 environments:
   production:
@@ -7422,7 +7422,7 @@ Usage: morpheus forgot [username]
 
 Send a forgot password email and reset your password.
 [username] is required. This is the username to be notified.
-By default this command prompts to perform two actions. 
+By default this command prompts to perform two actions.
 First it sends a forgot password email to the specified user.
 Then it attempts to reset the password with the secret token and a new password.
 Use the --email and --token options to only perform one of these actions, instead of prompting to do both.
@@ -10931,7 +10931,7 @@ By default, nothing is changed.
 Include --daily to regenerate invoice records.
 Include --costing to refresh actual costing data.
 Include --current to refresh costing data for the actual current time.
-To get the latest invoice costing data, include --daily --costing --current --all 
+To get the latest invoice costing data, include --daily --costing --current --all
 ```
 
 #### invoices update
@@ -19716,7 +19716,7 @@ Usage: morpheus remote get [name]
     -h, --help                       Print this help
 
 Print details about the a remote appliance.
-[name] is optional. This is the name of a remote. 
+[name] is optional. This is the name of a remote.
 By default, the current appliance is used.
 Returns an error if the specified remote is not found, or there is no current remote.
 ```
@@ -22063,7 +22063,7 @@ Usage: morpheus storage-buckets list-files [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List files in a storage bucket. 
+List files in a storage bucket.
 Include [/path] to show files under a directory.
 ```
 
@@ -22229,11 +22229,11 @@ Usage: morpheus storage-buckets upload [local-file] [provider:/path]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Upload a local file or folder to a storage bucket. 
+Upload a local file or folder to a storage bucket.
 The first argument [local-file] should be the path of a local file or directory.
 The second argument [provider:/path] should contain the name or id of the provider.
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
-The default destination is the same name as the [local-file], under the root directory '/'. 
+The default destination is the same name as the [local-file], under the root directory '/'.
 This will overwrite any existing remote files that match the destination /path.
 ```
 
@@ -23439,7 +23439,7 @@ Usage: morpheus user-settings get
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Get user settings. 
+Get user settings.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
@@ -25229,7 +25229,7 @@ morpheus remote add demo https://demo.mymorpheus.com --insecure
 morpheus instances list
 ```
 
-Morpheus saves the remote appliance information, including api access tokens, 
+Morpheus saves the remote appliance information, including api access tokens,
 to the $MORPHEUS_HOME_DIRECTORY. These files are saved with file permissions **6000**.
 So, only one system user should be allowed to execute morpheus with that home directory.
 See [Configuration](#Configuration) for more information on the files morpheus reads and writes.
@@ -25266,18 +25266,18 @@ The `.morpheus/groups` YAML file contains the active group information for each 
 
 When Morpheus starts, it executes the commands in a couple of dot files.
 
-These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases. 
+These scripts are written in morpheus commands, not bash, so they can only execute morpheus commands and aliases.
 
 ### .morpheus_profile file
 
-It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists). 
+It looks for `$MORPHEUS_CLI_HOME/.morpheus_profile`, and reads and executes it (if it exists).
 
 This may be inhibited by using the `--noprofile` option.
 
 ### .morpheusrc file
 
 When started as an interactive shell with the `morpheus shell` command,
-Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option. 
+Morpheus reads and executes `$MORPHEUS_CLI_HOME/.morpheusrc` (if it exists). This may be inhibited by using the `--norc` option.
 
 An example startup script might look like this:
 
@@ -25291,4 +25291,3 @@ echo "Welcome back %username"
 echo
 
 ```
-

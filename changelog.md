@@ -1,3 +1,5 @@
+#Changelog
+
 This is a list of changes in the most recent versions of the CLI.
 
 All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance.
@@ -26,7 +28,7 @@ Backwards compatibility with older appliances should be preserved in most cases.
 This version corresponds to the release of the Morpheus API versions **5.2.1** and **4.2.5**.
 
 ### Enhancements
-* Renamed option for `instances [add|update] --metadata LIST` to `--tags LIST`. The API now expects `tags: [{"name":"color","value":"blue"}]` and Labels is now called `labels` instead of `tags`. 
+* Renamed option for `instances [add|update] --metadata LIST` to `--tags LIST`. The API now expects `tags: [{"name":"color","value":"blue"}]` and Labels is now called `labels` instead of `tags`.
 * New option `instances update --add-tags LIST`,  `--remove-tags LIST`, `--remove-tags LIST` to manage tags on instances.
 * New option `hosts update --tags LIST`,  `--add-tags LIST`, `--remove-tags LIST` to manage tags on servers.
 
@@ -153,7 +155,7 @@ This version corresponds to the release of the Morpheus API version **5.0.0**.
 ## 4.2.15
 
 ### Enhancements
-* `library-option-types add` support for `--exportMeta` to `Export as Tag`. 
+* `library-option-types add` support for `--exportMeta` to `Export as Tag`.
 
 ### Fixes
 * Fixed `tasks add add --no-prompt` still prompting for Content Ref. This fixes `spec-templates add` as well.
@@ -383,8 +385,8 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 
 ### Enhancements
 * New format for `-S, --sort ORDER` Sort Order. DIRECTION may be included as "ORDER [asc|desc]". Example: `instances list -S "dateCreated desc"`
-* New command `clusters list-datastores|get-datastore|add-datastore` for managing cluster datastores. *Requires appliance version 4.2.0* 
-* New subcommand `monitor-incidents add`. *Requires appliance version 4.2.0* 
+* New command `clusters list-datastores|get-datastore|add-datastore` for managing cluster datastores. *Requires appliance version 4.2.0*
+* New subcommand `monitor-incidents add`. *Requires appliance version 4.2.0*
 * New command `appliance-settings`. *Requires appliance version 4.2.0*
 * New command `monitor-alerts`. *Requires appliance version 4.1.1*
 * Improved commands `monitor-contacts add`, `monitor-checks`, `monitor-groups` and `monitor-apps` by adding prompting.
@@ -405,7 +407,7 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 ### Fixes
 * Fix issue with `instances clone` that would result in a 'Cloud not found' error when trying to use a shared/public cloud.
 * Fixed an error that could be seen with select options having an Integer default value.
- 
+
 ## 4.1.2
 
 ### Enhancements
@@ -474,7 +476,7 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 
 ### Fixes
 * Fixed issue with `instances add -O instanceContext` option not being included in payload
-* Fixed issue with `access refresh-token` 
+* Fixed issue with `access refresh-token`
 
 ## 3.6.32
 
@@ -506,7 +508,7 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 ## 3.6.30
 
 ### Fixes
-* Fixed error seen with `instances resize` 
+* Fixed error seen with `instances resize`
 
 ## 3.6.29
 
@@ -568,7 +570,7 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 ### Enhancements
 * New command `apps count`
 * Added options to `instances count` and `hosts count`
-* New command `hosts types` to list all server types via API.  *Required appliance version 3.6.2* 
+* New command `hosts types` to list all server types via API.  *Required appliance version 3.6.2*
 
 ### Deprecations
 * Removed command `hosts server-types [cloud]`. This has been replaced with `hosts types -c [cloud]`.
@@ -614,8 +616,8 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 * New option `tenants update --active [on|off]`
 
 ### Fixes
-* Fixed `tenants update -O` not working. 
- 
+* Fixed `tenants update -O` not working.
+
 ## 3.6.13
 
 ### Enhancments
@@ -676,7 +678,7 @@ This version corresponds to the release of the Morpheus API version **4.1.2**.
 * Improved `login`. Refresh tokens are now stored with credentials to support refreshing.
 * New command `access-token` that behaves like `whoami -t`
 * New command `access-token refresh`.
-* Updated `whoami` to 
+* Updated `whoami` to
 * New command `login --test` for testing credentials without updating the your session.
 * New command `passwd` for changing passwords.
 * New command `benchmark` to run adhoc benchmark tests for a command or series of commands. Also provides [on|off] commands to control the global benchmarking flag while in a shell.
