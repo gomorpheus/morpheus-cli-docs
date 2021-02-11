@@ -6707,7 +6707,7 @@ Usage: morpheus edit-profile
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Edit your interactive shell script at ~/.morpheus/.morpheus_profile
+Edit your interactive shell script at /Users/alexharker/.morpheus/.morpheus_profile
 ```
 
 
@@ -6721,7 +6721,7 @@ Usage: morpheus edit-rc
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Edit your morpheus initialization script at ~/.morpheus/.morpheus/.morpheusrc
+Edit your morpheus initialization script at /Users/alexharker/.morpheus/.morpheusrc
 ```
 
 
@@ -8438,6 +8438,7 @@ Usage: morpheus hosts list
                                      Show only Servers with No agent
         --created-by USER            Created By User Username or ID
         --tenant TENANT              Tenant Name or ID
+        --labels label               Filter by labels (keywords).
         --tags Name=Value            Filter by tags.
         --tag-compliant              Displays only servers that are valid according to applied tag policies. Does not show servers that do not have tag policies.
         --non-tag-compliant          Displays only servers with tag compliance warnings.
@@ -8818,6 +8819,7 @@ Usage: morpheus hosts update [name]
         --ssh-username VALUE         SSH Username
         --ssh-password VALUE         SSH Password
         --power-schedule-type ID     Power Schedule Type ID
+        --labels [LIST]              Labels (keywords) in the format 'foo, bar'
         --tags LIST                  Tags in the format 'name:value, name:value'. This will add and remove tags.
         --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update tags.
         --remove-tags TAGS           Remove Tags in the format 'name, name:value'. This removes tags, the :value component is optional and must match if passed.
@@ -9290,6 +9292,7 @@ Commands:
 	backups
 	cancel-removal
 	clone
+	clone-image
 	console
 	containers
 	count
@@ -9304,6 +9307,7 @@ Commands:
 	history-event
 	import-snapshot
 	list
+	lock
 	logs
 	remove
 	resize
@@ -9323,6 +9327,7 @@ Commands:
 	stop
 	stop-service
 	suspend
+	unlock
 	update
 	update-wiki
 	view
@@ -9547,6 +9552,38 @@ Usage: morpheus instances clone [instance] -g GROUP
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+```
+
+#### instances clone-image
+
+```
+Usage: morpheus instances clone-image [instance]
+        --name VALUE                 Image Name (Template Name). Default is server name + timestamp
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Clone to image (template) for an instance
+[instance] is required. This is the name or id of an instance
 ```
 
 #### instances console
@@ -9988,6 +10025,37 @@ Usage: morpheus instances list
     -h, --help                       Print this help
 
 List instances.
+```
+
+#### instances lock
+
+```
+Usage: morpheus instances lock [instance]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Lock an instance
+[instance] is required. This is the name or id of an instance
 ```
 
 #### instances logs
@@ -10513,6 +10581,37 @@ Suspend an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
 ```
 
+#### instances unlock
+
+```
+Usage: morpheus instances unlock [instance]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Unlock an instance
+[instance] is required. This is the name or id of an instance
+```
+
 #### instances update
 
 ```
@@ -10521,7 +10620,7 @@ Usage: morpheus instances update [instance]
         --description VALUE          Description
         --environment VALUE          Environment
         --group GROUP                Group Name or ID
-        --labels LIST                Labels (keywords) in the format 'foo, bar'
+        --labels [LIST]              Labels (keywords) in the format 'foo, bar'
         --tags LIST                  Tags in the format 'name:value, name:value'. This will add and remove tags.
         --add-tags TAGS              Add Tags in the format 'name:value, name:value'. This will only add/update tags.
         --remove-tags TAGS           Remove Tags in the format 'name, name:value'. This removes tags, the :value component is optional and must match if passed.
@@ -10696,8 +10795,6 @@ Usage: morpheus invoices get [id]
     -a, --all                        Display all details, costs and prices.
         --prices                     Display prices: Total, Compute, Storage, Network, Extra
         --estimates                  Display all estimated costs, from usage info: Compute, Storage, Network, Extra
-        --pretty-raw-data, --raw-data
-                                     Display Raw Data that is a bit more pretty
         --no-line-items              Do not display line items.
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
@@ -10734,8 +10831,6 @@ Get details about a specific invoice.
 
 ```
 Usage: morpheus invoices get-line-item [id]
-        --pretty-raw-data, --raw-data
-                                     Display Raw Data that is a bit more pretty
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
@@ -10791,7 +10886,6 @@ Usage: morpheus invoices list
         --estimate [true|false]      Filter by estimate.
         --tenant ID                  View invoices for a tenant. Default is your own account.
         --tags Name=Value            Filter by tags.
-        --raw-data                   Display Raw Data, the cost data from the cloud provider's API.
         --totals                     View total costs and prices for all the invoices found.
         --totals-only                View totals only
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
@@ -10853,7 +10947,6 @@ Usage: morpheus invoices list-line-items
         --estimate [true|false]      Filter by estimate.
         --tenant ID                  View invoice line items for a tenant. Default is your own account.
         --tags Name=Value            Filter by tags.
-        --raw-data                   Display Raw Data, the cost data from the cloud provider's API.
         --totals                     View total costs and prices for all the invoices found.
         --totals-only                View totals only
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
@@ -23607,6 +23700,8 @@ Commands:
 	remove
 	update
 	update-subdomain
+
+View and manage user identity sources
 ```
 
 #### user-sources activate
@@ -23631,17 +23726,17 @@ Usage: morpheus user-sources activate [name]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Activate a user source.
-[name] is required. This is the name or id of a user source.
+Activate an identity source.
+[name] is required. This is the name or id of an identity source.
 ```
 
 #### user-sources add
 
 ```
 Usage: morpheus user-sources add [account] [name]
-        --tenant TENANT              Tenant Name or ID the user source will belong to, default is your own.
-        --type CODE                  User Source Type
-        --name VALUE                 Name for this user source
+        --tenant TENANT              Tenant Name or ID the identity source will belong to, default is your own.
+        --type CODE                  Identity Source Type
+        --name VALUE                 Name for this identity source
         --description VALUE          Description
         --allow-custom-mappings [on|off]
                                      Allow Custom Mappings, Enable Role Mapping Permissions
@@ -23673,7 +23768,7 @@ Usage: morpheus user-sources add [account] [name]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Create a new user source.
+Create a new identity source.
 [account] is required. This is the name or id of an account.
 ```
 
@@ -23699,14 +23794,15 @@ Usage: morpheus user-sources deactivate [name]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Deactivate a user source.
-[name] is required. This is the name or id of a user source.
+Deactivate an identity source.
+[name] is required. This is the name or id of an identity source.
 ```
 
 #### user-sources get
 
 ```
 Usage: morpheus user-sources get [name]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
@@ -23717,6 +23813,7 @@ Usage: morpheus user-sources get [name]
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -23731,8 +23828,8 @@ Usage: morpheus user-sources get [name]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Get details about an user source.
-[name] is required. This is the name or id of an user source.
+Get details about an identity source.
+[name] is required. This is the name or id of an identity source.
 ```
 
 #### user-sources get-type
@@ -23763,7 +23860,7 @@ Usage: morpheus user-sources get-type [type]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Get details about a user source type.
+Get details about an identity source type.
 [type] is required. This is the type identifier.
 ```
 
@@ -23788,6 +23885,7 @@ Usage: morpheus user-sources list
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -23802,7 +23900,7 @@ Usage: morpheus user-sources list
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List user sources.
+List identity sources.
 ```
 
 #### user-sources list-types
@@ -23838,7 +23936,7 @@ Usage: morpheus user-sources list-types
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List user source types.
+List identity source types.
 ```
 
 #### user-sources remove
@@ -23868,7 +23966,7 @@ Delete a user_source.
 
 ```
 Usage: morpheus user-sources update [name] [options]
-        --name VALUE                 Name for this user source
+        --name VALUE                 Name for this identity source
         --description VALUE          Description
         --allow-custom-mappings [on|off]
                                      Allow Custom Mappings, Enable Role Mapping Permissions
@@ -23899,15 +23997,15 @@ Usage: morpheus user-sources update [name] [options]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Update a user source.
-[name] is required. This is the name or id of a user source.
+Update an identity source.
+[name] is required. This is the name or id of an identity source.
 ```
 
 #### user-sources update-subdomain
 
 ```
 Usage: morpheus user-sources update-subdomain [name]
-        --subdomain VALUE            New subdomain for this user source
+        --subdomain VALUE            New subdomain for this identity source
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -23926,8 +24024,8 @@ Usage: morpheus user-sources update-subdomain [name]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Update subdomain for a user source.
-[name] is required. This is the name or id of a user source.
+Update subdomain for an identity source.
+[name] is required. This is the name or id of an identity source.
 ```
 
 
@@ -25189,12 +25287,11 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -h, --help                       Print this help
 ```
 
-
 ## Environment Variables
 
 Morpheus has only one environment variable that it uses.
 
-### MORPHEUS_CLI_HOME
+###_CLI_HOME
 
 The **MORPHEUS_CLI_HOME** variable is where morpheus CLI stores its configuration files.
 This can be set to allow a single system user to maintain many different configurations
