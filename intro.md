@@ -19,18 +19,18 @@ Update to the latest version:
 
 To get started, see the command `remote add` command.
 
-## Guides
+### Guides
 
 **Getting Started:** [https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started](https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started)<br/>
 **Managing Instances:** [https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances](https://github.com/gomorpheus/morpheus-cli/wiki/Managing-Instances)
 
-## Helpful Resources
+### Helpful Resources
 
 To learn more about Morpheus Data, visit [https://www.morpheusdata.com](https://www.morpheusdata.com)<br/>
 For additional tips on using Morpheus CLI, visit [https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started](https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started)<br/>
 To learn more about the Morpheus API, visit [https://apidocs.morpheusdata.com](https://apidocs.morpheusdata.com)
 
-## Global Options
+### Global Options
 ```
 There are several global options available.
 
@@ -40,7 +40,7 @@ There are several global options available.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
-## Common Options
+### Common Options
 ```
 There are many common options that are supported by a most commands.
 
@@ -65,7 +65,7 @@ There are many common options that are supported by a most commands.
     -y, --yes                        Auto Confirm
     -q, --quiet                      No Output, do not print to stdout
 ```
-## Command Format
+### Command Format
 
 ```
 morpheus [command] [<args>] [options]
