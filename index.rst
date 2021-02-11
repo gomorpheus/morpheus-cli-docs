@@ -3,7 +3,7 @@ morpheus>cli
 ************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
 
    intro.md
 
