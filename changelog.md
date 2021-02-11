@@ -1,4 +1,4 @@
-#Changelog
+# Changelog
 
 This is a list of changes in the most recent versions of the CLI.
 
