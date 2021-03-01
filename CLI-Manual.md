@@ -1,4 +1,4 @@
-Morpheus CLI v5.2.4.1
+Morpheus CLI v5.3.0.1
 
 ## Getting Started
 
@@ -319,6 +319,7 @@ Commands:
 
 ```
 Usage: morpheus activity list
+    -a, --details                    Display more details object id, full date and time, etc.
     -t, --type TYPE                  Activity Type eg. Provisioning, Admin
         --timeframe TIMEFRAME        Timeframe, eg. hour,day,today,yesterday,week,month,3months. Default is month
         --start TIMESTAMP            Start date to search for activity, can be used instead of --timeframe. Default is a month ago.
@@ -424,7 +425,7 @@ Usage: morpheus alias list
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Print list of defined aliases.    
+Print list of defined aliases.
 Use the --format option to vary output.
 The `alias list` command can be abbreviated as just `alias`.
 For more information, see https://github.com/gomorpheus/morpheus-cli/wiki/Alias
@@ -7215,7 +7216,8 @@ Usage: morpheus execution-request execute [options]
         --request ID                 Execution Request ID
         --script SCRIPT              Script to be executed
         --file FILE                  File containing the script. This can be used instead of --script
-        --no-refresh                 Do not refresh until finished
+        --refresh [SECONDS]          Refresh until execution is finished. Default interval is 5 seconds.
+        --no-refresh                 Do not refresh. The default behavior is to refresh until finished.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -7272,7 +7274,7 @@ Usage: morpheus execution-request get [uid]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
-        --refresh [SECONDS]          Refresh until execution is finished. Default interval is 30 seconds.
+        --refresh [SECONDS]          Refresh until execution is finished. Default interval is 5 seconds.
 
 Get details about an execution request.
 [uid] is required. This is the unique id of an execution request.
@@ -10987,13 +10989,10 @@ List invoice line items.
 #### invoices refresh
 
 ```
-Usage: morpheus invoices refresh [--daily] [--costing] [--current] [-c CLOUD]
-        --daily                      Refresh Daily Invoices
-        --costing                    Refresh Costing Data
-        --current                    Collect the most up to date costing data.
-        --date DATE                  Date to collect costing for. By default the cost data is collected for the end of the previous period.
-    -c, --cloud CLOUD                Specify cloud(s) to refresh costing for.
-        --all                        Refresh costing for all clouds.
+Usage: morpheus invoices refresh [-c CLOUD]
+    -c, --clouds CLOUD               Specify clouds to refresh costing for.
+        --all                        Refresh costing for all clouds. This can be used instead of --clouds
+        --date DATE                  Date to collect costing for. By default the cost data is collected for the end of the previous job interval (hour or day).
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
@@ -11019,12 +11018,7 @@ Usage: morpheus invoices refresh [--daily] [--costing] [--current] [-c CLOUD]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Refresh invoices.
-By default, nothing is changed.
-Include --daily to regenerate invoice records.
-Include --costing to refresh actual costing data.
-Include --current to refresh costing data for the actual current time.
-To get the latest invoice costing data, include --daily --costing --current --all
+Refresh invoice costing data for the specified clouds.
 ```
 
 #### invoices update
