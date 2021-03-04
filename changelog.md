@@ -27,7 +27,7 @@ Backwards compatibility with older appliances should be preserved in most cases.
 * Updated `dashboard` and `activity list` to hide Resource column by default, `--details` will still display it.
 * Updated `execution-request execute` to refresh every 5 seconds by default, instead of 30.
 
-###Fixes
+### Fixes
 
 * Fixed `--all-fields` and `--csv` output so that objects are rendered in JSON format instead of Ruby format.
 * Fixed `remove current` displaying Name value wrapped in `"`
