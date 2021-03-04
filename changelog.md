@@ -6,6 +6,32 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.3.0.2
+
+### Fixes
+
+* Fixed `invoices list --cloud CLOUD` causing an error
+
+## 5.3.0.1
+
+### Fixes
+
+* Fixed `service-plans add` error that would occur when prompting for resource permissions without multi tenancy
+
+## 5.3.0
+
+### Enhancements
+
+* Updated `invoices refresh -c CLOUD` to have less options to correspond with the 5.3 api, which now always runs the hourly and daily costing jobs for the specified clouds for the current period. The option `--date=YYYY-MM-DD` allows processing invoices for a previous period (month).
+
+* Updated `dashboard` and `activity list` to hide Resource column by default, `--details` will still display it.
+* Updated `execution-request execute` to refresh every 5 seconds by default, instead of 30.
+
+###Fixes
+
+* Fixed `--all-fields` and `--csv` output so that objects are rendered in JSON format instead of Ruby format.
+* Fixed `remove current` displaying Name value wrapped in `"`
+
 ## 5.2.4.1
 
 This marks a shift in CLI version scheme. The CLI version is changing to match the semantic version of Morpheus appliance, so that the first 3 numbers will correspond to the appliance version release, and a fourth number will be used for CLI fixes that do not correspond to a release of the appliance.
