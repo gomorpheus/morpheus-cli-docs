@@ -6,6 +6,38 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.3.1
+
+### Enhancements
+
+* New command integrations to fully manage integrations.
+* New command vdi-pools to support VDI Pool management.
+* New command vdi to support VDI persona.
+* Updated roles to support VDI Pool settings.
+* New command certificates to manage SSL certificates.
+* New option --select x,y,z for outputing only value(s). eg. instances get Test --select id or instances list --select id --newline " ".
+* New option --delim [CHAR] and option --newline [CHAR] for get and list commands.
+* Deprecated options --csv-delim and --csv-newline, use --delimiter and --newline instead. The old options will still work for now, but are hidden.
+* Updated user-settings get to display Default Group, Default Cloud, 2FA Enabled, and Desktop Background.
+* Updated user-settings update to support first class options for all the settings, including --avatar FILE.
+* Update instances list to support new option --type CODE
+* Update instances list to support new option --environment CODE requires api 5.3.1
+* Updated reports exports to not require --format csv if the specified filename ends in .csv, now it is done automatically.
+* New command hosts software-sync
+
+### Fixes
+
+* Fixed output of the --curl option for content types other than json, such as application/x-www-form-urlencoded and multipart/form-data. eg. output now uses -d for each parameter and -F 'user.avatar=@filepath for file uploads.
+* Fixed error seen with instances list --fields id,name,status
+
+## 5.3.0.3
+
+### Fixes
+
+* Fixed networks add --description
+* Fixed network-domains add --type
+* Fixed reports view
+
 ## 5.3.0.2
 
 ### Fixes
