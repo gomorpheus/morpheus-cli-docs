@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Morpheus Documentation build configuration file, created by
+# Documentation build configuration file, created by
 # sphinx-quickstart on Thu Sep 21 23:13:23 2017.
 #
 # This file is execfile()d with the current directory set to its
