@@ -1,4 +1,4 @@
-Morpheus CLI v5.3.1
+Morpheus CLI v5.3.2
 
 ## Getting Started
 
@@ -124,6 +124,7 @@ Commands:
 	blueprints
 	budgets
 	catalog
+	certificates
 	clouds
 	clusters
 	containers
@@ -213,6 +214,7 @@ Commands:
 	user-sources
 	users
 	vdi
+	vdi-allocations
 	vdi-apps
 	vdi-gateways
 	vdi-pools
@@ -339,13 +341,14 @@ Usage: morpheus activity list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -465,10 +468,8 @@ Usage: morpheus appliance-settings get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -671,10 +672,8 @@ Usage: morpheus approvals list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -887,16 +886,19 @@ Get the number of apps.
 Usage: morpheus apps get [app]
         --refresh [SECONDS]          Refresh until status is running,failed. Default interval is 30 seconds.
         --refresh-until STATUS       Refresh until a specified status is reached.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -931,10 +933,8 @@ Usage: morpheus apps history [app]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -977,13 +977,15 @@ Usage: morpheus apps list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -1020,10 +1022,8 @@ Usage: morpheus apps logs [app]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -1921,10 +1921,8 @@ Usage: morpheus backup-settings get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -2361,13 +2359,14 @@ Usage: morpheus blueprints get [blueprint]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -2402,13 +2401,14 @@ Usage: morpheus blueprints list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -2537,10 +2537,8 @@ Usage: morpheus blueprints types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -2759,13 +2757,14 @@ Usage: morpheus budgets get [budget]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -2798,13 +2797,14 @@ Usage: morpheus budgets list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3000,13 +3000,14 @@ Usage: morpheus catalog cart
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3093,13 +3094,14 @@ Usage: morpheus catalog dashboard
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3129,13 +3131,14 @@ Usage: morpheus catalog get [item]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3164,13 +3167,14 @@ Usage: morpheus catalog get-type [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3205,13 +3209,14 @@ Usage: morpheus catalog list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3245,13 +3250,14 @@ Usage: morpheus catalog list-types [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3364,6 +3370,270 @@ Update your cart settings, such as name.
 ```
 
 
+### certificates
+
+```
+Usage: morpheus certificates [command] [options]
+Commands:
+	add
+	get
+	get-type
+	list
+	list-types
+	remove
+	update
+
+Certificates: View and manage SSL certificates.
+```
+
+#### certificates add
+
+```
+Usage: morpheus certificates add [name] -t CODE [options]
+    -t, --type VALUE                 Type - Certificate Type code, see `certificates list-types` for available type codes. Default: internal
+        --name VALUE                 Name - Name of the certificate
+        --description VALUE          Description (optional) - Description of the certificate
+        --domainName VALUE           Domain Name (optional) - Domain Name of the certificate
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new certificate.
+[name] is required. This is the name of the new certificate
+Configuration options vary by certificate type.
+```
+
+#### certificates get
+
+```
+Usage: morpheus certificates get [certificate]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific certificate.
+[certificate] is required. This is the name or id of a certificate.
+```
+
+#### certificates get-type
+
+```
+Usage: morpheus certificates get-type [type]
+        --optionTypes [true|false]   Include optionTypes in the response. Default is true.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific certificate type.
+[type] is required. This is the name or id of a certificate type.
+```
+
+#### certificates list
+
+```
+Usage: morpheus certificates list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List certificates.
+```
+
+#### certificates list-types
+
+```
+Usage: morpheus certificates list-types [search]
+        --optionTypes [true|false]   Include optionTypes in the response. Default is false.
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List certificate types.
+```
+
+#### certificates remove
+
+```
+Usage: morpheus certificates remove [certificate] [options]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a certificate.
+[certificate] is required. This is the name or id of a certificate.
+```
+
+#### certificates update
+
+```
+Usage: morpheus certificates update [certificate] [options]
+        --name VALUE                 Name (optional) - Name of the certificate
+        --description VALUE          Description (optional) - Description of the certificate
+        --domainName VALUE           Domain Name (optional) - Domain Name of the certificate
+        --no-refresh                 Skip refresh on update.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a certificate.
+[certificate] is required. This is the name or id of a certificate.
+```
+
+
 ### clouds
 
 ```
@@ -3465,10 +3735,8 @@ Usage: morpheus clouds get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -3505,13 +3773,14 @@ Usage: morpheus clouds list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -3617,10 +3886,8 @@ Usage: morpheus clouds types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -3937,10 +4204,8 @@ Usage: morpheus clusters api-config [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4018,10 +4283,8 @@ Usage: morpheus clusters get-datastore [cluster] [datastore]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4053,10 +4316,8 @@ Usage: morpheus clusters get-namespace [cluster] [namespace]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4097,10 +4358,8 @@ Usage: morpheus clusters history [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4130,10 +4389,8 @@ Usage: morpheus clusters history-details [cluster] [process-id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4164,10 +4421,8 @@ Usage: morpheus clusters history-event [cluster] [event-id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4203,10 +4458,8 @@ Usage: morpheus clusters list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4242,10 +4495,8 @@ Usage: morpheus clusters list-containers [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4280,10 +4531,8 @@ Usage: morpheus clusters list-datastores [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4319,10 +4568,8 @@ Usage: morpheus clusters list-deployments [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4357,10 +4604,8 @@ Usage: morpheus clusters list-jobs [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4395,10 +4640,8 @@ Usage: morpheus clusters list-masters [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4433,10 +4676,8 @@ Usage: morpheus clusters list-namespaces [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4472,10 +4713,8 @@ Usage: morpheus clusters list-pods [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4510,10 +4749,8 @@ Usage: morpheus clusters list-services [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4549,10 +4786,8 @@ Usage: morpheus clusters list-stateful-sets [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4587,10 +4822,8 @@ Usage: morpheus clusters list-volumes [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4625,10 +4858,8 @@ Usage: morpheus clusters list-workers [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -4668,10 +4899,8 @@ Usage: morpheus clusters logs [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5271,10 +5500,8 @@ Usage: morpheus clusters view-kube-config [cluster]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5452,10 +5679,8 @@ Usage: morpheus containers get [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5492,10 +5717,8 @@ Usage: morpheus containers logs [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5627,10 +5850,8 @@ Usage: morpheus cypher get [key]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5666,10 +5887,8 @@ Usage: morpheus cypher list [key]
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5712,10 +5931,8 @@ Usage: morpheus cypher put [key] [value] [options] to store a string.
     -j, --json                       JSON Output
         --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5783,13 +6000,14 @@ Usage: morpheus dashboard
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -5828,10 +6046,8 @@ Usage: morpheus datastores get [cloud] [datastore]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -5866,10 +6082,8 @@ Usage: morpheus datastores list [cloud]
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -6108,13 +6322,14 @@ Usage: morpheus deployments get [deployment]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -6185,13 +6400,14 @@ Usage: morpheus deployments list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -6223,13 +6439,14 @@ Usage: morpheus deployments list-files [deployment] [version] [path] [options]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -6264,13 +6481,14 @@ Usage: morpheus deployments list-versions [deployment] [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -6578,13 +6796,14 @@ Usage: morpheus deploys get [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -6617,13 +6836,14 @@ Usage: morpheus deploys list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -6783,10 +7003,8 @@ Usage: morpheus environments get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -6818,10 +7036,8 @@ Usage: morpheus environments list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -7033,10 +7249,8 @@ Usage: morpheus execute-schedules get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -7067,10 +7281,8 @@ Usage: morpheus execute-schedules list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -7258,10 +7470,8 @@ Usage: morpheus execution-request get [uid]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -7370,10 +7580,8 @@ Usage: morpheus file-copy-request get [uid]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -7546,13 +7754,14 @@ Usage: morpheus groups get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -7585,13 +7794,14 @@ Usage: morpheus groups list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -7841,13 +8051,14 @@ Usage: morpheus guidance get [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -7909,13 +8120,14 @@ Usage: morpheus guidance list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -7942,13 +8154,14 @@ Usage: morpheus guidance stats
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -7975,13 +8188,14 @@ Usage: morpheus guidance types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -8063,10 +8277,8 @@ Usage: morpheus health alarms
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -8103,10 +8315,8 @@ Usage: morpheus health get [-a] [options]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -8138,10 +8348,8 @@ Usage: morpheus health get-alarm [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -8181,10 +8389,8 @@ Usage: morpheus health logs
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -8253,6 +8459,7 @@ Commands:
 	run-workflow
 	snapshots
 	software
+	software-sync
 	start
 	stats
 	stop
@@ -8273,7 +8480,7 @@ Usage: morpheus hosts add [cloud] [name]
     -g, --group GROUP                Group Name or ID
     -c, --cloud CLOUD                Cloud Name or ID
     -t, --type TYPE                  Server Type Code
-        --security-groups LIST       Security Groups, comma sepearated list of security group IDs
+        --security-groups LIST       Security Groups, comma separated list of security group IDs
         --refresh [SECONDS]          Refresh until status is running,failed. Default interval is 30 seconds.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -8388,16 +8595,19 @@ Usage: morpheus hosts get [name]
         --costs                      Display Cost and Price
         --refresh [SECONDS]          Refresh until status is provisioned,failed. Default interval is 30 seconds.
         --refresh-until STATUS       Refresh until a specified status is reached.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
-        --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
     -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -8459,13 +8669,14 @@ Usage: morpheus hosts list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -8502,10 +8713,8 @@ Usage: morpheus hosts logs [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -8640,13 +8849,14 @@ Usage: morpheus hosts snapshots [host]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -8676,13 +8886,14 @@ Usage: morpheus hosts software [host]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -8697,6 +8908,40 @@ Usage: morpheus hosts software [host]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+List installed software for a host.
+[host] is required. This is the name or id of a host.
+```
+
+#### hosts software-sync
+
+```
+Usage: morpheus hosts software-sync [host]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Sync installed software for a host.
+[host] is required. This is the name or id of a host.
 ```
 
 #### hosts start
@@ -8731,10 +8976,8 @@ Usage: morpheus hosts stats [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -8792,10 +9035,8 @@ Usage: morpheus hosts types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9219,10 +9460,8 @@ Usage: morpheus instance-types get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9257,10 +9496,8 @@ Usage: morpheus instance-types list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9413,7 +9650,7 @@ Usage: morpheus instances add [name] -c CLOUD -t TYPE
         --shutdown-days DAYS         Automation: Shutdown Days
         --expire-days DAYS           Automation: Expiration Days
         --create-backup [on|off]     Automation: Create Backups.
-        --security-groups LIST       Security Groups, comma sepearated list of security group IDs
+        --security-groups LIST       Security Groups, comma separated list of security group IDs
         --refresh [SECONDS]          Refresh until status is running,failed. Default interval is 30 seconds.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -9619,10 +9856,8 @@ Usage: morpheus instances containers [instance]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9701,13 +9936,14 @@ Usage: morpheus instances deploys [instance] [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -9817,20 +10053,21 @@ Usage: morpheus instances get [instance]
         --nodes                      Alias for --containers
         --vms                        Alias for --containers
         --scaling                    Display Instance Scaling Settings
-        --costs                      Display Cost and Price
         --refresh [SECONDS]          Refresh until status is running,failed. Default interval is 30 seconds.
         --refresh-until STATUS       Refresh until a specified status is reached.
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -9867,10 +10104,8 @@ Usage: morpheus instances history [instance]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9900,10 +10135,8 @@ Usage: morpheus instances history-details [instance] [process-id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9934,10 +10167,8 @@ Usage: morpheus instances history-event [instance] [event-id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -9991,6 +10222,8 @@ Usage: morpheus instances list
         --host HOST                  Host Name or ID
         --owner USER                 Owner Username or ID
         --status STATUS              Filter by status i.e. provisioning,running,starting,stopping
+        --type CODE                  Filter by Instance Type code
+        --environment CODE           Filter by Environment code(s)
         --pending-removal            Include instances pending removal.
         --pending-removal-only       Only instances pending removal.
         --plan NAME                  Filter by Plan name(s)
@@ -10009,13 +10242,15 @@ Usage: morpheus instances list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -10083,10 +10318,8 @@ Usage: morpheus instances logs [instance]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -10237,10 +10470,8 @@ Usage: morpheus instances scaling [instance]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -10385,13 +10616,14 @@ Usage: morpheus instances snapshots [instance]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10468,10 +10700,8 @@ Usage: morpheus instances stats [instance]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -10741,31 +10971,119 @@ View wiki page details for an instance.
 Usage: morpheus integrations [command] [options]
 Commands:
 	add
+	add-object
 	get
+	get-object
 	get-type
 	list
+	list-objects
 	list-types
+	refresh
 	remove
+	remove-object
 	update
 
 Integrations: View and manage integrations
+```
+
+#### integrations add
+
+```
+Usage: morpheus integrations add [name] -t CODE [options]
+    -t, --type VALUE                 Type - Integration Type code, see `integrations list-types` for available type codes
+        --name VALUE                 Name - Name of the integration
+        --enabled [on|off]           Enabled (optional) - Can be used to disable an integration. Default: true
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new integration.
+[name] is required. This is the name of the new integration
+Configuration options vary by integration type.
+```
+
+#### integrations add-object
+
+```
+Usage: morpheus integrations add-object [integration] [name] -t CODE [options]
+    -t, --type VALUE                 Type - Integration Object Type eg. cloud, layout, blueprint, catalog
+        --cloud VALUE                Cloud - Cloud
+        --instance-type VALUE        Instance Type - Instance Type
+        --technology VALUE           Cloud Type - Cloud Type (Technology)
+        --layout VALUE               Layout - Layout
+        --name VALUE                 Catalog Item Name - Display Name of the integration object
+        --blueprint VALUE            Blueprint - Blueprint
+        --group VALUE                Group - Group
+        --default-cloud VALUE        Default Cloud (optional) - Default Cloud
+        --environment VALUE          Environment (optional) - Environment
+        --config VALUE               Config - Config JSON
+        --catalog VALUE              Catalog Item - Catalog Item
+        --config-file FILE           Config from a local JSON or YAML file
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new integration object.
+[integration] is required. This is the name or id of an integration.
+[name] is required. This is the name of the new integration
+Configuration options vary by integration type.
 ```
 
 #### integrations get
 
 ```
 Usage: morpheus integrations get [integration]
+        --objects                    Display exposed objects for the integration.
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10785,21 +11103,23 @@ Get details about a specific integration.
 [integration] is required. This is the name or id of an integration.
 ```
 
-#### integrations get-type
+#### integrations get-object
 
 ```
-Usage: morpheus integrations get-type [type]
+Usage: morpheus integrations get-object [integration] [object]
+    -c, --config                     Display config only, for blueprint objects
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10814,6 +11134,43 @@ Usage: morpheus integrations get-type [type]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Get details about a specific integration object.
+[integration] is required. This is the name or id of an integration.
+[object] is required. This is the name or id of an integration object.
+```
+
+#### integrations get-type
+
+```
+Usage: morpheus integrations get-type [type]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+        --optionTypes [true|false]   Include optionTypes in the response. Default is true.
 
 Get details about a specific integration type.
 [type] is required. This is the name or id of an integration type.
@@ -10834,13 +11191,14 @@ Usage: morpheus integrations list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10859,10 +11217,11 @@ Usage: morpheus integrations list [search]
 List integrations.
 ```
 
-#### integrations list-types
+#### integrations list-objects
 
 ```
-Usage: morpheus integrations list-types [search]
+Usage: morpheus integrations list-objects [integration] [search]
+    -t, --type CODE                  Filter by types: cloud, layout, blueprint, catalog
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -10872,13 +11231,55 @@ Usage: morpheus integrations list-types [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List integration objects.
+[integration] is required. This is the name or id of an integration.
+```
+
+#### integrations list-types
+
+```
+Usage: morpheus integrations list-types [search]
+        --optionTypes [true|false]   Include optionTypes in the response. Default is false.
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10895,6 +11296,126 @@ Usage: morpheus integrations list-types [search]
     -h, --help                       Print this help
 
 List integration types.
+```
+
+#### integrations refresh
+
+```
+Usage: morpheus integrations refresh [integration] [options]
+        --name VALUE                 Name (optional) - Name of the integration
+        --enabled [on|off]           Enabled (optional) - Can be used to disable an integration
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Refresh an integration.
+[integration] is required. This is the name or id of an integration.
+```
+
+#### integrations remove
+
+```
+Usage: morpheus integrations remove [integration] [options]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an integration.
+[integration] is required. This is the name or id of an integration.
+```
+
+#### integrations remove-object
+
+```
+Usage: morpheus integrations remove-object [integration] [options]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an integration object.
+[integration] is required. This is the name or id of an integration.
+[object] is required. This is the name or id of an integration object.
+```
+
+#### integrations update
+
+```
+Usage: morpheus integrations update [integration] [options]
+        --name VALUE                 Name (optional) - Name of the integration
+        --enabled [on|off]           Enabled (optional) - Can be used to disable an integration
+        --no-refresh                 Skip refresh on update.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an integration.
+[integration] is required. This is the name or id of an integration.
 ```
 
 
@@ -10916,21 +11437,22 @@ Commands:
 ```
 Usage: morpheus invoices get [id]
     -a, --all                        Display all details, costs and prices.
-        --prices                     Display prices: Total, Compute, Storage, Network, Extra
-        --estimates                  Display all estimated costs, from usage info: Compute, Storage, Network, Extra
+        --estimates                  Display all estimated prices, from usage metering info: Compute, Memory, Storage, Network, Extra
+        --costs                      Display Costs in addition to prices
         --no-line-items              Do not display line items.
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10959,13 +11481,14 @@ Usage: morpheus invoices get-line-item [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -10991,8 +11514,8 @@ Get details about a specific invoice line item.
 Usage: morpheus invoices list
     -a, --all                        Display all details, costs and prices.
         --dates                      Display Ref Start, Ref End, etc.
-        --estimates                  Display all estimated costs, from usage info: Compute, Storage, Network, Extra
-        --prices                     Display prices: Total, Compute, Storage, Network, Extra
+        --costs                      Display Costs in addition to prices
+        --estimates                  Display all estimated prices, from usage metering info: Compute, Memory, Storage, Network, Extra
     -t, --type TYPE                  Filter by Ref Type eg. ComputeSite (Group), ComputeZone (Cloud), ComputeServer (Host), Instance, Container, User
         --id ID                      Filter by Ref ID
         --group ID                   Filter by Group
@@ -11021,13 +11544,14 @@ Usage: morpheus invoices list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -11051,7 +11575,7 @@ List invoices.
 ```
 Usage: morpheus invoices list-line-items
     -a, --all                        Display all details, costs and prices.
-        --prices                     Display prices: Total, Compute, Storage, Network, Extra
+        --costs                      Display costs in addition to prices
         --invoice-id ID              Filter by Invoice ID
         --external-id ID             Filter by External ID
     -t, --type TYPE                  Filter by Ref Type eg. ComputeSite (Group), ComputeZone (Cloud), ComputeServer (Host), Instance, Container, User
@@ -11082,13 +11606,14 @@ Usage: morpheus invoices list-line-items
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -11347,13 +11872,14 @@ Usage: morpheus jobs list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -11387,13 +11913,14 @@ Usage: morpheus jobs list-executions [job]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -11467,10 +11994,8 @@ Usage: morpheus jobs update [job]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -11546,10 +12071,8 @@ Usage: morpheus key-pairs get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -11582,10 +12105,8 @@ Usage: morpheus key-pairs list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -11748,10 +12269,8 @@ Usage: morpheus library-cluster-layouts get [layout]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -11787,10 +12306,8 @@ Usage: morpheus library-cluster-layouts list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -11943,10 +12460,8 @@ Usage: morpheus library-file-templates get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -11977,10 +12492,8 @@ Usage: morpheus library-file-templates list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -12114,10 +12627,8 @@ Usage: morpheus library-instance-types get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -12152,10 +12663,8 @@ Usage: morpheus library-instance-types list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -12358,13 +12867,14 @@ Usage: morpheus library-layouts get [layout]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -12401,10 +12911,8 @@ Usage: morpheus library-layouts list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -12583,10 +13091,8 @@ Usage: morpheus library-node-types get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -12624,10 +13130,8 @@ Usage: morpheus library-node-types list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -12710,6 +13214,7 @@ Commands:
 	add
 	get
 	list
+	list-items
 	remove
 	update
 ```
@@ -12726,7 +13231,7 @@ Usage: morpheus library-option-lists add [name] [options]
         --ignoreSSLErrors [on|off]   Ignore SSL Errors (optional)
         --realTime [on|off]          Real Time (optional)
         --sourceMethod VALUE         Source Method. Default: GET
-        --apiType VALUE              Option List - The code of the api list to use, eg. clouds, servers, etc.
+        --apiType VALUE              Option List - The code of the api option list to use, eg. clouds, environments, groups, instances, instance-wiki, networks, servicePlans, resourcePools, securityGroups, servers, server-wiki
         --sourceUsername VALUE       Source Username (optional) - An LDAP Username for use when type is 'ldap'.
         --sourcePassword VALUE       Source Username (optional) - An LDAP Password for use when type is 'ldap'.
         --ldapQuery VALUE            LDAP Query (optional) - LDAP Queries are standard LDAP formatted queries where different objects can be searched. Dependent parameters can be loaded into the query using the <%=phrase%> syntax.
@@ -12767,13 +13272,14 @@ Usage: morpheus library-option-lists get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -12788,7 +13294,7 @@ Usage: morpheus library-option-lists get [name]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
-        --no-items                   Do not display List Items
+        --items                      Load and display option list items
 
 Get details about an option list.
 [name] is required. This is the name or id of an option list. Supports 1-N [name] arguments.
@@ -12807,13 +13313,14 @@ Usage: morpheus library-option-lists list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -12830,6 +13337,41 @@ Usage: morpheus library-option-lists list
     -h, --help                       Print this help
 
 List option lists.
+```
+
+#### library-option-lists list-items
+
+```
+Usage: morpheus library-option-lists list-items [name]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List items for an option list.
+[name] is required. This is the name or id of an option list.
 ```
 
 #### library-option-lists remove
@@ -12870,7 +13412,7 @@ Usage: morpheus library-option-lists update [name] [options]
         --ignoreSSLErrors [on|off]   Ignore SSL Errors (optional)
         --realTime [on|off]          Real Time (optional)
         --sourceMethod VALUE         Source Method (optional)
-        --apiType VALUE              Option List (optional) - The code of the api list to use, eg. clouds, servers, etc.
+        --apiType VALUE              Option List (optional) - The code of the api option list to use, eg. clouds, environments, groups, instances, instance-wiki, networks, servicePlans, resourcePools, securityGroups, servers, server-wiki
         --sourceUsername VALUE       Source Username (optional) - An LDAP Username for use when type is 'ldap'.
         --sourcePassword VALUE       Source Username (optional) - An LDAP Password for use when type is 'ldap'.
         --ldapQuery VALUE            LDAP Query (optional) - LDAP Queries are standard LDAP formatted queries where different objects can be searched. Dependent parameters can be loaded into the query using the <%=phrase%> syntax.
@@ -12966,13 +13508,14 @@ Usage: morpheus library-option-types get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -13005,13 +13548,14 @@ Usage: morpheus library-option-types list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -13156,10 +13700,8 @@ Usage: morpheus library-scripts get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13191,10 +13733,8 @@ Usage: morpheus library-scripts list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13329,10 +13869,8 @@ Usage: morpheus library-spec-templates get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13364,10 +13902,8 @@ Usage: morpheus library-spec-templates list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13401,10 +13937,8 @@ Usage: morpheus library-spec-templates list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13537,10 +14071,8 @@ Usage: morpheus library-upgrades get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13577,10 +14109,8 @@ Usage: morpheus library-upgrades list [instance-type]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13726,10 +14256,8 @@ Usage: morpheus license test [key]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -13822,10 +14350,8 @@ Usage: morpheus load-balancers add [name] -t LB_TYPE
 Usage: morpheus load-balancers get [name]
     -j, --json                       JSON Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
@@ -13856,10 +14382,8 @@ Usage: morpheus load-balancers list
     -D, --desc                       Reverse Sort Order
     -j, --json                       JSON Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
@@ -14049,10 +14573,8 @@ Usage: morpheus log-settings get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14243,10 +14765,8 @@ Usage: morpheus logs list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14327,10 +14847,8 @@ Create a monitoring alert rule.
 Usage: morpheus monitor-alerts get [alert]
     -j, --json                       JSON Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14364,10 +14882,8 @@ Usage: morpheus monitor-alerts list
         --last-updated TIME          Filter by Last Updated (gte)
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
@@ -14521,10 +15037,8 @@ Usage: morpheus monitor-apps get [id list]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14558,10 +15072,8 @@ Usage: morpheus monitor-apps list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14823,10 +15335,8 @@ Usage: morpheus monitor-checks get [id list]
     -a, --all                        Display All Details (History, Notifications)
     -j, --json                       JSON Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14858,10 +15368,8 @@ Usage: morpheus monitor-checks history [name] [options]
         --last-updated TIME          Filter by Last Updated (gte)
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14896,10 +15404,8 @@ Usage: morpheus monitor-checks list
         --last-updated TIME          Filter by Last Updated (gte)
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -14931,10 +15437,8 @@ Usage: morpheus monitor-checks list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15188,10 +15692,8 @@ Usage: morpheus monitor-contacts get [contact]
         --notifications              Display Notifications
     -j, --json                       JSON Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15224,10 +15726,8 @@ Usage: morpheus monitor-contacts list
     -D, --desc                       Reverse Sort Order
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
@@ -15374,10 +15874,8 @@ Usage: morpheus monitor-groups get [id list]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15409,10 +15907,8 @@ Usage: morpheus monitor-groups history [name] [options]
         --last-updated TIME          Filter by Last Updated (gte)
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15447,10 +15943,8 @@ Usage: morpheus monitor-groups list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15728,10 +16222,8 @@ Usage: morpheus monitor-incidents get [id list]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15763,10 +16255,8 @@ Usage: morpheus monitor-incidents history [id] [options]
     -D, --desc                       Reverse Sort Order
         --last-updated TIME          Filter by Last Updated (gte)
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
@@ -15803,10 +16293,8 @@ Usage: morpheus monitor-incidents list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -15898,10 +16386,8 @@ Usage: morpheus monitor-incidents notifications [id] [options]
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
     -D, --desc                       Reverse Sort Order
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
@@ -15956,10 +16442,8 @@ Usage: morpheus monitor-incidents stats
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16165,10 +16649,8 @@ Usage: morpheus network-domains get [network-domain]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16198,10 +16680,8 @@ Usage: morpheus network-domains get-record [network-domain] [record]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16235,10 +16715,8 @@ Usage: morpheus network-domains list
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16271,10 +16749,8 @@ Usage: morpheus network-domains list-records [network-domain]
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16444,10 +16920,8 @@ Usage: morpheus network-groups get [network-group]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16480,10 +16954,8 @@ Usage: morpheus network-groups list
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16625,10 +17097,8 @@ Usage: morpheus network-pool-servers get [network-pool-server]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16661,10 +17131,8 @@ Usage: morpheus network-pool-servers list
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16837,10 +17305,8 @@ Usage: morpheus network-pools get [network-pool]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16870,10 +17336,8 @@ Usage: morpheus network-pools get-ip [network-pool] [ip]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16908,10 +17372,8 @@ Usage: morpheus network-pools list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -16943,10 +17405,8 @@ Usage: morpheus network-pools list-ips [network-pool]
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17148,10 +17608,8 @@ Usage: morpheus network-proxies get [network-proxy]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17184,10 +17642,8 @@ Usage: morpheus network-proxies list
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17308,6 +17764,7 @@ Usage: morpheus network-routers add [type] [name] [options]
     -s, --server VALUE               Network server
     -c, --cloud CLOUD                Cloud Name or ID
         --enabled [on|off]           Can be used to enable / disable the network router. Default is on
+        --hostname VALUE             Hostname for this network pool IP
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -17374,6 +17831,7 @@ Usage: morpheus network-routers add-route [router] [name]
         --source VALUE               Network for this route
         --destination VALUE          Next hop for this route
         --mtu VALUE                  MTU for this route
+        --priority VALUE             Priority for this route
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -17406,10 +17864,8 @@ Usage: morpheus network-routers dhcp [router]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17438,10 +17894,8 @@ Usage: morpheus network-routers firewall [router]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17471,10 +17925,8 @@ Usage: morpheus network-routers get [router]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17509,10 +17961,8 @@ Usage: morpheus network-routers list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17615,10 +18065,8 @@ Usage: morpheus network-routers routes [router]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17774,10 +18222,8 @@ Usage: morpheus network-services list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17876,10 +18322,8 @@ Usage: morpheus networks get [network]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17914,10 +18358,8 @@ Usage: morpheus networks get-type [type]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -17954,10 +18396,8 @@ Usage: morpheus networks list
     -D, --desc                       Reverse Sort Order
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18019,10 +18459,8 @@ Usage: morpheus networks types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18138,13 +18576,14 @@ Usage: morpheus ping [options]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -18233,10 +18672,8 @@ Usage: morpheus policies get [policy]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18299,10 +18736,8 @@ Usage: morpheus policies list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18330,10 +18765,8 @@ Usage: morpheus policies list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18547,10 +18980,8 @@ Usage: morpheus power-schedules get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18581,10 +19012,8 @@ Usage: morpheus power-schedules list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -18839,10 +19268,8 @@ Usage: morpheus price-sets list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19020,10 +19447,8 @@ Usage: morpheus prices list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19110,10 +19535,8 @@ Usage: morpheus process get [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19142,10 +19565,8 @@ Usage: morpheus process get-event [event-id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19189,10 +19610,8 @@ Usage: morpheus process list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19273,13 +19692,14 @@ Usage: morpheus projects get [project]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -19317,13 +19737,14 @@ Usage: morpheus projects list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -19481,13 +19902,14 @@ Usage: morpheus provisioning-licenses get [license]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -19520,13 +19942,14 @@ Usage: morpheus provisioning-licenses list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -19558,13 +19981,14 @@ Usage: morpheus provisioning-licenses list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -19622,13 +20046,14 @@ Usage: morpheus provisioning-licenses reservations [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -19703,10 +20128,8 @@ Usage: morpheus provisioning-settings get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19824,10 +20247,8 @@ Usage: morpheus remote check [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19885,10 +20306,8 @@ Usage: morpheus remote current
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19911,10 +20330,8 @@ Usage: morpheus remote get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -19945,10 +20362,8 @@ Usage: morpheus remote list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20057,10 +20472,8 @@ Usage: morpheus remote version [remote]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20114,6 +20527,9 @@ Commands:
 
 ```
 Usage: morpheus reports export [id] [file]
+        --format VALUE               Report Format for exported file, json or csv. Default is json.
+    -f, --force                      Overwrite existing [local-file] if it exists.
+    -p, --mkdir                      Create missing directories for [local-file] if they do not exist.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -20127,9 +20543,6 @@ Usage: morpheus reports export [id] [file]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
-        --format VALUE               Report Format for exported file, json or csv. Default is json.
-    -f, --force                      Overwrite existing [local-file] if it exists.
-    -p, --mkdir                      Create missing directories for [local-file] if they do not exist.
 
 Export a report result as json or csv.
 [id] is required. This is id of the report result.
@@ -20147,10 +20560,8 @@ Usage: morpheus reports get [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20179,13 +20590,14 @@ Usage: morpheus reports get-type
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -20247,13 +20659,14 @@ Usage: morpheus reports list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -20371,10 +20784,8 @@ Usage: morpheus resource-folders get [cloud] [folder]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20409,10 +20820,8 @@ Usage: morpheus resource-folders list [cloud]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20539,10 +20948,8 @@ Usage: morpheus resource-pools get [cloud] [pool]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20577,10 +20984,8 @@ Usage: morpheus resource-pools list [cloud]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20747,13 +21152,14 @@ Usage: morpheus roles get [role]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -20786,13 +21192,14 @@ Usage: morpheus roles list [search phrase]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -20823,10 +21230,8 @@ Usage: morpheus roles list-permissions [role]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -20964,7 +21369,6 @@ Usage: morpheus roles update-cloud-access [name]
     -c, --cloud CLOUD                Cloud name or id
         --all                        Update all clouds at once.
         --access VALUE               Access value [full|read|none]
-    -g, --group GROUP                Group to find cloud in
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -21254,13 +21658,14 @@ Usage: morpheus search [phrase]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -21423,10 +21828,8 @@ Usage: morpheus security-groups get [id]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -21460,10 +21863,8 @@ Usage: morpheus security-groups list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -21710,13 +22111,14 @@ Usage: morpheus self-service get [type]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -21751,13 +22153,14 @@ Usage: morpheus self-service list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -22004,13 +22407,14 @@ Usage: morpheus service-plans list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -22231,10 +22635,8 @@ Usage: morpheus storage-buckets get [storage-bucket]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22269,13 +22671,14 @@ Usage: morpheus storage-buckets list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -22308,10 +22711,8 @@ Usage: morpheus storage-buckets list-files [provider:/path]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22564,10 +22965,8 @@ Usage: morpheus subnets get [subnet]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22602,10 +23001,8 @@ Usage: morpheus subnets get-type [type]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22640,10 +23037,8 @@ Usage: morpheus subnets list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22704,10 +23099,8 @@ Usage: morpheus subnets types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22872,10 +23265,8 @@ Usage: morpheus tasks get [workflow]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22902,10 +23293,8 @@ Usage: morpheus tasks get-type [type]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -22941,13 +23330,14 @@ Usage: morpheus tasks list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -22979,10 +23369,8 @@ Usage: morpheus tasks list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -23158,13 +23546,14 @@ Usage: morpheus tenants get [tenant]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -23211,13 +23600,14 @@ Usage: morpheus tenants list [search phrase]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -23330,13 +23720,14 @@ Usage: morpheus usage get [usage]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -23374,13 +23765,14 @@ Usage: morpheus usage list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -23482,10 +23874,8 @@ Usage: morpheus user-groups get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -23517,13 +23907,14 @@ Usage: morpheus user-groups list [search phrase]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -23682,10 +24073,8 @@ Usage: morpheus user-settings get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -23715,10 +24104,8 @@ Usage: morpheus user-settings list-clients
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -23833,18 +24220,35 @@ Done for the current user by default, unless a user is specified with the --user
 Usage: morpheus user-settings update [options]
     -u, --user USER                  User username or ID
         --user-id ID                 User ID
+        --change-username VALUE      Username (optional) - Change user credentials to use a new username
+        --firstName VALUE            First Name (optional)
+        --lastName VALUE             Last Name (optional)
+        --email VALUE                Email (optional)
+        --receiveNotifications [on|off]
+                                     Receive Notifications (optional)
+        --linuxUsername VALUE        Linux Username (optional)
+        --linuxPassword VALUE        Linux Password (optional)
+        --linuxKeyPairId VALUE       Linux Key Pair ID (optional)
+        --windowsUsername VALUE      Windows Username (optional)
+        --windowsPassword VALUE      Windows Password (optional)
+        --defaultGroup VALUE         Default Group ID (optional)
+        --defaultCloud VALUE         Default Cloud ID (optional)
+        --defaultPersona VALUE       Default Persona Name or Code or ID (optional)
+        --change-password VALUE      Password (optional) - Change user credentials to use a new password
+        --avatar VALUE               Avatar (optional) - Local filepath of image file to upload as user avatar
+        --desktopBackground VALUE    Desktop Background (optional) - Local filepath of image file to upload as user desktop background
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompts. Use passed options as the default value.
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -q, --quiet                      No Output, do not print to stdout
     -r, --remote REMOTE              Remote name. The current remote is used by default.
         --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
     -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
@@ -24080,13 +24484,14 @@ Usage: morpheus user-sources get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24113,10 +24518,8 @@ Usage: morpheus user-sources get-type [type]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -24152,13 +24555,14 @@ Usage: morpheus user-sources list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24189,10 +24593,8 @@ Usage: morpheus user-sources list-types
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -24403,13 +24805,14 @@ Usage: morpheus users get [user]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24446,13 +24849,14 @@ Usage: morpheus users list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24510,10 +24914,8 @@ Usage: morpheus users permissions [user]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -24652,13 +25054,14 @@ Usage: morpheus vdi get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24691,13 +25094,14 @@ Usage: morpheus vdi list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24746,6 +25150,96 @@ Usage: morpheus vdi open [desktop] [options]
 
 Open a virtual desktop console in your web browser.
 [desktop] is required, this is name or id of a virtual desktop (VDI Pool).
+```
+
+
+### vdi-allocations
+
+```
+Usage: morpheus vdi-allocations [command] [options]
+Commands:
+	get
+	list
+
+View VDI allocations
+```
+
+#### vdi-allocations get
+
+```
+Usage: morpheus vdi-allocations get [allocation]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific VDI allocation.
+[allocation] is required. This is the id of a VDI allocation.
+```
+
+#### vdi-allocations list
+
+```
+Usage: morpheus vdi-allocations list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+        --id ID                      Filter by VDI Allocation ID
+        --status STATUS              Filter by VDI Allocation Status
+        --pool POOL                  Filter by VDI Pool Name or ID
+    -u, --user USER                  Filter by User Username or ID
+
+List VDI allocations.
 ```
 
 
@@ -24806,13 +25300,14 @@ Usage: morpheus vdi-apps get [app]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24845,13 +25340,14 @@ Usage: morpheus vdi-apps list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24988,13 +25484,14 @@ Usage: morpheus vdi-gateways get [gateway]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25027,13 +25524,14 @@ Usage: morpheus vdi-gateways list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25192,13 +25690,14 @@ Usage: morpheus vdi-pools get [pool]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25232,13 +25731,14 @@ Usage: morpheus vdi-pools list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25443,13 +25943,14 @@ Usage: morpheus virtual-images get [image]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25488,13 +25989,14 @@ Usage: morpheus virtual-images list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25660,10 +26162,8 @@ Usage: morpheus whitelabel-settings get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -25845,13 +26345,14 @@ Usage: morpheus whoami [options]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -25928,10 +26429,8 @@ Usage: morpheus wiki categories
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -25959,10 +26458,8 @@ Usage: morpheus wiki get [name]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -25995,10 +26492,8 @@ Usage: morpheus wiki list
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -26182,10 +26677,8 @@ Usage: morpheus workflows get [workflow]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
@@ -26218,13 +26711,14 @@ Usage: morpheus workflows list [search]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
-        --csv-delim CHAR             Delimiter for CSV Output values. Default: ','
-        --csv-newline [CHAR]         Delimiter for CSV Output rows. Default: '\n'
-        --csv-quotes                 Wrap CSV values with ". Default: false
-        --csv-no-header              Exclude header for CSV Output.
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.

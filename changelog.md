@@ -6,6 +6,24 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.3.2
+
+### Enhancements
+
+* Changed library-option-lists get command to no longer display items by default, new option --items is available to load and display option list items. The 5.3.2 API changed to no longer return listItems
+
+## 5.3.1.1
+
+### Enhancements
+
+* Changed invoices command to display Prices instead of Costs by default.
+* New subcommands integrations list-objects|get-object|add-object|remove-object to fully manage ServiceNow integration exposed objects.
+
+### Fixes
+
+* Fixed issue with APIClient not respecting the setting :verify_ssl => false. This involved quite a bit of grooming to cleanup all the interface instantiation throughout used in the CLI commands.
+* Fixed URI.escape is obsolete deprecation warning.
+
 ## 5.3.1
 
 ### Enhancements
