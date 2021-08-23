@@ -6,6 +6,20 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.3.2.1
+
+### Enhancements
+
+* Updated networks and network-routers command for use with NSX-V and NSX-T requires api 5.2.9 or 5.3.3
+* New command load-balancer-types command (replaces old load-balancers types command)
+* Update tenants remove to support new option --remove-resources
+* Deprecated commands log-settings enable_integration|disable_integration|remove_integration. The old options will still work for now, but are hidden.
+
+### Fixes
+
+* Fixed issue with some hidden commands still showing up in the manual and help output.
+* Fixed issue with some option types that use the visibleOnCode property.
+
 ## 5.3.2
 
 ### Enhancements
