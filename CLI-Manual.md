@@ -16,6 +16,14 @@ A Prerequisite to running the Morpheus CLI is to have ruby 2.5 or newer installe
 gem install morpheus-cli
 ```
 
+In most cases, installing Morpheus CLI is as simple as installing from rubygems as discussed above. When installing on RHEL 8, ensure the following three dependencies are also installed:
+
+```
+gem install bigdecimal
+gem install json
+gem install io-console
+```
+
 Once the gem is installed, all the cli commands can be run on the shell via the `morpheus` executable.
 
 ### Installing on Windows
