@@ -6,6 +6,30 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.3.3
+
+### Enhancements
+
+* Updated invoices to correspond with the 5.3 api to show invoice Currency and render amounts using the invoice source currency symbol.
+* Updated library-cluster-layouts to support Install Docker option
+
+### Fixes
+
+* Updated dependency bundler version to ~> 2.2
+* Fixed issue with clusters and the resource pool option type dependencies
+
+## 5.3.2.3
+
+### Fixes
+
+* Fixed issue with instances resize -N -O dataVolume1.action=resize -O dataVolume1.size=42 not applying changes to payload as expected.
+
+## 5.3.2.2
+
+### Fixes
+
+* Fixed issues with instances resize, -N would cause -O dataVolume1=42 to go unapplied, also made current plan the default selection and stopped rootVolume and dataVolume1 from being injected into the payload.
+
 ## 5.3.2.1
 
 ### Enhancements
