@@ -6950,7 +6950,7 @@ Usage: morpheus edit-profile
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Edit your interactive shell script at /Users/alexharker/.morpheus/.morpheus_profile
+Edit your interactive shell script at /path/to/homedir/.morpheus/.morpheus_profile
 ```
 
 
@@ -6964,7 +6964,7 @@ Usage: morpheus edit-rc
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Edit your morpheus initialization script at /Users/alexharker/.morpheus/.morpheusrc
+Edit your morpheus initialization script at /path/to/homedir/.morpheus/.morpheusrc
 ```
 
 
