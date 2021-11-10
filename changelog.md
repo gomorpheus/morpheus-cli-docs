@@ -6,6 +6,23 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.3.4
+
+### Enhancements
+
+* Updated `clouds list|get` to display Region Code
+* Updated `instances clone` to prompt to keep existing metadata tags before adding new ones
+* Updated `instances add|clone` changing the `metadata` parameter name to `tags`. The api has supported this since 5.0, when the response was renamed from metadata to tags
+
+### Fixes
+
+* Fixed `library-option-lists add --initialDataset "[]"` error caused by the parameter being converted to JSON instead of leaving it as a string
+* Fixed `invoices list --totals` causing an error related to currency display
+* Fixed `networks add` issue causing it to get stuck on Parent Network prompt
+* Fixed `networks add` Network Pool prompt to be a select input
+* Fixed `subnets add` error seen with Azure type
+* Fixed `virtual-images list` so types are preloaded before output begins
+
 ## 5.3.3
 
 ### Enhancements

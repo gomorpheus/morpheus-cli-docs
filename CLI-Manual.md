@@ -1,4 +1,4 @@
-Morpheus CLI v5.3.3
+Morpheus CLI v5.3.4
 
 ## Getting Started
 
@@ -233,7 +233,6 @@ Commands:
 	whoami
 	wiki
 	workflows
-
 Options:
     -e, --exec EXPRESSION            Execute the command(s) expression. This is an alternative to passing [command] [options]
         --noprofile                  Do not read and execute the personal initialization script .morpheus_profile
@@ -3741,6 +3740,12 @@ Get the number of clouds.
 
 ```
 Usage: morpheus clouds get [name]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
@@ -3749,6 +3754,10 @@ Usage: morpheus clouds get [name]
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -9857,10 +9866,24 @@ Cancel shutdown for an instance.
 
 ```
 Usage: morpheus instances clone [instance] -g GROUP
-        --name VALUE                 Name
     -g, --group GROUP                Group Name or ID for the new instance
     -c, --cloud CLOUD                Cloud Name or ID for the new instance
+        --name VALUE                 Name
+        --description [TEXT]         Description
+        --environment ENV            Environment code
+        --tags LIST                  Metadata tags in the format 'ping=pong,flash=bang'
+        --labels LIST                Labels (keywords) in the format 'foo, bar'
+    -p, --plan PLAN                  Service plan ID
+        --resource-pool ID           Resource pool ID
+        --workflow ID                Automation: Workflow ID
+        --ports ARRAY                Exposed Ports, JSON formatted list of objects containing name and port
         --create-user on|off         User Config: Create Your User. Default is on
+        --user-group USERGROUP       User Config: User Group
+        --shutdown-days DAYS         Automation: Shutdown Days
+        --expire-days DAYS           Automation: Expiration Days
+        --create-backup [on|off]     Automation: Create Backups.
+        --security-groups LIST       Security Groups, comma separated list of security group IDs
+    -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -9868,8 +9891,8 @@ Usage: morpheus instances clone [instance] -g GROUP
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
-    -y, --yes                        Auto Confirm
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -14476,7 +14499,7 @@ Commands:
 #### load-balancer-types get
 
 ```
-Usage: morpheus load-balancer-types get [type]
+Usage: morpheus load-balancer-types get [load balancer type]
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
@@ -14511,7 +14534,7 @@ Get details about a load balancer type.
 #### load-balancer-types list
 
 ```
-Usage: morpheus load-balancer-types list
+Usage: morpheus load-balancer-types list [search]
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -14545,6 +14568,7 @@ Usage: morpheus load-balancer-types list
     -h, --help                       Print this help
 
 List load balancer types.
+[search] is optional. This is a search phrase to filter the results.
 ```
 
 
@@ -14563,7 +14587,7 @@ Commands:
 #### load-balancers add
 
 ```
-Usage: morpheus load-balancers add [name] -t TYPE
+Usage: morpheus load-balancers add [load balancer] -t TYPE
     -t, --type TYPE                  Load Balancer Type
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -14587,12 +14611,15 @@ Usage: morpheus load-balancers add [name] -t TYPE
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Create a new load balancer.
+[load balancer] is required. This is the name of the new load balancer.
 ```
 
 #### load-balancers get
 
 ```
-Usage: morpheus load-balancers get [type]
+Usage: morpheus load-balancers get [load balancer]
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
@@ -14627,7 +14654,7 @@ Get details about a load balancer.
 #### load-balancers list
 
 ```
-Usage: morpheus load-balancers list
+Usage: morpheus load-balancers list [search]
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -14661,6 +14688,7 @@ Usage: morpheus load-balancers list
     -h, --help                       Print this help
 
 List load balancers.
+[search] is optional. This is a search phrase to filter the results.
 ```
 
 #### load-balancers remove
@@ -14684,6 +14712,9 @@ Usage: morpheus load-balancers remove [load balancer]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Delete an existing load balancer.
+[load balancer] is required. This is the name or id of a load balancer.
 ```
 
 #### load-balancers update
@@ -14712,6 +14743,9 @@ Usage: morpheus load-balancers update [load balancer] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Update an existing load balancer.
+[load balancer] is required. This is the name or id of a load balancer.
 ```
 
 
@@ -17903,10 +17937,13 @@ Update a network proxy.
 Usage: morpheus network-routers [command] [options]
 Commands:
 	add
+	add-bgp-neighbor
 	add-firewall-rule
 	add-firewall-rule-group
 	add-nat
 	add-route
+	bgp-neighbor
+	bgp-neighbors
 	dhcp
 	firewall
 	firewall-rule
@@ -17918,6 +17955,7 @@ Commands:
 	nat
 	nats
 	remove
+	remove-bgp-neighbor
 	remove-firewall-rule
 	remove-firewall-rule-group
 	remove-nat
@@ -17926,6 +17964,7 @@ Commands:
 	type
 	types
 	update
+	update-bgp-neighbor
 	update-firewall-rule
 	update-firewall-rule-group
 	update-nat
@@ -17967,6 +18006,35 @@ Usage: morpheus network-routers add [type] [name] [options]
     -h, --help                       Print this help
 
 Create a network router.
+```
+
+#### network-routers add-bgp-neighbor
+
+```
+Usage: morpheus network-routers add-bgp-neighbor [router]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a network router BGP neighbor.
 ```
 
 #### network-routers add-firewall-rule
@@ -18099,6 +18167,67 @@ Usage: morpheus network-routers add-route [router] [name]
     -h, --help                       Print this help
 
 Create a network router route.
+```
+
+#### network-routers bgp-neighbor
+
+```
+Usage: morpheus network-routers bgp-neighbor [router] [BGP neighbor]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Display details on network router BGP neighbor.
+[router] is required. This is the name or id of a network router.
+[BGP neighbor] is required. This is the id of a BGP neighbor.
+```
+
+#### network-routers bgp-neighbors
+
+```
+Usage: morpheus network-routers bgp-neighbors [router]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List network router BGP neighbors.
+[router] is required. This is the name or id of a network router.
 ```
 
 #### network-routers dhcp
@@ -18353,7 +18482,7 @@ List network routers.
 #### network-routers nat
 
 ```
-Usage: morpheus network-routers nat [router] [rule]
+Usage: morpheus network-routers nat [router] [nat]
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
@@ -18378,7 +18507,7 @@ Usage: morpheus network-routers nat [router] [rule]
 
 Display network router firewall rule details.
 [router] is required. This is the name or id of a network router.
-[rule] is required. This is the name or id of a firewall rule.
+[nat] is required. This is the name or id of a NAT.
 ```
 
 #### network-routers nats
@@ -18433,6 +18562,31 @@ Usage: morpheus network-routers remove [router]
     -h, --help                       Print this help
 
 Delete a network router.
+[router] is required. This is the name or id of an existing network router.
+```
+
+#### network-routers remove-bgp-neighbor
+
+```
+Usage: morpheus network-routers remove-bgp-neighbor [router] [BGP neighbor]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a network router BGP neighbor.
 [router] is required. This is the name or id of an existing network router.
 ```
 
@@ -18514,7 +18668,7 @@ Delete a network router NAT.
 #### network-routers remove-route
 
 ```
-Usage: morpheus network-routers remove-route [router] [rule]
+Usage: morpheus network-routers remove-route [router] [route]
     -y, --yes                        Auto Confirm
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18646,6 +18800,37 @@ Usage: morpheus network-routers update [router]
     -h, --help                       Print this help
 
 Update a network router.
+```
+
+#### network-routers update-bgp-neighbor
+
+```
+Usage: morpheus network-routers update-bgp-neighbor [router] [BGP neighbor]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a network router BGP neighbor.
+[router] is required. This is the name or id of an existing network router.
+[BGP neighbor] is required. This is the id of an existing network router BGP neighbor.
 ```
 
 #### network-routers update-firewall-rule
