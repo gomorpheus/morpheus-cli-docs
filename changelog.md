@@ -6,6 +6,16 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.4.0
+
+### Enhancements
+
+* New command `network-edge-clusters` to manage Network Edge Clusters.
+* New command `network-dhcp-servers` to manage Network DHCP Servers.
+* New command `network-dhcp-relays` to manage Network DHCP Relays.
+* New subcommands `roles update-global-report-type-access|update-report-type-access` to manage role report type access
+* New subcommand `health export-logs` to download the appliance logs file
+
 ## 5.3.4
 
 ### Enhancements
