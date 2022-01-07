@@ -1,4 +1,4 @@
-Morpheus CLI v5.4.0
+Morpheus CLI v5.4.1
 
 ## Getting Started
 
@@ -172,7 +172,6 @@ Commands:
 	library-upgrades
 	license
 	load-balancer-types
-	load-balancers
 	log-settings
 	login
 	logout
@@ -187,12 +186,14 @@ Commands:
 	network-dhcp-servers
 	network-domains
 	network-edge-clusters
+	network-firewalls
 	network-groups
 	network-pool-servers
 	network-pools
 	network-proxies
 	network-routers
 	network-services
+	network-static-routes
 	network-transport-zones
 	networks
 	passwd
@@ -217,6 +218,10 @@ Commands:
 	setup
 	shell
 	storage-buckets
+	storage-server-types
+	storage-servers
+	storage-volume-types
+	storage-volumes
 	subnets
 	tasks
 	tenants
@@ -232,6 +237,7 @@ Commands:
 	vdi-gateways
 	vdi-pools
 	version
+	view
 	virtual-images
 	whitelabel-settings
 	whoami
@@ -248,6 +254,7 @@ Options:
 
 For more information, see https://github.com/gomorpheus/morpheus-cli/wiki
 ```
+
 
 ### access-token
 
@@ -722,7 +729,6 @@ Commands:
 	history
 	list
 	logs
-	prepare-apply
 	refresh
 	remove
 	remove-instance
@@ -824,11 +830,7 @@ Usage: morpheus apps apply [app] [options]
 
 Apply an app.
 [app] is required. This is the name or id of an app.
-Template parameter values can be applied with -O templateParameter.foo=bar
-This is a way to apply an app with new configuration parameters to an app.
-This prints the app configuration that would be applied.
-It does not make any updates.
-This is only supported by certain types of apps.
+This is only supported by certain types of apps such as terraform.
 ```
 
 #### apps apply-security-groups
@@ -1055,42 +1057,6 @@ Usage: morpheus apps logs [app]
 
 List logs for an app.
 [app] is required. This is the name or id of an app.
-```
-
-#### apps prepare-apply
-
-```
-Usage: morpheus apps prepare-apply [app] [options]
-    -y, --yes                        Auto Confirm
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompts. Use passed options as the default value.
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Prepare to apply an app.
-[app] is required. This is the name or id of an app.
-Template parameter values can be applied with -O templateParameter.foo=bar
-This only prints the app configuration that would be applied.
-It does not make any updates.
-This is only supported by certain types of apps.
 ```
 
 #### apps refresh
@@ -2719,7 +2685,7 @@ Usage: morpheus budgets add [name] [options]
         --user VALUE                 User
         --group VALUE                Group
         --cloud VALUE                Cloud
-        --year VALUE                 Period - The period (year) the budget applies, YYYY or 'custom' to enter Start Date and End Date manually. Default: 2021
+        --year VALUE                 Period - The period (year) the budget applies, YYYY or 'custom' to enter Start Date and End Date manually. Default: 2022
         --startDate VALUE            Start Date - The Start Date for custom period budget eg. 2021-01-01
         --endDate VALUE              End Date - The End Date for custom period budget eg. 2023-12-31 (must be 1, 2 or 3 years from Start Date)
         --interval VALUE             Interval - The budget interval, determines cost amounts: "year", "quarter" or "month". Default: year
@@ -2749,7 +2715,7 @@ Usage: morpheus budgets add [name] [options]
     -h, --help                       Print this help
 
 Create a budget.
-The default period is the current year, eg. "2021"
+The default period is the current year, eg. "2022"
 and the default interval is "year".
 Costs can be passed as an array of values, one for each interval. eg. --costs "[999]"
 
@@ -8601,20 +8567,13 @@ Usage: morpheus hosts count [options]
     -t, --type TYPE                  Show only Certain Server Types
     -p, --power STATE                Filter by Power Status
     -i, --ip IPADDRESS               Filter by IP Address
-        --vm
-                                     Show only virtual machines
-        --hypervisor
-                                     Show only VM Hypervisors
-        --container
-                                     Show only Container Hypervisors
-        --baremetal
-                                     Show only Baremetal Servers
-        --status STATUS
-                                     Filter by Status
-        --agent
-                                     Show only Servers with the agent installed
-        --noagent
-                                     Show only Servers with No agent
+        --vm                         Show only virtual machines
+        --hypervisor                 Show only VM Hypervisors
+        --container                  Show only Container Hypervisors
+        --baremetal                  Show only Baremetal Servers
+        --status STATUS              Filter by Status
+        --agent                      Show only Servers with the agent installed
+        --noagent                    Show only Servers with No agent
         --created-by USER            Created By User Username or ID
         --details                    Display more details: memory and storage usage used / max values.
     -s, --search PHRASE              Search Phrase
@@ -8721,20 +8680,13 @@ Usage: morpheus hosts list
         --plan NAME                  Filter by Plan name(s)
         --plan-id ID                 Filter by Plan id(s)
         --plan-code CODE             Filter by Plan code(s)
-        --vm
-                                     Show only virtual machines
-        --hypervisor
-                                     Show only VM Hypervisors
-        --container
-                                     Show only Container Hypervisors
-        --baremetal
-                                     Show only Baremetal Servers
-        --status STATUS
-                                     Filter by Status
-        --agent
-                                     Show only Servers with the agent installed
-        --noagent
-                                     Show only Servers with No agent
+        --vm                         Show only virtual machines
+        --hypervisor                 Show only VM Hypervisors
+        --container                  Show only Container Hypervisors
+        --baremetal                  Show only Baremetal Servers
+        --status STATUS              Filter by Status
+        --agent                      Show only Servers with the agent installed
+        --noagent                    Show only Servers with No agent
         --created-by USER            Created By User Username or ID
         --tenant TENANT              Tenant Name or ID
         --labels label               Filter by labels (keywords).
@@ -9613,6 +9565,7 @@ Commands:
 	action
 	actions
 	add
+	apply
 	apply-security-groups
 	backup
 	backups
@@ -9639,6 +9592,7 @@ Commands:
 	list
 	lock
 	logs
+	refresh
 	remove
 	resize
 	restart
@@ -9765,6 +9719,39 @@ Usage: morpheus instances add [name] -c CLOUD -t TYPE
 Create a new instance.
 [name] is required. This is the new instance name.
 The available options vary by --type.
+```
+
+#### instances apply
+
+```
+Usage: morpheus instances apply [instance] [options]
+    -y, --yes                        Auto Confirm
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Apply an instance.
+[instance] is required. This is the name or id of an instance.
+This is only supported by certain types of instances such as terraform.
 ```
 
 #### instances apply-security-groups
@@ -10461,6 +10448,8 @@ Usage: morpheus instances list
     -c, --cloud CLOUD                Cloud Name or ID
         --host HOST                  Host Name or ID
         --owner USER                 Owner Username or ID
+        --agent                      Show only Instances with the agent installed
+        --noagent                    Show only Instances with No agent
         --status STATUS              Filter by status i.e. provisioning,running,starting,stopping
         --type CODE                  Filter by Instance Type code
         --environment CODE           Filter by Environment code(s)
@@ -10576,6 +10565,39 @@ Usage: morpheus instances logs [instance]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+```
+
+#### instances refresh
+
+```
+Usage: morpheus instances refresh [instance] [options]
+    -y, --yes                        Auto Confirm
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Refresh an instance.
+[instance] is required. This is the name or id of an instance.
+This is only supported by certain types of instances such as terraform.
 ```
 
 #### instances remove
@@ -14637,183 +14659,6 @@ List load balancer types.
 ```
 
 
-### load-balancers
-
-```
-Usage: morpheus load-balancers [command] [options]
-Commands:
-	add
-	get
-	list
-	remove
-	update
-```
-
-#### load-balancers add
-
-```
-Usage: morpheus load-balancers add [load balancer]
-    -t, --type TYPE                  Load Balancer Type
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompts. Use passed options as the default value.
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Create a new load balancer.
-[load balancer] is required. This is the name of the new load balancer.
-```
-
-#### load-balancers get
-
-```
-Usage: morpheus load-balancers get [load balancer]
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
-    -j, --json                       JSON Output
-    -y, --yaml                       YAML Output
-        --csv                        CSV Output
-        --quotes                     Wrap CSV values with ". Default: false
-        --no-header                  Exclude header for CSV Output.
-    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
-        --all-fields                 Show all fields present in the data.
-        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
-        --select x,y,z               Filter Output to just print the value(s) of specific fields.
-        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
-        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Get details about a load balancer.
-[load balancer] is required. This is the name or id of a load balancer.
-```
-
-#### load-balancers list
-
-```
-Usage: morpheus load-balancers list [search]
-    -m, --max MAX                    Max Results
-    -o, --offset OFFSET              Offset Results
-    -s, --search PHRASE              Search Phrase
-    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
-    -D, --desc                       Reverse Sort Order
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
-    -j, --json                       JSON Output
-    -y, --yaml                       YAML Output
-        --csv                        CSV Output
-        --quotes                     Wrap CSV values with ". Default: false
-        --no-header                  Exclude header for CSV Output.
-    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
-        --all-fields                 Show all fields present in the data.
-        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
-        --select x,y,z               Filter Output to just print the value(s) of specific fields.
-        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
-        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-List load balancers.
-[search] is optional. This is a search phrase to filter the results.
-```
-
-#### load-balancers remove
-
-```
-Usage: morpheus load-balancers remove [load balancer]
-    -y, --yes                        Auto Confirm
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Delete an existing load balancer.
-[load balancer] is required. This is the name or id of a load balancer.
-```
-
-#### load-balancers update
-
-```
-Usage: morpheus load-balancers update [load balancer] [options]
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompts. Use passed options as the default value.
-    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Update an existing load balancer.
-[load balancer] is required. This is the name or id of a load balancer.
-```
-
-
 ### log-settings
 
 ```
@@ -17588,6 +17433,352 @@ Update a network edge cluster.
 ```
 
 
+### network-firewalls
+
+```
+Usage: morpheus network-firewalls [command] [options]
+Commands:
+	add-rule
+	add-rule-group
+	get-rule
+	get-rule-group
+	list-rule-groups
+	list-rules
+	remove-rule
+	remove-rule-group
+	update-rule
+	update-rule-group
+```
+
+#### network-firewalls add-rule
+
+```
+Usage: morpheus network-firewalls add-rule [server] [group]
+    -g, --group GROUP                Rule group name or ID
+    -n, --name VALUE                 Name for this firewall rule
+    -D, --description VALUE          Description for this firewall rule
+        --priority VALUE             Priority for this firewall rule
+        --enabled [on|off]           Can be used to disable
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a network firewall rule.
+[server] is optional. This is the name or id of a network server.
+[group] is optional. This is the name of id of rule group (applicable to select network servers).
+```
+
+#### network-firewalls add-rule-group
+
+```
+Usage: morpheus network-firewalls add-rule-group [server]
+    -n, --name VALUE                 Name for this firewall rule group
+    -D, --description VALUE          Description for this firewall rule group
+        --priority VALUE             Priority for this firewall rule group
+        --visibility VISIBILITY      Visibility [private|public]
+        --tenants LIST               Tenant Access, comma separated list of account IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a network firewall rule group.
+[server] is optional. This is the name or id of a network server.
+```
+
+#### network-firewalls get-rule
+
+```
+Usage: morpheus network-firewalls get-rule [server] [rule]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Display details on a network firewall rule.
+[server] is optional. This is the name or id of a network server.
+[rule] is optional. This is the id of a network firewall rule.
+```
+
+#### network-firewalls get-rule-group
+
+```
+Usage: morpheus network-firewalls get-rule-group [server] [group]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Display details on a network firewall rule group.
+[server] is optional. This is the name or id of a network server.
+[group] is optional. This is the id of a network firewall rule group.
+```
+
+#### network-firewalls list-rule-groups
+
+```
+Usage: morpheus network-firewalls list-rule-groups [server]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List network firewall rule groups.
+[server] is required. This is the name or id of a network server.
+```
+
+#### network-firewalls list-rules
+
+```
+Usage: morpheus network-firewalls list-rules [server]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List network firewall rules.
+[server] is optional. This is the name or id of a network server.
+```
+
+#### network-firewalls remove-rule
+
+```
+Usage: morpheus network-firewalls remove-rule [server] [rule]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a network firewall rule.
+[server] is optional. This is the name or id of a network server.
+[rule] is optional. This is the name of id of an existing rule.
+```
+
+#### network-firewalls remove-rule-group
+
+```
+Usage: morpheus network-firewalls remove-rule-group [server] [group]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a network firewall group.
+[server] is optional. This is the name or id of an existing network server.
+[group] is optional. This is the name or id of an existing network firewall rule group.
+```
+
+#### network-firewalls update-rule
+
+```
+Usage: morpheus network-firewalls update-rule [server] [rule]
+    -n, --name VALUE                 Name for this firewall rule
+    -D, --description VALUE          Description for this firewall rule
+        --priority VALUE             Priority for this firewall rule
+        --enabled [on|off]           Can be used to disable
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a network firewall rule.
+[server] is optional. This is the name or id of a network server.
+[rule] is optional. This is the name or id of an existing rule.
+```
+
+#### network-firewalls update-rule-group
+
+```
+Usage: morpheus network-firewalls update-rule-group [server] [group]
+    -n, --name VALUE                 Name for this firewall rule group
+    -D, --description VALUE          Description for this firewall rule group
+        --priority VALUE             Priority for this firewall rule group
+        --visibility VISIBILITY      Visibility [private|public]
+        --tenants LIST               Tenant Access, comma separated list of account IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a network firewall rule group.
+[server] is optional. This is the name or id of an existing network server.
+[group] is optional. This is the name or id of an existing network firewall rule group.
+```
+
+
 ### network-groups
 
 ```
@@ -18607,6 +18798,8 @@ Usage: morpheus network-routers add-firewall-rule-group [router] [name]
     -n, --name VALUE                 Name for this firewall rule group
     -D, --description VALUE          Description for this firewall rule group
         --priority VALUE             Priority for this firewall rule group (not applicable to all firewall types)
+        --visibility VISIBILITY      Visibility [private|public]
+        --tenants LIST               Tenant Access, comma separated list of account IDs
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -19404,6 +19597,8 @@ Usage: morpheus network-routers update-firewall-rule-group [router] [name]
     -n, --name VALUE                 Name for this firewall rule group
     -D, --description VALUE          Description for this firewall rule group
         --priority VALUE             Priority for this firewall rule group (not applicable to all firewall types)
+        --visibility VISIBILITY      Visibility [private|public]
+        --tenants LIST               Tenant Access, comma separated list of account IDs
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -19537,6 +19732,185 @@ Usage: morpheus network-services list
     -h, --help                       Print this help
 
 List network services (Integrations).
+```
+
+
+### network-static-routes
+
+```
+Usage: morpheus network-static-routes [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+```
+
+#### network-static-routes add
+
+```
+Usage: morpheus network-static-routes add [network]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a network static route.
+[network] is required. This is the name or id of a network.
+```
+
+#### network-static-routes get
+
+```
+Usage: morpheus network-static-routes get [network] [network_route]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Display details on a network Static Route.
+[network] is required. This is the name or id of a network.
+[network_route] is required. This is the id of a network route.
+```
+
+#### network-static-routes list
+
+```
+Usage: morpheus network-static-routes list [network] [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List network DHCP Static Routes.
+[network] is required. This is the name or id of a network.
+```
+
+#### network-static-routes remove
+
+```
+Usage: morpheus network-static-routes remove [network] [network_route]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a network static route.
+[network] is required. This is the name or id of an existing network.
+[network_route] is required. This is the name or id of an existing network static route.
+```
+
+#### network-static-routes update
+
+```
+Usage: morpheus network-static-routes update [network] [networkRoute]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a network Static Route.
+[network] is required. This is the name or id of an existing network.
+[networkRoute] is required. This is the name or id of an existing network static route.
 ```
 
 
@@ -20819,7 +21193,7 @@ Usage: morpheus prices add [name] [code]
         --tenant [ACCOUNT|all]       Tenant account or all. Apply price to all tenants when not set.
         --type [TYPE]                Price type
         --unit [UNIT]                Price unit
-        --platform [PLATFORM]        Price platform [linux|windows]. Required for platform price type
+        --platform [PLATFORM]        Price platform [centos|debian|fedora|canonical|opensuse|redhat|suse|xen|linux|windows]. Required for platform price type
         --software [TEXT]            Price software. Required for software price type
         --volume [TYPE]              Volume type ID or name. Required for storage price type
         --datastore [DATASTORE]      Datastore ID or name. Required for datastore price type
@@ -20949,7 +21323,7 @@ Usage: morpheus prices update [price]
         --name NAME                  Price name
         --type [TYPE]                Price type
         --unit [UNIT]                Price unit
-        --platform [PLATFORM]        Price platform [linux|windows]. Required for platform price type
+        --platform [PLATFORM]        Price platform [centos|debian|fedora|canonical|opensuse|redhat|suse|xen|linux|windows]. Required for platform price type
         --software [TEXT]            Price software. Required for software price type
         --volume [TYPE]              Volume type ID or name. Required for storage price type
         --datastore [DATASTORE]      Datastore ID or name. Required for datastore price type
@@ -21681,7 +22055,6 @@ Commands:
 	update
 	use
 	version
-	view
 ```
 
 #### remote add
@@ -21958,25 +22331,6 @@ Usage: morpheus remote version [remote]
 Print version of remote appliance.
 [name] is optional. This is the name of a remote.  Default is the current remote.
 This makes a request to the configured appliance url and updates the status and version.
-```
-
-#### remote view
-
-```
-Usage: morpheus remote view [name]
-        --path PATH                  Specify a path to load. eg '/logs'
-        --no-auth PATH               Do not attempt to login with access token.
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-View remote appliance in a web browser.
-[name] is optional. This is the name of a remote.  Default is the current remote.
-This will automatically login with the current access token.
 ```
 
 
@@ -24452,6 +24806,523 @@ The second argument [provider:/path] should contain the name or id of the provid
 The [:/path] component is optional and can be used to specify the destination of the uploaded file or folder.
 The default destination is the same name as the [local-file], under the root directory '/'.
 This will overwrite any existing remote files that match the destination /path.
+```
+
+
+### storage-server-types
+
+```
+Usage: morpheus storage-server-types [command] [options]
+Commands:
+	get
+	list
+
+View storage server types
+```
+
+#### storage-server-types get
+
+```
+Usage: morpheus storage-server-types get [storage server type]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a storage server type.
+[storage server type] is required. This is the name or id of a storage server type.
+```
+
+#### storage-server-types list
+
+```
+Usage: morpheus storage-server-types list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List storage server types.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+
+### storage-servers
+
+```
+Usage: morpheus storage-servers [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+
+View and manage storage servers.
+```
+
+#### storage-servers add
+
+```
+Usage: morpheus storage-servers add [storage server]
+    -t, --type TYPE                  Storage Server Type
+        --name VALUE                 Name
+        --description VALUE          Description (optional)
+        --enabled [on|off]           Enabled (optional). Default: true
+        --visibility VALUE           Visibility (optional) - Visibility
+        --tenants LIST               Tenants (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new storage server.
+[storage server] is required. This is the name of the new storage server.
+```
+
+#### storage-servers get
+
+```
+Usage: morpheus storage-servers get [storage server]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a storage server.
+[storage server] is required. This is the name or id of a storage server.
+```
+
+#### storage-servers list
+
+```
+Usage: morpheus storage-servers list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List storage servers.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+#### storage-servers remove
+
+```
+Usage: morpheus storage-servers remove [storage server]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an existing storage server.
+[storage server] is required. This is the name or id of a storage server.
+```
+
+#### storage-servers update
+
+```
+Usage: morpheus storage-servers update [storage server] [options]
+        --name VALUE                 Name (optional)
+        --description VALUE          Description (optional)
+        --enabled [on|off]           Enabled (optional)
+        --visibility VALUE           Visibility (optional) - Visibility
+        --tenants LIST               Tenants (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an existing storage server.
+[storage server] is required. This is the name or id of a storage server.
+```
+
+
+### storage-volume-types
+
+```
+Usage: morpheus storage-volume-types [command] [options]
+Commands:
+	get
+	list
+```
+
+#### storage-volume-types get
+
+```
+Usage: morpheus storage-volume-types get [storage volume type]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a storage volume type.
+[storage volume type] is required. This is the name or id of a storage volume type.
+```
+
+#### storage-volume-types list
+
+```
+Usage: morpheus storage-volume-types list [search]
+        --name VALUE                 Filter by name
+        --category VALUE             Filter by category
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List storage volume types.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+
+### storage-volumes
+
+```
+Usage: morpheus storage-volumes [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+
+View and manage storage volumes.
+```
+
+#### storage-volumes add
+
+```
+Usage: morpheus storage-volumes add [storage volume]
+        --storageServer.id VALUE     Storage Server
+        --storageGroup.id VALUE      Storage Group
+    -t, --type VALUE                 Storage Volume Type
+        --name VALUE                 Name
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new storage volume.
+[storage volume] is required. This is the name of the new storage volume.
+```
+
+#### storage-volumes get
+
+```
+Usage: morpheus storage-volumes get [storage volume]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a storage volume.
+[storage volume] is required. This is the name or id of a storage volume.
+```
+
+#### storage-volumes list
+
+```
+Usage: morpheus storage-volumes list [search]
+        --storage-server VALUE       Storage Server Name or ID
+    -t, --type TYPE                  Filter by type
+        --name VALUE                 Filter by name
+        --category VALUE             Filter by category
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List storage volumes.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+#### storage-volumes remove
+
+```
+Usage: morpheus storage-volumes remove [storage volume]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an existing storage volume.
+[storage volume] is required. This is the name or id of a storage volume.
 ```
 
 
@@ -27410,6 +28281,43 @@ morpheus version
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+```
+
+
+### view
+
+```
+Usage: morpheus view [path] [id]
+    -L, --login                      Login with the CLI access token before loading the path.
+        --absolute                   Absolute path, do not search for a matching route to use
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+View the remote appliance in a web browser.
+[path] is optional. This the path or resource type to load. The default is the index page "/".
+[id] is optional. This is the resource name or id to be append to the path to load details of a specific object.
+The [path] is matched against the morpheus UI site map to find the best matching route.
+Route matching is skipped if the path begins with a "/" or --absolute is used.
+By default no authentication is not done and the existing web browser session used.
+The --login option will authenticate via the CLI access token and create a new browser session.
+
+Examples:
+    view --login
+    view monitoring
+    view user 1
+    view user administrator
+    view /infrastructure/clouds/2
 ```
 
 
