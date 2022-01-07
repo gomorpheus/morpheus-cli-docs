@@ -10,10 +10,6 @@ Backwards compatibility with older appliances should be preserved in most cases.
 
 ### Enhancements
 
-* Updated command `load-balancers` to bring it up to date with the UI functionality
-* New command `load-balancer-monitors` to manage Load Balancer Monitors.
-* New command `load-balancer-pools` to manage Load Balancer Pools.
-* New command `load-balancer-profiles` to manage Load Balancer Profiles.
 * New command `storage-servers` to manage Storage Servers.
 * New command `storage-volumes` to manage Storage Volumes.
 * New command `view` to open appliance resources in a web browser.
