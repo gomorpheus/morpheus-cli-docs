@@ -1,3 +1,5 @@
+import datetime
+
 # -*- coding: utf-8 -*-
 #
 # Documentation build configuration file, created by
@@ -52,8 +54,9 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
+year = datetime.datetime.now().date().strftime("%Y")
 project = u'Morpheus CLI Docs'
-copyright = u'2021, Morpheus Data'
+copyright = f"{year}, Morpheus Data"
 author = u'Morpheus'
 
 # The version info for the project you're documenting, acts as replacement for
