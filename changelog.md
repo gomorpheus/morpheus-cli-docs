@@ -6,6 +6,21 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.4.2
+
+### Enhancements
+
+* Updated command `load-balancers` to bring it up to date with the UI functionality
+* New command `load-balancer-monitors` to manage Load Balancer Monitors
+* New command `load-balancer-pools` to manage Load Balancer Pools
+* New command `load-balancer-profiles` to manage Load Balancer Profiles
+* Remove deprecated commands `integrations add-object|get-object|list-objects|remove-object`
+
+### Fixes
+
+* Fixed `image-builder add` issue with Preseed Script being required instead of optional
+* Fixed `clusters add` issue with template parameters
+
 ## 5.4.1
 
 ### Enhancements
