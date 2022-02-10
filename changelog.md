@@ -6,6 +6,26 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.4.3
+
+### Enhancements
+
+* Updated command `instances add` and `instances resize` to prompt for plan customizations: Core Count, Cores Per Socket and Memory
+* Updated `ping` and `remote add` to handle the API requiring authentication to retrieve `buildVersion`
+* Updated `remote get` to no longer display `Appliance URL` since it is no longer returned
+* Updated `virtual-images list` to support new option `--synced` and help to note Default list is applies User filter
+* Updated `library-instance-types list` to support new option `--featured`
+* New command `snapshots` to manage Snapshots
+* Removed command `instances remove-snapshot`. This has been replaced with `snapshots remove`.
+
+### Fixes
+
+* Fixed `instances clone-image` to prompt for Folder when required (VMware)
+* Fixed `networks` handing of `displayName`
+* Fixed `tasks add` Retry Delay not persisting
+* Fixed `clusters add` prompt for combo and docker types
+* Fixed `tasks get` showing Script content incorrectly for Libray Script type
+
 ## 5.4.2
 
 ### Enhancements

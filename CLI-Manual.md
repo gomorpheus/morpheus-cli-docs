@@ -1,4 +1,4 @@
-Morpheus CLI v5.4.2
+Morpheus CLI v5.4.3
 
 ## Getting Started
 
@@ -222,6 +222,7 @@ Commands:
 	service-plans
 	setup
 	shell
+	snapshots
 	storage-buckets
 	storage-server-types
 	storage-servers
@@ -9582,6 +9583,7 @@ Commands:
 	console
 	containers
 	count
+	create-linked-clone
 	delenv
 	deploys
 	eject
@@ -9599,9 +9601,12 @@ Commands:
 	logs
 	refresh
 	remove
+	remove-all-container-snapshots
+	remove-all-snapshots
 	resize
 	restart
 	restart-service
+	revert-to-snapshot
 	run-workflow
 	scaling
 	scaling-update
@@ -9970,6 +9975,7 @@ Usage: morpheus instances clone [instance] -g GROUP
 ```
 Usage: morpheus instances clone-image [instance]
         --name VALUE                 Image Name (Template Name). Default is server name + timestamp
+        --folder VALUE               Folder externalId or '/' to use the root folder
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -10069,6 +10075,31 @@ Usage: morpheus instances count [options]
     -h, --help                       Print this help
 
 Get the number of instances.
+```
+
+#### instances create-linked-clone
+
+```
+Usage: morpheus instances create-linked-clone [instance]
+        --snapshot ID                Optional snapshot
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a linked clone using the selected snapshot of an Instance.
+[snapshotId] is required. This is the id of the snapshot which the clone will refer to.
 ```
 
 #### instances delenv
@@ -10631,6 +10662,55 @@ Usage: morpheus instances remove [instance]
     -h, --help                       Print this help
 ```
 
+#### instances remove-all-container-snapshots
+
+```
+Usage: morpheus instances remove-all-container-snapshots [instance]
+        --container ID               Required container
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Remove all snapshots attached to an instances container.
+[containerId] is required. This is the id of the container which removes all attached snapshots.
+```
+
+#### instances remove-all-snapshots
+
+```
+Usage: morpheus instances remove-all-snapshots [instance]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Remove all snapshots attached to an instance.
+Warning: This will remove all snapshots across all containers of an instance.
+```
+
 #### instances resize
 
 ```
@@ -10709,6 +10789,39 @@ Usage: morpheus instances restart-service [instance]
 
 Restart service on an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
+```
+
+#### instances revert-to-snapshot
+
+```
+Usage: morpheus instances revert-to-snapshot [instance]
+        --snapshot ID                Optional snapshot
+    -y, --yes                        Auto Confirm
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Revert an Instance to saved Snapshot previously made.
+[snapshotId] is required. This is the id of the snapshot to replace the current instance.
 ```
 
 #### instances run-workflow
@@ -12918,6 +13031,7 @@ Usage: morpheus library-instance-types list
         --category VALUE             Filter by category
         --code VALUE                 Filter by code
         --technology VALUE           Filter by technology
+        --featured [true|false]      Filter by featured.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -24906,6 +25020,7 @@ Commands:
 	list
 	remove
 	update
+	update-logo
 
 Self Service: View and manage catalog item types
 ```
@@ -24927,6 +25042,7 @@ Usage: morpheus self-service add [name] [options]
         --workflow VALUE             Workflow (optional) - Enter a spec in the for the App, the Scribe YAML format
         --context VALUE              Context Type (optional) - Context for operational workflow, determines target type. Default: Select
         --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
+        --logo FILE                  Upload a custom logo icon
         --config-file FILE           Config from a local JSON or YAML file
         --option-types [x,y,z]       List of Option Type IDs
     -O, --option OPTION              Option in the format -O field="value"
@@ -25075,6 +25191,7 @@ Usage: morpheus self-service update [type] [options]
         --workflow VALUE             Workflow (optional) - Enter a spec in the for the App, the Scribe YAML format
         --context VALUE              Context Type (optional) - Context for operational workflow, determines target type
         --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
+        --logo FILE                  Upload a custom logo icon
         --config-file FILE           Config from a local JSON or YAML file
         --option-types [x,y,z]       List of Option Type IDs
     -O, --option OPTION              Option in the format -O field="value"
@@ -25102,6 +25219,30 @@ Usage: morpheus self-service update [type] [options]
 
 Update a catalog item type.
 [type] is required. This is the name or id of a catalog item type.
+```
+
+#### self-service update-logo
+
+```
+Usage: morpheus self-service update-logo [type] [file]
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update the logo for a catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+[file] is required. This is the path of the logo file
 ```
 
 
@@ -25398,6 +25539,72 @@ Usage: morpheus shell
     -V, --debug                      Print extra output for debugging.
     -B, --benchmark                  Print benchmark time after each command is finished
     -h, --help                       Print this help
+```
+
+
+### snapshots
+
+```
+Usage: morpheus snapshots [command] [options]
+Commands:
+	get
+	remove
+
+View or remove snapshot
+```
+
+#### snapshots get
+
+```
+Usage: morpheus snapshots get [id]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get Snapshot details.
+[snapshotId] is required. This is the id of the snapshot.
+```
+
+#### snapshots remove
+
+```
+Usage: morpheus snapshots remove [instance]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Remove/Delete a snapshot.
+[snapshotId] is required. This is the id of the snapshot to delete.
 ```
 
 
@@ -27610,7 +27817,7 @@ Usage: morpheus user-settings update [options]
         --windowsPassword VALUE      Windows Password (optional)
         --defaultGroup VALUE         Default Group ID (optional)
         --defaultCloud VALUE         Default Cloud ID (optional)
-        --defaultPersona VALUE       Default Persona Name or Code or ID (optional)
+        --defaultPersona VALUE       Default Persona Name or Code or ID eg. standard, serviceCatalog or vdi (optional)
         --change-password VALUE      Password (optional) - Change user credentials to use a new password
         --avatar VALUE               Avatar (optional) - Local filepath of image file to upload as user avatar
         --desktopBackground VALUE    Desktop Background (optional) - Local filepath of image file to upload as user desktop background
@@ -29422,6 +29629,7 @@ Usage: morpheus virtual-images list
         --all                        All Images
         --user                       User Images
         --system                     System Images
+        --synced                     Synced Images
         --tags Name=Value            Filter by tags (metadata name value pairs).
     -a, --details                    Show more details.
     -m, --max MAX                    Max Results
@@ -29456,7 +29664,7 @@ Usage: morpheus virtual-images list
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-List virtual images.
+List virtual images. Default list applies User filter
 ```
 
 #### virtual-images list-locations
@@ -30314,7 +30522,6 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
-
 
 ## Environment Variables
 
