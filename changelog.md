@@ -13,7 +13,7 @@ Backwards compatibility with older appliances should be preserved in most cases.
 * Updated command `instances add` and `instances resize` to prompt for plan customizations: Core Count, Cores Per Socket and Memory
 * Updated `ping` and `remote add` to handle the API requiring authentication to retrieve `buildVersion`
 * Updated `remote get` to no longer display `Appliance URL` since it is no longer returned
-* Updated `virtual-images list` to support new option `--synced` and help to note Default list is applies User filter
+* Updated `virtual-images list` to support new option `--synced` and updated help to note "Default list applies User filter"
 * Updated `library-instance-types list` to support new option `--featured`
 * New command `snapshots` to manage Snapshots
 * Removed command `instances remove-snapshot`. This has been replaced with `snapshots remove`.
