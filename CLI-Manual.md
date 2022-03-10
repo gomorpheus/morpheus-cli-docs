@@ -1,4 +1,4 @@
-Morpheus CLI v5.4.3
+Morpheus CLI v5.4.4
 
 ## Getting Started
 
@@ -136,6 +136,8 @@ Commands:
 	clouds
 	clusters
 	containers
+	credential-types
+	credentials
 	cypher
 	dashboard
 	datastores
@@ -4021,6 +4023,7 @@ Commands:
 	remove-service
 	remove-stateful-set
 	remove-volume
+	remove-worker
 	restart-container
 	restart-deployment
 	restart-pod
@@ -4030,6 +4033,7 @@ Commands:
 	update-namespace
 	update-permissions
 	update-wiki
+	update-worker-count
 	view
 	view-api-token
 	view-kube-config
@@ -5154,6 +5158,34 @@ Delete a volume within a cluster.
 [volume] is required. This is the name or id of an existing volume.
 ```
 
+#### clusters remove-worker
+
+```
+Usage: morpheus clusters remove-worker [cluster] [worker]
+    -f, --force                      Force Delete
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a worker from a cluster.
+[cluster] is required. This is the name or id of an existing cluster.
+[worker] is required. This is the name or (server) id of an existing worker.
+```
+
 #### clusters restart-container
 
 ```
@@ -5438,6 +5470,38 @@ Usage: morpheus clusters update-wiki [cluster] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+```
+
+#### clusters update-worker-count
+
+```
+Usage: morpheus clusters update-worker-count [cluster] [worker_count]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Resizes a cluster to the specified number of worker nodes.
+[cluster] is required. This is the name or id of an existing cluster.
+[worker_count] is required. This is the desired number of workers.
 ```
 
 #### clusters view
@@ -5820,6 +5884,279 @@ Usage: morpheus containers suspend [id list]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+```
+
+
+### credential-types
+
+```
+Usage: morpheus credential-types [command] [options]
+Commands:
+	get
+	list
+
+View credential types
+```
+
+#### credential-types get
+
+```
+Usage: morpheus credential-types get [credential type]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a credential type.
+[credential type] is required. This is the name or id of a credential type.
+```
+
+#### credential-types list
+
+```
+Usage: morpheus credential-types list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List credential types.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+
+### credentials
+
+```
+Usage: morpheus credentials [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+
+View and manage credentials.
+```
+
+#### credentials add
+
+```
+Usage: morpheus credentials add [credential]
+    -t, --type VALUE                 Credential Type
+        --integration.id VALUE       Credential Store (optional)
+        --name VALUE                 Name
+        --description VALUE          Description (optional)
+        --enabled [on|off]           Enabled (optional). Default: true
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new credential.
+[credential] is required. This is the name of the new credential.
+```
+
+#### credentials get
+
+```
+Usage: morpheus credentials get [credential]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a credential.
+[credential] is required. This is the name or id of a credential.
+```
+
+#### credentials list
+
+```
+Usage: morpheus credentials list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List credentials.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+#### credentials remove
+
+```
+Usage: morpheus credentials remove [credential]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an existing credential.
+[credential] is required. This is the name or id of a credential.
+```
+
+#### credentials update
+
+```
+Usage: morpheus credentials update [credential] [options]
+        --name VALUE                 Name (optional)
+        --description VALUE          Description (optional)
+        --enabled [on|off]           Enabled (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an existing credential.
+[credential] is required. This is the name or id of a credential.
 ```
 
 
@@ -21772,25 +22109,26 @@ Commands:
 
 ```
 Usage: morpheus power-schedules add [name]
-        --name VALUE                 Name
-        --description VALUE          Description
-        --type [power|power off]     Type of Schedule. Default is 'power'
-        --timezone CODE              The timezone. Default is UTC.
-        --sundayOn [0-24]            Sunday start hour. Default is 0.
-        --sundayOff [0-24]           Sunday end hour. Default is 24.
-        --mondayOn [0-24]            Monday start hour. Default is 0.
-        --mondayOff [0-24]           Monday end hour. Default is 24.
-        --tuesdayOn [0-24]           Tuesday start hour. Default is 0.
-        --tuesdayOff [0-24]          Tuesday end hour. Default is 24.
-        --wednesdayOn [0-24]         Wednesday start hour. Default is 0.
-        --wednesdayOff [0-24]        Wednesday end hour. Default is 24.
-        --thursdayOn [0-24]          Thursday start hour. Default is 0.
-        --thursdayOff [0-24]         Thursday end hour. Default is 24.
-        --fridayOn [0-24]            Friday start hour. Default is 0.
-        --fridayOff [0-24]           Friday end hour. Default is 24.
-        --saturdayOn [0-24]          Saturday start hour. Default is 0.
-        --saturdayOff [0-24]         Saturday end hour. Default is 24.
-        --enabled [on|off]           Can be used to disable it
+        --name VALUE                 Name - Choose a unique name for the power schedule
+        --description VALUE          Description (optional) - Description
+        --visibility VALUE           Visibility (optional). Default: private
+        --scheduleTimezone VALUE     Time Zone (optional) - Time Zone
+        --scheduleType VALUE         Schedule Type (optional) - Type of Power Schedule 'power' or 'power off'. Default: power
+        --enabled [on|off]           Enabled (optional) - Enable the power schedule to make it available for use.. Default: true
+        --mondayOnTime HH:MM         Monday Start (optional) - Monday start time in HH:MM 24-hour format. Default: 00:00
+        --mondayOffTime HH:MM        Monday End (optional) - Monday end time in HH:MM 24-hour format. Default: 24:00
+        --tuesdayOnTime HH:MM        Tuesday Start (optional) - Tuesday start time in HH:MM 24-hour format. Default: 00:00
+        --tuesdayOffTime HH:MM       Tuesday End (optional) - Tuesday end time in HH:MM 24-hour format. Default: 24:00
+        --wednesdayOnTime HH:MM      Wednesday Start (optional) - Wednesday start time in HH:MM 24-hour format. Default: 00:00
+        --wednesdayOffTime HH:MM     Wednesday End (optional) - Wednesday end time in HH:MM 24-hour format. Default: 24:00
+        --thursdayOnTime HH:MM       Thursday Start (optional) - Thursday start time in HH:MM 24-hour format. Default: 00:00
+        --thursdayOffTime HH:MM      Thursday End (optional) - Thursday end time in HH:MM 24-hour format. Default: 24:00
+        --fridayOnTime HH:MM         Friday Start (optional) - Friday start time in HH:MM 24-hour format. Default: 00:00
+        --fridayOffTime HH:MM        Friday End (optional) - Friday end time in HH:MM 24-hour format. Default: 24:00
+        --saturdayOnTime HH:MM       Saturday Start (optional) - Saturday start time in HH:MM 24-hour format. Default: 00:00
+        --saturdayOffTime HH:MM      Saturday End (optional) - Saturday end time in HH:MM 24-hour format. Default: 24:00
+        --sundayOnTime HH:MM         Sunday Start (optional) - Sunday start time in HH:MM 24-hour format. Default: 00:00
+        --sundayOffTime HH:MM        Sunday End (optional) - Sunday end time in HH:MM 24-hour format. Default: 24:00
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -21799,6 +22137,7 @@ Usage: morpheus power-schedules add [name]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -21808,7 +22147,6 @@ Usage: morpheus power-schedules add [name]
     -U, --username USERNAME          Username for authentication.
     -P, --password PASSWORD          Password for authentication.
     -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -q, --quiet                      No Output, do not print to stdout
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
@@ -21821,12 +22159,16 @@ Create a new power schedule.
 #### power-schedules add-hosts
 
 ```
-Usage: morpheus power-schedules add-hosts [name] [host]
+Usage: morpheus power-schedules add-hosts [schedule] [host]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -21836,26 +22178,29 @@ Usage: morpheus power-schedules add-hosts [name] [host]
     -U, --username USERNAME          Username for authentication.
     -P, --password PASSWORD          Password for authentication.
     -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -q, --quiet                      No Output, do not print to stdout
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
 Assign hosts to a power schedule.
-[name] is required. This is the name or id of a power schedule.
+[schedule] is required. This is the name or id of a power schedule.
 [host] is required. This is the name or id of a host. More than one can be passed.
 ```
 
 #### power-schedules add-instances
 
 ```
-Usage: morpheus power-schedules add-instances [name] [instance]
+Usage: morpheus power-schedules add-instances [schedule] [instance]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -21865,23 +22210,23 @@ Usage: morpheus power-schedules add-instances [name] [instance]
     -U, --username USERNAME          Username for authentication.
     -P, --password PASSWORD          Password for authentication.
     -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -q, --quiet                      No Output, do not print to stdout
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
 Assign instances to a power schedule.
-[name] is required. This is the name or id of a power schedule.
+[schedule] is required. This is the name or id of a power schedule.
 [instance] is required. This is the name or id of an instance. More than one can be passed.
 ```
 
 #### power-schedules get
 
 ```
-Usage: morpheus power-schedules get [name]
-        --max-instances VALUE        Display a limited number of instances in schedule. Default is 25
-        --max-hosts VALUE            Display a limited number of hosts in schedule. Default is 25
+Usage: morpheus power-schedules get [schedule]
+        --max-instances VALUE        Display a limited number of instances in schedule. Default is 10
+        --max-hosts VALUE            Display a limited number of hosts in schedule. Default is 10
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
@@ -21890,6 +22235,10 @@ Usage: morpheus power-schedules get [name]
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -21908,12 +22257,13 @@ Usage: morpheus power-schedules get [name]
 #### power-schedules list
 
 ```
-Usage: morpheus power-schedules list
+Usage: morpheus power-schedules list [search]
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
     -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
         --csv                        CSV Output
@@ -21922,6 +22272,10 @@ Usage: morpheus power-schedules list
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -21935,18 +22289,27 @@ Usage: morpheus power-schedules list
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+List power schedules.
 ```
 
 #### power-schedules remove
 
 ```
-Usage: morpheus power-schedules remove [name]
+Usage: morpheus power-schedules remove [schedule]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -q, --quiet                      No Output, do not print to stdout
-    -y, --yes                        Auto Confirm
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
@@ -21956,84 +22319,7 @@ Usage: morpheus power-schedules remove [name]
 #### power-schedules remove-hosts
 
 ```
-Usage: morpheus power-schedules remove-hosts [name] [host]
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -q, --quiet                      No Output, do not print to stdout
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Remove hosts from a power schedule.
-[name] is required. This is the name or id of a power schedule.
-[host] is required. This is the name or id of a host. More than one can be passed.
-```
-
-#### power-schedules remove-instances
-
-```
-Usage: morpheus power-schedules remove-instances [name] [instance]
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -q, --quiet                      No Output, do not print to stdout
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Remove instances from a power schedule.
-[name] is required. This is the name or id of a power schedule.
-[instance] is required. This is the name or id of an instance. More than one can be passed.
-```
-
-#### power-schedules update
-
-```
-Usage: morpheus power-schedules update [name]
-        --name VALUE                 Name
-        --description VALUE          Description
-        --type [power|power off]     Type of Schedule. Default is 'power'
-        --timezone CODE              The timezone. Default is UTC.
-        --sundayOn [0-24]            Sunday on hour. Default is 0.
-        --sundayOff [0-24]           Sunday off hour. Default is 24.
-        --mondayOn [0-24]            Monday on hour. Default is 0.
-        --mondayOff [0-24]           Monday off hour. Default is 24.
-        --tuesdayOn [0-24]           Tuesday on hour. Default is 0.
-        --tuesdayOff [0-24]          Tuesday off hour. Default is 24.
-        --wednesdayOn [0-24]         Wednesday on hour. Default is 0.
-        --wednesdayOff [0-24]        Wednesday off hour. Default is 24.
-        --thursdayOn [0-24]          Thursday on hour. Default is 0.
-        --thursdayOff [0-24]         Thursday off hour. Default is 24.
-        --fridayOn [0-24]            Friday on hour. Default is 0.
-        --fridayOff [0-24]           Friday off hour. Default is 24.
-        --saturdayOn [0-24]          Saturday on hour. Default is 0.
-        --saturdayOff [0-24]         Saturday off hour. Default is 24.
-        --enabled [on|off]           Can be used to disable it
+Usage: morpheus power-schedules remove-hosts [schedule] [host]
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -22042,6 +22328,7 @@ Usage: morpheus power-schedules update [name]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -22051,14 +22338,97 @@ Usage: morpheus power-schedules update [name]
     -U, --username USERNAME          Username for authentication.
     -P, --password PASSWORD          Password for authentication.
     -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Remove hosts from a power schedule.
+[schedule] is required. This is the name or id of a power schedule.
+[host] is required. This is the name or id of a host. More than one can be passed.
+```
+
+#### power-schedules remove-instances
+
+```
+Usage: morpheus power-schedules remove-instances [schedule] [instance]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Remove instances from a power schedule.
+[schedule] is required. This is the name or id of a power schedule.
+[instance] is required. This is the name or id of an instance. More than one can be passed.
+```
+
+#### power-schedules update
+
+```
+Usage: morpheus power-schedules update [schedule]
+        --name VALUE                 Name (optional) - Choose a unique name for the power schedule
+        --description VALUE          Description (optional) - Description
+        --visibility VALUE           Visibility (optional)
+        --scheduleTimezone VALUE     Time Zone (optional) - Time Zone
+        --scheduleType VALUE         Schedule Type (optional) - Type of Power Schedule 'power' or 'power off'
+        --enabled [on|off]           Enabled (optional) - Enable the power schedule to make it available for use.
+        --mondayOnTime HH:MM         Monday Start (optional) - Monday start time in HH:MM 24-hour format
+        --mondayOffTime HH:MM        Monday End (optional) - Monday end time in HH:MM 24-hour format
+        --tuesdayOnTime HH:MM        Tuesday Start (optional) - Tuesday start time in HH:MM 24-hour format
+        --tuesdayOffTime HH:MM       Tuesday End (optional) - Tuesday end time in HH:MM 24-hour format
+        --wednesdayOnTime HH:MM      Wednesday Start (optional) - Wednesday start time in HH:MM 24-hour format
+        --wednesdayOffTime HH:MM     Wednesday End (optional) - Wednesday end time in HH:MM 24-hour format
+        --thursdayOnTime HH:MM       Thursday Start (optional) - Thursday start time in HH:MM 24-hour format
+        --thursdayOffTime HH:MM      Thursday End (optional) - Thursday end time in HH:MM 24-hour format
+        --fridayOnTime HH:MM         Friday Start (optional) - Friday start time in HH:MM 24-hour format
+        --fridayOffTime HH:MM        Friday End (optional) - Friday end time in HH:MM 24-hour format
+        --saturdayOnTime HH:MM       Saturday Start (optional) - Saturday start time in HH:MM 24-hour format
+        --saturdayOffTime HH:MM      Saturday End (optional) - Saturday end time in HH:MM 24-hour format
+        --sundayOnTime HH:MM         Sunday Start (optional) - Sunday start time in HH:MM 24-hour format
+        --sundayOffTime HH:MM        Sunday End (optional) - Sunday end time in HH:MM 24-hour format
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
 Update a power schedule.
-[name] is required. This is the name or id of a power schedule.
+[schedule] is required. This is the name or id of a power schedule.
 ```
 
 
@@ -25020,6 +25390,7 @@ Commands:
 	list
 	remove
 	update
+	update-dark-logo
 	update-logo
 
 Self Service: View and manage catalog item types
@@ -25043,6 +25414,7 @@ Usage: morpheus self-service add [name] [options]
         --context VALUE              Context Type (optional) - Context for operational workflow, determines target type. Default: Select
         --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
         --logo FILE                  Upload a custom logo icon
+        --dark-logo FILE             Upload a custom dark logo icon
         --config-file FILE           Config from a local JSON or YAML file
         --option-types [x,y,z]       List of Option Type IDs
     -O, --option OPTION              Option in the format -O field="value"
@@ -25192,6 +25564,7 @@ Usage: morpheus self-service update [type] [options]
         --context VALUE              Context Type (optional) - Context for operational workflow, determines target type
         --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
         --logo FILE                  Upload a custom logo icon
+        --dark-logo FILE             Upload a custom dark logo icon
         --config-file FILE           Config from a local JSON or YAML file
         --option-types [x,y,z]       List of Option Type IDs
     -O, --option OPTION              Option in the format -O field="value"
@@ -25219,6 +25592,30 @@ Usage: morpheus self-service update [type] [options]
 
 Update a catalog item type.
 [type] is required. This is the name or id of a catalog item type.
+```
+
+#### self-service update-dark-logo
+
+```
+Usage: morpheus self-service update-dark-logo [type] [file]
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update the dark logo for a catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+[file] is required. This is the path of the dark logo file
 ```
 
 #### self-service update-logo
@@ -25256,6 +25653,7 @@ Commands:
 	deactivate
 	get
 	list
+	remove
 	update
 ```
 
@@ -25426,6 +25824,30 @@ Usage: morpheus service-plans list
     -h, --help                       Print this help
 
 List service plans.
+```
+
+#### service-plans remove
+
+```
+Usage: morpheus service-plans remove [plan]
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -y, --yes                        Auto Confirm
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a service plan.
+[plan] is required. Service plan ID, name or code
 ```
 
 #### service-plans update

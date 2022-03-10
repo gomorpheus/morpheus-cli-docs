@@ -6,6 +6,25 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.4.4
+
+### Enhancements
+
+* New command `credentials` to manage Credential objects
+* Updated `power-schedules` to support more granular times with `HH:MM` format (requires api 5.4.4)
+* New subcommands `clusters update-worker-count|remove-worker` to change the number of workers or remove a specific worker
+* Updated `self-service` to support new option `--dark-logo`
+
+### Fixes
+
+* Fixed `instances add|resize` prompting for root volume size when provision type does not support customization
+
+## 5.4.3.1
+
+### Fixes
+
+* Fixed `instances add` error seen when plan has customizable memory but no default value defined
+
 ## 5.4.3
 
 ### Enhancements
@@ -16,7 +35,7 @@ Backwards compatibility with older appliances should be preserved in most cases.
 * Updated `virtual-images list` to support new option `--synced` and updated help to note "Default list applies User filter"
 * Updated `library-instance-types list` to support new option `--featured`
 * New command `snapshots` to manage Snapshots
-* Removed command `instances remove-snapshot`. This has been replaced with `snapshots remove`.
+* Removed command `instances remove-snapshot`. This has been replaced with `snapshots remove`
 
 ### Fixes
 
