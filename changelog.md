@@ -6,6 +6,38 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.4.5.1
+
+### Fixes
+
+* Fixed man error
+
+## 5.4.5
+
+### Enhancements
+
+* New commands `apps state` to view state information for Terraform apps
+* Updated command `apps apply` to prompt for template parameters, use new validate-apply endpoint and also refresh until apply is complete
+* New commands `instances apply` and `instances state` for Terraform instance types
+* Updated command `clusters add` to support `--tags` and `--labels` options
+
+### Fixes
+
+* Fixed `catalog add` issue that caused option type list prompts to not work correctly
+* Fixed `clusters add` issue with nodeCount parameter being required at server level too
+
+## 5.4.4.2
+
+### Fixes
+
+* Fixed `catalog add` issue loading option lists values, `optionTypeId={id}` was not being included
+
+## 5.4.4.1
+
+### Fixes
+
+* Fixed `instances clone-image` error due to `vmwareFolders` options source url change
+
 ## 5.4.4
 
 ### Enhancements

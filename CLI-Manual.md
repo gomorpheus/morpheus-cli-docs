@@ -1,4 +1,4 @@
-Morpheus CLI v5.4.4
+Morpheus CLI v5.4.5
 
 ## Getting Started
 
@@ -743,6 +743,7 @@ Commands:
 	restart
 	security-groups
 	start
+	state
 	stop
 	update
 	update-wiki
@@ -812,6 +813,11 @@ Add an existing instance to an app.
 
 ```
 Usage: morpheus apps apply [app] [options]
+    -p, --parameter NAME=VALUE       Template parameter name and value
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 15 seconds.
+        --no-refresh                 Do not refresh
+        --no-validate                Do not validate planned changes before apply
+        --validate-only              Only validate planned changes, do not execute the apply command.
     -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -839,6 +845,9 @@ Usage: morpheus apps apply [app] [options]
 Apply an app.
 [app] is required. This is the name or id of an app.
 This is only supported by certain types of apps such as terraform.
+By default this executes two requests to validate and then apply the changes.
+The first request corresponds to the terraform plan command only.
+Use --no-validate to skip this step apply changes in one step.
 ```
 
 #### apps apply-security-groups
@@ -1207,6 +1216,48 @@ Usage: morpheus apps start [app]
 
 Start an app.
 [app] is required. This is the name or id of an app. Supports 1-N [app] arguments.
+```
+
+#### apps state
+
+```
+Usage: morpheus apps state [app] [options]
+        --data                       Display State Data
+        --specs                      Display Spec Templates
+        --plan                       Display Plan Data
+        --input                      Display Input
+        --output                     Display Output
+    -a, --all                        Display All Details
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+View state of an app.
+[app] is required. This is the name or id of an app.
+This is only supported by certain types of apps such as terraform.
 ```
 
 #### apps stop
@@ -4047,7 +4098,8 @@ Usage: morpheus clusters add [name]
         --name NAME                  Cluster Name
         --description [TEXT]         Description
         --resource-name NAME         Resource Name
-        --tags LIST                  Tags
+        --tags LIST                  Metadata tags in the format 'ping=pong,flash=bang'
+        --labels LIST                Tags
     -g, --group GROUP                Group Name or ID
     -t, --cluster-type TYPE          Cluster Type Name or ID
     -l, --layout LAYOUT              Layout Name or ID
@@ -4148,6 +4200,8 @@ Create a cluster namespace.
 Usage: morpheus clusters add-worker [cluster] [options]
         --name NAME                  Name of the new worker
         --description [TEXT]         Description
+        --tags LIST                  Metadata tags in the format 'ping=pong,flash=bang'
+        --labels LIST                Tags
     -c, --cloud CLOUD                Cloud Name or ID
         --resource-pool ID           ID of the Resource Pool for Amazon VPC and Azure Resource Group
     -p, --plan PLAN                  Service Plan
@@ -9953,6 +10007,7 @@ Commands:
 	snapshots
 	start
 	start-service
+	state
 	stats
 	status-check
 	stop
@@ -10072,6 +10127,11 @@ The available options vary by --type.
 
 ```
 Usage: morpheus instances apply [instance] [options]
+    -p, --parameter NAME=VALUE       Template parameter name and value
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 15 seconds.
+        --no-refresh                 Do not refresh
+        --no-validate                Do not validate planned changes before apply
+        --validate-only              Only validate planned changes, do not execute the apply command.
     -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -10099,6 +10159,9 @@ Usage: morpheus instances apply [instance] [options]
 Apply an instance.
 [instance] is required. This is the name or id of an instance.
 This is only supported by certain types of instances such as terraform.
+By default this executes two requests to validate and then apply the changes.
+The first request corresponds to the terraform plan command only.
+Use --no-validate to skip this step apply changes in one step.
 ```
 
 #### instances apply-security-groups
@@ -11413,6 +11476,48 @@ Usage: morpheus instances start-service [instance]
 
 Start service on an instance.
 [instance] is required. This is the name or id of an instance. Supports 1-N [instance] arguments.
+```
+
+#### instances state
+
+```
+Usage: morpheus instances state [instance] [options]
+        --data                       Display State Data
+        --specs                      Display Spec Templates
+        --plan                       Display Plan Data
+        --input                      Display Input
+        --output                     Display Output
+    -a, --all                        Display All Details
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+View state of an instance.
+[instance] is required. This is the name or id of an instance.
+This is only supported by certain types of apps such as terraform.
 ```
 
 #### instances stats
@@ -13545,6 +13650,7 @@ Usage: morpheus library-layouts add [instance-type]
         --option-types [x,y,z]       List of Option Type IDs
         --node-types [x,y,z]         List of Node Type IDs
         --spec-templates [x,y,z]     List of Spec Templates to include in this layout, comma separated list of names or IDs.
+        --tfvar-secret VALUE         Tfvar Secret name, eg. 'tfvars/dev-key'
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
     -O, --option OPTION              Option in the format -O field="value"
@@ -13688,6 +13794,7 @@ Usage: morpheus library-layouts update [layout] [options]
         --option-types [x,y,z]       List of Option Type IDs
         --node-types [x,y,z]         List of Node Type IDs
         --spec-templates [x,y,z]     List of Spec Templates to include in this layout, comma separated list of names or IDs.
+        --tfvar-secret VALUE         Tfvar Secret name, eg. 'tfvars/dev-key'
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
     -O, --option OPTION              Option in the format -O field="value"
@@ -15884,7 +15991,7 @@ Usage: morpheus load-balancers add [load balancer]
 
 Create a new load balancer.
 [load balancer] is required. This is the name of the new load balancer.
-[1mAvailable for NSX-T load balancers only[0m
+Available for NSX-T load balancers only
 ```
 
 #### load-balancers get
@@ -16050,7 +16157,7 @@ Usage: morpheus load-balancers update [load balancer] [options]
 
 Update an existing load balancer.
 [load balancer] is required. This is the name or id of a load balancer.
-[1mAvailable for NSX-T load balancers only[0m
+Available for NSX-T load balancers only
 ```
 
 
@@ -30944,6 +31051,7 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
+
 
 ## Environment Variables
 
