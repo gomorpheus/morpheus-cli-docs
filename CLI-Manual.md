@@ -1,4 +1,4 @@
-Morpheus CLI v5.4.5
+Morpheus CLI v5.5.0
 
 ## Getting Started
 
@@ -3698,6 +3698,8 @@ Usage: morpheus clouds add [name] --group GROUP --type TYPE
     -t, --type TYPE                  Cloud Type
         --description DESCRIPTION    Description (optional)
         --certificate-provider CODE  Certificate Provider. Default is 'internal'
+        --costing-mode VALUE         Costing Mode can be off,costing,full, Default is off.
+        --credential VALUE           Credential ID or "local"
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -3957,6 +3959,8 @@ Usage: morpheus clouds types
 
 ```
 Usage: morpheus clouds update [name] [options]
+        --costing-mode VALUE         Costing Mode can be off, costing, or full. Default is off.
+        --credential VALUE           Credential ID or "local"
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -14054,8 +14058,9 @@ Usage: morpheus library-option-lists add [name] [options]
         --realTime [on|off]          Real Time (optional)
         --sourceMethod VALUE         Source Method. Default: GET
         --apiType VALUE              Option List - The code of the api option list to use, eg. clouds, environments, groups, instances, instance-wiki, networks, servicePlans, resourcePools, securityGroups, servers, server-wiki
-        --sourceUsername VALUE       Source Username (optional) - An LDAP Username for use when type is 'ldap'.
-        --sourcePassword VALUE       Source Username (optional) - An LDAP Password for use when type is 'ldap'.
+        --credential VALUE           Credentials - Credential ID or use "local" to specify username and password. Default: local
+        --serviceUsername VALUE      Username (optional) - An LDAP Username for use when type is 'ldap'.
+        --servicePassword VALUE      Password (optional) - An LDAP Password for use when type is 'ldap'.
         --ldapQuery VALUE            LDAP Query (optional) - LDAP Queries are standard LDAP formatted queries where different objects can be searched. Dependent parameters can be loaded into the query using the <%=phrase%> syntax.
         --initialDataset VALUE       Initial Dataset (optional) - Create an initial json dataset to be used as the collection for this option list. It should be a list containing objects with properties 'name', and 'value'. However, if there is a translation script, that will also be passed through.
         --translationScript VALUE    Translation Script (optional) - Create a js script to translate the result data object into an Array containing objects with properties name, and value. The input data is provided as data and the result should be put on the global variable results.
@@ -14235,8 +14240,9 @@ Usage: morpheus library-option-lists update [name] [options]
         --realTime [on|off]          Real Time (optional)
         --sourceMethod VALUE         Source Method (optional)
         --apiType VALUE              Option List (optional) - The code of the api option list to use, eg. clouds, environments, groups, instances, instance-wiki, networks, servicePlans, resourcePools, securityGroups, servers, server-wiki
-        --sourceUsername VALUE       Source Username (optional) - An LDAP Username for use when type is 'ldap'.
-        --sourcePassword VALUE       Source Username (optional) - An LDAP Password for use when type is 'ldap'.
+        --credential VALUE           Credentials (optional) - Credential ID or use "local" to specify username and password
+        --serviceUsername VALUE      Username (optional) - An LDAP Username for use when type is 'ldap'.
+        --servicePassword VALUE      Password (optional) - An LDAP Password for use when type is 'ldap'.
         --ldapQuery VALUE            LDAP Query (optional) - LDAP Queries are standard LDAP formatted queries where different objects can be searched. Dependent parameters can be loaded into the query using the <%=phrase%> syntax.
         --initialDataset VALUE       Initial Dataset (optional) - Create an initial json dataset to be used as the collection for this option list. It should be a list containing objects with properties 'name', and 'value'. However, if there is a translation script, that will also be passed through.
         --translationScript VALUE    Translation Script (optional) - Create a js script to translate the result data object into an Array containing objects with properties name, and value. The input data is provided as data and the result should be put on the global variable results.
@@ -15991,7 +15997,7 @@ Usage: morpheus load-balancers add [load balancer]
 
 Create a new load balancer.
 [load balancer] is required. This is the name of the new load balancer.
-Available for NSX-T load balancers only
+[1mAvailable for NSX-T load balancers only[0m
 ```
 
 #### load-balancers get
@@ -16157,7 +16163,7 @@ Usage: morpheus load-balancers update [load balancer] [options]
 
 Update an existing load balancer.
 [load balancer] is required. This is the name or id of a load balancer.
-Available for NSX-T load balancers only
+[1mAvailable for NSX-T load balancers only[0m
 ```
 
 
@@ -27300,10 +27306,12 @@ Usage: morpheus tasks add [name] -t TASK_TYPE
         --content-ref VALUE          Content Ref (Version Ref), for use when source is repository
         --result-type VALUE          Result Type
         --execute-target VALUE       Execute Target
+        --credential VALUE           Credential ID or "local"
         --target-host VALUE          Target Host
         --target-port VALUE          Target Port
         --target-username VALUE      Target Username
         --target-password VALUE      Target Password
+        --target-ssh-key VALUE       Target SSH Key
         --git-repo VALUE             Git Repo ID
         --git-ref VALUE              Git Ref
         --retryable [on|off]         Retryable
@@ -27535,10 +27543,12 @@ Usage: morpheus tasks update [task] [options]
         --content-ref VALUE          Content Ref (Version Ref), for use when source is repository
         --result-type VALUE          Result Type
         --execute-target VALUE       Execute Target
+        --credential VALUE           Credential ID or "local"
         --target-host VALUE          Target Host
         --target-port VALUE          Target Port
         --target-username VALUE      Target Username
         --target-password VALUE      Target Password
+        --target-ssh-key VALUE       Target SSH Key
         --git-repo VALUE             Git Repo ID
         --git-ref VALUE              Git Ref
         --retryable [on|off]         Retryable

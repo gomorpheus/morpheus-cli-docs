@@ -6,6 +6,21 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.0
+
+### Enhancements
+
+* Updated `clouds add` to prompt for credential
+* Updated `tasks add` to prompt for credential
+* Updated `library-option-lists add` to prompt for credential
+* Updated `clouds add` to prompt for "Automatically Power VMs" (autoRecoverPowerState)
+
+### Fixes
+
+* Fixed `cypher get` not displaying data for responses that do not have a cypher item.
+* Fixed `prices add --currency` so it uses the most recent list of supported currencies.
+* Fixed `view cloud [id]` error
+
 ## 5.4.5.1
 
 ### Fixes
