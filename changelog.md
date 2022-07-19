@@ -8,7 +8,7 @@ Backwards compatibility with older appliances should be preserved in most cases.
 
 ## 5.5.1.1
 
-### Enhancements
+### Fixes
 
 * Fixed `clouds add` error seen for type VMware related to new option type for credentials
 
