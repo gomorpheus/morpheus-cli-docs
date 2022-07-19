@@ -6,6 +6,32 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.1
+
+### Enhancements
+
+* New command `scale-thresholds` for managing Scale Thresholds
+* New subcommand `clusters upgrade-cluster` to support MKS upgrade version upgrades
+* Updated `roles add` and `roles update` to support updating any role permission and global access level such as `--permissions CODE=ACCESS`,`CODE=ACCESS`, `--global-group-access ACCESS`, `--instance-types CODE=ACCESS`,`CODE=ACCESS`, etc.
+* Updated `clouds refresh` to add new support options `--mode costing --period 202206 --rebuild`
+* Updated `tasks add` to prompt for credential
+* Updated `library-option-types` (inputs) to support new "Verify Pattern" property
+* CLI prompting for option type inputs now validates the `verifyPattern` regex pattern by matching it against the entire user input value
+* Updated `library-node-types add|update` to support new option `--ports NAME=PORT`,`NAME=PORT`
+* Updated `hosts remove`, `clusters remove` and `clusters remove-worker` to display a different success message that indicates when approval is required and the cluster/worker removal is now pending approval
+* Updated `load-balancers get` with Price and Provider ID and removed SSL columns. Also tweaked `load-balancers add` as well
+* Updated `clusters` to remove deprecated option `--display-name` and property `Display Name`
+* Updated `clusters` to use the integrated credential option type to use a stored credential
+* Updated `resource-pools` to support `Display Name` property
+
+### Fixes
+
+* Fix `library-node-types get --curl` causing an error
+* Fix issue with prompting for some option types (inputs) that have `config.multiSelect: true` to support multiple values
+* Fix `clouds refresh --mode costing --rebuild` error
+* Fix `invoices line-items-list --all --wrap` still truncating Item ID
+* Fixed `user-sources add` so that `--tenant` is no longer required and is also prompted for, also Default Role prompt works with ID or Authority now, also SAML type inputs are prompted for such as those under the SAML SSO Configuration and Role Mappings sections
+
 ## 5.5.0
 
 ### Enhancements

@@ -1,4 +1,4 @@
-Morpheus CLI v5.5.0
+Morpheus CLI v5.5.1
 
 ## Getting Started
 
@@ -218,6 +218,7 @@ Commands:
 	resource-folders
 	resource-pools
 	roles
+	scale-thresholds
 	search
 	security-groups
 	self-service
@@ -371,6 +372,7 @@ Usage: morpheus activity list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -498,6 +500,7 @@ Usage: morpheus appliance-settings get
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -702,6 +705,7 @@ Usage: morpheus approvals list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -814,7 +818,7 @@ Add an existing instance to an app.
 ```
 Usage: morpheus apps apply [app] [options]
     -p, --parameter NAME=VALUE       Template parameter name and value
-        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 15 seconds.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
         --no-refresh                 Do not refresh
         --no-validate                Do not validate planned changes before apply
         --validate-only              Only validate planned changes, do not execute the apply command.
@@ -924,6 +928,7 @@ Usage: morpheus apps get [app]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -967,6 +972,7 @@ Usage: morpheus apps history [app]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -1011,6 +1017,7 @@ Usage: morpheus apps list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -1056,6 +1063,7 @@ Usage: morpheus apps logs [app]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -1235,6 +1243,7 @@ Usage: morpheus apps state [app] [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -1961,6 +1970,7 @@ Usage: morpheus backup-settings get
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -2399,6 +2409,7 @@ Usage: morpheus blueprints get [blueprint]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -2441,6 +2452,7 @@ Usage: morpheus blueprints list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -2577,6 +2589,7 @@ Usage: morpheus blueprints types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -2797,6 +2810,7 @@ Usage: morpheus budgets get [budget]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -2837,6 +2851,7 @@ Usage: morpheus budgets list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3040,6 +3055,7 @@ Usage: morpheus catalog cart
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3134,6 +3150,7 @@ Usage: morpheus catalog dashboard
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3171,6 +3188,7 @@ Usage: morpheus catalog get [item]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3207,6 +3225,7 @@ Usage: morpheus catalog get-type [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3249,6 +3268,7 @@ Usage: morpheus catalog list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3290,6 +3310,7 @@ Usage: morpheus catalog list-types [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3470,6 +3491,7 @@ Usage: morpheus certificates get [certificate]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3506,6 +3528,7 @@ Usage: morpheus certificates get-type [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3546,6 +3569,7 @@ Usage: morpheus certificates list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3586,6 +3610,7 @@ Usage: morpheus certificates list-types [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3783,6 +3808,7 @@ Usage: morpheus clouds get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3825,6 +3851,7 @@ Usage: morpheus clouds list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -3851,7 +3878,10 @@ List clouds.
 #### clouds refresh
 
 ```
-Usage: morpheus clouds refresh [name] [options]
+Usage: morpheus clouds refresh [cloud] [options]
+    -m, --mode [daily|costing]       Refresh Mode. Use this to run the daily or costing jobs instead of the default hourly refresh.
+        --rebuild [on|off]           Rebuild invoices for period. Only applies to mode=costing.
+        --period PERIOD              Period in the format YYYYMM to process invoices for. Default is the current period. Only applies to mode=costing.
     -f, --force                      Force refresh. Useful if the cloud is disabled.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -3938,6 +3968,7 @@ Usage: morpheus clouds types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4089,6 +4120,7 @@ Commands:
 	update-permissions
 	update-wiki
 	update-worker-count
+	upgrade-cluster
 	view
 	view-api-token
 	view-kube-config
@@ -4263,6 +4295,7 @@ Usage: morpheus clusters api-config [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4342,6 +4375,7 @@ Usage: morpheus clusters get-datastore [cluster] [datastore]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4375,6 +4409,7 @@ Usage: morpheus clusters get-namespace [cluster] [namespace]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4417,6 +4452,7 @@ Usage: morpheus clusters history [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4448,6 +4484,7 @@ Usage: morpheus clusters history-details [cluster] [process-id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4480,6 +4517,7 @@ Usage: morpheus clusters history-event [cluster] [event-id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4517,6 +4555,7 @@ Usage: morpheus clusters list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4554,6 +4593,7 @@ Usage: morpheus clusters list-containers [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4590,6 +4630,7 @@ Usage: morpheus clusters list-datastores [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4627,6 +4668,7 @@ Usage: morpheus clusters list-deployments [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4663,6 +4705,7 @@ Usage: morpheus clusters list-jobs [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4699,6 +4742,7 @@ Usage: morpheus clusters list-masters [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4735,6 +4779,7 @@ Usage: morpheus clusters list-namespaces [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4772,6 +4817,7 @@ Usage: morpheus clusters list-pods [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4808,6 +4854,7 @@ Usage: morpheus clusters list-services [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4845,6 +4892,7 @@ Usage: morpheus clusters list-stateful-sets [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4881,6 +4929,7 @@ Usage: morpheus clusters list-volumes [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4917,6 +4966,7 @@ Usage: morpheus clusters list-workers [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -4958,6 +5008,7 @@ Usage: morpheus clusters logs [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -5562,6 +5613,37 @@ Resizes a cluster to the specified number of worker nodes.
 [worker_count] is required. This is the desired number of workers.
 ```
 
+#### clusters upgrade-cluster
+
+```
+Usage: morpheus clusters upgrade-cluster [cluster]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Updates kubernetes version (kubectl and kubeadm) of the specified cluster.
+[cluster] is required. This is the name or id of an existing cluster.
+```
+
 #### clusters view
 
 ```
@@ -5619,6 +5701,7 @@ Usage: morpheus clusters view-kube-config [cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -5798,6 +5881,7 @@ Usage: morpheus containers get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -5836,6 +5920,7 @@ Usage: morpheus containers logs [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -5967,6 +6052,7 @@ Usage: morpheus credential-types get [credential type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6007,6 +6093,7 @@ Usage: morpheus credential-types list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6093,6 +6180,7 @@ Usage: morpheus credentials get [credential]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6133,6 +6221,7 @@ Usage: morpheus credentials list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6242,6 +6331,7 @@ Usage: morpheus cypher get [key]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -6279,6 +6369,7 @@ Usage: morpheus cypher list [key]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -6323,6 +6414,7 @@ Usage: morpheus cypher put [key] [value] [options] to store a string.
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -6392,6 +6484,7 @@ Usage: morpheus dashboard
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6438,6 +6531,7 @@ Usage: morpheus datastores get [cloud] [datastore]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -6474,6 +6568,7 @@ Usage: morpheus datastores list [cloud]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -6714,6 +6809,7 @@ Usage: morpheus deployments get [deployment]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6792,6 +6888,7 @@ Usage: morpheus deployments list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6831,6 +6928,7 @@ Usage: morpheus deployments list-files [deployment] [version] [path] [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -6873,6 +6971,7 @@ Usage: morpheus deployments list-versions [deployment] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -7188,6 +7287,7 @@ Usage: morpheus deploys get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -7228,6 +7328,7 @@ Usage: morpheus deploys list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -7422,6 +7523,7 @@ Usage: morpheus environments get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -7455,6 +7557,7 @@ Usage: morpheus environments list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -7668,6 +7771,7 @@ Usage: morpheus execute-schedules get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -7700,6 +7804,7 @@ Usage: morpheus execute-schedules list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -7889,6 +7994,7 @@ Usage: morpheus execution-request get [uid]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -7999,6 +8105,7 @@ Usage: morpheus file-copy-request get [uid]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -8173,6 +8280,7 @@ Usage: morpheus groups get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -8213,6 +8321,7 @@ Usage: morpheus groups list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -8470,6 +8579,7 @@ Usage: morpheus guidance get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -8539,6 +8649,7 @@ Usage: morpheus guidance list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -8573,6 +8684,7 @@ Usage: morpheus guidance stats
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -8607,6 +8719,7 @@ Usage: morpheus guidance types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -8697,6 +8810,7 @@ Usage: morpheus health alarms
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -8768,6 +8882,7 @@ Usage: morpheus health get [-a] [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -8801,6 +8916,7 @@ Usage: morpheus health get-alarm [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -8842,6 +8958,7 @@ Usage: morpheus health logs
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -9045,6 +9162,7 @@ Usage: morpheus hosts get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -9108,6 +9226,7 @@ Usage: morpheus hosts list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -9152,6 +9271,7 @@ Usage: morpheus hosts logs [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -9288,6 +9408,7 @@ Usage: morpheus hosts snapshots [host]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -9325,6 +9446,7 @@ Usage: morpheus hosts software [host]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -9415,6 +9537,7 @@ Usage: morpheus hosts stats [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -9474,6 +9597,7 @@ Usage: morpheus hosts types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -9899,6 +10023,7 @@ Usage: morpheus instance-types get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -9935,6 +10060,7 @@ Usage: morpheus instance-types list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -10132,7 +10258,7 @@ The available options vary by --type.
 ```
 Usage: morpheus instances apply [instance] [options]
     -p, --parameter NAME=VALUE       Template parameter name and value
-        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 15 seconds.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
         --no-refresh                 Do not refresh
         --no-validate                Do not validate planned changes before apply
         --validate-only              Only validate planned changes, do not execute the apply command.
@@ -10437,6 +10563,7 @@ Usage: morpheus instances containers [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -10542,6 +10669,7 @@ Usage: morpheus instances deploys [instance] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -10729,6 +10857,7 @@ Usage: morpheus instances get [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -10774,6 +10903,7 @@ Usage: morpheus instances history [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -10805,6 +10935,7 @@ Usage: morpheus instances history-details [instance] [process-id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -10837,6 +10968,7 @@ Usage: morpheus instances history-event [instance] [event-id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -10914,6 +11046,7 @@ Usage: morpheus instances list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -10990,6 +11123,7 @@ Usage: morpheus instances logs [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -11262,6 +11396,7 @@ Usage: morpheus instances scaling [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -11408,6 +11543,7 @@ Usage: morpheus instances snapshots [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -11499,6 +11635,7 @@ Usage: morpheus instances state [instance] [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -11534,6 +11671,7 @@ Usage: morpheus instances stats [instance]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -11900,6 +12038,7 @@ Usage: morpheus integrations get [integration]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -11936,6 +12075,7 @@ Usage: morpheus integrations get-object [integration] [object]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -11972,6 +12112,7 @@ Usage: morpheus integrations get-type [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12015,6 +12156,7 @@ Usage: morpheus integrations list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12055,6 +12197,7 @@ Usage: morpheus integrations list-objects [integration] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12096,6 +12239,7 @@ Usage: morpheus integrations list-types [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12269,6 +12413,7 @@ Usage: morpheus invoices get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12305,6 +12450,7 @@ Usage: morpheus invoices get-line-item [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12368,6 +12514,7 @@ Usage: morpheus invoices list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12430,6 +12577,7 @@ Usage: morpheus invoices list-line-items
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12460,6 +12608,8 @@ Usage: morpheus invoices refresh [-c CLOUD]
     -c, --clouds CLOUD               Specify clouds to refresh costing for.
         --all                        Refresh costing for all clouds. This can be used instead of --clouds
         --date DATE                  Date to collect costing for. By default the cost data is collected for the end of the previous job interval (hour or day).
+        --period PERIOD              Period in the format YYYYMM to process invoices for. Default is the current period. This is an alias for the --date option.
+        --rebuild                    Rebuild invoices for period. Only applies to mode=costing.
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
@@ -12562,6 +12712,7 @@ Usage: morpheus jobs add [name]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12571,7 +12722,6 @@ Usage: morpheus jobs add [name]
     -U, --username USERNAME          Username for authentication.
     -P, --password PASSWORD          Password for authentication.
     -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -q, --quiet                      No Output, do not print to stdout
     -C, --nocolor                    Disable ANSI coloring
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
@@ -12608,7 +12758,20 @@ Run job.
 
 ```
 Usage: morpheus jobs get [job] [max-exec-count]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12632,8 +12795,21 @@ Get details about a job.
 
 ```
 Usage: morpheus jobs get-execution [id]
-    -D, --details [on|off]           Can be used to enable / disable execution details. Default is on
+    -a, --all                        Show all details.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12656,7 +12832,20 @@ Get details about a job.
 
 ```
 Usage: morpheus jobs get-execution-event [id] [event]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12696,6 +12885,7 @@ Usage: morpheus jobs list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12730,6 +12920,7 @@ Usage: morpheus jobs list-executions [job]
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
     -D, --desc                       Reverse Sort Order
+    -a, --all                        Show all details.
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
@@ -12737,6 +12928,7 @@ Usage: morpheus jobs list-executions [job]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -12765,7 +12957,10 @@ List job executions.
 
 ```
 Usage: morpheus jobs remove [job]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12806,20 +13001,8 @@ Usage: morpheus jobs update [job]
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
-    -m, --max MAX                    Max Results
-    -o, --offset OFFSET              Offset Results
-    -s, --search PHRASE              Search Phrase
-    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
-    -D, --desc                       Reverse Sort Order
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
-    -y, --yaml                       YAML Output
-        --csv                        CSV Output
-        --quotes                     Wrap CSV values with ". Default: false
-        --no-header                  Exclude header for CSV Output.
-    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
-        --all-fields                 Show all fields present in the data.
-        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -12895,6 +13078,7 @@ Usage: morpheus key-pairs get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -12929,6 +13113,7 @@ Usage: morpheus key-pairs list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13094,6 +13279,7 @@ Usage: morpheus library-cluster-layouts get [layout]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13131,6 +13317,7 @@ Usage: morpheus library-cluster-layouts list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13286,6 +13473,7 @@ Usage: morpheus library-file-templates get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13318,6 +13506,7 @@ Usage: morpheus library-file-templates list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13453,6 +13642,7 @@ Usage: morpheus library-instance-types get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13490,6 +13680,7 @@ Usage: morpheus library-instance-types list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13695,6 +13886,7 @@ Usage: morpheus library-layouts get [layout]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -13739,6 +13931,7 @@ Usage: morpheus library-layouts list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13882,6 +14075,7 @@ Usage: morpheus library-node-types add
         --shortName VALUE            Short Name
         --version VALUE              Version
         --technology CODE            Technology. This is the provision type code.
+        --ports NAME=PORT,NAME=PORT  List of exposed port definitions in the format NAME=PORT|PROTOCOL, Example: "WEB=80|HTTP,SECURE=443|HTTPS"
         --scripts x,y,z              List of Script IDs
         --file-templates x,y,z       List of File Template IDs
     -O, --option OPTION              Option in the format -O field="value"
@@ -13920,6 +14114,7 @@ Usage: morpheus library-node-types get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -13959,6 +14154,7 @@ Usage: morpheus library-node-types list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14008,6 +14204,7 @@ Usage: morpheus library-node-types update [name] [options]
         --name VALUE                 Name for this layout
         --shortName VALUE            Short Name
         --version VALUE              Version
+        --ports NAME=PORT,NAME=PORT  List of exposed port definitions in the format NAME=PORT|PROTOCOL, Example: "WEB=80|HTTP,SECURE=443|HTTPS"
         --scripts x,y,z              List of Script IDs
         --file-templates x,y,z       List of File Template IDs
     -O, --option OPTION              Option in the format -O field="value"
@@ -14102,6 +14299,7 @@ Usage: morpheus library-option-lists get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -14143,6 +14341,7 @@ Usage: morpheus library-option-lists list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -14177,6 +14376,7 @@ Usage: morpheus library-option-lists list-items [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -14302,6 +14502,7 @@ Usage: morpheus library-option-types add [options]
         --defaultValue VALUE         Default Value (optional)
         --required [on|off]          Required (optional)
         --exportMeta [on|off]        Export As Tag (optional) - Export as Tag.
+        --verifyPattern VALUE        Verify Pattern (optional) - A regexp string that validates the input, use (?i) to make the matcher case insensitive
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -14339,6 +14540,7 @@ Usage: morpheus library-option-types get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -14379,6 +14581,7 @@ Usage: morpheus library-option-types list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -14443,6 +14646,7 @@ Usage: morpheus library-option-types update [name] [options]
         --defaultValue VALUE         Default Value (optional)
         --required [on|off]          Required (optional)
         --exportMeta [on|off]        Export As Tag (optional) - Export as Tag.
+        --verifyPattern VALUE        Verify Pattern (optional) - A regexp string that validates the input, use (?i) to make the matcher case insensitive
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -14531,6 +14735,7 @@ Usage: morpheus library-scripts get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14564,6 +14769,7 @@ Usage: morpheus library-scripts list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14700,6 +14906,7 @@ Usage: morpheus library-spec-templates get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14733,6 +14940,7 @@ Usage: morpheus library-spec-templates list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14768,6 +14976,7 @@ Usage: morpheus library-spec-templates list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14902,6 +15111,7 @@ Usage: morpheus library-upgrades get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -14940,6 +15150,7 @@ Usage: morpheus library-upgrades list [instance-type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -15034,6 +15245,7 @@ Usage: morpheus license get
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -15085,6 +15297,7 @@ Usage: morpheus license test [key]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -15190,6 +15403,7 @@ Usage: morpheus load-balancer-monitors get [load balancer] [load balancer monito
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15231,6 +15445,7 @@ Usage: morpheus load-balancer-monitors list [load balancer] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15373,6 +15588,7 @@ Usage: morpheus load-balancer-pools get [load balancer] [load balancer pool]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15414,6 +15630,7 @@ Usage: morpheus load-balancer-pools list [load balancer] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15556,6 +15773,7 @@ Usage: morpheus load-balancer-profiles get [load balancer] [load balancer profil
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15597,6 +15815,7 @@ Usage: morpheus load-balancer-profiles list [load balancer] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15702,6 +15921,7 @@ Usage: morpheus load-balancer-types get [load balancer type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15742,6 +15962,7 @@ Usage: morpheus load-balancer-types list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15824,6 +16045,7 @@ Usage: morpheus load-balancer-virtual-servers get [load balancer] [vipName]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15865,6 +16087,7 @@ Usage: morpheus load-balancer-virtual-servers list [load balancer] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -15997,7 +16220,6 @@ Usage: morpheus load-balancers add [load balancer]
 
 Create a new load balancer.
 [load balancer] is required. This is the name of the new load balancer.
-[1mAvailable for NSX-T load balancers only[0m
 ```
 
 #### load-balancers get
@@ -16011,6 +16233,7 @@ Usage: morpheus load-balancers get [load balancer]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -16051,6 +16274,7 @@ Usage: morpheus load-balancers list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -16163,7 +16387,6 @@ Usage: morpheus load-balancers update [load balancer] [options]
 
 Update an existing load balancer.
 [load balancer] is required. This is the name or id of a load balancer.
-[1mAvailable for NSX-T load balancers only[0m
 ```
 
 
@@ -16218,6 +16441,7 @@ Usage: morpheus log-settings get
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -16386,6 +16610,7 @@ Usage: morpheus logs list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -16468,6 +16693,7 @@ Usage: morpheus monitor-alerts get [alert]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -16504,6 +16730,7 @@ Usage: morpheus monitor-alerts list
         --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -16658,6 +16885,7 @@ Usage: morpheus monitor-apps get [id list]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -16693,6 +16921,7 @@ Usage: morpheus monitor-apps list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -16956,6 +17185,7 @@ Usage: morpheus monitor-checks get [id list]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -16989,6 +17219,7 @@ Usage: morpheus monitor-checks history [name] [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -17025,6 +17256,7 @@ Usage: morpheus monitor-checks list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -17058,6 +17290,7 @@ Usage: morpheus monitor-checks list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -17313,6 +17546,7 @@ Usage: morpheus monitor-contacts get [contact]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -17348,6 +17582,7 @@ Usage: morpheus monitor-contacts list
         --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -17495,6 +17730,7 @@ Usage: morpheus monitor-groups get [id list]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -17528,6 +17764,7 @@ Usage: morpheus monitor-groups history [name] [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -17564,6 +17801,7 @@ Usage: morpheus monitor-groups list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -17843,6 +18081,7 @@ Usage: morpheus monitor-incidents get [id list]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
@@ -17877,6 +18116,7 @@ Usage: morpheus monitor-incidents history [id] [options]
         --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -17914,6 +18154,7 @@ Usage: morpheus monitor-incidents list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18008,6 +18249,7 @@ Usage: morpheus monitor-incidents notifications [id] [options]
         --no-header                  Exclude header for CSV Output.
     -y, --yaml                       YAML Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -18063,6 +18305,7 @@ Usage: morpheus monitor-incidents stats
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18219,6 +18462,7 @@ Usage: morpheus network-dhcp-relays get [server] [dhcp_relay]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -18260,6 +18504,7 @@ Usage: morpheus network-dhcp-relays list [server] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -18398,6 +18643,7 @@ Usage: morpheus network-dhcp-servers get [server] [dhcp_server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -18439,6 +18685,7 @@ Usage: morpheus network-dhcp-servers list [server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -18628,6 +18875,7 @@ Usage: morpheus network-domains get [network-domain]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18659,6 +18907,7 @@ Usage: morpheus network-domains get-record [network-domain] [record]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18694,6 +18943,7 @@ Usage: morpheus network-domains list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -18728,6 +18978,7 @@ Usage: morpheus network-domains list-records [network-domain]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -18854,6 +19105,7 @@ Usage: morpheus network-edge-clusters get [server] [edge_cluster]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18885,6 +19137,7 @@ Usage: morpheus network-edge-clusters list [server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19039,6 +19292,7 @@ Usage: morpheus network-firewalls get-rule [server] [rule]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19070,6 +19324,7 @@ Usage: morpheus network-firewalls get-rule-group [server] [group]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19107,6 +19362,7 @@ Usage: morpheus network-firewalls list-rule-groups [server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19143,6 +19399,7 @@ Usage: morpheus network-firewalls list-rules [server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19352,6 +19609,7 @@ Usage: morpheus network-groups get [network-group]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19386,6 +19644,7 @@ Usage: morpheus network-groups list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -19529,6 +19788,7 @@ Usage: morpheus network-pool-servers get [network-pool-server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19563,6 +19823,7 @@ Usage: morpheus network-pool-servers list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -19737,6 +19998,7 @@ Usage: morpheus network-pools get [network-pool]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19768,6 +20030,7 @@ Usage: morpheus network-pools get-ip [network-pool] [ip]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19804,6 +20067,7 @@ Usage: morpheus network-pools list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -19837,6 +20101,7 @@ Usage: morpheus network-pools list-ips [network-pool]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -20040,6 +20305,7 @@ Usage: morpheus network-proxies get [network-proxy]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20074,6 +20340,7 @@ Usage: morpheus network-proxies list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -20410,6 +20677,7 @@ Usage: morpheus network-routers bgp-neighbor [router] [BGP neighbor]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20441,6 +20709,7 @@ Usage: morpheus network-routers bgp-neighbors [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20471,6 +20740,7 @@ Usage: morpheus network-routers dhcp [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20502,6 +20772,7 @@ Usage: morpheus network-routers firewall [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20532,6 +20803,7 @@ Usage: morpheus network-routers firewall-rule [router] [rule]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20563,6 +20835,7 @@ Usage: morpheus network-routers firewall-rule-group [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20594,6 +20867,7 @@ Usage: morpheus network-routers firewall-rule-groups [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20624,6 +20898,7 @@ Usage: morpheus network-routers firewall-rules [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20655,6 +20930,7 @@ Usage: morpheus network-routers get [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20691,6 +20967,7 @@ Usage: morpheus network-routers list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20720,6 +20997,7 @@ Usage: morpheus network-routers nat [router] [nat]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20751,6 +21029,7 @@ Usage: morpheus network-routers nats [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -20931,6 +21210,7 @@ Usage: morpheus network-routers routes [router]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21223,6 +21503,7 @@ Usage: morpheus network-services list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21297,6 +21578,7 @@ Usage: morpheus network-static-routes get [network] [network_route]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -21338,6 +21620,7 @@ Usage: morpheus network-static-routes list [network] [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -21478,6 +21761,7 @@ Usage: morpheus network-transport-zones get [server] [transport zone]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21515,6 +21799,7 @@ Usage: morpheus network-transport-zones list [server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21679,6 +21964,7 @@ Usage: morpheus networks get [network]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21715,6 +22001,7 @@ Usage: morpheus networks get-type [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21753,6 +22040,7 @@ Usage: morpheus networks list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -j, --json                       JSON Output
@@ -21816,6 +22104,7 @@ Usage: morpheus networks types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -21934,6 +22223,7 @@ Usage: morpheus ping [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -22030,6 +22320,7 @@ Usage: morpheus policies get [policy]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -22094,6 +22385,7 @@ Usage: morpheus policies list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -22123,6 +22415,7 @@ Usage: morpheus policies list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -22346,6 +22639,7 @@ Usage: morpheus power-schedules get [schedule]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -22383,6 +22677,7 @@ Usage: morpheus power-schedules list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -22659,6 +22954,7 @@ Usage: morpheus price-sets list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -22838,6 +23134,7 @@ Usage: morpheus prices list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -22926,6 +23223,7 @@ Usage: morpheus process get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -22956,6 +23254,7 @@ Usage: morpheus process get-event [event-id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -23001,6 +23300,7 @@ Usage: morpheus process list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -23083,6 +23383,7 @@ Usage: morpheus projects get [project]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -23128,6 +23429,7 @@ Usage: morpheus projects list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -23293,6 +23595,7 @@ Usage: morpheus provisioning-licenses get [license]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -23333,6 +23636,7 @@ Usage: morpheus provisioning-licenses list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -23372,6 +23676,7 @@ Usage: morpheus provisioning-licenses list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -23437,6 +23742,7 @@ Usage: morpheus provisioning-licenses reservations [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -23519,6 +23825,7 @@ Usage: morpheus provisioning-settings get
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -23636,6 +23943,7 @@ Usage: morpheus remote check [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -q, --quiet                      No Output, do not print to stdout
@@ -23695,6 +24003,7 @@ Usage: morpheus remote current
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -q, --quiet                      No Output, do not print to stdout
@@ -23719,6 +24028,7 @@ Usage: morpheus remote get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -q, --quiet                      No Output, do not print to stdout
@@ -23751,6 +24061,7 @@ Usage: morpheus remote list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -C, --nocolor                    Disable ANSI coloring
@@ -23861,6 +24172,7 @@ Usage: morpheus remote version [remote]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -q, --quiet                      No Output, do not print to stdout
@@ -23930,6 +24242,7 @@ Usage: morpheus reports get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -23960,6 +24273,7 @@ Usage: morpheus reports get-type
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -24029,6 +24343,7 @@ Usage: morpheus reports list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -24154,6 +24469,7 @@ Usage: morpheus resource-folders get [cloud] [folder]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -24190,6 +24506,7 @@ Usage: morpheus resource-folders list [cloud]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -24280,6 +24597,7 @@ Usage: morpheus resource-pools add [cloud] [pool] [options]
         --visibility [private|public]
                                      Visibility
         --active [on|off]            Can be used to disable a resource pool
+        --inventory [on|off]         Enable or disable inventory sync for resource pool during cloud refresh
         --default-pool [on|off]      Set resource pool as the default
         --description [TEXT]         Description
         --role ROLE                  Role Name or ID (applicable to select resource pools)
@@ -24321,6 +24639,7 @@ Usage: morpheus resource-pools get [cloud] [pool]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -24346,9 +24665,9 @@ Get details about a resource pool.
 ```
 Usage: morpheus resource-pools list [cloud]
     -c, --cloud CLOUD                Cloud Name or ID
+    -s, --search PHRASE              Search by Name and/or Display Name
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
-    -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
     -D, --desc                       Reverse Sort Order
     -j, --json                       JSON Output
@@ -24357,6 +24676,7 @@ Usage: morpheus resource-pools list [cloud]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -24416,8 +24736,10 @@ Usage: morpheus resource-pools update [cloud] [pool] [options]
         --visibility [private|public]
                                      Visibility
         --active [on|off]            Can be used to disable a resource pool
+        --inventory [on|off]         Enable or disable inventory sync for resource pool during cloud refresh
         --default-pool [on|off]      Set resource pool as the default
         --description [TEXT]         Description
+        --display-name [TEXT]        Display Name
         --role ROLE                  Role Name or ID (applicable to select resource pools)
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
@@ -24484,8 +24806,32 @@ Usage: morpheus roles add [name] [options]
         --roleType VALUE             Role Type (optional). Default: user
         --baseRole VALUE             Copy From Role (optional)
         --multitenant [on|off]       Multitenant (optional) - A Multitenant role is automatically copied into all existing subaccounts as well as placed into a subaccount when created. Useful for providing a set of predefined roles a Customer can use. Default: off
-        --multitenantLocked [on|off] Multitenant Locked (optional) - Prevents subtenants from branching off this role/modifying it. . Default: off
+        --multitenantLocked [on|off] Multitenant Locked (optional) - Prevents subtenants from branching off this role/modifying it.. Default: off
         --defaultPersona VALUE       Default Persona (optional) - Default Persona
+        --permissions CODE=ACCESS    Set feature permission access by permission code. Example: dashboard=read,operations-wiki=full
+        --global-group-access ACCESS Update the global group (site) access: [none|read|custom|full]
+        --groups ID=ACCESS           Set group (site) to a custom access by group id. Example: 1=none,2=full,3=read
+        --global-cloud-access ACCESS Update the global cloud (zone) access: [none|custom|full]
+        --clouds ID=ACCESS           Set cloud (zone) to a custom access by cloud id. Example: 1=none,2=full,3=read
+        --global-instance-type-access ACCESS
+                                     Update the global instance type access: [none|custom|full]
+        --instance-types CODE=ACCESS Set instance type to a custom access instance type code. Example: nginx=full,apache=none
+        --global-blueprint-access ACCESS
+                                     Update the global blueprint access: [none|custom|full]
+        --blueprints ID=ACCESS       Set blueprint to a custom access by blueprint id. Example: 1=full,2=none
+        --global-catalog-item-type-access ACCESS
+                                     Update the global catalog item type access: [none|custom|full]
+        --catalog-item-types CODE=ACCESS
+                                     Set catalog item type to a custom access by catalog item type id. Example: 1=full,2=none
+        --personas CODE=ACCESS       Set persona to a custom access by persona code. Example: standard=full,serviceCatalog=full,vdi=full
+        --global-vdi-pool-access-access ACCESS
+                                     Update the global VDI pool access: [none|custom|full]
+        --vdi-pools ID=ACCESS        Set VDI pool to a custom access by VDI pool id. Example: 1=full,2=none
+        --global-report-type-access ACCESS
+                                     Update the global report type access: [none|custom|full]
+        --report-types CODE=ACCESS   Set report type to a custom access by report type code. Example: appCost=none,guidance=full
+        --reset-permissions          Reset all feature permission access to none. This can be used in conjunction with --permissions to recreate the feature permission access for the role.
+        --reset-all-access           Reset all access to none including permissions, global groups, instance types, etc. This can be used in conjunction with --permissions to recreate the feature permission access for the role.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -24507,6 +24853,15 @@ Usage: morpheus roles add [name] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Create a new role.
+[name] is required. This is a unique name (authority) for the new role.
+All the role permissions and access values can be configured.
+Use --permissions "CODE=ACCESS,CODE=ACCESS" to update access levels for specific feature permissions identified by code.
+Use --global-instance-type-access custom --instance-types "CODE=ACCESS,CODE=ACCESS" to customize instance type access.
+Only the specified permissions,instance types, etc. are updated.
+Use --reset-permissions to set access to "none" for all unspecified feature permissions.
+Use --reset-all-access to set access to "none" for all unspecified feature permissions and global access values for groups, instance types, etc.
 ```
 
 #### roles get
@@ -24530,6 +24885,7 @@ Usage: morpheus roles get [role]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -24570,6 +24926,7 @@ Usage: morpheus roles list [search phrase]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -24608,6 +24965,7 @@ Usage: morpheus roles list-permissions [role]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -24647,6 +25005,9 @@ Usage: morpheus roles remove [role]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Delete a role.
+[role] is required. This is the name (authority) or id of a role.
 ```
 
 #### roles update
@@ -24656,8 +25017,32 @@ Usage: morpheus roles update [role] [options]
         --authority VALUE            Name
         --description VALUE          Description (optional)
         --multitenant [on|off]       Multitenant (optional) - A Multitenant role is automatically copied into all existing subaccounts as well as placed into a subaccount when created. Useful for providing a set of predefined roles a Customer can use. Default: off
-        --multitenantLocked [on|off] Multitenant Locked (optional) - Prevents subtenants from branching off this role/modifying it. . Default: off
+        --multitenantLocked [on|off] Multitenant Locked (optional) - Prevents subtenants from branching off this role/modifying it.. Default: off
         --defaultPersona VALUE       Default Persona (optional) - Default Persona
+        --permissions CODE=ACCESS    Set feature permission access by permission code. Example: dashboard=read,operations-wiki=full
+        --global-group-access ACCESS Update the global group (site) access: [none|read|custom|full]
+        --groups ID=ACCESS           Set group (site) to a custom access by group id. Example: 1=none,2=full,3=read
+        --global-cloud-access ACCESS Update the global cloud (zone) access: [none|custom|full]
+        --clouds ID=ACCESS           Set cloud (zone) to a custom access by cloud id. Example: 1=none,2=full,3=read
+        --global-instance-type-access ACCESS
+                                     Update the global instance type access: [none|custom|full]
+        --instance-types CODE=ACCESS Set instance type to a custom access instance type code. Example: nginx=full,apache=none
+        --global-blueprint-access ACCESS
+                                     Update the global blueprint access: [none|custom|full]
+        --blueprints ID=ACCESS       Set blueprint to a custom access by blueprint id. Example: 1=full,2=none
+        --global-catalog-item-type-access ACCESS
+                                     Update the global catalog item type access: [none|custom|full]
+        --catalog-item-types CODE=ACCESS
+                                     Set catalog item type to a custom access by catalog item type id. Example: 1=full,2=none
+        --personas CODE=ACCESS       Set persona to a custom access by persona code. Example: standard=full,serviceCatalog=full,vdi=full
+        --global-vdi-pool-access-access ACCESS
+                                     Update the global VDI pool access: [none|custom|full]
+        --vdi-pools ID=ACCESS        Set VDI pool to a custom access by VDI pool id. Example: 1=full,2=none
+        --global-report-type-access ACCESS
+                                     Update the global report type access: [none|custom|full]
+        --report-types CODE=ACCESS   Set report type to a custom access by report type code. Example: appCost=none,guidance=full
+        --reset-permissions          Reset all feature permission access to none. This can be used in conjunction with --permissions to recreate the feature permission access for the role.
+        --reset-all-access           Reset all access to none including permissions, global groups, instance types, etc. This can be used in conjunction with --permissions to recreate the feature permission access for the role.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -24666,6 +25051,7 @@ Usage: morpheus roles update [role] [options]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -24679,6 +25065,15 @@ Usage: morpheus roles update [role] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Update a role.
+[role] is required. This is the name (authority) or id of a role.
+All the role permissions and access values can be configured.
+Use --permissions "CODE=ACCESS,CODE=ACCESS" to update access levels for specific feature permissions identified by code.
+Use --global-instance-type-access custom --instance-types "CODE=ACCESS,CODE=ACCESS" to customize instance type access.
+Only the specified permissions,instance types, etc. are updated.
+Use --reset-permissions to set access to "none" for all unspecified feature permissions.
+Use --reset-all-access to set access to "none" for all unspecified feature permissions and global access values for groups, instance types, etc.
 ```
 
 #### roles update-blueprint-access
@@ -24703,10 +25098,10 @@ Usage: morpheus roles update-blueprint-access [role] [blueprint] [access]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Update role access for an blueprint or all blueprints.
+Update role access for a blueprint or all blueprints.
 [role] is required. This is the name or id of a role.
 --blueprint or --all is required. This is the name or id of a blueprint.
---access is required. This is the new access value. full and none
+--access is required. This is the new access value: full or none
 ```
 
 #### roles update-catalog-item-type-access
@@ -24731,16 +25126,16 @@ Usage: morpheus roles update-catalog-item-type-access [role] [catalog-item-type]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Update role access for an catalog item type or all types.
+Update role access for a catalog item type or all types.
 [role] is required. This is the name or id of a role.
 --catalog-item-type or --all is required. This is the name or id of a catalog item type.
---access is required. This is the new access value. full and none
+--access is required. This is the new access value: full or none
 ```
 
 #### roles update-cloud-access
 
 ```
-Usage: morpheus roles update-cloud-access [name]
+Usage: morpheus roles update-cloud-access [role]
     -c, --cloud CLOUD                Cloud name or id
         --all                        Update all clouds at once.
         --access VALUE               Access value [full|read|none]
@@ -24762,13 +25157,16 @@ Usage: morpheus roles update-cloud-access [name]
 Update role access for a cloud or all clouds.
 [role] is required. This is the name or id of a role.
 --cloud or --all is required. This is the name or id of a cloud.
---access is required. This is the new access value. full, read and none
+--access is required. This is the new access value: full, read or none
+Only applicable to Tenant roles and when global cloud access is set to "custom".
 ```
 
 #### roles update-feature-access
 
 ```
-Usage: morpheus roles update-feature-access [name] [code] [full|read|user|yes|no|none]
+Usage: morpheus roles update-feature-access [role] [permission] [access]
+    -p, --permission CODE            Permission code or name
+        --access VALUE               Access value [full|user|read|none] (varies per permission)
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24783,6 +25181,11 @@ Usage: morpheus roles update-feature-access [name] [code] [full|read|user|yes|no
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Update role access for a permission.
+[role] is required. This is the name (authority) or id of a role.
+[permission] is required. This is the code or name of a permission.
+[access] is required. This is the new access value: full, user, read or none
 ```
 
 #### roles update-global-blueprint-access
@@ -24836,7 +25239,7 @@ Update global catalog item type access for a role.
 #### roles update-global-cloud-access
 
 ```
-Usage: morpheus roles update-global-cloud-access [name] [full|custom|none]
+Usage: morpheus roles update-global-cloud-access [role] [full|custom|none]
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24855,12 +25258,13 @@ Usage: morpheus roles update-global-cloud-access [name] [full|custom|none]
 Update global cloud access for a role.
 [role] is required. This is the name (authority) or id of a role.
 [access] is required. This is the access level to assign: full, custom or none.
+Only applicable to Tenant roles.
 ```
 
 #### roles update-global-group-access
 
 ```
-Usage: morpheus roles update-global-group-access [name] [full|read|custom|none]
+Usage: morpheus roles update-global-group-access [role] [full|read|custom|none]
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
@@ -24879,6 +25283,7 @@ Usage: morpheus roles update-global-group-access [name] [full|read|custom|none]
 Update global group access for a role.
 [role] is required. This is the name (authority) or id of a role.
 [access] is required. This is the access level to assign: full, read, custom or none.
+Only applicable to User roles.
 ```
 
 #### roles update-global-instance-type-access
@@ -24978,7 +25383,8 @@ Usage: morpheus roles update-group-access [role] [group] [access]
 Update role access for a group or all groups.
 [role] is required. This is the name or id of a role.
 --group or --all is required. This is the name or id of a group.
---access is required. This is the new access value. full, read and none
+--access is required. This is the new access value: full, read or none
+Only applicable to User roles and when global group access is set to "custom".
 ```
 
 #### roles update-instance-type-access
@@ -25007,7 +25413,7 @@ Usage: morpheus roles update-instance-type-access [role] [type] [access]
 Update role access for an instance type or all instance types.
 [role] is required. This is the name or id of a role.
 --instance-type or --all is required. This is the name of an instance type.
---access is required. This is the new access value. full and none
+--access is required. This is the new access value: full or none
 ```
 
 #### roles update-persona-access
@@ -25035,7 +25441,7 @@ Usage: morpheus roles update-persona-access [role] [persona] [access]
 Update role access for a persona or all personas.
 [role] is required. This is the name or id of a role.
 --persona or --all is required. This is the code of a persona. Service Catalog, Standard, or Virtual Desktop
---access is required. This is the new access value. full and none
+--access is required. This is the new access value: full or none
 ```
 
 #### roles update-report-type-access
@@ -25063,7 +25469,7 @@ Usage: morpheus roles update-report-type-access [role] [report-type] [access]
 Update role access for a report type or all report types.
 [role] is required. This is the name or id of a role.
 --report-type or --all is required. This is the name or id of a report type.
---access is required. This is the new access value. full and none
+--access is required. This is the new access value: full or none
 ```
 
 #### roles update-vdi-pool-access
@@ -25091,7 +25497,215 @@ Usage: morpheus roles update-vdi-pool-access [role] [vdi-pool] [access]
 Update role access for a VDI pool or all VDI pools.
 [role] is required. This is the name or id of a role.
 --vdi-pool or --all is required. This is the name or id of a VDI pool.
---access is required. This is the new access value. full and none
+--access is required. This is the new access value: full or none
+```
+
+
+### scale-thresholds
+
+```
+Usage: morpheus scale-thresholds [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+
+View and manage scale thresholds.
+```
+
+#### scale-thresholds add
+
+```
+Usage: morpheus scale-thresholds add [scale threshold]
+        --name VALUE                 Name
+        --autoUp [on|off]            Auto Upscale
+        --autoDown [on|off]          Auto Downscale
+        --minCount NUMBER            Min Count. Default: 1
+        --maxCount NUMBER            Max Count. Default: 2
+        --cpuEnabled [on|off]        Enable CPU Threshold (optional)
+        --minCpu NUMBER              Min CPU (optional). Default: 0
+        --maxCpu NUMBER              Max CPU (optional). Default: 0
+        --memoryEnabled [on|off]     Enable Memory Threshold (optional)
+        --minMemory NUMBER           Min Memory (optional). Default: 0
+        --maxMemory NUMBER           Max Memory (optional). Default: 0
+        --diskEnabled [on|off]       Enable Disk Threshold (optional)
+        --minDisk NUMBER             Min Disk (optional). Default: 0
+        --maxDisk NUMBER             Max Disk (optional). Default: 0
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new scale threshold.
+[scale threshold] is required. This is the name of the new scale threshold.
+```
+
+#### scale-thresholds get
+
+```
+Usage: morpheus scale-thresholds get [scale threshold]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a scale threshold.
+[scale threshold] is required. This is the name or id of a scale threshold.
+```
+
+#### scale-thresholds list
+
+```
+Usage: morpheus scale-thresholds list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Reverse Sort Order
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List scale thresholds.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+#### scale-thresholds remove
+
+```
+Usage: morpheus scale-thresholds remove [scale threshold]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an existing scale threshold.
+[scale threshold] is required. This is the name or id of a scale threshold.
+```
+
+#### scale-thresholds update
+
+```
+Usage: morpheus scale-thresholds update [scale threshold] [options]
+        --name VALUE                 Name (optional)
+        --autoUp [on|off]            Auto Upscale (optional)
+        --autoDown [on|off]          Auto Downscale (optional)
+        --minCount NUMBER            Min Count (optional)
+        --maxCount NUMBER            Max Count (optional)
+        --cpuEnabled [on|off]        Enable CPU Threshold (optional)
+        --minCpu NUMBER              Min CPU (optional)
+        --maxCpu NUMBER              Max CPU (optional)
+        --memoryEnabled [on|off]     Enable Memory Threshold (optional)
+        --minMemory NUMBER           Min Memory (optional)
+        --maxMemory NUMBER           Max Memory (optional)
+        --diskEnabled [on|off]       Enable Disk Threshold (optional)
+        --minDisk NUMBER             Min Disk (optional)
+        --maxDisk NUMBER             Max Disk (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompts. Use passed options as the default value.
+    -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an existing scale threshold.
+[scale threshold] is required. This is the name or id of a scale threshold.
 ```
 
 
@@ -25112,6 +25726,7 @@ Usage: morpheus search [phrase]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -25282,6 +25897,7 @@ Usage: morpheus security-groups get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -25317,6 +25933,7 @@ Usage: morpheus security-groups list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -25569,6 +26186,7 @@ Usage: morpheus self-service get [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -25611,6 +26229,7 @@ Usage: morpheus self-service list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -25916,6 +26535,7 @@ Usage: morpheus service-plans list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26098,6 +26718,7 @@ Usage: morpheus snapshots get [id]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -26234,6 +26855,7 @@ Usage: morpheus storage-buckets get [storage-bucket]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -26270,6 +26892,7 @@ Usage: morpheus storage-buckets list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26310,6 +26933,7 @@ Usage: morpheus storage-buckets list-files [provider:/path]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -26339,6 +26963,7 @@ Usage: morpheus storage-buckets ls [bucket/path]
     -D, --desc                       Reverse Sort Order
     -j, --json                       JSON Output
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -26517,6 +27142,7 @@ Usage: morpheus storage-server-types get [storage server type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26557,6 +27183,7 @@ Usage: morpheus storage-server-types list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26644,6 +27271,7 @@ Usage: morpheus storage-servers get [storage server]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26684,6 +27312,7 @@ Usage: morpheus storage-servers list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26791,6 +27420,7 @@ Usage: morpheus storage-volume-types get [storage volume type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26833,6 +27463,7 @@ Usage: morpheus storage-volume-types list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26917,6 +27548,7 @@ Usage: morpheus storage-volumes get [storage volume]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -26961,6 +27593,7 @@ Usage: morpheus storage-volumes list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -27081,6 +27714,7 @@ Usage: morpheus subnets get [subnet]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27117,6 +27751,7 @@ Usage: morpheus subnets get-type [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27153,6 +27788,7 @@ Usage: morpheus subnets list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27215,6 +27851,7 @@ Usage: morpheus subnets types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27353,6 +27990,8 @@ Usage: morpheus tasks execute [task] --instance [instance] [options]
         --hosts [LIST]               Hosts, comma separated list of host names or IDs.
     -a, --appliance                  Execute on the appliance, the target is the appliance itself.
         --config [TEXT]              Custom config
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
+        --no-refresh                 Do not refresh
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -27383,6 +28022,7 @@ Usage: morpheus tasks get [workflow]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27411,6 +28051,7 @@ Usage: morpheus tasks get-type [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27448,6 +28089,7 @@ Usage: morpheus tasks list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -27487,6 +28129,7 @@ Usage: morpheus tasks list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -27666,6 +28309,7 @@ Usage: morpheus tenants get [tenant]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -27720,6 +28364,7 @@ Usage: morpheus tenants list [search phrase]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -27846,6 +28491,7 @@ Usage: morpheus usage get [usage]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -27891,6 +28537,7 @@ Usage: morpheus usage list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -28000,6 +28647,7 @@ Usage: morpheus user-groups get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -28033,6 +28681,7 @@ Usage: morpheus user-groups list [search phrase]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -28199,6 +28848,7 @@ Usage: morpheus user-settings get
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -28230,6 +28880,7 @@ Usage: morpheus user-settings list-clients
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -28544,7 +29195,7 @@ Usage: morpheus user-sources add [account] [name]
         --role-mappings MAPPINGS     Role Mappings FQN in the format id1:FQN1,id2:FQN2
         --role-mapping-names MAPPINGS
                                      Role Mapping Names in the format id1:Name1,id2:Name2
-        --default-role ID            Default Role ID
+        --default-role ID            Default Role ID or Authority
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -28609,6 +29260,7 @@ Usage: morpheus user-sources get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -28643,6 +29295,7 @@ Usage: morpheus user-sources get-type [type]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -28680,6 +29333,7 @@ Usage: morpheus user-sources list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -28718,6 +29372,7 @@ Usage: morpheus user-sources list-types
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -28771,6 +29426,7 @@ Usage: morpheus user-sources update [name] [options]
         --role-mappings MAPPINGS     Role Mappings in the format id1:FQN,id2:FQN2
         --role-mapping-names MAPPINGS
                                      Role Mapping Names in the format id1:Name1,id2:Name2
+        --default-role ROLE          Default Role ID or Authority
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompts. Use passed options as the default value.
     -N, --no-prompt                  Skip prompts. Use default values for all optional fields.
@@ -28920,7 +29576,7 @@ Usage: morpheus users get [user]
         --catalog-item-type-access   Display Catalog Item Type Access
         --personas                   Display Persona Access
         --all                        Display All Access Lists
-    -i, --include-none-access        Include Items with 'None' Access in Access List
+        --hide-none-access           Hide records with 'none' access
         --tenant TENANT              Tenant (Account) Name or ID
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
@@ -28929,6 +29585,7 @@ Usage: morpheus users get [user]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -28973,6 +29630,7 @@ Usage: morpheus users list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29031,6 +29689,7 @@ Usage: morpheus users passwd [user] [password] [options]
 ```
 Usage: morpheus users permissions [user]
     -g, --global                     Global (All Tenants). Find users across all tenants. Default is your own tenant only.
+        --hide-none-access           Hide records with 'none' access
         --tenant TENANT              Tenant (Account) Name or ID
     -j, --json                       JSON Output
     -y, --yaml                       YAML Output
@@ -29038,6 +29697,7 @@ Usage: morpheus users permissions [user]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -29053,7 +29713,6 @@ Usage: morpheus users permissions [user]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
-    -i, --include-none-access        Include Items with 'None' Access in Access List
 
 Display Access for a user.
 [user] is required. This is the username or id of a user.
@@ -29178,6 +29837,7 @@ Usage: morpheus vdi get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29218,6 +29878,7 @@ Usage: morpheus vdi list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29296,6 +29957,7 @@ Usage: morpheus vdi-allocations get [allocation]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29336,6 +29998,7 @@ Usage: morpheus vdi-allocations list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29424,6 +30087,7 @@ Usage: morpheus vdi-apps get [app]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29464,6 +30128,7 @@ Usage: morpheus vdi-apps list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29608,6 +30273,7 @@ Usage: morpheus vdi-gateways get [gateway]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29648,6 +30314,7 @@ Usage: morpheus vdi-gateways list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29815,6 +30482,7 @@ Usage: morpheus vdi-pools get [pool]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -29856,6 +30524,7 @@ Usage: morpheus vdi-pools list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -30109,6 +30778,7 @@ Usage: morpheus virtual-images get [image]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -30183,6 +30853,7 @@ Usage: morpheus virtual-images list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -30222,6 +30893,7 @@ Usage: morpheus virtual-images list-locations [image]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -30432,6 +31104,7 @@ Usage: morpheus whitelabel-settings get
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -30615,6 +31288,7 @@ Usage: morpheus whoami [options]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
@@ -30699,6 +31373,7 @@ Usage: morpheus wiki categories
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -30728,6 +31403,7 @@ Usage: morpheus wiki get [name]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -30762,6 +31438,7 @@ Usage: morpheus wiki list
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -30914,6 +31591,8 @@ Usage: morpheus workflows execute [workflow] --instance [instance] [options]
         --hosts [LIST]               Hosts, comma separated list of host names or IDs.
     -a, --appliance                  Execute on the appliance, the target is the appliance itself.
         --config [TEXT]              Custom config
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
+        --no-refresh                 Do not refresh
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
@@ -30947,6 +31626,7 @@ Usage: morpheus workflows get [workflow]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -30981,6 +31661,7 @@ Usage: morpheus workflows list [search]
         --quotes                     Wrap CSV values with ". Default: false
         --no-header                  Exclude header for CSV Output.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+    -F, --old-fields x,y,z           alias for -f, --fields
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
         --select x,y,z               Filter Output to just print the value(s) of specific fields.
