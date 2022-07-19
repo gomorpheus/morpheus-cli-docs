@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.1.1
+
+### Enhancements
+
+* Fixed `clouds add` error seen for type VMware related to new option type for credentials
+
 ## 5.5.1
 
 ### Enhancements
