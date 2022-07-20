@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.1.2
+
+### Fixes
+
+* Fixed `clouds add` getting stuck at username prompt seen for type VMware
+
 ## 5.5.1.1
 
 ### Fixes
