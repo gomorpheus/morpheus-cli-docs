@@ -6,6 +6,30 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.1.4
+
+This version corresponds to the release of the Morpheus API version **5.4.9**.
+
+### Enhancements
+
+* Updated `library-node-types add|update` to support new option `--evars name=value,name=value`
+* Updated `clusters update` to support new options `--api-token TEXT` and `--managed [on|off]`
+
+### Fixes
+
+* Fix `instances add -t azure` not prompting for azure marketplace publisher/offer/sku/version.
+* Fix `virtual-images add -t azure-reference` error when prompting for image.
+* Fix `library-node-types add --templates LIST` being passed as scripts instead of templates
+* Fix `users passwd` error when rendering result
+
+## 5.5.1.3
+
+* Fixed `deployments add-version` inconsistent input prompting
+
+### Fixes
+
+* Fixed `clouds add` getting stuck at username prompt seen for type VMware
+
 ## 5.5.1.2
 
 ### Fixes
