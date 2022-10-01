@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.1.5
+
+### Fixes
+
+* Fix `price-sets list` error seen with new price types
+
 ## 5.5.1.4
 
 This version corresponds to the release of the Morpheus API version **5.4.9**.
