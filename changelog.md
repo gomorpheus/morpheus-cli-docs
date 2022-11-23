@@ -6,6 +6,49 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.2.1
+
+### Fixes
+
+* Fix `man` error
+
+## 5.5.2
+
+### Enhancements
+
+* New command `security-packages` for managing Security Packages
+* New command `security-scans` for managing Security Scans
+* New command `plugins` for managing Plugins
+* Updated `roles` permission access go along with system changes for the new default access and deprecation of "custom" value
+* New subcommands `roles update-task-access|update-workflow-access` to manage RBAC for task and workflows
+* Updated `users get` to add missing types of access such as `--report-types` and `--vdi-pools`
+* Updated lots of commands with `--labels x,y,z` to adding/updating Labels and filtering on them
+* Updated `networks` and `network-pools` for IPv6 support
+* Updated `networks add|update` to support domain name instead of ID only eg. `--network domain.com`
+* Updated `networks add|update` to support new option `--search-domains` to set Search Domains
+* Updated `network-pool-servers` to go along with API updates
+* Updated `library-instance-types` and `library-layouts` to support `--price-sets [LIST]` to set Price Sets association
+* Updated `tasks` to support Visibility
+* New subcommands `clients add|update|remove` for managing custom oauth clients
+* New subcommands `integrations list-inventory|get-inventory|update-inventory` for managing Ansible Tower inventory permissions
+* New subcommands `clouds update-logo|update-dark-logo` for managing custom logo icons
+* New subcommands `library-instance-types update-dark-logo` for managing custom dark logo icons
+* Updated `curl` to no longer use the system command so that it works on Windows now and also supports common remote options like --fields, --select, --yaml, etc.
+* Updated `clouds remove` to support new option `--remove-resources`
+* Updated `user-settings update` to support new option `--theme darkMode` for managing a user's UI theme
+
+### Fixes
+
+* Fixed `clouds add` not prompting for correct credential types for amazon/azure/google/softlayer
+* Fixed `instance resize` service plan options for Openstack
+* Fixed `library-node-types update --scripts 1,2,3` so it errors if an invalid script ID is passed
+* Fixed `service-plans add|update` so that it allows passing 0 for max storage and memory
+* Fixed `archives list-files bucket:/file/path` error
+* Fixed `security-groups add-location` not prompting for customOptions based on type
+* Fixed `apps add` so includes a `defaultCloud` parameter for other terraform/helm/arm blueprint types
+* Fixed `instances add -t oraclecloud` not prompting for Availability Domain
+* Fixed `monitor-alerts --apps x,y,z` causing an error
+
 ## 5.5.1.5
 
 ### Fixes
