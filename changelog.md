@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.2.2
+
+### Fixes
+
+* Fix `roles list-permissions` error
+
 ## 5.5.2.1
 
 ### Fixes
