@@ -1,6 +1,6 @@
-************
-morpheus>cli
-************
+*********************
+morpheus>cli |cliVer|
+*********************
 
 .. toctree::
    :maxdepth: 3
@@ -11,4 +11,3 @@ morpheus>cli
    Shell.md
    Troubleshooting.md
    changelog.md
-   

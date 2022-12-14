@@ -1,5 +1,11 @@
 import datetime
 
+rst_prolog = """
+
+.. |cliVer| replace:: v5.5.3
+
+"""
+
 # -*- coding: utf-8 -*-
 #
 # Documentation build configuration file, created by
