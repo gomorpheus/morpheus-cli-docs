@@ -6,6 +6,23 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.3
+
+### Enhancements
+
+* New subcommands `instances schedules|add-schedule|get-schedule|update-schedule|remove-schedule` for managing instance scaling schedules
+* Updated `instances scaling` to display scaling schedules
+* Renamed `instances scaling-update` to `instances update-scaling` and added support for option `--threshold ID` to use a source threshold scaling template.
+* New subcommands `containers clone-image|import` for cloning and importing container images
+* Updated `containers` (all commands) to support the standard request and output options
+* New subcommand `hosts restart`
+* New subcommand `clusters apply-template`
+
+### Fixes
+
+* Fixed `hosts resize` Plan default value not being set to the current plan
+* Fixed lots of ruby warnings as a result of new unit tests
+
 ## 5.5.2.2
 
 ### Fixes
