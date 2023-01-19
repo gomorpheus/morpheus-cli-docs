@@ -6,6 +6,20 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.3.1
+
+### Enhancements
+
+* New command `network-server-groups` for managing network server groups
+* New command `guidance-settings` for managing guidance settings
+* New command `monitor-settings` for managing monitoring settings
+* New subcommands `appliance-settings toggle-maintenance|reindex` for exeucuting admin utilities
+* Updated `self-service get` to display catalog item Visibility and Layout Code
+
+### Fixes
+
+* Fixed `instances resize` and `hosts resize` volume size prompt using plan instead of current volume size by default
+
 ## 5.5.3
 
 ### Enhancements
