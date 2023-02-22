@@ -6,6 +6,13 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 5.5.3.2
+
+### Fixes
+
+* Fixed `catalog add` prompting for option types out of order and not prompting for config options with dependent fields
+* Fixed `login` prompt echoing password input after hitting enter (only seen on certain environments)
+
 ## 5.5.3.1
 
 ### Enhancements

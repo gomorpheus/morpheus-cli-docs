@@ -1,4 +1,4 @@
-Morpheus CLI v5.5.3.1
+Morpheus CLI v5.5.3.2
 
 ## Getting Started
 
