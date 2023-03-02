@@ -1,4 +1,4 @@
-Morpheus CLI v5.5.3.2
+Morpheus CLI v6.0.0
 
 ## Getting Started
 
@@ -117,6 +117,7 @@ The available commands and their options are also documented below.
 
 ## Command List
 
+
 ```
 Usage: morpheus [command] [options]
 Commands:
@@ -199,6 +200,7 @@ Commands:
 	network-domains
 	network-edge-clusters
 	network-firewalls
+	network-floating-ips
 	network-groups
 	network-pool-servers
 	network-pools
@@ -223,6 +225,7 @@ Commands:
 	remote
 	reports
 	resource-folders
+	resource-pool-groups
 	resource-pools
 	roles
 	scale-thresholds
@@ -635,6 +638,8 @@ Usage: morpheus appliance-settings update
         --enable-clouds LIST         List of cloud types to set enabled status on, each item can be either name or ID
         --disable-clouds LIST        List of cloud types to set enabled status off, each item can be either name or ID
         --disable-all-clouds         Set all cloud types enabled status off, can be used in conjunction with --enable-clouds options
+        --stats-retainment-period DAYS
+                                     Stats retainment period. The number of days stats should be available. Can be 30, 60, or 90.
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
@@ -1201,7 +1206,7 @@ Usage: morpheus apps remove [app]
         --remove-instances [on|off]  Remove instances. Default is off.
         --preserve-volumes [on|off]  Preserve Volumes. Default is off. Applies to certain types only.
         --keep-backups               Preserve copy of backups
-        --releaseEIPs [on|off]       Release EIPs. Default is on. Applies to Amazon only.
+        --release-ips [on|off]       Release Floating IPs. Default is on. Applies to certain types only. Only applies when used with --remove-instances
     -f, --force                      Force Delete
     -j, --json                       JSON Output
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3600,7 +3605,8 @@ Usage: morpheus catalog remove [item] [options]
                                      Remove instances. Default is true. Applies to apps only.
         --keep-backups [true|false]  Preserve copy of backups. Default is false.
         --preserve-volumes [on|off]  Preserve Volumes. Default is off. Applies to certain types only.
-        --releaseEIPs [true|false]   Release EIPs. Default is on. Applies to Amazon only.
+        --release-ips [on|off]       Release Floating IPs. Default is on. Applies to certain types only.
+        --releaseEIPs [on|off]       Alias for Release Floating IPs
     -f, --force                      Force Delete
         --sigdig DIGITS              Significant digits to display for prices (currency). Default is 4.
     -y, --yes                        Auto Confirm
@@ -6277,7 +6283,9 @@ Usage: morpheus containers [command] [options]
 Commands:
 	action
 	actions
+	attach-floating-ip
 	clone-image
+	detach-floating-ip
 	eject
 	exec
 	get
@@ -6366,6 +6374,42 @@ Examples:
     containers actions 1 2 3
 ```
 
+#### containers attach-floating-ip
+
+```
+Usage: morpheus containers attach-floating-ip [id]
+        --ip ID                      Floating IP Address, in the format 'ip-ID'.
+        --pool ID                    Floating IP Pool Identifier, in the format 'pool-ID'.
+        --bandwidth VALUE            Floating IP Bandidth (Mbit/s). Only cloud types Huawei and OpenTelekom support this option.
+    -y, --yes                        Auto Confirm
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Attach a floating IP to a container.
+[id] is required. This is the id of a container.
+Only the following cloud types support this command: OpenStack, Huawei and OpenTelekom
+```
+
 #### containers clone-image
 
 ```
@@ -6398,6 +6442,39 @@ Usage: morpheus containers clone-image [id]
 
 Clone to image (template) for a container.
 [id] is required. This is the id of a container.
+```
+
+#### containers detach-floating-ip
+
+```
+Usage: morpheus containers detach-floating-ip [id]
+    -y, --yes                        Auto Confirm
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Detach a floating IP from a container.
+[id] is required. This is the id of a container.
+Only the following cloud types support this command: OpenStack, Huawei and OpenTelekom
 ```
 
 #### containers eject
@@ -12185,7 +12262,7 @@ This is only supported by certain types of instances such as terraform.
 Usage: morpheus instances remove [instance]
         --keep-backups               Preserve copy of backups
         --preserve-volumes [on|off]  Preserve Volumes. Default is off. Applies to certain types only.
-        --releaseEIPs [on|off]       Release EIPs. Default is on. Applies to Amazon only.
+        --release-ips [on|off]       Release Floating IPs. Default is on. Applies to certain types only.
     -f, --force                      Force Delete
     -y, --yes                        Auto Confirm
     -j, --json                       JSON Output
@@ -14329,6 +14406,7 @@ Update job.
 Usage: morpheus key-pairs [command] [options]
 Commands:
 	add
+	generate
 	get
 	list
 	remove
@@ -14365,6 +14443,34 @@ Usage: morpheus key-pairs add [name] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Add a key pair.
+```
+
+#### key-pairs generate
+
+```
+Usage: morpheus key-pairs generate [name]
+        --tenant TENANT              Tenant (Account) Name or ID
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Generate a key pair.
 ```
 
 #### key-pairs get
@@ -14451,6 +14557,9 @@ Usage: morpheus key-pairs remove [name]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Delete a key pair.
+[name] is required. This is the name or id of a key pair.
 ```
 
 #### key-pairs update
@@ -14476,6 +14585,9 @@ Usage: morpheus key-pairs update [name] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Update a key pair.
+[name] is required. This is the name or id of a key pair.
 ```
 
 
@@ -20986,6 +21098,126 @@ Update a network firewall rule group.
 ```
 
 
+### network-floating-ips
+
+```
+Usage: morpheus network-floating-ips [command] [options]
+Commands:
+	get
+	list
+	release
+
+View and manage network floating IPs.
+```
+
+#### network-floating-ips get
+
+```
+Usage: morpheus network-floating-ips get [id]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a network floating ip.
+[id] is required. This is the id of a network floating ip.
+```
+
+#### network-floating-ips list
+
+```
+Usage: morpheus network-floating-ips list [search]
+        --cloud CLOUD                Cloud Name or ID
+        --server SERVER              Server Name or ID
+        --ip-address VALUE           Filter by IP Address
+        --status VALUE               Filter by Status (free, assigned, pending)
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List network floating ips.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+#### network-floating-ips release
+
+```
+Usage: morpheus network-floating-ips release [id]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Release an existing network floating ip.
+[id] is required. This is the id of a network floating ip.
+Only the following cloud types support this command: OpenStack, Huawei and OpenTelekom
+```
+
+
 ### network-groups
 
 ```
@@ -26491,6 +26723,192 @@ Update a resource folder.
 ```
 
 
+### resource-pool-groups
+
+```
+Usage: morpheus resource-pool-groups [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+```
+
+#### resource-pool-groups add
+
+```
+Usage: morpheus resource-pool-groups add --pools [id,id,id]
+        --name VALUE                 Name for this resource pool group
+        --description VALUE          Description of resource pool group
+        --mode VALUE                 Pool selection mode for the resource pool group. Can be roundrobin or availablecapacity
+        --pools LIST                 Pools in the group, comma separated list of pool names or IDs
+        --group-access-all [on|off]  Toggle Access for all groups.
+        --group-access LIST          Group Access, comma separated list of group IDs.
+        --group-defaults LIST        Group Default Selection, comma separated list of group IDs
+        --tenants LIST               Tenant Access, comma separated list of account IDs
+        --accounts LIST              alias for --tenants
+        --visibility [private|public]
+                                     Visibility
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new resource pool group.
+[name] is required and can be passed as --name instead.
+```
+
+#### resource-pool-groups get
+
+```
+Usage: morpheus resource-pool-groups get [resource-pool-group]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a resource pool group.
+[resource-pool-group] is required. This is the name or id of a resource pool group.
+```
+
+#### resource-pool-groups list
+
+```
+Usage: morpheus resource-pool-groups list
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List resource pool groups.
+```
+
+#### resource-pool-groups remove
+
+```
+Usage: morpheus resource-pool-groups remove [resource-pool-group]
+        --tenant TENANT              Tenant (Account) Name or ID
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a resource pool group.
+[resource-pool-group] is required. This is the name or id of a resource pool group.
+```
+
+#### resource-pool-groups update
+
+```
+Usage: morpheus resource-pool-groups update [resource-pool-group] [options]
+        --name VALUE                 Name for this resource pool group
+        --description VALUE          Description of resource pool group
+        --mode VALUE                 Pool selection mode for the resource pool group. Can be roundrobin or availablecapacity
+        --pools LIST                 Pools in the group, comma separated list of pool IDs
+        --group-access-all [on|off]  Toggle Access for all groups.
+        --group-access LIST          Group Access, comma separated list of group IDs.
+        --group-defaults LIST        Group Default Selection, comma separated list of group IDs
+        --tenants LIST               Tenant Access, comma separated list of account IDs
+        --accounts LIST              alias for --tenants
+        --visibility [private|public]
+                                     Visibility
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a resource pool group.
+[resource-pool-group] is required. This is the id of a resource pool group.
+```
+
+
 ### resource-pools
 
 ```
@@ -28606,6 +29024,8 @@ Self Service: View and manage catalog item types
 Usage: morpheus self-service add [name] [options]
     -t, --type VALUE                 Type. Default: instance
         --name VALUE                 Name
+        --code VALUE                 Code (optional)
+        --category VALUE             Category (optional)
         --description VALUE          Description (optional)
         --enabled [on|off]           Enabled (optional). Default: true
         --featured [on|off]          Featured (optional)
@@ -28613,9 +29033,10 @@ Usage: morpheus self-service add [name] [options]
         --layoutCode VALUE           Layout Code (optional)
         --iconPath VALUE             Logo (optional)
         --config VALUE               Config - JSON or YAML
+        --workflowConfig VALUE       Config (optional) - Enter configuration for the Workflow
         --blueprint VALUE            Blueprint - Choose a blueprint to apply to the catalog item.
         --appSpec VALUE              App Spec - Enter a spec in the for the App, the Scribe YAML format
-        --workflow VALUE             Workflow (optional) - Enter a spec in the for the App, the Scribe YAML format
+        --workflow VALUE             Workflow - Enter a spec in the for the App, the Scribe YAML format
         --context VALUE              Context Type (optional) - Context for operational workflow, determines target type. Default: Select
         --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
     -l, --labels [LIST]              Labels
@@ -28694,6 +29115,8 @@ Usage: morpheus self-service list [search]
         --featured [on|off]          Filter by featured
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
+        --code CODE                  Filter by code
+    -c, --category CATEGORY          Filter by category
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -28761,6 +29184,8 @@ Delete a catalog item type.
 ```
 Usage: morpheus self-service update [type] [options]
         --name VALUE                 Name (optional)
+        --code VALUE                 Code (optional)
+        --category VALUE             Category (optional)
         --description VALUE          Description (optional)
         --enabled [on|off]           Enabled (optional)
         --featured [on|off]          Featured (optional)
@@ -28768,6 +29193,7 @@ Usage: morpheus self-service update [type] [options]
         --layoutCode VALUE           Layout Code (optional)
         --iconPath VALUE             Logo (optional)
         --config VALUE               Config (optional) - JSON or YAML
+        --workflowConfig VALUE       Config (optional) - Enter configuration for the Workflow
         --blueprint VALUE            Blueprint (optional) - Choose a blueprint to apply to the catalog item.
         --appSpec VALUE              App Spec (optional) - Enter a spec in the for the App, the Scribe YAML format
         --workflow VALUE             Workflow (optional) - Enter a spec in the for the App, the Scribe YAML format
@@ -30473,7 +30899,12 @@ Usage: morpheus tasks execute [task] --instance [instance] [options]
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -34065,14 +34496,15 @@ Usage: morpheus workflows execute [workflow] --instance [instance] [options]
         --config [TEXT]              Custom config
         --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
         --no-refresh                 Do not refresh
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompt for input on every option, even those not prompted for by default.
-    -N, --no-prompt                  No prompt, skips all input prompting.
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -34216,6 +34648,7 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
+
 
 ## Environment Variables
 

@@ -6,6 +6,25 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.0.0
+
+### Enhancements
+
+* New command `resource-pool-groups` for managing resource pool groups
+* New command `key-pairs generate` for generating key pairs
+* New command `network-floating-ips` for managing floating ips
+* New commands `containers attach-floating-ip|detach-floating-ip` for container floating ip management
+* Updated `clusters add` to prompt for Floating IP
+* Updated `apps remove`, `instances remove`, and `catalog remove` to support option `--release-ips [on|off]`. This replaces `--releaseEIPs`, which still exists as a hidden option. The CLI still sends both API parameters to accomadate new and older versions of the API.
+* Updated `appliance-settings get|set` for new setting Stats Retainment Period
+* Updated `catalog` and `self-service` for better support of the workflow item type.
+
+### Fixes
+
+* Fixed `roles update-global-*-access` commands to allow access value `custom`, which is still needed with API versions before 5.5.2.
+* Fixed `apps get` error seen with apps containing multiple tiers
+* Fixed `tasks execute` and `workflows execute` not supporting the `--quiet` option to suppress output
+
 ## 5.5.3.2
 
 ### Fixes
