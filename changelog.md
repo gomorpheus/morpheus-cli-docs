@@ -6,6 +6,21 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.0.1
+
+### Enhancements
+
+* Updated command `tasks execute` and `workflows execute` to support the new Instance Label and Server Label options. They also will now prompt for the context and target if --instances or --hosts are not passed
+* Updated command `jobs execute` to support new Instance Label and Server Label options
+* Lowered the default refresh interval from 10 to 5 seconds for commands `jobs execute`, `tasks execute`, `workflows execute`, `apps apply`, `instances apply`
+* Updated `catalog` to support Quantity
+* Updated `service-plans` options `--min-storage` and `--max-storage` label to 'Total Storage' and to always be in GB
+
+### fixes
+
+* Fixed `process` and `jobs` table wrapping due to output and error values containing newlines.
+* Fixed `instances add` requiring Resource Pool selection when provision type does not require it.
+
 ## 6.0.0
 
 ### Enhancements

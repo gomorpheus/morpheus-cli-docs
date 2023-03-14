@@ -1,4 +1,4 @@
-Morpheus CLI v6.0.0
+Morpheus CLI v6.0.1
 
 ## Getting Started
 
@@ -899,7 +899,7 @@ Add an existing instance to an app.
 ```
 Usage: morpheus apps apply [app] [options]
     -p, --parameter NAME=VALUE       Template parameter name and value
-        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 5 seconds.
         --no-refresh                 Do not refresh
         --no-validate                Do not validate planned changes before apply
         --validate-only              Only validate planned changes, do not execute the apply command.
@@ -3238,6 +3238,7 @@ Service Catalog Persona: View catalog and manage inventory
 ```
 Usage: morpheus catalog add [type] [options]
     -t, --type TYPE                  Catalog Item Type Name or ID
+        --quantity QUANTITY          Quantity for this catalog item. Will be overridden to 1 if quantity not allowed.
         --validate                   Validate Only. Validates the configuration and skips adding the item.
         --context [instance|server]  Context Type for operational workflow types
         --target ID                  Target Resource (Instance or Server) for operational workflow types
@@ -3274,6 +3275,7 @@ Catalog item types may require additional configuration.
 ```
 Usage: morpheus catalog add-order [type] [options]
     -t, --type TYPE                  Catalog Item Type Name or ID
+        --quantity QUANTITY          Quantity for this catalog item. Will be overridden to 1 if quantity not allowed.
         --validate                   Validate Only. Validates the configuration and skips creating the order.
     -a, --details                    Display all details: item configuration.
         --context [instance|server]  Context Type for operational workflow types
@@ -11307,7 +11309,7 @@ Update an existing instance scaling threshold schedule
 ```
 Usage: morpheus instances apply [instance] [options]
     -p, --parameter NAME=VALUE       Template parameter name and value
-        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 5 seconds.
         --no-refresh                 Do not refresh
         --no-validate                Do not validate planned changes before apply
         --validate-only              Only validate planned changes, do not execute the apply command.
@@ -14072,9 +14074,11 @@ Usage: morpheus jobs add [name]
     -t, --task [TASK]                Task ID or name, assigns task to job. This sets the job type to "Task Job".
     -w, --workflow [WORKFLOW]        Workflow ID or name, assigns workflow to job. This sets the job type to "Workflow Job".
         --security-package [PACKAGE] Security Package ID or name, assigns security package to job. This sets the job type to "Security Scan Job".
-        --context-type [TYPE]        Context type (instance|server|none). Default is none
+        --context-type [TYPE]        Context type (instance|instance-label|server|server-label|none). Default is none
         --instances [LIST]           Context instances(s), comma separated list of instance IDs. Incompatible with --servers
+        --instance-label LABEL       Instance Label
         --servers [LIST]             Context server(s), comma separated list of server IDs. Incompatible with --instances
+        --server-label LABEL         Server Label
     -S, --schedule [SCHEDULE]        Job execution schedule type name or ID
         --config [TEXT]              Custom config
     -R, --run [on|off]               Can be used to run the job now.
@@ -14365,9 +14369,11 @@ Usage: morpheus jobs update [job]
     -t, --task [TASK]                Task ID or name, assigns task to job. Only compatible with workflow job type.
     -w, --workflow [WORKFLOW]        Workflow ID or name, assigns workflow to job. Only compatible with security scan job type.
         --security-package [PACKAGE] Security Package ID or name, assigns security package to job. Only compatible with security scan job type.
-        --context-type [TYPE]        Context type (instance|server|none). Default is none
+        --context-type [TYPE]        Context type (instance|instance-label|server|server-label|none). Default is none
         --instances [LIST]           Context instances(s), comma separated list of instance IDs. Incompatible with --servers
+        --instance-label LABEL       Instance Label
         --servers [LIST]             Context server(s), comma separated list of server IDs. Incompatible with --instances
+        --server-label LABEL         Server Label
         --schedule [SCHEDULE]        Job execution schedule type name or ID
         --config [TEXT]              Custom config
     -R, --run [on|off]               Can be used to run the job now.
@@ -29029,6 +29035,7 @@ Usage: morpheus self-service add [name] [options]
         --description VALUE          Description (optional)
         --enabled [on|off]           Enabled (optional). Default: true
         --featured [on|off]          Featured (optional)
+        --allowQuantity [on|off]     Allow Quantity (optional)
         --visibility VALUE           Visibility. Default: private
         --layoutCode VALUE           Layout Code (optional)
         --iconPath VALUE             Logo (optional)
@@ -29189,6 +29196,7 @@ Usage: morpheus self-service update [type] [options]
         --description VALUE          Description (optional)
         --enabled [on|off]           Enabled (optional)
         --featured [on|off]          Featured (optional)
+        --allowQuantity [on|off]     Allow Quantity (optional)
         --visibility VALUE           Visibility (optional)
         --layoutCode VALUE           Layout Code (optional)
         --iconPath VALUE             Logo (optional)
@@ -29332,6 +29340,7 @@ Usage: morpheus service-plans add
         --memory [AMOUNT]            Memory size is required. Assumes MB unless optional modifier specified, ex: 1GB
         --cores [NUMBER]             Core count. Default is 1
         --disks [NUMBER]             Max disks allowed
+        --cores-per-socket [NUMBER]  Cores Per Socket
         --custom-cores [on|off]      Can be used to enable / disable customizable cores. Default is on
         --custom-storage [on|off]    Can be used to enable / disable customizable storage. Default is on
         --custom-volumes [on|off]    Can be used to enable / disable customizable extra volumes. Default is on
@@ -29339,8 +29348,10 @@ Usage: morpheus service-plans add
         --add-volumes [on|off]       Can be used to enable / disable ability to add volumes. Default is on
         --sort-order NUMBER          Sort order
         --price-sets [LIST]          Price set(s), comma separated list of price set IDs
-        --min-storage NUMBER         Min storage. Assumes GB unless optional modifier specified, ex: 512MB
-        --max-storage NUMBER         Max storage. Assumes GB unless optional modifier specified, ex: 512MB
+        --min-storage NUMBER         Min total storage in GB.
+        --max-storage NUMBER         Max total storage in GB.
+        --min-per-disk-size NUMBER   Min per disk size in GB.
+        --max-per-disk-size NUMBER   Max per disk size in GB.
         --min-memory NUMBER          Min memory. Assumes MB unless optional modifier specified, ex: 1GB
         --max-memory NUMBER          Max memory. Assumes MB unless optional modifier specified, ex: 1GB
         --min-cores NUMBER           Min cores
@@ -29508,8 +29519,10 @@ Usage: morpheus service-plans update [plan]
         --add-volumes [on|off]       Can be used to enable / disable ability to add volumes. Default is on
         --sort-order NUMBER          Sort order
         --price-sets [LIST]          Price set(s), comma separated list of price set IDs
-        --min-storage NUMBER         Min storage. Assumes GB unless optional modifier specified, ex: 512MB
-        --max-storage NUMBER         Max storage. Assumes GB unless optional modifier specified, ex: 512MB
+        --min-storage NUMBER         Min total storage in GB.
+        --max-storage NUMBER         Max total storage in GB.
+        --min-per-disk-size NUMBER   Min per disk size in GB.
+        --max-per-disk-size NUMBER   Max per disk size in GB.
         --min-memory NUMBER          Min memory. Assumes MB unless optional modifier specified, ex: 1GB
         --max-memory NUMBER          Max memory. Assumes MB unless optional modifier specified, ex: 1GB
         --min-cores NUMBER           Min cores
@@ -30887,14 +30900,17 @@ Usage: morpheus tasks add [name] -t TASK_TYPE
 #### tasks execute
 
 ```
-Usage: morpheus tasks execute [task] --instance [instance] [options]
-        --instance INSTANCE          Instance name or id to execute the task on. This option can be passed more than once.
-        --instances [LIST]           Instances, comma separated list of instance names or IDs.
-        --host HOST                  Host name or id to execute the task on. This option can be passed more than once.
-        --hosts [LIST]               Hosts, comma separated list of host names or IDs.
+Usage: morpheus tasks execute [task] [options]
+        --context-type VALUE         Context Type, appliance, instance, instance-label, server or server-label
+        --instance INSTANCE          Instance name or id to target for execution. This option can be passed more than once.
+        --instances LIST             Instances, comma separated list of instance names or IDs.
+        --instance-label LABEL       Instance Label
+        --server SERVER              Server name or id to target for execution. This option can be passed more than once.
+        --servers LIST               Servers, comma separated list of host names or IDs.
+        --server-label LABEL         Server Label
     -a, --appliance                  Execute on the appliance, the target is the appliance itself.
         --config [TEXT]              Custom config
-        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 5 seconds.
         --no-refresh                 Do not refresh
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
@@ -34487,14 +34503,17 @@ Usage: morpheus workflows add [name] --tasks taskId:phase,taskId2:phase,taskId3:
 #### workflows execute
 
 ```
-Usage: morpheus workflows execute [workflow] --instance [instance] [options]
-        --instance INSTANCE          Instance name or id to execute the workflow on. This option can be passed more than once.
-        --instances [LIST]           Instances, comma separated list of instance names or IDs.
-        --host HOST                  Host name or id to execute the workflow on. This option can be passed more than once.
-        --hosts [LIST]               Hosts, comma separated list of host names or IDs.
+Usage: morpheus workflows execute [workflow] [options]
+        --context-type VALUE         Context Type, appliance, instance, instance-label, server or server-label
+        --instance INSTANCE          Instance name or id to target for execution. This option can be passed more than once.
+        --instances LIST             Instances, comma separated list of instance names or IDs.
+        --instance-label LABEL       Instance Label
+        --server SERVER              Server name or id to target for execution. This option can be passed more than once.
+        --servers LIST               Servers, comma separated list of host names or IDs.
+        --server-label LABEL         Server Label
     -a, --appliance                  Execute on the appliance, the target is the appliance itself.
         --config [TEXT]              Custom config
-        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 10 seconds.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 5 seconds.
         --no-refresh                 Do not refresh
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
