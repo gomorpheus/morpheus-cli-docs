@@ -1,4 +1,4 @@
-Morpheus CLI v6.0.1
+Morpheus CLI v6.0.2
 
 ## Getting Started
 
@@ -116,7 +116,6 @@ You can get help for any morpheus command by using the -h option.<br/>
 The available commands and their options are also documented below.
 
 ## Command List
-
 
 ```
 Usage: morpheus [command] [options]
@@ -23426,6 +23425,7 @@ Update an existing network server group.
 Usage: morpheus network-services [command] [options]
 Commands:
 	list
+	refresh
 ```
 
 #### network-services list
@@ -23462,6 +23462,31 @@ Usage: morpheus network-services list
     -h, --help                       Print this help
 
 List network services (Integrations).
+```
+
+#### network-services refresh
+
+```
+Usage: morpheus network-services refresh [name]
+    -y, --yes                        Auto Confirm
+    -q, --quiet                      No Output, do not print to stdout
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Refresh a network integration/server.
+[name] is required. This is the name or id of a network server/integration.
 ```
 
 
@@ -29356,6 +29381,12 @@ Usage: morpheus service-plans add
         --max-memory NUMBER          Max memory. Assumes MB unless optional modifier specified, ex: 1GB
         --min-cores NUMBER           Min cores
         --max-cores NUMBER           Max cores
+        --min-sockets NUMBER         Min sockets
+        --max-sockets NUMBER         Max sockets
+        --min-cores-per-socket NUMBER
+                                     Min cores per socket
+        --max-cores-per-socket NUMBER
+                                     Max cores per socket
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
         --visibility VISIBILITY      Visibility [private|public]
@@ -29527,6 +29558,12 @@ Usage: morpheus service-plans update [plan]
         --max-memory NUMBER          Max memory. Assumes MB unless optional modifier specified, ex: 1GB
         --min-cores NUMBER           Min cores
         --max-cores NUMBER           Max cores
+        --min-sockets NUMBER         Min sockets
+        --max-sockets NUMBER         Max sockets
+        --min-cores-per-socket NUMBER
+                                     Min cores per socket
+        --max-cores-per-socket NUMBER
+                                     Max cores per socket
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
         --visibility VISIBILITY      Visibility [private|public]

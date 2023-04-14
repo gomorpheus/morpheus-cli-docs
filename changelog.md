@@ -6,6 +6,18 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.0.2
+
+### Enhancements
+
+* New subcommand `network-services refresh`
+* Updated `service-plans` to support new options `--min|max-sockets` for Min/Max Sockets and `--min|max-cores-per-socket` for Min/Max cores per socket
+
+### Fixes
+
+* Fixed `instances add` issue with Resource Pool input always requiring a `pool-` prefix.
+* Fixed `curl -XPOST --data` option not including the passed JSON data in the request.
+
 ## 6.0.1
 
 ### Enhancements
@@ -16,7 +28,7 @@ Backwards compatibility with older appliances should be preserved in most cases.
 * Updated `catalog` to support Quantity
 * Updated `service-plans` options `--min-storage` and `--max-storage` label to 'Total Storage' and to always be in GB
 
-### fixes
+### Fixes
 
 * Fixed `process` and `jobs` table wrapping due to output and error values containing newlines.
 * Fixed `instances add` requiring Resource Pool selection when provision type does not require it.
