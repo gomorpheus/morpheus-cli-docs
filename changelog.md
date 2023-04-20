@@ -6,6 +6,13 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.1.0
+
+### Enhancements
+
+* Updated `service-catalog add` to support new option `--payloads PATH`, providing a way to make many API requests with one command, one for each file matching the PATH pattern or directory. This option will become ubiquitous soon, and be available for all commands that already support --payloads.
+* Deprecated option `payload-dir`. The old options will still work for now, but are hidden.
+
 ## 6.0.2
 
 ### Enhancements

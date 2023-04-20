@@ -1,4 +1,4 @@
-Morpheus CLI v6.0.2
+Morpheus CLI v6.1.0
 
 ## Getting Started
 
@@ -543,7 +543,6 @@ Usage: morpheus appliance-settings reindex
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -575,7 +574,6 @@ Usage: morpheus appliance-settings toggle-maintenance
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -641,7 +639,6 @@ Usage: morpheus appliance-settings update
                                      Stats retainment period. The number of days stats should be available. Can be 30, 60, or 90.
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -853,7 +850,6 @@ Usage: morpheus apps add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -907,7 +903,6 @@ Usage: morpheus apps apply [app] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -1174,7 +1169,6 @@ Usage: morpheus apps refresh [app] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -1388,7 +1382,6 @@ Usage: morpheus apps update [app] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -1416,7 +1409,6 @@ Usage: morpheus apps update-wiki [app] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -1525,7 +1517,6 @@ Usage: morpheus archives add [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -1983,7 +1974,6 @@ Usage: morpheus archives update [bucket] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -2059,7 +2049,6 @@ Usage: morpheus backup-services add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -2192,7 +2181,6 @@ Usage: morpheus backup-services update [backup service] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -2270,7 +2258,6 @@ Usage: morpheus backup-settings update
     -R, --retention NUMBER           Maximum number of successful backups to retain
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -2467,7 +2454,6 @@ Usage: morpheus blueprints add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -2887,7 +2873,6 @@ Usage: morpheus blueprints update [blueprint] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -2925,7 +2910,6 @@ Usage: morpheus blueprints update-permissions [blueprint] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -3034,7 +3018,6 @@ Usage: morpheus budgets add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -3186,7 +3169,6 @@ Usage: morpheus budgets update [budget] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -3245,9 +3227,10 @@ Usage: morpheus catalog add [type] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
+        --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
+        --payloads-ignore-error      Continue processing payloads if an error occurs. The default behavior is to stop processing when an error occurs.
     -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3284,9 +3267,10 @@ Usage: morpheus catalog add-order [type] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
+        --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
+        --payloads-ignore-error      Continue processing payloads if an error occurs. The default behavior is to stop processing when an error occurs.
     -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3357,7 +3341,6 @@ Usage: morpheus catalog checkout
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -3670,9 +3653,10 @@ Usage: morpheus catalog update-cart --name [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
+        --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
+        --payloads-ignore-error      Continue processing payloads if an error occurs. The default behavior is to stop processing when an error occurs.
     -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3721,7 +3705,6 @@ Usage: morpheus certificates add [name] -t CODE [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -3935,7 +3918,6 @@ Usage: morpheus certificates update [certificate] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -3984,7 +3966,6 @@ Usage: morpheus clients add [clientId] [options]
         --refreshTokenValiditySeconds NUMBER
                                      Refresh Token Validity Length (Seconds). Default: 43200
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -4116,7 +4097,6 @@ Usage: morpheus clients update [clientId] [options]
         --refreshTokenValiditySeconds NUMBER
                                      Refresh Token Validity Length (Seconds). Default: 43200
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -4176,7 +4156,6 @@ Usage: morpheus clouds add [name] --group GROUP --type TYPE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4334,7 +4313,6 @@ Usage: morpheus clouds refresh [cloud] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4445,7 +4423,6 @@ Usage: morpheus clouds update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4524,7 +4501,6 @@ Usage: morpheus clouds update-wiki [cloud] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4665,7 +4641,6 @@ Usage: morpheus clusters add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4706,7 +4681,6 @@ Usage: morpheus clusters add-namespace [cluster] [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4760,7 +4734,6 @@ Usage: morpheus clusters add-worker [cluster] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -4824,7 +4797,6 @@ Usage: morpheus clusters apply-template [cluster] --specTemplate --serviceUrl
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -5945,7 +5917,6 @@ Usage: morpheus clusters update [cluster] --name --description --active
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -5980,7 +5951,6 @@ Usage: morpheus clusters update-datastore [cluster] [datastore] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6021,7 +5991,6 @@ Usage: morpheus clusters update-namespace [cluster] [namespace] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6060,7 +6029,6 @@ Usage: morpheus clusters update-permissions [cluster]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6094,7 +6062,6 @@ Usage: morpheus clusters update-wiki [cluster] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6121,7 +6088,6 @@ Usage: morpheus clusters update-worker-count [cluster] [worker_count]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6153,7 +6119,6 @@ Usage: morpheus clusters upgrade-cluster [cluster]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6310,7 +6275,6 @@ Usage: morpheus containers action [id] -a CODE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6387,7 +6351,6 @@ Usage: morpheus containers attach-floating-ip [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6422,7 +6385,6 @@ Usage: morpheus containers clone-image [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6454,7 +6416,6 @@ Usage: morpheus containers detach-floating-ip [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6487,7 +6448,6 @@ Usage: morpheus containers eject [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6526,7 +6486,6 @@ Usage: morpheus containers exec [id] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6609,7 +6568,6 @@ Usage: morpheus containers import [id] [image]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6690,7 +6648,6 @@ Usage: morpheus containers restart [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6727,7 +6684,6 @@ Usage: morpheus containers start [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6764,7 +6720,6 @@ Usage: morpheus containers stop [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6801,7 +6756,6 @@ Usage: morpheus containers suspend [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -6945,7 +6899,6 @@ Usage: morpheus credentials add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7081,7 +7034,6 @@ Usage: morpheus credentials update [credential] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7122,7 +7074,6 @@ Usage: morpheus curl [path]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7261,7 +7212,6 @@ Usage: morpheus cypher put [key] [value] [options] to store a string.
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
@@ -7460,7 +7410,6 @@ Usage: morpheus datastores update [cloud] [datastore] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7594,7 +7543,6 @@ Usage: morpheus deployments add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7629,7 +7577,6 @@ Usage: morpheus deployments add-version [deployment] [version] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7702,7 +7649,6 @@ Usage: morpheus deployments get-version [deployment] [version] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7943,7 +7889,6 @@ Usage: morpheus deployments update [deployment] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -7979,7 +7924,6 @@ Usage: morpheus deployments update-version [deployment] [version] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8015,7 +7959,6 @@ Usage: morpheus deployments upload [deployment] [version] [files]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8071,7 +8014,6 @@ Usage: morpheus deploys add [instance] [deployment] [version] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8106,7 +8048,6 @@ Usage: morpheus deploys deploy [id] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8241,7 +8182,6 @@ Usage: morpheus deploys update [id] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8343,7 +8283,6 @@ Usage: morpheus environments add [name] [options]
         --visibility VALUE           Visibility (optional). Default: private
         --sortOrder NUMBER           Sort Order (optional). Default: 0
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -8477,7 +8416,6 @@ Usage: morpheus environments update [name] [options]
         --visibility VALUE           Visibility (optional). Default: private
         --sortOrder NUMBER           Sort Order (optional). Default: 0
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -8530,7 +8468,6 @@ Usage: morpheus execute-schedules add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8558,7 +8495,6 @@ Create a new execute schedule.
 ```
 Usage: morpheus execute-schedules add-hosts [name] [host]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8587,7 +8523,6 @@ Assign hosts to a execute schedule.
 ```
 Usage: morpheus execute-schedules add-instances [name] [instance]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8694,7 +8629,6 @@ Usage: morpheus execute-schedules remove [name]
 ```
 Usage: morpheus execute-schedules remove-hosts [name] [host]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8723,7 +8657,6 @@ Remove hosts from a execute schedule.
 ```
 Usage: morpheus execute-schedules remove-instances [name] [instance]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8761,7 +8694,6 @@ Usage: morpheus execute-schedules update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8810,7 +8742,6 @@ Usage: morpheus execution-request execute [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -8990,7 +8921,6 @@ Usage: morpheus forgot [username]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9048,7 +8978,6 @@ Usage: morpheus groups add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9078,7 +9007,6 @@ Usage: morpheus groups add-cloud [name] CLOUD
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9226,7 +9154,6 @@ Usage: morpheus groups remove-cloud [name] [cloud]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9279,7 +9206,6 @@ Usage: morpheus groups update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9313,7 +9239,6 @@ Usage: morpheus groups update-wiki [group] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9650,7 +9575,6 @@ Usage: morpheus guidance-settings update
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -9693,7 +9617,6 @@ Commands:
 Usage: morpheus health acknowledge-alarms [alarm] [options]
     -a, --all                        Acknowledge all open alarms. This can be used instead of passing specific alarms.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -9911,7 +9834,6 @@ List health logs. These are the logs of the morpheus appliance itself.
 ```
 Usage: morpheus health unacknowledge-alarms [alarm] [options]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -9985,7 +9907,6 @@ Usage: morpheus hosts add [cloud] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10056,7 +9977,6 @@ Usage: morpheus hosts exec [id] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10334,7 +10254,6 @@ Usage: morpheus hosts run-workflow [name] [workflow] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10435,7 +10354,6 @@ Usage: morpheus hosts software-sync [host]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10589,7 +10507,6 @@ Usage: morpheus hosts update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10618,7 +10535,6 @@ Usage: morpheus hosts update-network-label [server] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10655,7 +10571,6 @@ Usage: morpheus hosts update-wiki [host] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10787,7 +10702,6 @@ Usage: morpheus image-builder add [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -10975,7 +10889,6 @@ Usage: morpheus image-builder update [image-build] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11227,7 +11140,6 @@ Usage: morpheus instances add [name] -c CLOUD -t TYPE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11280,7 +11192,6 @@ Usage: morpheus instances add-schedule [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11317,7 +11228,6 @@ Usage: morpheus instances apply [instance] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11417,7 +11327,6 @@ Usage: morpheus instances cancel-expiration [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11448,7 +11357,6 @@ Usage: morpheus instances cancel-removal [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11481,7 +11389,6 @@ Usage: morpheus instances cancel-shutdown [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11530,7 +11437,6 @@ Usage: morpheus instances clone [instance] -g GROUP
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11560,7 +11466,6 @@ Usage: morpheus instances clone-image [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11800,7 +11705,6 @@ Usage: morpheus instances exec [id] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11833,7 +11737,6 @@ Usage: morpheus instances extend-expiration [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -11865,7 +11768,6 @@ Usage: morpheus instances extend-shutdown [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12161,7 +12063,6 @@ Usage: morpheus instances lock [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12233,7 +12134,6 @@ Usage: morpheus instances refresh [instance] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12393,7 +12293,6 @@ Usage: morpheus instances resize [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12475,7 +12374,6 @@ Usage: morpheus instances revert-to-snapshot [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12640,7 +12538,6 @@ Usage: morpheus instances snapshot [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12922,7 +12819,6 @@ Usage: morpheus instances unlock [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12963,7 +12859,6 @@ Usage: morpheus instances update [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -12992,7 +12887,6 @@ Usage: morpheus instances update-network-label [instance] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13039,7 +12933,6 @@ Usage: morpheus instances update-scaling [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13090,7 +12983,6 @@ Usage: morpheus instances update-schedule [instance] [schedule]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13126,7 +13018,6 @@ Usage: morpheus instances update-wiki [instance] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13229,7 +13120,6 @@ Usage: morpheus integrations add [name] -t CODE [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13264,7 +13154,6 @@ Usage: morpheus integrations add-object [integration] [name] -t CODE [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13612,7 +13501,6 @@ Usage: morpheus integrations refresh [integration] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13699,7 +13587,6 @@ Usage: morpheus integrations update [integration] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13731,7 +13618,6 @@ Usage: morpheus integrations update-inventory [integration] [inventory] [options
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -13989,7 +13875,6 @@ Usage: morpheus invoices refresh [-c CLOUD]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14022,7 +13907,6 @@ Usage: morpheus invoices update [invoice] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14088,7 +13972,6 @@ Usage: morpheus jobs add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14381,7 +14264,6 @@ Usage: morpheus jobs update [job]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14633,7 +14515,6 @@ Usage: morpheus library-cluster-layouts add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14665,7 +14546,6 @@ Usage: morpheus library-cluster-layouts clone [layout]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14809,7 +14689,6 @@ Usage: morpheus library-cluster-layouts update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14863,7 +14742,6 @@ Usage: morpheus library-file-templates add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -14984,7 +14862,6 @@ Usage: morpheus library-file-templates update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15044,7 +14921,6 @@ Usage: morpheus library-instance-types add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15165,7 +15041,6 @@ Usage: morpheus library-instance-types toggle-featured [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15314,7 +15189,6 @@ Usage: morpheus library-layouts add [instance-type]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15463,7 +15337,6 @@ Usage: morpheus library-layouts update [layout] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15496,7 +15369,6 @@ Usage: morpheus library-layouts update-permissions [layout]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15550,7 +15422,6 @@ Usage: morpheus library-node-types add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15739,7 +15610,6 @@ Usage: morpheus library-option-lists add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15925,7 +15795,6 @@ Usage: morpheus library-option-lists update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -15982,7 +15851,6 @@ Usage: morpheus library-option-types add [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16128,7 +15996,6 @@ Usage: morpheus library-option-types update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16180,7 +16047,6 @@ Usage: morpheus library-scripts add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16300,7 +16166,6 @@ Usage: morpheus library-scripts update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16354,7 +16219,6 @@ Usage: morpheus library-spec-templates add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16511,7 +16375,6 @@ Usage: morpheus library-spec-templates update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16562,7 +16425,6 @@ Usage: morpheus library-upgrades add [instance-type] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16848,7 +16710,6 @@ Usage: morpheus load-balancer-monitors add [load balancer] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -16985,7 +16846,6 @@ Usage: morpheus load-balancer-monitors update [load balancer] [load balancer mon
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17032,7 +16892,6 @@ Usage: morpheus load-balancer-pools add [load balancer] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17169,7 +17028,6 @@ Usage: morpheus load-balancer-pools update [load balancer] [load balancer pool] 
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17216,7 +17074,6 @@ Usage: morpheus load-balancer-profiles add [load balancer] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17353,7 +17210,6 @@ Usage: morpheus load-balancer-profiles update [load balancer] [load balancer pro
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17486,7 +17342,6 @@ Usage: morpheus load-balancer-virtual-servers add [load balancer] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17623,7 +17478,6 @@ Usage: morpheus load-balancer-virtual-servers update [load balancer] [vipName] [
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17674,7 +17528,6 @@ Usage: morpheus load-balancers add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17781,7 +17634,6 @@ Usage: morpheus load-balancers refresh [load balancer] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17840,7 +17692,6 @@ Usage: morpheus load-balancers update [load balancer] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -17881,7 +17732,6 @@ Commands:
 Usage: morpheus log-settings add-syslog-rule [name] [rule]
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -17969,7 +17819,6 @@ Usage: morpheus log-settings update
     -i, --integrations JSON          Integrations
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -18134,7 +17983,6 @@ Usage: morpheus monitor-alerts add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18266,7 +18114,6 @@ Usage: morpheus monitor-alerts update [alert]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18322,7 +18169,6 @@ Usage: morpheus monitor-apps add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18419,7 +18265,6 @@ Usage: morpheus monitor-apps mute [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18451,7 +18296,6 @@ Usage: morpheus monitor-apps mute-all
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18500,7 +18344,6 @@ Usage: morpheus monitor-apps remove [name]
 ```
 Usage: morpheus monitor-apps unmute [name]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18528,7 +18371,6 @@ Unmute a monitoring app.
 ```
 Usage: morpheus monitor-apps unmute-all
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18566,7 +18408,6 @@ Usage: morpheus monitor-apps update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18623,7 +18464,6 @@ Usage: morpheus monitor-checks add [name] -t CODE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18789,7 +18629,6 @@ Usage: morpheus monitor-checks mute [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18821,7 +18660,6 @@ Usage: morpheus monitor-checks mute-all
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18870,7 +18708,6 @@ Usage: morpheus monitor-checks remove [name]
 ```
 Usage: morpheus monitor-checks unmute [name]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18898,7 +18735,6 @@ Unmute a check.
 ```
 Usage: morpheus monitor-checks unmute-all
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18933,7 +18769,6 @@ Usage: morpheus monitor-checks update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -18982,7 +18817,6 @@ Usage: morpheus monitor-contacts add [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19109,7 +18943,6 @@ Usage: morpheus monitor-contacts update [contact]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19164,7 +18997,6 @@ Usage: morpheus monitor-groups add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19296,7 +19128,6 @@ Usage: morpheus monitor-groups mute [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19328,7 +19159,6 @@ Usage: morpheus monitor-groups mute-all
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19377,7 +19207,6 @@ Usage: morpheus monitor-groups remove [name]
 ```
 Usage: morpheus monitor-groups unmute [name]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19405,7 +19234,6 @@ Unmute a check group.
 ```
 Usage: morpheus monitor-groups unmute-all
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19441,7 +19269,6 @@ Usage: morpheus monitor-groups update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19648,7 +19475,6 @@ Usage: morpheus monitor-incidents mute [id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19680,7 +19506,6 @@ Usage: morpheus monitor-incidents mute-all
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19795,7 +19620,6 @@ Usage: morpheus monitor-incidents stats
 ```
 Usage: morpheus monitor-incidents unmute [id]
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19823,7 +19647,6 @@ Unmute an incident.
 ```
 Usage: morpheus monitor-incidents unmute-all
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19952,7 +19775,6 @@ Usage: morpheus monitor-settings update
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -19995,7 +19817,6 @@ Usage: morpheus network-dhcp-relays add [server]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20130,7 +19951,6 @@ Usage: morpheus network-dhcp-relays update [server] [dhcp_relay]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20175,7 +19995,6 @@ Usage: morpheus network-dhcp-servers add [server]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20310,7 +20129,6 @@ Usage: morpheus network-dhcp-servers update [server] [dhcp_server]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20370,7 +20188,6 @@ Usage: morpheus network-domains add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20406,7 +20223,6 @@ Usage: morpheus network-domains add-record [network-domain] [record]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20625,7 +20441,6 @@ Usage: morpheus network-domains update [network-domain] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20731,7 +20546,6 @@ Usage: morpheus network-edge-clusters update [server] [edge_cluster]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20785,7 +20599,6 @@ Usage: morpheus network-firewalls add-rule [server] [group]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -20821,7 +20634,6 @@ Usage: morpheus network-firewalls add-rule-group [server]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21043,7 +20855,6 @@ Usage: morpheus network-firewalls update-rule [server] [rule]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21079,7 +20890,6 @@ Usage: morpheus network-firewalls update-rule-group [server] [group]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21255,7 +21065,6 @@ Usage: morpheus network-groups add --networks [id,id,id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21388,7 +21197,6 @@ Usage: morpheus network-groups update [network-group] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21438,7 +21246,6 @@ Usage: morpheus network-pool-servers add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21648,7 +21455,6 @@ Usage: morpheus network-pool-servers update [network-pool-server] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21699,7 +21505,6 @@ Usage: morpheus network-pools add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21733,7 +21538,6 @@ Usage: morpheus network-pools add-ip [network-pool] [ip] [--next]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21954,7 +21758,6 @@ Usage: morpheus network-pools update [network-pool] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -21985,7 +21788,6 @@ Usage: morpheus network-pools update-ip [network-pool] [ip] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22040,7 +21842,6 @@ Usage: morpheus network-proxies add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22171,7 +21972,6 @@ Usage: morpheus network-proxies update [network-proxy] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22250,7 +22050,6 @@ Usage: morpheus network-routers add [type] [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22279,7 +22078,6 @@ Usage: morpheus network-routers add-bgp-neighbor [router]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22312,7 +22110,6 @@ Usage: morpheus network-routers add-firewall-rule [router] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22346,7 +22143,6 @@ Usage: morpheus network-routers add-firewall-rule-group [router] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22376,7 +22172,6 @@ Usage: morpheus network-routers add-nat [router] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -22413,7 +22208,6 @@ Usage: morpheus network-routers add-route [router] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23048,7 +22842,6 @@ Usage: morpheus network-routers update [router]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23077,7 +22870,6 @@ Usage: morpheus network-routers update-bgp-neighbor [router] [BGP neighbor]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23111,7 +22903,6 @@ Usage: morpheus network-routers update-firewall-rule [router] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23147,7 +22938,6 @@ Usage: morpheus network-routers update-firewall-rule-group [router] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23179,7 +22969,6 @@ Usage: morpheus network-routers update-nat [router] [NAT]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23212,7 +23001,6 @@ Usage: morpheus network-routers update-permissions [router]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23257,7 +23045,6 @@ Usage: morpheus network-server-groups add [network server] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23394,7 +23181,6 @@ Usage: morpheus network-server-groups update [network server] [network server gr
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23510,7 +23296,6 @@ Usage: morpheus network-static-routes add [network]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23645,7 +23430,6 @@ Usage: morpheus network-static-routes update [network] [networkRoute]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23694,7 +23478,6 @@ Usage: morpheus network-transport-zones add [server]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23822,7 +23605,6 @@ Usage: morpheus network-transport-zones update [server] [transport zone]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -23885,6 +23667,8 @@ Usage: morpheus networks add -t TYPE
         --vlan-id VALUE              VLAN ID
         --pool ID                    Network Pool
         --dhcp-server [on|off]       DHCP Server
+        --dhcp-serverIPv6 [on|off]   IPv6 DHCP Server
+        --dhcp-server-ipv6 [on|off]  IPv6 DHCP Server
         --allow-ip-override [on|off] Allow IP Override
         --domain [VALUE]             Network Domain ID
         --search-domains [VALUE]     Search Domains
@@ -23902,7 +23686,6 @@ Usage: morpheus networks add -t TYPE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24117,6 +23900,8 @@ Usage: morpheus networks update [network] [options]
         --vlan-id VALUE              VLAN ID
         --pool ID                    Network Pool
         --dhcp-server [on|off]       DHCP Server
+        --dhcp-serverIPv6 [on|off]   IPv6 DHCP Server
+        --dhcp-server-ipv6 [on|off]  IPv6 DHCP Server
         --allow-ip-override [on|off] Allow IP Override
         --domain [VALUE]             Network Domain ID
         --search-domains [VALUE]     Search Domains
@@ -24134,7 +23919,6 @@ Usage: morpheus networks update [network] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24251,7 +24035,6 @@ Usage: morpheus plugins check-updates [name] [file]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24391,7 +24174,6 @@ Usage: morpheus plugins update [plugin] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24422,7 +24204,6 @@ Usage: morpheus plugins upload [name] [file]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24483,7 +24264,6 @@ Usage: morpheus policies add -t TYPE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24735,7 +24515,6 @@ Usage: morpheus power-schedules add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24766,7 +24545,6 @@ Usage: morpheus power-schedules add-hosts [schedule] [host]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24798,7 +24576,6 @@ Usage: morpheus power-schedules add-instances [schedule] [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24927,7 +24704,6 @@ Usage: morpheus power-schedules remove-hosts [schedule] [host]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -24959,7 +24735,6 @@ Usage: morpheus power-schedules remove-instances [schedule] [instance]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25011,7 +24786,6 @@ Usage: morpheus power-schedules update [schedule]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25063,7 +24837,6 @@ Usage: morpheus price-sets add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25181,7 +24954,6 @@ Usage: morpheus price-sets update [price-set]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25241,7 +25013,6 @@ Usage: morpheus prices add [name] [code]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25373,7 +25144,6 @@ Usage: morpheus prices update [price]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25542,7 +25312,6 @@ Usage: morpheus projects add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25699,7 +25468,6 @@ Usage: morpheus projects update [project] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25755,7 +25523,6 @@ Usage: morpheus provisioning-licenses add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -25973,7 +25740,6 @@ Usage: morpheus provisioning-licenses update [license] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -26056,7 +25822,6 @@ Usage: morpheus provisioning-settings update
         --blueprint-type TYPE        Default blueprint type ID, name or code
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -26589,7 +26354,6 @@ Usage: morpheus reports run [type] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -26731,7 +26495,6 @@ Usage: morpheus resource-folders update [cloud] [folder] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -26785,7 +26548,6 @@ Usage: morpheus resource-pool-groups add --pools [id,id,id]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -26917,7 +26679,6 @@ Usage: morpheus resource-pool-groups update [resource-pool-group] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -26976,7 +26737,6 @@ Usage: morpheus resource-pools add [cloud] [pool] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -27115,7 +26875,6 @@ Usage: morpheus resource-pools update [cloud] [pool] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -27221,7 +26980,6 @@ Usage: morpheus roles add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -27443,7 +27201,6 @@ Usage: morpheus roles update [role] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28059,7 +27816,6 @@ Usage: morpheus scale-thresholds add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28206,7 +27962,6 @@ Usage: morpheus scale-thresholds update [scale threshold] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28311,7 +28066,6 @@ Usage: morpheus security-groups add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28343,7 +28097,6 @@ Usage: morpheus security-groups add-location [security-group] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28373,7 +28126,6 @@ Usage: morpheus security-groups add-rule [security-group] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28568,7 +28320,6 @@ Usage: morpheus security-groups update [security-group] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28611,7 +28362,6 @@ Usage: morpheus security-groups update-rule [security-group] [rule]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28750,7 +28500,6 @@ Usage: morpheus security-packages add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -28890,7 +28639,6 @@ Usage: morpheus security-packages update [security package] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -29080,7 +28828,6 @@ Usage: morpheus self-service add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -29241,7 +28988,6 @@ Usage: morpheus self-service update [type] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -29395,7 +29141,6 @@ Usage: morpheus service-plans add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -29572,7 +29317,6 @@ Usage: morpheus service-plans update [plan]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -29605,7 +29349,6 @@ Usage: morpheus setup [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -29755,7 +29498,6 @@ Usage: morpheus storage-buckets add
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30026,7 +29768,6 @@ Usage: morpheus storage-buckets update [storage-bucket] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30189,7 +29930,6 @@ Usage: morpheus storage-servers add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30327,7 +30067,6 @@ Usage: morpheus storage-servers update [storage server] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30464,7 +30203,6 @@ Usage: morpheus storage-volumes add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30632,7 +30370,6 @@ Usage: morpheus subnets add [name] --network NETWORK
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30842,7 +30579,6 @@ Usage: morpheus subnets update [subnet]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30914,7 +30650,6 @@ Usage: morpheus tasks add [name] -t TASK_TYPE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -30953,7 +30688,6 @@ Usage: morpheus tasks execute [task] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -31167,7 +30901,6 @@ Usage: morpheus tasks update [task] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -31216,7 +30949,6 @@ Usage: morpheus tenants add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -31391,7 +31123,6 @@ Usage: morpheus tenants update [tenant]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -31551,7 +31282,6 @@ Usage: morpheus user-groups add [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -31719,7 +31449,6 @@ Usage: morpheus user-groups update [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -31769,7 +31498,6 @@ Usage: morpheus user-settings clear-access-token [client-id]
     -u, --user USER                  User username or ID
         --user-id ID                 User ID
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -31866,7 +31594,6 @@ Usage: morpheus user-settings regenerate-access-token [client-id]
     -u, --user USER                  User username or ID
         --user-id ID                 User ID
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -31975,7 +31702,6 @@ Usage: morpheus user-settings update [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32160,7 +31886,6 @@ Usage: morpheus user-sources add [account] [name]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32389,7 +32114,6 @@ Usage: morpheus user-sources update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32478,7 +32202,6 @@ Usage: morpheus users add [username] [email] [first] [last] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32625,7 +32348,6 @@ Usage: morpheus users passwd [user] [password] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32727,7 +32449,6 @@ Usage: morpheus users update [user] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32763,7 +32484,6 @@ Usage: morpheus vdi allocate [desktop] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -32870,7 +32590,6 @@ Usage: morpheus vdi open [desktop] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33012,7 +32731,6 @@ Usage: morpheus vdi-apps add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33148,7 +32866,6 @@ Usage: morpheus vdi-apps update [app] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33197,7 +32914,6 @@ Usage: morpheus vdi-gateways add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33331,7 +33047,6 @@ Usage: morpheus vdi-gateways update [gateway] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33403,7 +33118,6 @@ Usage: morpheus vdi-pools add [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33562,7 +33276,6 @@ Usage: morpheus vdi-pools update [pool] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33671,7 +33384,6 @@ Usage: morpheus virtual-images add [name] -t TYPE
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -33986,7 +33698,6 @@ Usage: morpheus virtual-images update [name] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -34147,7 +33858,6 @@ Usage: morpheus whitelabel-settings update
                                      Support menu links list. Comma delimited list of menu links. Each menu link is pipe delimited url1|label1|code1,url2|label2|code2
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -34181,7 +33891,6 @@ Usage: morpheus whitelabel-settings update-images
         --reset-favicon              Resets favicon default favicon
     -j, --json                       JSON Output
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -34291,7 +34000,6 @@ Usage: morpheus wiki add [name] [options]
         --category VALUE             Category (optional)
         --content VALUE              Content
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -34440,7 +34148,6 @@ Usage: morpheus wiki update [name] [options]
         --category VALUE             Category (optional)
         --content VALUE              Content (optional)
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
@@ -34517,7 +34224,6 @@ Usage: morpheus workflows add [name] --tasks taskId:phase,taskId2:phase,taskId3:
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -34556,7 +34262,6 @@ Usage: morpheus workflows execute [workflow] [options]
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
@@ -34685,7 +34390,6 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-dir DIRECTORY      Payload from a local directory containing 1-N JSON or YAML files, skip all prompting.
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
