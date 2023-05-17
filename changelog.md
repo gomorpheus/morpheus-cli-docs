@@ -6,6 +6,18 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.1.1
+
+### Enhancements
+
+* New command `load-balancer-pool-nodes` for managing load balancer pool nodes.
+* Updated `roles get|list-permissions` to hide all resources with access set to `default`. There is a new option called `--include-default-access` to show all resource permissions, including default access.
+
+### Fixes
+
+* Fixed `cypher` so that item key is now now url encoded. This issue would occur when then item key contained a space or other special character.
+* Fixed `instances add` and `networks add` network prompts not being scoped to the selected resource pool.
+
 ## 6.1.0
 
 ### Enhancements

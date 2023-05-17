@@ -1,4 +1,4 @@
-Morpheus CLI v6.1.0
+Morpheus CLI v6.1.1
 
 ## Getting Started
 
@@ -178,6 +178,7 @@ Commands:
 	library-upgrades
 	license
 	load-balancer-monitors
+	load-balancer-pool-nodes
 	load-balancer-pools
 	load-balancer-profiles
 	load-balancer-types
@@ -16870,6 +16871,188 @@ Update an existing load balancer monitor.
 ```
 
 
+### load-balancer-pool-nodes
+
+```
+Usage: morpheus load-balancer-pool-nodes [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+
+View and manage load balancer pool member nodes.
+```
+
+#### load-balancer-pool-nodes add
+
+```
+Usage: morpheus load-balancer-pool-nodes add [load balancer pool] [name]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new load balancer node.
+[load balancer pool] is required. This is the name or id of a load balancer pool.
+[name] is required. This is the name of the new load balancer node.
+```
+
+#### load-balancer-pool-nodes get
+
+```
+Usage: morpheus load-balancer-pool-nodes get [load balancer pool] [load balancer node]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a load balancer node.
+[load balancer pool] is required. This is the name or id of a load balancer pool.
+[load balancer node] is required. This is the name or id of a load balancer node.
+```
+
+#### load-balancer-pool-nodes list
+
+```
+Usage: morpheus load-balancer-pool-nodes list [load balancer pool] [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List load balancer nodes.
+[load balancer pool] is required. This is the name or id of a load balancer pool.
+[search] is optional. This is a search phrase to filter the results.
+```
+
+#### load-balancer-pool-nodes remove
+
+```
+Usage: morpheus load-balancer-pool-nodes remove [load balancer pool] [load balancer node]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an existing load balancer node.
+[load balancer pool] is required. This is the name or id of a load balancer pool.
+[load balancer node] is required. This is the name or id of a load balancer node.
+```
+
+#### load-balancer-pool-nodes update
+
+```
+Usage: morpheus load-balancer-pool-nodes update [load balancer pool] [load balancer node] [options]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an existing load balancer node.
+[load balancer pool] is required. This is the name or id of a load balancer pool.
+[load balancer node] is required. This is the name or id of a load balancer node.
+```
+
+
 ### load-balancer-pools
 
 ```
@@ -26962,7 +27145,7 @@ Usage: morpheus roles add [name] [options]
         --default-persona-access ACCESS
                                      Update the default persona access: [none|full]
         --personas CODE=ACCESS       Set persona to a custom access by persona code. Example: standard=full,serviceCatalog=full,vdi=full
-        --default-vdi-pool-access-access ACCESS
+        --default-vdi-pool-access ACCESS
                                      Update the default VDI pool access: [none|full]
         --vdi-pools ID=ACCESS        Set VDI pool to a custom access by VDI pool id. Example: 1=full,2=none
         --global-report-type-access ACCESS
@@ -26976,6 +27159,7 @@ Usage: morpheus roles add [name] [options]
         --reset-feature-access       Reset all feature permission access to none. This can be used in conjunction with --feature-access to recreate the feature permission access for the role.
         --reset-all-access           Reset all access to none including permissions, global groups, instance types, etc. This can be used in conjunction with --feature-access to recreate the feature permission access for the role.
         --owner ID                   Set the owner/tenant/account for the role by account id. Only master tenants with full permission for Tenant and Role may use this option.
+        --include-default-access     Include default access levels in the response (returns all available resources)
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -26983,6 +27167,7 @@ Usage: morpheus roles add [name] [options]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -27023,6 +27208,7 @@ Usage: morpheus roles get [role]
         --workflow-access            Display Workflow Access
         --task-access                Display Task Access
     -a, --all                        Display All Access Lists
+        --include-default-access     Include default access levels in the output (returns all available resources)
         --account-id ID              Clarify Owner of Role
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
@@ -27183,20 +27369,23 @@ Usage: morpheus roles update [role] [options]
                                      Update the default catalog item type access: [none|full]
         --catalog-item-types CODE=ACCESS
                                      Set catalog item type to a custom access by catalog item type id. Example: 1=full,2=none
+        --default-persona-access ACCESS
+                                     Update the default persona access: [none|full]
         --personas CODE=ACCESS       Set persona to a custom access by persona code. Example: standard=full,serviceCatalog=full,vdi=full
         --default-vdi-pool-access ACCESS
                                      Update the default VDI pool access: [none|full]
         --vdi-pools ID=ACCESS        Set VDI pool to a custom access by VDI pool id. Example: 1=full,2=none
-        --default-report-type-access ACCESS
-                                     Update the default report type access: [none|full]
+        --global-report-type-access ACCESS
+                                     Update the global report type access: [none|full]
         --report-types CODE=ACCESS   Set report type to a custom access by report type code. Example: appCost=none,guidance=full
-        --default-task-access ACCESS Update the default task access: [none|full]
+        --default-task-access ACCESS Set the default task access: [none|full]
         --tasks ID=ACCESS            Set task to a custom access by task id. Example: 1=none,2=full
         --default-workflow-access ACCESS
-                                     Update the default workflow access: [none|full]
+                                     Set the default workflow access: [none|full]
         --workflows ID=ACCESS        Set workflow to a custom access by workflow id. Example: 1=none,2=full
         --reset-feature-access       Reset all feature permission access to none. This can be used in conjunction with --feature-access to recreate the feature permission access for the role.
         --reset-all-access           Reset all access to none including permissions, global groups, instance types, etc. This can be used in conjunction with --feature-access to recreate the feature permission access for the role.
+        --include-default-access     Include default access levels in the output (returns all available resources)
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -34408,6 +34597,7 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
+
 
 
 ## Environment Variables
