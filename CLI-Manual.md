@@ -1,4 +1,4 @@
-Morpheus CLI v6.1.1
+Morpheus CLI v6.1.2
 
 ## Getting Started
 
@@ -11169,6 +11169,7 @@ The available options vary by --type.
 ```
 Usage: morpheus instances add-schedule [instance]
         --scheduleType VALUE         Schedule Type - Schedule type  can be recurring day of the week str or exact start and end timestamp. Default: dayOfWeek
+        --scheduleTimezone VALUE     Timezone (optional) - The timezone. Default: UTC
         --startDayOfWeek VALUE       Start Day Of Week - Start day of the week Sunday-Saturday (1-7). Default: Sunday
         --startTime HH:MM            Start Time (HH:MM) - Start time in HH:MM 24-hour format. Default: 01:00
         --endDayOfWeek VALUE         End Day Of Week - End day of the week Sunday-Saturday (1-7). Default: Sunday
@@ -12847,6 +12848,7 @@ Unlock an instance
 ```
 Usage: morpheus instances update [instance]
         --name VALUE                 Name
+        --displayName VALUE          Name
         --description VALUE          Description
         --environment VALUE          Environment
         --group GROUP                Group Name or ID
@@ -12960,6 +12962,7 @@ Update scaling threshold settings for an instance.
 ```
 Usage: morpheus instances update-schedule [instance] [schedule]
         --scheduleType VALUE         Schedule Type (optional) - Schedule type  can be recurring day of the week str or exact start and end timestamp
+        --scheduleTimezone VALUE     Timezone (optional) - The timezone
         --startDayOfWeek VALUE       Start Day Of Week (optional) - Start day of the week Sunday-Saturday (1-7)
         --startTime HH:MM            Start Time (HH:MM) (optional) - Start time in HH:MM 24-hour format
         --endDayOfWeek VALUE         End Day Of Week (optional) - End day of the week Sunday-Saturday (1-7)
@@ -28243,6 +28246,7 @@ Usage: morpheus security-groups add [name] [options]
         --name Name                  Name of the security group
         --description Description    Description of the security group
     -c, --cloud CLOUD                Scoped Cloud Name or ID
+        --resource-pool ID           ID of the Resource Pool for Amazon VPC and Azure Resource Group
         --group-access-all [on|off]  Toggle Access for all groups.
         --group-access LIST          Group Access, comma separated list of group IDs.
         --group-defaults LIST        Group Default Selection, comma separated list of group IDs
@@ -34597,7 +34601,6 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
-
 
 
 ## Environment Variables

@@ -6,6 +6,17 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.1.2
+
+### Enhancements
+
+* Updated `instances add-schedule` to prompt for timezone
+* Remove deprecated command `doc`
+
+### Fixes
+
+* Fixed `load-balancer-pools update` error
+
 ## 6.1.1
 
 ### Enhancements
