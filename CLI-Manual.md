@@ -277,7 +277,6 @@ Options:
 For more information, see https://clidocs.morpheusdata.com
 ```
 
-
 ### access-token
 
 ```
