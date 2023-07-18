@@ -6,6 +6,14 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.2.0
+
+### Enhancements
+
+* New command `backups` for managing backups
+* Updated `instances` and `apps` to use new `displayName` property returned by the API
+* Updated `instances run-workflow` to support new option `--phase PHASE`, and also `servers run-workflow`
+
 ## 6.1.2
 
 ### Enhancements

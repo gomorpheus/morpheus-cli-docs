@@ -1,4 +1,4 @@
-Morpheus CLI v6.1.2
+Morpheus CLI v6.2.0
 
 ## Getting Started
 
@@ -129,6 +129,7 @@ Commands:
 	archives
 	backup-services
 	backup-settings
+	backups
 	benchmark
 	blueprints
 	budgets
@@ -277,6 +278,7 @@ Options:
 For more information, see https://clidocs.morpheusdata.com
 ```
 
+
 ### access-token
 
 ```
@@ -372,7 +374,7 @@ Usage: morpheus activity list
         --end TIMESTAMP              Start date to search for activity. Default is the current time.
     -u, --user USER                  User Name or ID
         --tenant TENANT              Tenant Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -462,7 +464,7 @@ Export an alias, saving it to your .morpheus_profile for future use
 Usage: morpheus alias list
     -f, --format FORMAT              The format for the output: export, json, list, table (default).
     -e, --export                     Include the '-e' switch after each alias in the output. This implies --format export.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -769,7 +771,7 @@ Get details about a job.
 
 ```
 Usage: morpheus approvals list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1034,7 +1036,7 @@ Usage: morpheus apps history [app]
         --events                     Display sub processes (events).
         --output                     Display process output.
         --details                    Display more details. Shows everything, untruncated.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1081,7 +1083,7 @@ Usage: morpheus apps list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
     -a, --details                    Display all details: memory and storage usage used / max values.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1127,7 +1129,7 @@ Usage: morpheus apps logs [app]
         --level VALUE                Log Level. DEBUG,INFO,WARN,ERROR
         --table                      Format ouput as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1674,7 +1676,7 @@ Get details about an archive file.
 
 ```
 Usage: morpheus archives file-history [bucket:/path]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1702,7 +1704,7 @@ List history log events for an archive file.
 
 ```
 Usage: morpheus archives file-links [bucket:/path]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1754,7 +1756,7 @@ The [:/path] component is optional and can be used to display files under a sub-
 
 ```
 Usage: morpheus archives list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1783,7 +1785,7 @@ List archive buckets.
 ```
 Usage: morpheus archives list-files [bucket:/path]
     -a, --all                        Show all files, including subdirectories under the /path.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -1816,7 +1818,7 @@ Usage: morpheus archives ls [bucket/path]
     -l, --long                       Lists files in the long format, which contains lots of useful information, e.g. the exact size of the file, the file type, and when it was last modified.
         --human                      Humanized file sizes. The default is just the number of bytes.
     -1, --oneline                    One file per line. The default delimiter is a single space.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -2110,7 +2112,7 @@ Get details about a backup service.
 
 ```
 Usage: morpheus backup-services list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -2276,6 +2278,635 @@ Usage: morpheus backup-settings update
     -h, --help                       Print this help
 
 Update your backup settings.
+```
+
+
+### backups
+
+```
+Usage: morpheus backups [command] [options]
+Commands:
+	add
+	add-job
+	execute
+	execute-job
+	get
+	get-job
+	get-restore
+	get-result
+	list
+	list-jobs
+	list-restores
+	list-results
+	remove
+	remove-job
+	remove-restore
+	remove-result
+	update
+	update-job
+
+View and manage backups
+```
+
+#### backups add
+
+```
+Usage: morpheus backups add [name] [options]
+        --source VALUE               Backup Source: instance, host or provider
+        --instance VALUE             Instance Name or ID
+        --host VALUE                 Host Name or ID
+        --name VALUE                 Name
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+        --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
+        --ignore-payload-errors      Continue processing any remaining payloads if an error occurs. The default behavior is to stop processing when an error occurs.
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new backup.
+```
+
+#### backups add-job
+
+```
+Usage: morpheus backups add-job [name]
+        --name VALUE                 Name
+        --code VALUE                 Code (optional)
+        --retentionCount NUMBER      Retention Count (optional)
+        --scheduleId VALUE           Schedule (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new backup job
+```
+
+#### backups execute
+
+```
+Usage: morpheus backups execute [backup] [options]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Execute a backup to create a new backup result.
+[backup] is required. This is the name or id of a backup.
+```
+
+#### backups execute-job
+
+```
+Usage: morpheus backups execute-job [job]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Execute a backup job to create a new backup result for all the backups in the job.
+[job] is required. This is the name or id of a backup job.
+```
+
+#### backups get
+
+```
+Usage: morpheus backups get [backup]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific backup.
+[backup] is required. This is the name or id of a backup.
+```
+
+#### backups get-job
+
+```
+Usage: morpheus backups get-job [job]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific backup job.
+[job] is required. This is the id or name a backup job.
+```
+
+#### backups get-restore
+
+```
+Usage: morpheus backups get-restore [restore]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific backup restore.
+[restore] is required. This is the id of a backup restore.
+```
+
+#### backups get-result
+
+```
+Usage: morpheus backups get-result [result]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific backup result.
+[result] is required. This is the id of a backup result.
+```
+
+#### backups list
+
+```
+Usage: morpheus backups list [search]
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List backups.
+```
+
+#### backups list-jobs
+
+```
+Usage: morpheus backups list-jobs [search]
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List backup jobs.
+```
+
+#### backups list-restores
+
+```
+Usage: morpheus backups list-restores [search]
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List backup restores.
+```
+
+#### backups list-results
+
+```
+Usage: morpheus backups list-results [search]
+        --backup BACKUP              Backup Name or ID
+        --instance INSTANCE          Instance Name or ID
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List backup results.
+```
+
+#### backups remove
+
+```
+Usage: morpheus backups remove [backup] [options]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a backup.
+[backup] is required. This is the name or id of a backup.
+```
+
+#### backups remove-job
+
+```
+Usage: morpheus backups remove-job [job]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a backup job.
+[job] is required. This is the name or id of a backup job.
+```
+
+#### backups remove-restore
+
+```
+Usage: morpheus backups remove-restore [restore]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a backup restore.
+[restore] is required. This is the id of a backup restore.
+```
+
+#### backups remove-result
+
+```
+Usage: morpheus backups remove-result [result]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a backup result.
+[result] is required. This is the id of a backup result.
+```
+
+#### backups update
+
+```
+Usage: morpheus backups update [backup] [options]
+        --name VALUE                 Name (optional)
+        --jobId VALUE                Backup Job (optional)
+        --enabled [on|off]           Enabled (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a backup.
+[backup] is required. This is the name or id of a backup.
+```
+
+#### backups update-job
+
+```
+Usage: morpheus backups update-job [job]
+        --name VALUE                 Name (optional)
+        --code VALUE                 Code (optional)
+        --retentionCount NUMBER      Retention Count (optional)
+        --scheduleId VALUE           Schedule (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a backup job.
+[job] is required. This is the name or id of a backup job.
 ```
 
 
@@ -2693,7 +3324,7 @@ Usage: morpheus blueprints list
         --owner USER                 Owner Username or ID
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -3088,7 +3719,7 @@ Get details about a budget.
 
 ```
 Usage: morpheus budgets list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -3230,7 +3861,7 @@ Usage: morpheus catalog add [type] [options]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
         --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
-        --payloads-ignore-error      Continue processing payloads if an error occurs. The default behavior is to stop processing when an error occurs.
+        --ignore-payload-errors      Continue processing any remaining payloads if an error occurs. The default behavior is to stop processing when an error occurs.
     -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3270,7 +3901,7 @@ Usage: morpheus catalog add-order [type] [options]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
         --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
-        --payloads-ignore-error      Continue processing payloads if an error occurs. The default behavior is to stop processing when an error occurs.
+        --ignore-payload-errors      Continue processing any remaining payloads if an error occurs. The default behavior is to stop processing when an error occurs.
     -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3502,7 +4133,7 @@ Get details about a specific catalog item type.
 ```
 Usage: morpheus catalog list [search]
     -t, --type TYPE                  Catalog Item Type Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -3544,7 +4175,7 @@ List catalog inventory.
 ```
 Usage: morpheus catalog list-types [search]
         --featured [on|off]          Filter by featured
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -3656,7 +4287,7 @@ Usage: morpheus catalog update-cart --name [name]
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
         --payloads PATH              Payload(s) from one or more local JSON or YAML files, skip all prompting and execute the request 1-N times, once for each file. PATH can be a directory or a file pattern.
-        --payloads-ignore-error      Continue processing payloads if an error occurs. The default behavior is to stop processing when an error occurs.
+        --ignore-payload-errors      Continue processing any remaining payloads if an error occurs. The default behavior is to stop processing when an error occurs.
     -j, --json                       JSON Output
     -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
@@ -3803,7 +4434,7 @@ Get details about a specific certificate type.
 
 ```
 Usage: morpheus certificates list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -3844,7 +4475,7 @@ List certificates.
 ```
 Usage: morpheus certificates list-types [search]
         --optionTypes [true|false]   Include optionTypes in the response. Default is false.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -4028,7 +4659,7 @@ Get details about an oath client.
 
 ```
 Usage: morpheus clients list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -4222,7 +4853,7 @@ Get the number of clouds.
 
 ```
 Usage: morpheus clouds get [name]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -4265,7 +4896,7 @@ Get details about a cloud.
 Usage: morpheus clouds list
     -g, --group GROUP                Group Name
     -t, --type TYPE                  Cloud Type
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -4382,7 +5013,7 @@ Usage: morpheus clouds security-groups [name]
 
 ```
 Usage: morpheus clouds types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -4941,7 +5572,7 @@ Usage: morpheus clusters history [cluster]
         --details                    Display more details: memory and storage usage used / max values.
         --process-id ID              Display details about a specfic process only.
         --event-id ID                Display details about a specfic process event only.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5044,7 +5675,7 @@ Display history details for a specific process event.
 Usage: morpheus clusters list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5082,7 +5713,7 @@ List clusters.
 Usage: morpheus clusters list-containers [cluster]
         --resource-level LEVEL       Resource Level
         --worker WORKER              Worker
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5119,7 +5750,7 @@ List containers for a cluster.
 
 ```
 Usage: morpheus clusters list-datastores [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5157,7 +5788,7 @@ List datastores for a cluster.
 ```
 Usage: morpheus clusters list-deployments [cluster]
         --resource-level LEVEL       Resource Level
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5194,7 +5825,7 @@ List deployments for a cluster.
 
 ```
 Usage: morpheus clusters list-jobs [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5231,7 +5862,7 @@ List jobs for a cluster.
 
 ```
 Usage: morpheus clusters list-masters [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5268,7 +5899,7 @@ List masters for a cluster.
 
 ```
 Usage: morpheus clusters list-namespaces [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5306,7 +5937,7 @@ List namespaces for a cluster.
 ```
 Usage: morpheus clusters list-pods [cluster]
         --resource-level LEVEL       Resource Level
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5343,7 +5974,7 @@ List pods for a cluster.
 
 ```
 Usage: morpheus clusters list-services [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5381,7 +6012,7 @@ List services for a cluster.
 ```
 Usage: morpheus clusters list-stateful-sets [cluster]
         --resource-level LEVEL       Resource Level
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5418,7 +6049,7 @@ List statefulsets for a cluster.
 
 ```
 Usage: morpheus clusters list-volumes [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5455,7 +6086,7 @@ List volumes for a cluster.
 
 ```
 Usage: morpheus clusters list-workers [cluster]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -5497,7 +6128,7 @@ Usage: morpheus clusters logs [cluster]
         --level VALUE                Log Level. DEBUG,INFO,WARN,ERROR
         --table                      Format ouput as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -6599,7 +7230,7 @@ Usage: morpheus containers logs [id]
         --level VALUE                Log Level. DEBUG,INFO,WARN,ERROR
         --table                      Format ouput as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -6834,7 +7465,7 @@ Get details about a credential type.
 
 ```
 Usage: morpheus credential-types list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -6960,7 +7591,7 @@ Get details about a credential.
 
 ```
 Usage: morpheus credentials list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -7165,7 +7796,7 @@ Use --ttl to specify a ttl if expecting cypher engine to automatically create th
 
 ```
 Usage: morpheus cypher list [key]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -7278,7 +7909,7 @@ Delete a cypher.
 ```
 Usage: morpheus dashboard
     -a, --details                    Display all details: more instance usage stats, etc
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -7363,7 +7994,7 @@ Get details about a datastore.
 ```
 Usage: morpheus datastores list [cloud]
     -c, --cloud CLOUD                Cloud Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -7676,7 +8307,7 @@ Create a new deployment version.
 
 ```
 Usage: morpheus deployments list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -7716,7 +8347,7 @@ List deployments.
 
 ```
 Usage: morpheus deployments list-files [deployment] [version] [path] [options]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -7759,7 +8390,7 @@ List files in a deployment version.
 
 ```
 Usage: morpheus deployments list-versions [deployment] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -8110,7 +8741,7 @@ Get details about a specific instance deploy.
 
 ```
 Usage: morpheus deploys list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -8336,7 +8967,7 @@ Usage: morpheus environments get [name]
 
 ```
 Usage: morpheus environments list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -8579,7 +9210,7 @@ Usage: morpheus execute-schedules get [name]
 
 ```
 Usage: morpheus execute-schedules list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -9085,7 +9716,7 @@ Get details about a group.
 
 ```
 Usage: morpheus groups list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -9409,7 +10040,7 @@ Usage: morpheus guidance list
     -i, --ignored                    Include Ignored Discoveries
     -p, --processed                  Include Processed Discoveries
     -a, --any                        Include Processed and Ignored Discoveries
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -9650,7 +10281,7 @@ Usage: morpheus health alarms
         --acknowledged               Filter by acknowledged. By default only open alarms are returned.
         --start TIMESTAMP            Start timestamp. Default is 24 hours ago.
         --end TIMESTAMP              End timestamp. Default is now.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -9691,7 +10322,7 @@ Usage: morpheus health export-logs [file]
         --end TIMESTAMP              End date timestamp in standard iso8601 format. Default is now.
     -f, --force                      Overwrite existing [file] if it exists.
     -p, --mkdir                      Create missing directories for [file] if they do not exist.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -9797,7 +10428,7 @@ Usage: morpheus health logs
         --end TIMESTAMP              End date timestamp in standard iso8601 format. Default is now.
     -t, --table                      Format output as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10066,7 +10697,7 @@ Usage: morpheus hosts list
         --non-tag-compliant          Displays only servers with tag compliance warnings.
         --stats                      Display values for memory and storage usage used / max values.
     -a, --details                    Display all details: hostname, private ip, plan, stats, etc.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10111,7 +10742,7 @@ Usage: morpheus hosts logs [name]
         --level VALUE                Log Level. DEBUG,INFO,WARN,ERROR
         --table                      Format ouput as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10249,7 +10880,8 @@ Restart a host.
 #### hosts run-workflow
 
 ```
-Usage: morpheus hosts run-workflow [name] [workflow] [options]
+Usage: morpheus hosts run-workflow [host] [workflow] [options]
+        --phase PHASE                Task Phase to run for Provisioning workflows. The default is provision.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -10271,6 +10903,13 @@ Usage: morpheus hosts run-workflow [name] [workflow] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Run workflow for a host.
+[host] is required. This is the name or id of a host
+[workflow] is required. This is the name or id of a workflow
+By default the provision phase is executed.
+Use the --phase option to execute a different phase.
+The available phases are start, stop, preProvision, provision, postProvision, preDeploy, deploy, reconfigure, teardown, startup and shutdown.
 ```
 
 #### hosts snapshots
@@ -10309,7 +10948,7 @@ Usage: morpheus hosts snapshots [host]
 
 ```
 Usage: morpheus hosts software [host]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10458,7 +11097,7 @@ Stop a host.
 ```
 Usage: morpheus hosts types
     -c, --cloud CLOUD                Cloud Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10757,7 +11396,7 @@ Usage: morpheus image-builder get [image-build]
 
 ```
 Usage: morpheus image-builder list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10783,7 +11422,7 @@ Usage: morpheus image-builder list
 
 ```
 Usage: morpheus image-builder list-runs [image-build]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -10952,7 +11591,7 @@ Get instance type details.
 
 ```
 Usage: morpheus instance-types list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -11612,7 +12251,7 @@ Usage: morpheus instances delenv [instance] VAR
 
 ```
 Usage: morpheus instances deploys [instance] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -11878,7 +12517,7 @@ Usage: morpheus instances history [instance]
         --details                    Display more details: memory and storage usage used / max values.
         --process-id ID              Display details about a specfic process only.
         --event-id ID                Display details about a specfic process event only.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -12020,7 +12659,7 @@ Usage: morpheus instances list
         --tags Name=Value            Filter by tags (metadata name value pairs).
         --stats                      Display values for memory and storage usage used / max values.
     -a, --details                    Display all details: plan, stats, etc
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -12096,7 +12735,7 @@ Usage: morpheus instances logs [instance]
         --level VALUE                Log Level. DEBUG,INFO,WARN,ERROR
         --table                      Format ouput as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -12401,6 +13040,7 @@ Revert an Instance to saved Snapshot previously made.
 
 ```
 Usage: morpheus instances run-workflow [instance] [workflow] [options]
+        --phase PHASE                Task Phase to run for Provisioning workflows. The default is provision.
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -12418,6 +13058,13 @@ Usage: morpheus instances run-workflow [instance] [workflow] [options]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Run workflow for an instance.
+[instance] is required. This is the name or id of an instance
+[workflow] is required. This is the name or id of a workflow
+By default the provision phase is executed.
+Use the --phase option to execute a different phase.
+The available phases are start, stop, preProvision, provision, postProvision, preDeploy, deploy, reconfigure, teardown, startup and shutdown.
 ```
 
 #### instances scaling
@@ -13333,7 +13980,7 @@ Get details about a specific integration type.
 Usage: morpheus integrations list [search]
     -t, --type CODE                  Filter by type code(s), see `list-types` for available type codes
         --url URL                    Filter by url
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -13373,7 +14020,7 @@ List integrations.
 
 ```
 Usage: morpheus integrations list-inventory [integration] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -13416,7 +14063,7 @@ Only certain types of integrations support this operation, such as Ansible Tower
 ```
 Usage: morpheus integrations list-objects [integration] [search]
     -t, --type CODE                  Filter by types: cloud, layout, blueprint, catalog
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -13458,7 +14105,7 @@ List integration objects.
 ```
 Usage: morpheus integrations list-types [search]
         --optionTypes [true|false]   Include optionTypes in the response. Default is false.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -13765,7 +14412,7 @@ Usage: morpheus invoices list
         --totals-only                View totals only
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
         --test-count VALUE           Test if value matches the total number of results found and exit with error code 3 if not.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -13827,7 +14474,7 @@ Usage: morpheus invoices list-line-items
         --tags Name=Value            Filter by tags.
         --totals                     View total costs and prices for all the invoices found.
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 2. eg. $3.50
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -14138,7 +14785,7 @@ Usage: morpheus jobs list
         --stats [true|false]         Hide Execution Stats. Job statistics are displayed by default.
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -14180,7 +14827,7 @@ List jobs.
 Usage: morpheus jobs list-executions [job]
         --job JOB                    Filter by Job ID or name.
         --internal [true|false]      Filters executions based on internal flag. Internal executions are excluded by default.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -14397,7 +15044,7 @@ Usage: morpheus key-pairs get [name]
 ```
 Usage: morpheus key-pairs list
         --tenant TENANT              Tenant (Account) Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -14607,7 +15254,7 @@ Usage: morpheus library-cluster-layouts list
         --technology VALUE           Filter by technology
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -14800,7 +15447,7 @@ Usage: morpheus library-file-templates get [name]
 Usage: morpheus library-file-templates list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -14981,7 +15628,7 @@ Usage: morpheus library-instance-types list
         --featured [true|false]      Filter by featured.
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -15259,7 +15906,7 @@ Usage: morpheus library-layouts list
         --technology VALUE           Filter by technology
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -15485,7 +16132,7 @@ Usage: morpheus library-node-types list
         --category VALUE             Filter by category
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -15676,7 +16323,7 @@ Get details about an option list.
 Usage: morpheus library-option-lists list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -15916,7 +16563,7 @@ Get details about an option type.
 Usage: morpheus library-option-types list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -16105,7 +16752,7 @@ Usage: morpheus library-scripts get [name]
 Usage: morpheus library-scripts list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -16277,7 +16924,7 @@ Usage: morpheus library-spec-templates get [name]
 Usage: morpheus library-spec-templates list
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -16313,7 +16960,7 @@ List spec templates.
 
 ```
 Usage: morpheus library-spec-templates list-types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -16485,7 +17132,7 @@ Get details about an upgrade.
 ```
 Usage: morpheus library-upgrades list [instance-type]
         --code VALUE                 Filter by code
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -16776,7 +17423,7 @@ Get details about a load balancer monitor.
 
 ```
 Usage: morpheus load-balancer-monitors list [load balancer] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -16958,7 +17605,7 @@ Get details about a load balancer node.
 
 ```
 Usage: morpheus load-balancer-pool-nodes list [load balancer pool] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -17140,7 +17787,7 @@ Get details about a load balancer pool.
 
 ```
 Usage: morpheus load-balancer-pools list [load balancer] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -17322,7 +17969,7 @@ Get details about a load balancer profile.
 
 ```
 Usage: morpheus load-balancer-profiles list [load balancer] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -17467,7 +18114,7 @@ Get details about a load balancer type.
 
 ```
 Usage: morpheus load-balancer-types list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -17590,7 +18237,7 @@ Get details about a load balancer virtual server.
 
 ```
 Usage: morpheus load-balancer-virtual-servers list [load balancer] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -17774,7 +18421,7 @@ Get details about a load balancer.
 
 ```
 Usage: morpheus load-balancers list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -18105,7 +18752,7 @@ Usage: morpheus logs list [search]
         --level VALUE                Log Level. DEBUG,INFO,WARN,ERROR
     -t, --table                      Format ouput as a table.
     -a, --all                        Display all details: entire message.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -18223,7 +18870,7 @@ Get details about a monitoring alert rule.
 
 ```
 Usage: morpheus monitor-alerts list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -18410,7 +19057,7 @@ Usage: morpheus monitor-apps get [id list]
 ```
 Usage: morpheus monitor-apps list
         --status LIST                Filter by status. error,healthy,warning,muted
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -18703,7 +19350,7 @@ Usage: morpheus monitor-checks get [id list]
 ```
 Usage: morpheus monitor-checks history [name] [options]
         --severity LIST              Filter by severity. critical, warning, info
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -18739,7 +19386,7 @@ Usage: morpheus monitor-checks history [name] [options]
 Usage: morpheus monitor-checks list
     -t, --type TYPE                  Filter by Check Type
         --status VALUE               Filter by status. error,healthy,warning,muted
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -18774,7 +19421,7 @@ Usage: morpheus monitor-checks list
 
 ```
 Usage: morpheus monitor-checks list-types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19059,7 +19706,7 @@ Get details about a monitoring contact.
 
 ```
 Usage: morpheus monitor-contacts list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19238,7 +19885,7 @@ Usage: morpheus monitor-groups get [id list]
 ```
 Usage: morpheus monitor-groups history [name] [options]
         --severity LIST              Filter by severity. critical, warning, info
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19273,7 +19920,7 @@ Usage: morpheus monitor-groups history [name] [options]
 ```
 Usage: morpheus monitor-groups list
         --status VALUE               Filter by status. error,healthy,warning,muted
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19584,7 +20231,7 @@ Usage: morpheus monitor-incidents get [id list]
 ```
 Usage: morpheus monitor-incidents history [id] [options]
         --severity LIST              Filter by severity. critical, warning, info
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19620,7 +20267,7 @@ Usage: morpheus monitor-incidents history [id] [options]
 Usage: morpheus monitor-incidents list
         --status LIST                Filter by status. open, closed
         --severity LIST              Filter by severity. critical, warning, info
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19716,7 +20363,7 @@ Mute all open incidents.
 
 ```
 Usage: morpheus monitor-incidents notifications [id] [options]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -19771,7 +20418,7 @@ Usage: morpheus monitor-incidents reopen [id list]
 
 ```
 Usage: morpheus monitor-incidents stats
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -20064,7 +20711,7 @@ Display details on a network DHCP Relay.
 
 ```
 Usage: morpheus network-dhcp-relays list [server] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -20242,7 +20889,7 @@ Display details on a network DHCP Server.
 
 ```
 Usage: morpheus network-dhcp-servers list [server]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -20497,7 +21144,7 @@ Get details about a network domain record.
 
 ```
 Usage: morpheus network-domains list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -20532,7 +21179,7 @@ List network domains.
 
 ```
 Usage: morpheus network-domains list-records [network-domain]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -20906,7 +21553,7 @@ Display details on a network firewall rule group.
 
 ```
 Usage: morpheus network-firewalls list-rule-groups [server]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -20943,7 +21590,7 @@ List network firewall rule groups.
 
 ```
 Usage: morpheus network-firewalls list-rules [server]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -21153,7 +21800,7 @@ Usage: morpheus network-floating-ips list [search]
         --server SERVER              Server Name or ID
         --ip-address VALUE           Filter by IP Address
         --status VALUE               Filter by Status (free, assigned, pending)
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -21306,7 +21953,7 @@ Get details about a network group.
 
 ```
 Usage: morpheus network-groups list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -21527,7 +22174,7 @@ Get details about a network pool server type.
 
 ```
 Usage: morpheus network-pool-servers list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -21568,7 +22215,7 @@ List network pool servers.
 
 ```
 Usage: morpheus network-pool-servers list-types [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -21813,7 +22460,7 @@ Get details about a network pool IP address.
 ```
 Usage: morpheus network-pools list
         --pool-server SERVER         Filter by Network Pool Server Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -21848,7 +22495,7 @@ List network pools.
 
 ```
 Usage: morpheus network-pools list-ips [network-pool]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -22083,7 +22730,7 @@ Get details about a network proxy.
 
 ```
 Usage: morpheus network-proxies list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -22692,7 +23339,7 @@ Display network router details.
 
 ```
 Usage: morpheus network-routers list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -22970,7 +23617,7 @@ List network router routes.
 ```
 Usage: morpheus network-routers type [type]
     -t, --type VALUE                 Name or ID of router type
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -23293,7 +23940,7 @@ Get details about a network server group.
 
 ```
 Usage: morpheus network-server-groups list [network server] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -23403,7 +24050,7 @@ Commands:
 
 ```
 Usage: morpheus network-services list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -23543,7 +24190,7 @@ Display details on a network Static Route.
 
 ```
 Usage: morpheus network-static-routes list [network] [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -23719,7 +24366,7 @@ Display details on a network transport zone.
 
 ```
 Usage: morpheus network-transport-zones list [server]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -23927,7 +24574,7 @@ Get details about a network.
 
 ```
 Usage: morpheus networks get-type [type]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -23970,7 +24617,7 @@ Usage: morpheus networks list
         --subnets                    Display subnets as rows under each network found.
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -24032,7 +24679,7 @@ Delete a network.
 ```
 Usage: morpheus networks types
     -c, --cloud CLOUD                Cloud Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -24287,7 +24934,7 @@ Usage: morpheus plugins list [search]
         --enabled [true|false]       Filter by enabled [true|false]
         --valid [true|false]         Filter by valid [true|false]
         --has-update [true|false]    Filter by hasValidUpdate [true|false]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -24535,7 +25182,7 @@ Usage: morpheus policies list
     -u, --user USER                  Username or ID
         --role ROLE                  Role Authority or ID
     -G, --global                     Global policies only
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -24822,7 +25469,7 @@ Usage: morpheus power-schedules get [schedule]
 
 ```
 Usage: morpheus power-schedules list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25096,7 +25743,7 @@ Get details about a price set.
 Usage: morpheus price-sets list
     -t, --type TYPE                  Filter by type
     -i, --include-inactive [on|off]  Can be used to enable / disable inactive filter. Default is on
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25274,7 +25921,7 @@ Usage: morpheus prices list
         --price-unit UNIT            Filter by priceUnit eg. hour, month
         --currency CURRENCY          Filter by currency eg. usd
         --price-type TYPE            Filter by priceType eg. fixed,platform,software,compute,storage,datastore,memory,cores,cpu
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25437,7 +26084,7 @@ Usage: morpheus process list
         --host HOST                  Limit results to specific host(s).
         --cloud CLOUD                Limit results to specific cloud(s).
         --user USER                  Limit results to user(s).
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25564,7 +26211,7 @@ Usage: morpheus projects list
         --clouds [LIST]              Filter by Cloud, comma separated list of cloud (zone) names or IDs.
         --resources [LIST]           Filter by Resources, comma separated list of resource IDs.
         --owners [LIST]              Owner, comma separated list of usernames or IDs.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25768,7 +26415,7 @@ Get details about a license.
 
 ```
 Usage: morpheus provisioning-licenses list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25808,7 +26455,7 @@ List licenses.
 
 ```
 Usage: morpheus provisioning-licenses list-types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -25874,7 +26521,7 @@ Delete license.
 
 ```
 Usage: morpheus provisioning-licenses reservations [name]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -26188,7 +26835,7 @@ Usage: morpheus remote list [search]
     -a, --all                        Show all the appliance activity details
         --current                    List only the active (current) appliance.
         --check                      Check each appliance in the list to refresh their status, this may take a while.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -26438,7 +27085,7 @@ Get report type
 ```
 Usage: morpheus reports list
         --type CODE                  Report Type code(s)
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -26467,7 +27114,7 @@ List report history.
 
 ```
 Usage: morpheus reports list-types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -26629,7 +27276,7 @@ Get details about a resource folder.
 ```
 Usage: morpheus resource-folders list [cloud]
     -c, --cloud CLOUD                Cloud Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -26789,7 +27436,7 @@ Get details about a resource pool group.
 
 ```
 Usage: morpheus resource-pool-groups list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -26981,7 +27628,7 @@ Get details about a resource pool.
 Usage: morpheus resource-pools list [cloud]
     -c, --cloud CLOUD                Cloud Name or ID
     -s, --search PHRASE              Search by Name and/or Display Name
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
     -D, --desc                       Descending Sort Direction.
@@ -27248,7 +27895,7 @@ Get details about a role.
 ```
 Usage: morpheus roles list [search phrase]
         --tenant TENANT              Tenant Filter for list of Roles.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -27288,7 +27935,7 @@ List roles.
 
 ```
 Usage: morpheus roles list-permissions [role] [category]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -28068,7 +28715,7 @@ Get details about a scale threshold.
 
 ```
 Usage: morpheus scale-thresholds list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -28181,7 +28828,7 @@ Update an existing scale threshold.
 ```
 Usage: morpheus search [phrase]
     -g, --go                         Go get details for the top search result instead of printing the list.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -28385,7 +29032,7 @@ Get details about a security group.
 
 ```
 Usage: morpheus security-groups list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -28626,7 +29273,7 @@ Get details about a security package type.
 
 ```
 Usage: morpheus security-package-types list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -28755,7 +29402,7 @@ Get details about a security package.
 Usage: morpheus security-packages list [search]
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -28909,7 +29556,7 @@ Usage: morpheus security-scans list [search]
         --security-package PACKAGE   Filter by security package name or id
         --server SERVER              Filter by server name or id
         --results                    Include the results object in the response under each security scan. This is a potentially very large object containing the raw results of the scan. Use with --json to see this data.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -29088,7 +29735,7 @@ Usage: morpheus self-service list [search]
         --all-labels LABEL           Filter by labels, must match all of the values
         --code CODE                  Filter by code
     -c, --category CATEGORY          Filter by category
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -29407,7 +30054,7 @@ Get details about a service plan.
 Usage: morpheus service-plans list
     -t, --provision-type VALUE       Filter by provision type ID or code
     -i, --include-inactive [on|off]  Can be used to enable / disable inactive filter. Default is on
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -29767,7 +30414,7 @@ Get details about a storage bucket.
 
 ```
 Usage: morpheus storage-buckets list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -29808,7 +30455,7 @@ List storage buckets.
 ```
 Usage: morpheus storage-buckets list-files [provider:/path]
     -a, --all                        Show all files, including subdirectories under the /path.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -29843,7 +30490,7 @@ Usage: morpheus storage-buckets ls [bucket/path]
     -l, --long                       Lists files in the long format, which contains lots of useful information, e.g. the exact size of the file, the file type, and when it was last modified.
     -H, --human                      Humanized file sizes. The default is just the number of bytes.
     -1, --oneline                    One file per line. The default delimiter is a single space.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30056,7 +30703,7 @@ Get details about a storage server type.
 
 ```
 Usage: morpheus storage-server-types list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30183,7 +30830,7 @@ Get details about a storage server.
 
 ```
 Usage: morpheus storage-servers list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30332,7 +30979,7 @@ Get details about a storage volume type.
 Usage: morpheus storage-volume-types list [search]
         --name VALUE                 Filter by name
         --category VALUE             Filter by category
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30460,7 +31107,7 @@ Usage: morpheus storage-volumes list [search]
     -t, --type TYPE                  Filter by type
         --name VALUE                 Filter by name
         --category VALUE             Filter by category
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30617,7 +31264,7 @@ Get details about a subnet.
 
 ```
 Usage: morpheus subnets get-type [type]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30654,7 +31301,7 @@ Get details about a subnet type.
 
 ```
 Usage: morpheus subnets list
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30719,7 +31366,7 @@ Delete a subnet.
 ```
 Usage: morpheus subnets types
     -c, --cloud CLOUD                Cloud Name or ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -30965,7 +31612,7 @@ Usage: morpheus tasks list [search]
     -t, --type x,y,z                 Filter by task type code(s)
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -31005,7 +31652,7 @@ List tasks.
 
 ```
 Usage: morpheus tasks list-types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -31239,7 +31886,7 @@ Commands:
 
 ```
 Usage: morpheus tenants list [search phrase]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -31410,7 +32057,7 @@ Usage: morpheus usage list [search]
         --start DATE                 Start date in the format YYYY-MM-DD.
         --end DATE                   End date in the format YYYY-MM-DD. Default is the current date.
         --sigdig DIGITS              Significant digits when rounding cost values for display as currency. Default is 5.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -31552,7 +32199,7 @@ Usage: morpheus user-groups get [name]
 
 ```
 Usage: morpheus user-groups list [search phrase]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -32196,7 +32843,7 @@ Get details about an identity source type.
 ```
 Usage: morpheus user-sources list
         --tenant TENANT              Filter by Tenant
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -32236,7 +32883,7 @@ List identity sources.
 
 ```
 Usage: morpheus user-sources list-types
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -32493,7 +33140,7 @@ Usage: morpheus users list
     -g, --global                     Global (All Tenants). Find users across all tenants. Default is your own tenant only.
         --role AUTHORITY             Role Name (authority)
         --role-id ID                 Role ID
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -32737,7 +33384,7 @@ Get details about a specific virtual desktop.
 
 ```
 Usage: morpheus vdi list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -32855,7 +33502,7 @@ Get details about a specific VDI allocation.
 
 ```
 Usage: morpheus vdi-allocations list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -32983,7 +33630,7 @@ Get details about a specific VDI app.
 
 ```
 Usage: morpheus vdi-apps list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -33166,7 +33813,7 @@ Get details about a specific VDI gateway.
 
 ```
 Usage: morpheus vdi-gateways list [search]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -33373,7 +34020,7 @@ Get details about a specific VDI pool.
 ```
 Usage: morpheus vdi-pools list [search]
         --enabled [on|off]           Filter by enabled
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -33702,7 +34349,7 @@ Usage: morpheus virtual-images list
         --all-labels LABEL           Filter by labels, must match all of the values
         --tags Name=Value            Filter by tags (metadata name value pairs).
     -a, --details                    Show more details.
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -33742,7 +34389,7 @@ List virtual images. Default list applies User filter
 
 ```
 Usage: morpheus virtual-images list-locations [image]
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -34217,7 +34864,7 @@ Usage: morpheus wiki add [name] [options]
 
 ```
 Usage: morpheus wiki categories
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -34281,7 +34928,7 @@ Usage: morpheus wiki get [name]
 ```
 Usage: morpheus wiki list
         --category VALUE             Category
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
@@ -34507,7 +35154,7 @@ Usage: morpheus workflows list [search]
     -t, --type TYPE                  Type of workflow. i.e. provision or operation. Default is provision.
     -l, --labels LABEL               Filter by labels, can match any of the values
         --all-labels LABEL           Filter by labels, must match all of the values
-    -m, --max MAX                    Max Results
+    -m, --max MAX                    Max Results (use -1 for all results)
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
     -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
