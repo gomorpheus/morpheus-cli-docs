@@ -6,6 +6,17 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.2.1
+
+### Enhancements
+
+* Remove deprecated New Relic settings from `monitor-settings` command
+
+### Fixes
+
+* Fixed `roles update-catalog-item-type-access|update-report-type-access|update-vdi-pool-access|update-task-access|update-workflow-access` resulting in a 'Not Found' error for resources with access set to default
+* Fixed `monitor-settings update` resulting in "Specify at least one option to update." error. This impacted several other commands as well
+
 ## 6.2.0
 
 ### Enhancements

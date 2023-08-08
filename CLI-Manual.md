@@ -1,4 +1,4 @@
-Morpheus CLI v6.2.0
+Morpheus CLI v6.2.1
 
 ## Getting Started
 
@@ -20600,9 +20600,6 @@ Usage: morpheus monitor-settings update
                                      ServiceNow: Warning Mapping
         --service-now-critical-mapping low|medium|high
                                      ServiceNow: Critical Mapping
-        --new-relic-enabled [on|off] New Relic: Enabled (on) or disabled (off)
-        --new-relic-license-key [VALUE]
-                                     New Relic: License Key
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -32716,7 +32713,9 @@ Usage: morpheus user-sources add [account] [name]
         --name VALUE                 Name for this identity source
         --description VALUE          Description
         --allow-custom-mappings [on|off]
-                                     Allow Custom Mappings, Enable Role Mapping Permissions
+                                     Enable Role Mapping Permissions
+        --manual-role-assignment [on|off]
+                                     Manual Role Assignment
         --role-mappings MAPPINGS     Role Mappings FQN in the format id1:FQN1,id2:FQN2
         --role-mapping-names MAPPINGS
                                      Role Mapping Names in the format id1:Name1,id2:Name2
@@ -32944,7 +32943,7 @@ Usage: morpheus user-sources update [name] [options]
         --name VALUE                 Name for this identity source
         --description VALUE          Description
         --allow-custom-mappings [on|off]
-                                     Allow Custom Mappings, Enable Role Mapping Permissions
+                                     Enable Role Mapping Permissions
         --role-mappings MAPPINGS     Role Mappings in the format id1:FQN,id2:FQN2
         --role-mapping-names MAPPINGS
                                      Role Mapping Names in the format id1:Name1,id2:Name2
@@ -35247,7 +35246,6 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
-
 
 ## Environment Variables
 
