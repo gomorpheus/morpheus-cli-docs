@@ -1,4 +1,4 @@
-Morpheus CLI v6.2.1
+Morpheus CLI v6.2.2
 
 ## Getting Started
 
@@ -24846,7 +24846,6 @@ Prints the remote version and status and the time it took to get a response.
 ```
 Usage: morpheus plugins [command] [options]
 Commands:
-	check-updates
 	get
 	list
 	remove
@@ -24854,35 +24853,6 @@ Commands:
 	upload
 
 View and manage plugins.
-```
-
-#### plugins check-updates
-
-```
-Usage: morpheus plugins check-updates [name] [file]
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompt for input on every option, even those not prompted for by default.
-    -N, --no-prompt                  No prompt, skips all input prompting.
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Check for installed plugins that have available updates.
 ```
 
 #### plugins get
@@ -26768,7 +26738,7 @@ Usage: morpheus remote clone [remote] [name]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Clone remote appliance configuratio, including any existing credentials.
+Clone remote appliance configuration, including any existing credentials.
 [remote] is required. This is the name of an existing remote.
 [name] is optional. This is the name of the new remote that will be created.
 ```
@@ -29689,7 +29659,7 @@ Create a new catalog item type.
 
 ```
 Usage: morpheus self-service get [type]
-    -c, --config                     Display raw config only. Default is YAML. Combine with -j for JSON instead.
+    -c, --config                     Display raw config only.
         --no-content                 Do not display Content.
     -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
     -j, --json                       JSON Output
@@ -34174,7 +34144,7 @@ View the remote appliance in a web browser.
 [id] is optional. This is the resource name or id to be append to the path to load details of a specific object.
 The [path] is matched against the morpheus UI site map to find the best matching route.
 Route matching is skipped if the path begins with a "/" or --absolute is used.
-By default no authentication is not done and the existing web browser session used.
+By default no authentication is done and the existing web browser session used.
 The --login option will authenticate via the CLI access token and create a new browser session.
 
 Examples:
@@ -35246,6 +35216,7 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
+
 
 ## Environment Variables
 

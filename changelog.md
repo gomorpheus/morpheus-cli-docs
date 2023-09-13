@@ -6,6 +6,16 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.2.2
+
+### Enhancements
+
+* Updated `catalog-item-type get` command to display `instanceSpec` as config in JSON format
+
+### Fixes
+
+* Removed `plugins check-updates` which is not yet implemented
+
 ## 6.2.1
 
 ### Enhancements
