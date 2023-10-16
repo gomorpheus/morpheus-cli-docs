@@ -127,7 +127,7 @@ The available commands and their options are also documented below.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run
 
 ## Command List
 
