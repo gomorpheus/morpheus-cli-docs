@@ -6,6 +6,15 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.2.3
+
+### Enhancements
+
+* New command `network-servers` for managing Network Server integrations (NSX, etc)
+* New subcommand `clusters refresh`
+* New subcommand `clouds type` to view details about a specific cloud type
+* Updated `clouds get` to display Last Sync and Sync Duration
+
 ## 6.2.2
 
 ### Enhancements
