@@ -30,9 +30,9 @@ rst_prolog = """
 
 #from recommonmark.parser import CommonMarkParser
 
-#source_parsers = {
-#    '.md': myst_parser,
-#}
+source_parsers = {
+    '.md': myst_parser,
+}
 
 source_suffix = ['.rst', '.md']
 
