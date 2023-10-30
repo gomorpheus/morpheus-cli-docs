@@ -6,6 +6,16 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.3.0
+
+### Enhancements
+
+* Updated `roles` to support Landing Url field named `landingUrl`
+
+### Fixes
+
+* Fixed `policies get-type` to allow the policy type name or id to be specified instead of requiring id
+
 ## 6.2.3
 
 ### Enhancements
