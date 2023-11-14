@@ -6,6 +6,20 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.3.1
+
+### Enhancements
+
+* New command `library-cluster-packages` for managing cluster packages.
+* New command `library-forms` for managing option forms and their inputs.
+* Renamed `self-service` to `catalog-item-types`. The old command still exists, though it will be deprecated in the future. Please update your scripts to use `catalog-item-types`.
+* Updated `catalog-item-types` to support forms.
+* Updated `catalog` to support types that use forms. The CLI only supports prompting for the Basic input types, but support for all of the Advanced and Provisioning input types will be added soon.
+
+### Fixes
+
+* Fixed `certificates add --type nsxtCertificate` issue with the integration options not being provided for the Service prompt.
+
 ## 6.3.0
 
 ### Enhancements

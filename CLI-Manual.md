@@ -1,4 +1,4 @@
-Morpheus CLI v6.3.0
+Morpheus CLI v6.3.1
 
 ## Getting Started
 
@@ -134,6 +134,7 @@ Commands:
 	blueprints
 	budgets
 	catalog
+	catalog-item-types
 	certificates
 	clients
 	clouds
@@ -168,7 +169,9 @@ Commands:
 	jobs
 	key-pairs
 	library-cluster-layouts
+	library-cluster-packages
 	library-file-templates
+	library-forms
 	library-instance-types
 	library-layouts
 	library-node-types
@@ -236,7 +239,6 @@ Commands:
 	security-package-types
 	security-packages
 	security-scans
-	self-service
 	service-plans
 	setup
 	shell
@@ -4306,6 +4308,288 @@ Usage: morpheus catalog update-cart --name [name]
     -h, --help                       Print this help
 
 Update your cart settings, such as name.
+```
+
+
+### catalog-item-types
+
+```
+Usage: morpheus catalog-item-types [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+	update-dark-logo
+	update-logo
+
+View and manage catalog item types
+```
+
+#### catalog-item-types add
+
+```
+Usage: morpheus catalog-item-types add [name] [options]
+    -t, --type VALUE                 Type. Default: instance
+        --name VALUE                 Name
+        --code VALUE                 Code (optional)
+        --category VALUE             Category (optional)
+        --description VALUE          Description (optional)
+        --enabled [on|off]           Enabled (optional). Default: true
+        --featured [on|off]          Featured (optional)
+        --allowQuantity [on|off]     Allow Quantity (optional)
+        --visibility VALUE           Visibility. Default: private
+        --layoutCode VALUE           Layout Code (optional)
+        --iconPath VALUE             Logo (optional)
+        --config VALUE               Config - JSON or YAML
+        --workflowConfig VALUE       Config (optional) - Enter configuration for the Workflow
+        --blueprint VALUE            Blueprint - Choose a blueprint to apply to the catalog item.
+        --appSpec VALUE              App Spec - Enter a spec in the for the App, the Scribe YAML format
+        --workflow VALUE             Workflow - Enter a spec in the for the App, the Scribe YAML format
+        --context VALUE              Context Type (optional) - Context for operational workflow, determines target type. Default: Select
+        --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
+    -l, --labels [LIST]              Labels
+        --logo FILE                  Upload a custom logo icon
+        --dark-logo FILE             Upload a custom dark logo icon
+        --config-file FILE           Config from a local JSON or YAML file
+        --form-type form|optionTypes Form Type determines if input comes from a Form or list of Option Types
+        --form FORM                  Form Name or ID
+        --option-types [x,y,z]       List of Option Type IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new catalog item type.
+```
+
+#### catalog-item-types get
+
+```
+Usage: morpheus catalog-item-types get [type]
+    -c, --config                     Display raw config only.
+        --no-content                 Do not display Content.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+```
+
+#### catalog-item-types list
+
+```
+Usage: morpheus catalog-item-types list [search]
+        --enabled [on|off]           Filter by enabled
+        --featured [on|off]          Filter by featured
+    -l, --labels LABEL               Filter by labels, can match any of the values
+        --all-labels LABEL           Filter by labels, must match all of the values
+        --code CODE                  Filter by code
+    -c, --category CATEGORY          Filter by category
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List catalog item types.
+```
+
+#### catalog-item-types remove
+
+```
+Usage: morpheus catalog-item-types remove [type] [options]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+```
+
+#### catalog-item-types update
+
+```
+Usage: morpheus catalog-item-types update [type] [options]
+        --name VALUE                 Name (optional)
+        --code VALUE                 Code (optional)
+        --category VALUE             Category (optional)
+        --description VALUE          Description (optional)
+        --enabled [on|off]           Enabled (optional)
+        --featured [on|off]          Featured (optional)
+        --allowQuantity [on|off]     Allow Quantity (optional)
+        --visibility VALUE           Visibility (optional)
+        --layoutCode VALUE           Layout Code (optional)
+        --iconPath VALUE             Logo (optional)
+        --config VALUE               Config (optional) - JSON or YAML
+        --workflowConfig VALUE       Config (optional) - Enter configuration for the Workflow
+        --blueprint VALUE            Blueprint (optional) - Choose a blueprint to apply to the catalog item.
+        --appSpec VALUE              App Spec (optional) - Enter a spec in the for the App, the Scribe YAML format
+        --workflow VALUE             Workflow (optional) - Enter a spec in the for the App, the Scribe YAML format
+        --context VALUE              Context Type (optional) - Context for operational workflow, determines target type
+        --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
+    -l, --labels [LIST]              Labels
+        --logo FILE                  Upload a custom logo icon
+        --dark-logo FILE             Upload a custom dark logo icon
+        --config-file FILE           Config from a local JSON or YAML file
+        --form-type form|optionTypes Form Type determines if input comes from a Form or list of Option Types
+        --form FORM                  Form Name or ID
+        --option-types [x,y,z]       List of Option Type IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+```
+
+#### catalog-item-types update-dark-logo
+
+```
+Usage: morpheus catalog-item-types update-dark-logo [type] [file]
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update the dark logo for a catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+[file] is required. This is the path of the dark logo file
+```
+
+#### catalog-item-types update-logo
+
+```
+Usage: morpheus catalog-item-types update-logo [type] [file]
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update the logo for a catalog item type.
+[type] is required. This is the name or id of a catalog item type.
+[file] is required. This is the path of the logo file
 ```
 
 
@@ -15433,6 +15717,181 @@ Update a cluster layout.
 ```
 
 
+### library-cluster-packages
+
+```
+Usage: morpheus library-cluster-packages [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+```
+
+#### library-cluster-packages add
+
+```
+Usage: morpheus library-cluster-packages add [name] [options]
+    -n, --name VALUE                 Name for this cluster package
+        --description VALUE          Description
+    -c, --code VALUE                 Code
+    -e, --enabled [on|off]           Can be used to enable / disable package. Default is on
+        --repeatInstall [on|off]     Can be used to retry install package if initial fails
+    -t, --type VALUE                 Type
+    -p, --packageType VALUE          Package Type
+    -v, --packageVersion VALUE       Package Version
+        --spec-templates [x,y,z]     List of Spec Templates to include in this package, comma separated list of IDs.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a cluster package.
+```
+
+#### library-cluster-packages get
+
+```
+Usage: morpheus library-cluster-packages get [clusterPackage]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Display cluster package details.
+[clusterPackage] is required. This is the name or id of a cluster package.
+```
+
+#### library-cluster-packages list
+
+```
+Usage: morpheus library-cluster-packages list
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List cluster packages.
+```
+
+#### library-cluster-packages remove
+
+```
+Usage: morpheus library-cluster-packages remove [clusterPackage]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a cluster package.
+[clusterPackage] is required. This is the name or id of a cluster package.
+```
+
+#### library-cluster-packages update
+
+```
+Usage: morpheus library-cluster-packages update [name] [options]
+    -n, --name VALUE                 Name for this cluster package
+        --description VALUE          Description
+    -c, --code VALUE                 Code
+    -e, --enabled [on|off]           Can be used to enable / disable package. Default is on
+        --repeatInstall [on|off]     Can be used to retry install package if initial fails
+    -t, --type VALUE                 Type
+    -p, --packageType VALUE          Package Type
+    -v, --packageVersion VALUE       Package Version
+        --spec-templates [x,y,z]     List of Spec Templates to include in this package, comma separated list of IDs.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a cluster package.
+[name] is required. This is the name or id of a cluster package.
+```
+
+
 ### library-file-templates
 
 ```
@@ -15604,6 +16063,190 @@ Usage: morpheus library-file-templates update [name]
 
 Update a file template.
 [name] is required. This is the name or id of a file template.
+```
+
+
+### library-forms
+
+```
+Usage: morpheus library-forms [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+```
+
+#### library-forms add
+
+```
+Usage: morpheus library-forms add [name] [options]
+        --name VALUE                 Name - Form name
+        --code VALUE                 Code - Unique form code
+        --description VALUE          Description (optional)
+    -l, --labels VALUE               Labels (optional)
+        --options OPTIONS            List of option type inputs to add to the form, this list can include full JSON objects or just the id to use an existing option eg. --options '[5,6,7,{"fieldName":"input","fieldLabel":"Input"}]'
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create a new form.
+```
+
+#### library-forms get
+
+```
+Usage: morpheus library-forms get [form]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a form.
+[form] is required. This is the name or id of a form.
+```
+
+#### library-forms list
+
+```
+Usage: morpheus library-forms list
+    -l, --labels LABEL               Filter by labels, can match any of the values
+        --all-labels LABEL           Filter by labels, must match all of the values
+    -m, --max MAX                    Max Results (use -1 for all results)
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List option forms.
+```
+
+#### library-forms remove
+
+```
+Usage: morpheus library-forms remove [form]
+    -y, --yes                        Auto Confirm
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete a form.
+[form] is required. This is the name or id of a form.
+```
+
+#### library-forms update
+
+```
+Usage: morpheus library-forms update [form] [options]
+        --name VALUE                 Name (optional) - Form name
+        --code VALUE                 Code (optional) - Unique form code
+        --description VALUE          Description (optional)
+    -l, --labels VALUE               Labels (optional)
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a form.
+[form] is required. This is the name or id of a form.
 ```
 
 
@@ -29973,284 +30616,6 @@ Usage: morpheus security-scans remove [id]
 
 Delete an existing security scan.
 [id] is required. This is the id of a security scan.
-```
-
-
-### self-service
-
-```
-Usage: morpheus self-service [command] [options]
-Commands:
-	add
-	get
-	list
-	remove
-	update
-	update-dark-logo
-	update-logo
-
-Self Service: View and manage catalog item types
-```
-
-#### self-service add
-
-```
-Usage: morpheus self-service add [name] [options]
-    -t, --type VALUE                 Type. Default: instance
-        --name VALUE                 Name
-        --code VALUE                 Code (optional)
-        --category VALUE             Category (optional)
-        --description VALUE          Description (optional)
-        --enabled [on|off]           Enabled (optional). Default: true
-        --featured [on|off]          Featured (optional)
-        --allowQuantity [on|off]     Allow Quantity (optional)
-        --visibility VALUE           Visibility. Default: private
-        --layoutCode VALUE           Layout Code (optional)
-        --iconPath VALUE             Logo (optional)
-        --config VALUE               Config - JSON or YAML
-        --workflowConfig VALUE       Config (optional) - Enter configuration for the Workflow
-        --blueprint VALUE            Blueprint - Choose a blueprint to apply to the catalog item.
-        --appSpec VALUE              App Spec - Enter a spec in the for the App, the Scribe YAML format
-        --workflow VALUE             Workflow - Enter a spec in the for the App, the Scribe YAML format
-        --context VALUE              Context Type (optional) - Context for operational workflow, determines target type. Default: Select
-        --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
-    -l, --labels [LIST]              Labels
-        --logo FILE                  Upload a custom logo icon
-        --dark-logo FILE             Upload a custom dark logo icon
-        --config-file FILE           Config from a local JSON or YAML file
-        --option-types [x,y,z]       List of Option Type IDs
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompt for input on every option, even those not prompted for by default.
-    -N, --no-prompt                  No prompt, skips all input prompting.
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Create a new catalog item type.
-```
-
-#### self-service get
-
-```
-Usage: morpheus self-service get [type]
-    -c, --config                     Display raw config only.
-        --no-content                 Do not display Content.
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
-    -j, --json                       JSON Output
-    -y, --yaml                       YAML Output
-        --csv                        CSV Output
-        --quotes                     Wrap CSV values with ". Default: false
-        --no-header                  Exclude header for CSV Output.
-    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
-        --all-fields                 Show all fields present in the data.
-        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
-        --select x,y,z               Filter Output to just print the value(s) of specific fields.
-        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
-        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Get details about a specific catalog item type.
-[type] is required. This is the name or id of a catalog item type.
-```
-
-#### self-service list
-
-```
-Usage: morpheus self-service list [search]
-        --enabled [on|off]           Filter by enabled
-        --featured [on|off]          Filter by featured
-    -l, --labels LABEL               Filter by labels, can match any of the values
-        --all-labels LABEL           Filter by labels, must match all of the values
-        --code CODE                  Filter by code
-    -c, --category CATEGORY          Filter by category
-    -m, --max MAX                    Max Results (use -1 for all results)
-    -o, --offset OFFSET              Offset Results
-    -s, --search PHRASE              Search Phrase
-    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
-    -D, --desc                       Descending Sort Direction.
-        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
-    -j, --json                       JSON Output
-    -y, --yaml                       YAML Output
-        --csv                        CSV Output
-        --quotes                     Wrap CSV values with ". Default: false
-        --no-header                  Exclude header for CSV Output.
-    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
-        --all-fields                 Show all fields present in the data.
-        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
-        --select x,y,z               Filter Output to just print the value(s) of specific fields.
-        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
-        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-List catalog item types.
-```
-
-#### self-service remove
-
-```
-Usage: morpheus self-service remove [type] [options]
-    -y, --yes                        Auto Confirm
-    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Delete a catalog item type.
-[type] is required. This is the name or id of a catalog item type.
-```
-
-#### self-service update
-
-```
-Usage: morpheus self-service update [type] [options]
-        --name VALUE                 Name (optional)
-        --code VALUE                 Code (optional)
-        --category VALUE             Category (optional)
-        --description VALUE          Description (optional)
-        --enabled [on|off]           Enabled (optional)
-        --featured [on|off]          Featured (optional)
-        --allowQuantity [on|off]     Allow Quantity (optional)
-        --visibility VALUE           Visibility (optional)
-        --layoutCode VALUE           Layout Code (optional)
-        --iconPath VALUE             Logo (optional)
-        --config VALUE               Config (optional) - JSON or YAML
-        --workflowConfig VALUE       Config (optional) - Enter configuration for the Workflow
-        --blueprint VALUE            Blueprint (optional) - Choose a blueprint to apply to the catalog item.
-        --appSpec VALUE              App Spec (optional) - Enter a spec in the for the App, the Scribe YAML format
-        --workflow VALUE             Workflow (optional) - Enter a spec in the for the App, the Scribe YAML format
-        --context VALUE              Context Type (optional) - Context for operational workflow, determines target type
-        --content VALUE              Content (optional) - Wiki Page Content describing the catalog item
-    -l, --labels [LIST]              Labels
-        --logo FILE                  Upload a custom logo icon
-        --dark-logo FILE             Upload a custom dark logo icon
-        --config-file FILE           Config from a local JSON or YAML file
-        --option-types [x,y,z]       List of Option Type IDs
-    -O, --option OPTION              Option in the format -O field="value"
-        --prompt                     Always prompt for input on every option, even those not prompted for by default.
-    -N, --no-prompt                  No prompt, skips all input prompting.
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
-    -j, --json                       JSON Output
-    -q, --quiet                      No Output, do not print to stdout
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Update a catalog item type.
-[type] is required. This is the name or id of a catalog item type.
-```
-
-#### self-service update-dark-logo
-
-```
-Usage: morpheus self-service update-dark-logo [type] [file]
-    -j, --json                       JSON Output
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Update the dark logo for a catalog item type.
-[type] is required. This is the name or id of a catalog item type.
-[file] is required. This is the path of the dark logo file
-```
-
-#### self-service update-logo
-
-```
-Usage: morpheus self-service update-logo [type] [file]
-    -j, --json                       JSON Output
-    -d, --dry-run                    Dry Run, print the API request instead of executing it.
-        --curl                       Curl, print the API request as a curl command instead of executing it.
-        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
-    -r, --remote REMOTE              Remote name. The current remote is used by default.
-        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
-    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
-    -U, --username USERNAME          Username for authentication.
-    -P, --password PASSWORD          Password for authentication.
-    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
-    -C, --nocolor                    Disable ANSI coloring
-    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
-    -V, --debug                      Print extra output for debugging.
-    -h, --help                       Print this help
-
-Update the logo for a catalog item type.
-[type] is required. This is the name or id of a catalog item type.
-[file] is required. This is the path of the logo file
 ```
 
 
