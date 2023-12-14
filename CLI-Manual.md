@@ -1,4 +1,4 @@
-Morpheus CLI v6.3.1
+Morpheus CLI v6.3.2
 
 ## Getting Started
 
@@ -15742,6 +15742,8 @@ Usage: morpheus library-cluster-packages add [name] [options]
     -p, --packageType VALUE          Package Type
     -v, --packageVersion VALUE       Package Version
         --spec-templates [x,y,z]     List of Spec Templates to include in this package, comma separated list of IDs.
+        --logo FILE                  Upload a custom logo icon
+        --dark-logo FILE             Upload a custom dark logo icon
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -15793,7 +15795,7 @@ Usage: morpheus library-cluster-packages get [clusterPackage]
     -h, --help                       Print this help
 
 Display cluster package details.
-[clusterPackage] is required. This is the name or id of a cluster package.
+[clusterPackage] is required. This is the id of a cluster package.
 ```
 
 #### library-cluster-packages list
@@ -15853,13 +15855,13 @@ Usage: morpheus library-cluster-packages remove [clusterPackage]
     -h, --help                       Print this help
 
 Delete a cluster package.
-[clusterPackage] is required. This is the name or id of a cluster package.
+[clusterPackage] is required. This is the id of a cluster package.
 ```
 
 #### library-cluster-packages update
 
 ```
-Usage: morpheus library-cluster-packages update [name] [options]
+Usage: morpheus library-cluster-packages update [id] [options]
     -n, --name VALUE                 Name for this cluster package
         --description VALUE          Description
     -c, --code VALUE                 Code
@@ -15869,6 +15871,8 @@ Usage: morpheus library-cluster-packages update [name] [options]
     -p, --packageType VALUE          Package Type
     -v, --packageVersion VALUE       Package Version
         --spec-templates [x,y,z]     List of Spec Templates to include in this package, comma separated list of IDs.
+        --logo FILE                  Upload a custom logo icon
+        --dark-logo FILE             Upload a custom dark logo icon
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -15888,7 +15892,7 @@ Usage: morpheus library-cluster-packages update [name] [options]
     -h, --help                       Print this help
 
 Update a cluster package.
-[name] is required. This is the name or id of a cluster package.
+[id] is required. This is the id of a cluster package.
 ```
 
 
@@ -28320,6 +28324,8 @@ Usage: morpheus resource-folders update [cloud] [folder] [options]
         --visibility [private|public]
                                      Visibility
         --active [on|off]            Can be used to disable a resource folder
+        --default-folder [on|off]    Default Folder
+        --image-target [on|off]      Image Target
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -35970,6 +35976,7 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
+
 
 ## Environment Variables
 

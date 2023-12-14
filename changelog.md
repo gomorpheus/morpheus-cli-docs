@@ -6,6 +6,19 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.3.2
+
+### Enhancements
+
+* Updated `resource-folders update` to support `--default-folder on` and `-image-target on`
+
+### Fixes
+
+* Fix prompting for options that have `type=hidden` and use an `optionSource`
+* Fix prompting for options that use the `requireOnCode` flag to determine if they are required
+* Fix `resource-folders get` always showing Default: No
+* Fix `catalog add` making an extra and unneccesary api request to `/api/catalog-item-types`
+
 ## 6.3.1
 
 ### Enhancements
