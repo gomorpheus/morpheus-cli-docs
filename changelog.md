@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.3.3
+
+### Fixes
+
+* Removed command `dashboard`
+
 ## 6.3.2
 
 ### Enhancements
