@@ -6,6 +6,20 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 6.3.4
+
+### Enhancements
+
+* Updated `clouds` to support viewing and setting Labels
+* Updated `groups` to support viewing and setting Labels
+* Updated `groups list|get` to display the same information as the UI, including counts for Instances, Hosts, VMs
+
+### Fixes
+
+* Fix bug that prevented more than 1024 characters from being entered as a prompt input, for example on `license install` 'License Key:' prompt
+* Fix `setup` license install printing deprecation warning about 'license apply' command
+* Fix `networks list` showing inactive subnets as active
+
 ## 6.3.3
 
 ### Fixes
