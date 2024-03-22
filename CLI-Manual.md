@@ -1,4 +1,4 @@
-Morpheus CLI v6.3.4
+Morpheus CLI v7.0.0
 
 ## Getting Started
 
@@ -15169,6 +15169,7 @@ List jobs.
 Usage: morpheus jobs list-executions [job]
         --job JOB                    Filter by Job ID or name.
         --internal [true|false]      Filters executions based on internal flag. Internal executions are excluded by default.
+        --automation [true|false]    Filters executions based on automation flag. Non-automation executions include ansible and kubernetes job types.
     -m, --max MAX                    Max Results
     -o, --offset OFFSET              Offset Results
     -s, --search PHRASE              Search Phrase
@@ -17983,6 +17984,9 @@ Usage: morpheus license install [key]
     -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
+
+Install a new license key.
+This will potentially change the enabled features and capabilities of your appliance.
 ```
 
 #### license test

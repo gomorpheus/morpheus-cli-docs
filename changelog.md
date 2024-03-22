@@ -6,6 +6,16 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.0
+
+### Enhancements
+
+* Updated `license get` to show License Usage containing bar graph for each limit and support new standard license limit type.
+
+### Fixes
+
+* Fix `catalog-item-types update-logo` not updating the logo
+
 ## 6.3.4
 
 ### Enhancements

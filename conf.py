@@ -2,7 +2,7 @@ import datetime
 
 rst_prolog = """
 
-.. |cliVer| replace:: v6.3.4
+.. |cliVer| replace:: v7.0.0
 
 """
 
