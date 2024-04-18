@@ -1,4 +1,4 @@
-Morpheus CLI v7.0.0
+Morpheus CLI v7.0.1
 
 ## Getting Started
 
@@ -35966,7 +35966,6 @@ Usage: morpheus workflows update [name] --tasks taskId:phase,taskId2:phase,taskI
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 ```
-
 
 ## Environment Variables
 

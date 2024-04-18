@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.1
+
+### Enhancements
+
+* Updated `license get` to show license usage for new standard limits.
+
 ## 7.0.0
 
 ### Enhancements
