@@ -6,6 +6,24 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.2.1
+
+## Fixes
+
+* Fixed `man` error
+
+## 7.0.2
+
+### Enhancements
+
+* New command `email-templates` for managing email templates.
+* Updated `budgets` to support Forecast Model
+
+### Fixes
+
+* Fixed issue with `clusters add` and the resource pool option type loading
+* Fixed issue with `--curl` when the payload is a file and not 'application/json'
+
 ## 7.0.1
 
 ### Enhancements

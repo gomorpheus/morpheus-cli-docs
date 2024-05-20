@@ -1,4 +1,4 @@
-Morpheus CLI v7.0.1
+Morpheus CLI v7.0.2
 
 ## Getting Started
 
@@ -138,6 +138,7 @@ Commands:
 	deploys
 	edit-profile
 	edit-rc
+	email-templates
 	environments
 	execute-schedules
 	execution-request
@@ -3669,6 +3670,7 @@ Usage: morpheus budgets add [name] [options]
         --startDate VALUE            Start Date - The Start Date for custom period budget eg. 2021-01-01
         --endDate VALUE              End Date - The End Date for custom period budget eg. 2023-12-31 (must be 1, 2 or 3 years from Start Date)
         --interval VALUE             Interval - The budget interval, determines cost amounts: "year", "quarter" or "month". Default: year
+        --forecastType.id VALUE      Forecast Model (optional) - The budget forcecast model type, determines projected cost calculations.
         --costs LIST                 Budget cost amounts, one for each interval in the budget. eg "350" for one year, "25,25,25,100" for quarters, and "10,10,10,10,10,10,10,10,10,10,10,50" for each month
         --enabled [on|off]           Can be used to disable a policy
     -O, --option OPTION              Option in the format -O field="value"
@@ -3820,6 +3822,7 @@ Usage: morpheus budgets update [budget] [options]
         --startDate VALUE            Start Date (optional) - The Start Date for custom period budget eg. 2021-01-01
         --endDate VALUE              End Date (optional) - The End Date for custom period budget eg. 2023-12-31 (must be 1, 2 or 3 years from Start Date)
         --interval VALUE             Interval (optional) - The budget interval, determines cost amounts: "year", "quarter" or "month"
+        --forecastType.id VALUE      Forecast Model (optional) - The budget forcecast model type, determines projected cost calculations.
         --costs COSTS                Budget cost amounts, one for each interval in the budget. eg. [999]
         --enabled [on|off]           Can be used to disable a policy
     -O, --option OPTION              Option in the format -O field="value"
@@ -9226,6 +9229,183 @@ remote get current
 
 # greetings
 echo "Welcome back %username"
+```
+
+
+### email-templates
+
+```
+Usage: morpheus email-templates [command] [options]
+Commands:
+	add
+	get
+	list
+	remove
+	update
+```
+
+#### email-templates add
+
+```
+Usage: morpheus email-templates add [name]
+        --type [TEXT]                Type
+        --template [TEXT]            Template
+        --accounts LIST              Tenant accounts, comma separated list of account IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Create an email template.
+[name] is required. This is the name of the new template.
+```
+
+#### email-templates get
+
+```
+Usage: morpheus email-templates get [emailTemplate]
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a specific email template.
+[emailTemplate] is required. This is the name or id of an emailTemplate.
+```
+
+#### email-templates list
+
+```
+Usage: morpheus email-templates list [search]
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List email templates.
+```
+
+#### email-templates remove
+
+```
+Usage: morpheus email-templates remove [emailTemplate]
+    -y, --yes                        Auto Confirm
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Delete an email template.
+[emailTemplate] is required. This is the id of an existing email template.
+Note: You cannot remove System Templates, only those that you own/created.
+```
+
+#### email-templates update
+
+```
+Usage: morpheus email-templates update [emailTemplate] --template
+        --template TEMPLATE          Updates Email Template
+        --accounts LIST              Tenant accounts, comma separated list of account IDs
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update an Email Template.
+[emailTemplate] is required. This is the name or id of an existing email template.
 ```
 
 
