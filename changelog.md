@@ -6,9 +6,21 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.3.1
+
+### Fixes
+
+* Fixed gem install dependency issue with ffi
+
+## 7.0.3
+
+### Fixes
+
+* Fixed issue with `network-routers firewall-rule [router] [rule] --dry-run`
+
 ## 7.0.2.1
 
-## Fixes
+### Fixes
 
 * Fixed `man` error
 
