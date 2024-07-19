@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.4.1-2
+
+### Fixes
+
+* Fixed gem install dependency issue with public_suffix
+
 ## 7.0.4
 
 ### Enhancements
