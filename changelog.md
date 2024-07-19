@@ -6,6 +6,17 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.4
+
+### Enhancements
+
+* Updated `network-servers` to prompt for visibility and tenants
+* Updated `execution-request execute` to support new option `--send-keys`
+
+### Fixes
+
+* Fixed several unit tests
+
 ## 7.0.3.1
 
 ### Fixes

@@ -1,4 +1,4 @@
-Morpheus CLI v7.0.3
+Morpheus CLI v7.0.4
 
 ## Getting Started
 
@@ -9884,7 +9884,8 @@ Usage: morpheus execution-request execute [options]
         --container ID               Container ID
         --request ID                 Execution Request ID
         --script SCRIPT              Script to be executed
-        --file FILE                  File containing the script. This can be used instead of --script
+        --optionTypes [true|false]   Include optionTypes in the response. Default is false.
+        --send-keys [true|false]     Send key mappings to the hypervisor console so commands such as <LEFT>, <RIGHT> and <WAIT> can be used.
         --refresh [SECONDS]          Refresh until execution is finished. Default interval is 5 seconds.
         --no-refresh                 Do not refresh. The default behavior is to refresh until finished.
     -O, --option OPTION              Option in the format -O field="value"
@@ -24946,6 +24947,8 @@ View and manage network servers
 Usage: morpheus network-servers add [name]
         --name VALUE                 Name for this network server
         --type VALUE                 Network Server Type code
+        --visibility VALUE           Visibility (optional) - Visibility. Default: private
+        --tenants LIST               Tenants (optional)
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
@@ -25187,6 +25190,8 @@ Delete an existing network server.
 ```
 Usage: morpheus network-servers update [network server] [options]
         --name VALUE                 Name for this network server
+        --visibility VALUE           Visibility (optional) - Visibility
+        --tenants LIST               Tenants (optional)
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
