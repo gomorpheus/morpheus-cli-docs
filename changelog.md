@@ -6,6 +6,10 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.5
+
+* No major changes from 7.0.4.x
+
 ## 7.0.4.1-2
 
 ### Fixes
