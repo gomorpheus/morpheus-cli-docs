@@ -6,6 +6,19 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.6
+
+### Enhancements
+
+* New command `servers maintenance|leave-maintenance` command for managing MVM host maintenance mode
+* New command `servers maintenance` commands for managing MVM virtual machine server placement
+
+### Fixes
+
+* Fixed `provisioning-licenses` displaying Description twice
+* Fixed `instances add` payload to include `ipMode=static` when `ipAddress` is passed
+* Fixed `clusters add` payload to use `servicePlanOptions` instead of `plan.options` for custom plan options
+
 ## 7.0.5
 
 * No major changes from 7.0.4.x
