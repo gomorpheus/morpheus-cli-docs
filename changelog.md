@@ -6,6 +6,12 @@ All versions of the CLI are tested to be compatible with the matching version of
 
 Backwards compatibility with older appliances should be preserved in most cases.
 
+## 7.0.7
+
+### Enhancements
+
+* MVM Cluster type support
+
 ## 7.0.6
 
 ### Enhancements
