@@ -2,9 +2,53 @@
 
 This is a list of changes in the most recent versions of the CLI.
 
-All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance.
+All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance. Backwards compatibility with older appliances should be preserved in most cases.
 
-Backwards compatibility with older appliances should be preserved in most cases.
+## 8.0.2
+
+### Enhancements
+
+* Updated `instances add` and `instances resize` volume configuration to prompt for Storage Controller Mount Point for `controllerMountPoint` parameter
+* Updated `virtual-images convert` to prompt for options
+* Updated `clusters update` to support new option `--useAgent on|off` for relaying Kubernetes communication through the agent
+* Updated `clusters add-datastore|remove-datastore` to handle asynchronous API behavior
+
+### Fixes
+
+* Fixed interactive login prompting for commands run with `--dry-run` while not logged in
+* Fixed `instances add` and `instances resize` volume configuration Datastore options not containing all the available options. Now it always loads them from `/api/data-stores`
+* Fixed `library-cluster-layouts get` error. Using `id` worked but name or code caused an error
+* Fixed `--select` so that it renders pretty json when used with `-j` eg. `instances get 42 --select volumes -j`
+* Fixed `clusters add` for kubernetes on KVM causing an error trying to prompt for Resource Pool
+* Fixed `history [search]` not showing the most recent commands when a search query is used
+
+## 8.0.1
+
+### Enhancements
+
+New subcommand `virtual-images convert` for converting virtual image formats
+
+### Fixes
+
+Fixed `clouds add` prompting for credentials for standard cloud type
+
+## 8.0.0
+
+### Enhancements
+
+* New subcommands `clusters add-datastore|remove-datastore|get-container` for managing cluster datastores
+* New command `library-operating-systems` for managing library operating systems
+* New subcommands `processes retry|cancel` for retrying and cancelling processes
+* Updated `clusters update` to support new option `--autoRecoverPowerState [on|off]` and `clusters get` to display Auto Power On VMs
+* Updated `backups` with better support of the different backup job types
+* Updated `setup` to support new option `--license` and prompt for a License Key before the setup request
+* Updated `license get` to display new license settings for socket limit and task types
+* Updated `virtual-images add` to prompt for upload type file or url and prompt for URL/Path to set url and if url is used then create virtual image and file in one request instead of making the subsequent call to upload the file
+* Updated `hosts update` to support new option `--ssh-key-pair` to set SSH Key
+
+### Fixes
+
+* Fixed `instances resize` including extra interfaces for multi server instances and creating duplicates. It no longer includes `networkInterfaces` in the payload by default since the API no longer requires it. There is a new option `--include-network-interfaces` to include the current network interfaces in the payload which may be used for older appliances or for help building a payload to add/edit interfaces
 
 ## 7.0.7
 
