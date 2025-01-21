@@ -64,7 +64,6 @@ To udate to the latest morpheus-cli version:
 
 ## Helpful Resources
 
-To learn more about Morpheus Data, visit [https://www.morpheusdata.com](https://www.morpheusdata.com)<br/>
 For additional tips on using Morpheus CLI, visit [https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started](https://github.com/gomorpheus/morpheus-cli/wiki/Getting-Started)<br/>
 To learn more about the Morpheus API, visit [https://apidocs.morpheusdata.com](https://apidocs.morpheusdata.com)
 
