@@ -1,4 +1,4 @@
-Morpheus CLI v8.0.2
+Morpheus CLI v8.0.3
 
 ## Getting Started
 
@@ -14778,6 +14778,8 @@ Usage: morpheus instances setenv [instance] VAR VALUE [-e]
 Usage: morpheus instances snapshot [instance]
         --name VALUE                 Snapshot Name. Default is server name + timestamp
         --description VALUE          Snapshot Description.
+        --refresh [SECONDS]          Refresh until execution is complete. Default interval is 30 seconds.
+        --no-refresh                 Do not refresh
     -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.

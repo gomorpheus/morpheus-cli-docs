@@ -4,6 +4,12 @@ This is a list of changes in the most recent versions of the CLI.
 
 All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance. Backwards compatibility with older appliances should be preserved in most cases.
 
+## 8.0.3
+
+### Enhancements
+
+* Updated `instances snapshot` to refresh process until complete and then show snapshot details
+
 ## 8.0.2
 
 ### Enhancements
