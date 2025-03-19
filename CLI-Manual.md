@@ -1,4 +1,4 @@
-Morpheus CLI v8.0.3
+Morpheus CLI v8.0.4
 
 ## Getting Started
 
@@ -102,6 +102,7 @@ There are many common options that are supported by a most commands.
     -y, --yes                        Auto Confirm
     -q, --quiet                      No Output, do not print to stdout
 ```
+
 ## Command Format
 
 ```
@@ -12309,6 +12310,10 @@ Usage: morpheus hosts logs [name]
 
 ```
 Usage: morpheus hosts maintenance [host]
+        --ignoreDaemonsets [on|off]  Ignore Daemonsets
+        --force [on|off]             Force
+        --deleteEmptyDir [on|off]    Delete Empty Directories
+        --deleteLocalData [on|off]   Delete Local Data
     -y, --yes                        Auto Confirm
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
@@ -19500,7 +19505,17 @@ The actual secret license key value will never be returned.
 
 ```
 Usage: morpheus license install [key]
+    -a, --add                        Stack this license on top of existing licenses. Without this option all existing licenses will be replaced.
+        --stack                      Alias for --add
+        --replace                    Replace existing licenses with this new license. This is the default behavior.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -19523,14 +19538,20 @@ This will potentially change the enabled features and capabilities of your appli
 
 ```
 Usage: morpheus license test [key]
-    -j, --json                       JSON Output
-    -y, --yaml                       YAML Output
-        --csv                        CSV Output
-        --quotes                     Wrap CSV values with ". Default: false
-        --no-header                  Exclude header for CSV Output.
+    -a, --add                        Stack this license on top of existing licenses. Without this option all existing licenses will be replaced.
+        --stack                      Alias for --add
+        --replace                    Replace existing licenses with this new license. This is the default behavior.
     -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
         --all-fields                 Show all fields present in the data.
         --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -19552,7 +19573,8 @@ This is a way to decode and view a license key before installing it.
 #### license uninstall
 
 ```
-Usage: morpheus license uninstall [key]
+Usage: morpheus license uninstall [key ID]
+        --key KEY                    License Key ID to uninstall (only the first 8 characters are required to identify license to uninstall). By default all licenses are uninstalled.
     -y, --yes                        Auto Confirm
     -j, --json                       JSON Output
         --yaml                       YAML Output
@@ -19570,8 +19592,9 @@ Usage: morpheus license uninstall [key]
     -V, --debug                      Print extra output for debugging.
     -h, --help                       Print this help
 
-Uninstall the current license key.
-This clears out the current license key from the appliance.
+Uninstall license key(s).
+Use [key] or --key to uninstall only the specified license key.
+By default all currently installed license keys are uninstalled.
 The function of the remote appliance will be restricted without a license installed.
 Be careful using this.
 ```

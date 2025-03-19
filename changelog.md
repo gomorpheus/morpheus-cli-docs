@@ -4,6 +4,21 @@ This is a list of changes in the most recent versions of the CLI.
 
 All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance. Backwards compatibility with older appliances should be preserved in most cases.
 
+## 8.0.4
+
+### Enhancements
+
+* Updated `license get` to display all installed licenses
+* Updated `license install|test` to work with stackable licenses using new options `--add` and `--replace`
+* Updated `license uninstall` to support new option `--key KEY` for uninstalling a specific license key
+* Updated `hosts maintenance` to support new options `--force`, `--deleteEmptyDir`, `--deleteLocalData` and `--deleteEmptyDir`
+
+### Fixes
+
+* Fixed `clusters add` not prompting for Resource Pool and Security Groups for MKS
+* Fixed `clusters add --workflow` option using the wrong parameter name in the payload
+* Fixed `networks add` not prompting for Network Domain for custom network types.
+
 ## 8.0.3
 
 ### Enhancements
