@@ -1,4 +1,4 @@
-Morpheus CLI v8.0.4
+Morpheus CLI v8.0.5
 
 ## Getting Started
 
@@ -11996,11 +11996,15 @@ Unacknowledge health alarm(s).
 Usage: morpheus hosts [command] [options]
 Commands:
 	add
+	assign-device
+	attach-device
 	count
+	detach-device
 	exec
 	get
 	leave-maintenance
 	list
+	list-devices
 	logs
 	maintenance
 	make-managed
@@ -12060,6 +12064,69 @@ Usage: morpheus hosts add [cloud] [name]
     -h, --help                       Print this help
 ```
 
+#### hosts assign-device
+
+```
+Usage: morpheus hosts assign [host] [device] [target]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Assign a host device to a target server.
+[host] is required. This is the id of the host.
+[device] is required. This is the id of the device.
+[target] is required. This is the id of the target server.
+```
+
+#### hosts attach-device
+
+```
+Usage: morpheus hosts attach [host] [device]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Attach a host device.
+[host] is required. This is the id of the host.
+[device] is required. This is the id of the device.
+```
+
 #### hosts count
 
 ```
@@ -12098,6 +12165,37 @@ Usage: morpheus hosts count [options]
     -h, --help                       Print this help
 
 Get the number of hosts.
+```
+
+#### hosts detach-device
+
+```
+Usage: morpheus hosts detach [host] [device]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Detach a host device.
+[host] is required. This is the id of the host.
+[device] is required. This is the id of the device.
 ```
 
 #### hosts exec
@@ -12265,6 +12363,47 @@ Usage: morpheus hosts list
     -h, --help                       Print this help
 
 List hosts.
+```
+
+#### hosts list-devices
+
+```
+Usage: morpheus hosts [host] list-devices
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List host devices.
+[host] is required. This is the id of the host.
 ```
 
 #### hosts logs

@@ -4,6 +4,20 @@ This is a list of changes in the most recent versions of the CLI.
 
 All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance. Backwards compatibility with older appliances should be preserved in most cases.
 
+## 8.0.5
+
+### Enhancements
+
+* New command `backups restore` for restoring backup results to a new or existing instance
+* New command `hosts list-devices|assign-device|attach-device|detach-device` for managing host device assignment
+
+### Fixes
+
+* Fixed `network-routers add` not prompting for Cluster for the OVS Bridge router type
+* Fixed `hosts maintenance --deleteLocalData` not setting the request parameter correctly
+* Fixed `hosts leave-maintenance` displaying the wrong message on success
+* Fixed `license get` to display expired licenses as "(expired)" instead of a positive number of days
+
 ## 8.0.4
 
 ### Enhancements
