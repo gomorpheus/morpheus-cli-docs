@@ -53,7 +53,7 @@ Credentials are used to acquire an access token which is then stored in the user
 
 ## Upgrading
 
-To udate to the latest morpheus-cli version:
+To update to the latest morpheus-cli version:
 
     gem update morpheus-cli
 
