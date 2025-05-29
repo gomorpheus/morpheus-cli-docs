@@ -10,7 +10,7 @@ The Morpheus CLI is written in Ruby and requires ruby 2.5 or newer to be install
 
 ### Installing on Linux
 
-A Prerequisite to running the Morpheus CLI is to have ruby 2.5 or newer installed. Use rubygems [https://rvm.io/](https://rvm.io/) to install the cli.
+A Prerequisite to running the Morpheus CLI is to have Ruby 2.5 or newer installed. Use rubygems [https://rvm.io/](https://rvm.io/) to install the cli.
 
 ```
 gem install morpheus-cli
