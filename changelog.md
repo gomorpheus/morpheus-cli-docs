@@ -4,6 +4,17 @@ This is a list of changes in the most recent versions of the CLI.
 
 All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance. Backwards compatibility with older appliances should be preserved in most cases.
 
+## 8.0.6
+
+### Enhancements
+
+* New command `storage-datastores` for managing storage datastores
+* New subcommand `datastores add` for adding cloud datastores
+* Updated `user-settings clear-access-token|regenerate-access-token` to support new option `--id ID` for clearing and regenerating a specific token by ID
+* Updated `clients add` to support Redirect URI
+* New subcommand `network-floating-ips` allocate for allocating network floating IPs
+* Updated `clusters add` to improve Load Balancer input prompting
+
 ## 8.0.5
 
 ### Enhancements

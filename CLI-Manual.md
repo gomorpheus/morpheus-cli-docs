@@ -1,4 +1,4 @@
-Morpheus CLI v8.0.5
+Morpheus CLI v8.0.6
 
 ## Getting Started
 
@@ -233,6 +233,7 @@ Commands:
 	shell
 	snapshots
 	storage-buckets
+	storage-datastores
 	storage-server-types
 	storage-servers
 	storage-volume-types
@@ -4913,13 +4914,15 @@ Usage: morpheus clients add [clientId] [options]
                                      Access Token Validity Length (Seconds). Default: 43200
         --refreshTokenValiditySeconds NUMBER
                                      Refresh Token Validity Length (Seconds). Default: 43200
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
+        --redirectUris VALUE         Redirect URI (optional)
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -5044,13 +5047,14 @@ Usage: morpheus clients update [clientId] [options]
                                      Access Token Validity Length (Seconds). Default: 43200
         --refreshTokenValiditySeconds NUMBER
                                      Refresh Token Validity Length (Seconds). Default: 43200
-        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
-        --payload-json JSON          Payload JSON, skip all prompting
-        --payload-yaml YAML          Payload YAML, skip all prompting
     -O, --option OPTION              Option in the format -O field="value"
         --prompt                     Always prompt for input on every option, even those not prompted for by default.
     -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
     -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
     -d, --dry-run                    Dry Run, print the API request instead of executing it.
         --curl                       Curl, print the API request as a curl command instead of executing it.
         --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
@@ -9270,9 +9274,38 @@ Delete a cypher.
 ```
 Usage: morpheus datastores [command] [options]
 Commands:
+	add
 	get
 	list
 	update
+```
+
+#### datastores add
+
+```
+Usage: morpheus datastores add [name] [options]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+    -n, --name NAME                  Name
+    -t, --type DATASTORE_TYPE        Datastore Type
+    -c, --cloud DATASTORE_CLOUD      Datastore Cloud
+
+Create a new Datastore.
+[name] is required. This is the name of the new datastore. It may also be passed as --name or inside your config.
 ```
 
 #### datastores get
@@ -24148,11 +24181,42 @@ Update a network firewall rule group.
 ```
 Usage: morpheus network-floating-ips [command] [options]
 Commands:
+	allocate
 	get
 	list
 	release
 
 View and manage network floating IPs.
+```
+
+#### network-floating-ips allocate
+
+```
+Usage: morpheus network-floating-ips allocate
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Allocate a new network floating ip.
+Only the following cloud types support this command: OpenStack, Huawei and OpenTelekom
 ```
 
 #### network-floating-ips get
@@ -33133,6 +33197,152 @@ This will overwrite any existing remote files that match the destination /path.
 ```
 
 
+### storage-datastores
+
+```
+Usage: morpheus storage-datastores [command] [options]
+Commands:
+	add
+	get
+	list
+	update
+```
+
+#### storage-datastores add
+
+```
+Usage: morpheus storage-datastores add [name] [options]
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -q, --quiet                      No Output, do not print to stdout
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+    -n, --name NAME                  Name
+    -t, --type DATASTORE_TYPE        Datastore Type
+    -c, --cloud DATASTORE_CLOUD      Datastore Cloud
+
+Create a new Datastore.
+[name] is required. This is the name of the new datastore. It may also be passed as --name or inside your config.
+```
+
+#### storage-datastores get
+
+```
+Usage: morpheus storage-datastores get [datastore]
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Get details about a datastore.
+[datastore] is required. This is the name or id of a datastore.
+```
+
+#### storage-datastores list
+
+```
+Usage: morpheus storage-datastores list
+    -m, --max MAX                    Max Results
+    -o, --offset OFFSET              Offset Results
+    -s, --search PHRASE              Search Phrase
+    -S, --sort ORDER                 Sort Order. DIRECTION may be included as "ORDER [asc|desc]".
+    -D, --desc                       Descending Sort Direction.
+        --reverse                    Reverse order of results. This invert is done by the client, not necessarily the entire dataset.
+    -Q, --query PARAMS               Query parameters. PARAMS format is 'foo=bar&category=web'
+    -j, --json                       JSON Output
+    -y, --yaml                       YAML Output
+        --csv                        CSV Output
+        --quotes                     Wrap CSV values with ". Default: false
+        --no-header                  Exclude header for CSV Output.
+    -f, --fields x,y,z               Filter Output to a limited set of fields. Default is all fields for json,csv,yaml.
+        --all-fields                 Show all fields present in the data.
+        --wrap                       Wrap table columns instead hiding them when terminal is not wide enough.
+        --select x,y,z               Filter Output to just print the value(s) of specific fields.
+        --delimiter [CHAR]           Delimiter for output values. Default: ',', use with --select and --csv
+        --newline [CHAR]             Delimiter for output rows. Default: '\n', use with --select and --csv
+    -q, --quiet                      No Output, do not print to stdout
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+List Datastores.
+```
+
+#### storage-datastores update
+
+```
+Usage: morpheus storage-datastores update [datastore] [options]
+        --group-access-all [on|off]  Toggle Access for all groups.
+        --group-access LIST          Group Access, comma separated list of group IDs.
+        --tenants LIST               Tenant Access, comma separated list of account IDs
+        --visibility [private|public]
+                                     Visibility
+        --active [on|off]            Can be used to disable a datastore
+    -O, --option OPTION              Option in the format -O field="value"
+        --prompt                     Always prompt for input on every option, even those not prompted for by default.
+    -N, --no-prompt                  No prompt, skips all input prompting.
+        --payload FILE               Payload from a local JSON or YAML file, skip all prompting
+        --payload-json JSON          Payload JSON, skip all prompting
+        --payload-yaml YAML          Payload YAML, skip all prompting
+    -j, --json                       JSON Output
+    -d, --dry-run                    Dry Run, print the API request instead of executing it.
+        --curl                       Curl, print the API request as a curl command instead of executing it.
+        --scrub                      Mask secrets in output, such as the Authorization header. For use with --curl and --dry-run.
+    -r, --remote REMOTE              Remote name. The current remote is used by default.
+        --remote-url URL             Remote url. This allows adhoc requests instead of using a configured remote.
+    -T, --token TOKEN                Access token for authentication with --remote. Saved credentials are used by default.
+    -U, --username USERNAME          Username for authentication.
+    -P, --password PASSWORD          Password for authentication.
+    -I, --insecure                   Allow insecure HTTPS communication.  i.e. bad SSL certificate.
+    -C, --nocolor                    Disable ANSI coloring
+    -B, --benchmark                  Print benchmark time and exit/error after the command is finished.
+    -V, --debug                      Print extra output for debugging.
+    -h, --help                       Print this help
+
+Update a datastore.
+[cloud] is required. This is the name or id of the cloud.
+[datastore] is required. This is the name or id of a datastore.
+```
+
+
 ### storage-server-types
 
 ```
@@ -34816,6 +35026,7 @@ Usage: morpheus user-settings clear-access-token [client-id]
         --all                        Clear tokens for all Client IDs instead of a specific client.
     -u, --user USER                  User username or ID
         --user-id ID                 User ID
+        --id ID                      Token ID
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
@@ -34840,6 +35051,7 @@ Usage: morpheus user-settings clear-access-token [client-id]
 
 Clear API access token for a specific client.
 [client-id] or --all is required. This is the id of an api client.
+The --id [id] option can be used to clear a specific token by id.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
@@ -34912,6 +35124,7 @@ List available api clients.
 Usage: morpheus user-settings regenerate-access-token [client-id]
     -u, --user USER                  User username or ID
         --user-id ID                 User ID
+        --id ID                      Token ID
         --payload FILE               Payload from a local JSON or YAML file, skip all prompting
         --payload-json JSON          Payload JSON, skip all prompting
         --payload-yaml YAML          Payload YAML, skip all prompting
@@ -34936,6 +35149,7 @@ Usage: morpheus user-settings regenerate-access-token [client-id]
 
 Regenerate API access token for a specific client.
 [client-id] is required. This is the id of an api client.
+The --id [id] option can be used to clear a specific token by id.
 Done for the current user by default, unless a user is specified with the --user option.
 ```
 
