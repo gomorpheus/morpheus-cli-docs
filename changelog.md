@@ -4,6 +4,13 @@ This is a list of changes in the most recent versions of the CLI.
 
 All versions of the CLI are tested to be compatible with the matching version of the Morpheus Appliance. Backwards compatibility with older appliances should be preserved in most cases.
 
+## 8.0.7
+
+### Enhancements
+
+* Updated `license get|test` to display sockets limit and license version
+* Updated `service-plans get` to display server type
+
 ## 8.0.6
 
 ### Enhancements
